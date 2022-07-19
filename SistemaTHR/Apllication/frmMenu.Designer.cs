@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
@@ -140,7 +141,7 @@
             this.solicitarManutençãoToolStripMenuItem,
             this.painéisToolStripMenuItem});
             this.empilhadeirasToolStripMenuItem.Name = "empilhadeirasToolStripMenuItem";
-            this.empilhadeirasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeirasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.empilhadeirasToolStripMenuItem.Text = "Empilhadeiras";
             // 
             // trocaGasToolStripMenuItem
@@ -230,7 +231,7 @@
             // recebimentoToolStripMenuItem
             // 
             this.recebimentoToolStripMenuItem.Name = "recebimentoToolStripMenuItem";
-            this.recebimentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recebimentoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.recebimentoToolStripMenuItem.Text = "Recebimento";
             // 
             // expediçãoToolStripMenuItem
@@ -239,7 +240,7 @@
             this.transfêToolStripMenuItem,
             this.paínesToolStripMenuItem});
             this.expediçãoToolStripMenuItem.Name = "expediçãoToolStripMenuItem";
-            this.expediçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.expediçãoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.expediçãoToolStripMenuItem.Text = "Expedição";
             this.expediçãoToolStripMenuItem.Click += new System.EventHandler(this.expediçãoToolStripMenuItem_Click);
             // 
@@ -272,7 +273,7 @@
             this.manutençõesEmAbertoToolStripMenuItem,
             this.painelManutençõesmEmAbertoToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             this.manutençãoToolStripMenuItem.Click += new System.EventHandler(this.manutençãoToolStripMenuItem_Click);
             // 
@@ -322,6 +323,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
             this.Text = "Menu";
