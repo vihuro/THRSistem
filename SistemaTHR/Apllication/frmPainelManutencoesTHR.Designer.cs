@@ -36,8 +36,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblSegundos = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.clNOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTipoServico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDataHoraGeracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +65,7 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 543);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 554);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1319, 22);
             this.statusStrip1.TabIndex = 1;
@@ -85,8 +85,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lblSegundos);
-            this.splitContainer1.Size = new System.Drawing.Size(1319, 513);
-            this.splitContainer1.SplitterDistance = 379;
+            this.splitContainer1.Size = new System.Drawing.Size(1319, 524);
+            this.splitContainer1.SplitterDistance = 492;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -140,17 +140,13 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1319, 379);
+            this.dataGridView1.Size = new System.Drawing.Size(1319, 492);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.DefaultCellStyleChanged += new System.EventHandler(this.dataGridView1_DefaultCellStyleChanged);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lblSegundos
             // 
@@ -161,6 +157,10 @@
             this.lblSegundos.TabIndex = 0;
             this.lblSegundos.Text = "label1";
             this.lblSegundos.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // clNOP
             // 
@@ -208,6 +208,7 @@
             this.clnDataIdeal.HeaderText = "Data Ideal";
             this.clnDataIdeal.Name = "clnDataIdeal";
             this.clnDataIdeal.ReadOnly = true;
+            this.clnDataIdeal.Width = 150;
             // 
             // clUsuarioSolicitacao
             // 
@@ -245,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1319, 565);
+            this.ClientSize = new System.Drawing.Size(1319, 576);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);

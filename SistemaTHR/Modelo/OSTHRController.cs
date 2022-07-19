@@ -50,6 +50,8 @@ namespace SistemaTHR.Modelo
         public String manINC;
         public String osFin;
 
+
+
         String numeroStatus;
 
         DAO.OsTHRDAO dao = new DAO.OsTHRDAO();
@@ -135,6 +137,22 @@ namespace SistemaTHR.Modelo
         public void selecOSAber()
         {
             SelectOSAberto();
+        }
+
+        private void selectOSPainel()
+        {
+            dao = new DAO.OsTHRDAO();
+            dao.selectOSTHRemAberto();
+            this.dt = dao.dt;
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+        }
+
+        public void selectOSTHRemAberto()
+        {
+            selectOSPainel();
         }
 
         private void selecStatus()
@@ -362,6 +380,23 @@ namespace SistemaTHR.Modelo
         public void selectImpOrdemServico()
         {
             selectImpOS();
+        }
+
+        private void deleteRequisicaoPeca()
+        {
+            dao = new DAO.OsTHRDAO();
+            dao.numeroRequisicao = this.numeroRequisicao;
+            dao.deleteRequisicao();
+
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+        }
+
+        public void deleteRequisicao()
+        {
+            deleteRequisicaoPeca();
         }
 
     }

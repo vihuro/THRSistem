@@ -158,5 +158,23 @@ namespace SistemaTHR.Apllication
         {
 
         }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+            controller.numeroRequisicao = numeroRequisicao;
+            controller.deleteRequisicao();
+            if(controller.msg != null)
+            {
+                MessageBox.Show(controller.msg);
+            }
+            clearall();
+
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

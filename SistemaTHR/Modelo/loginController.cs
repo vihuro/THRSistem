@@ -88,7 +88,8 @@ namespace SistemaTHR
             this.ExpNivel = loginDao.ExpNivel;
             this.Adm = loginDao.Adm;
             this.AdmNivel = loginDao.AdmNivel;
-
+            this.manutencao = loginDao.manutencao;
+            this.manutencaoNivel = loginDao.manutencaoNivel;
             
 
 

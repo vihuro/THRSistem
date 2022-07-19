@@ -30,6 +30,8 @@ namespace SistemaTHR.DAO
         public String dataHoraAutorizacao;
         public String msg;
 
+        public String NRequisicao;
+
         private void insertOS()
         {
             cmd.CommandText = "Insert into tab_OSTHR (DescricaoServico, TipoServico,DataHoraGeracao,UsuarioSolicitacao,ASE,DataIdeal,StatusOP) " +
@@ -187,6 +189,34 @@ namespace SistemaTHR.DAO
         public void selecOSAber()
         {
             selectOSAberto();
+        }
+
+        private void selectOSPainel()
+        {
+            cmd.CommandText = "Select * from tab_OSTHR where StatusOP <> 'OS/Finalizada' order by NOP asc";
+            try
+            {
+                cmd.Connection = con.conectar();
+
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+
+        public void selectOSTHRemAberto()
+        {
+            selectOSPainel();
         }
 
         private void selecStatus()
@@ -587,6 +617,32 @@ namespace SistemaTHR.DAO
         public void selectImpOrdemServico()
         {
             selectImpOS();
+        }
+
+        private void deleteRequisicaoPeca()
+        {
+            cmd.CommandText = "Delete from tab_SolicitacaoPecaOSTHR where NRequisicao = @NRequisicao";
+            cmd.Parameters.AddWithValue("@NRequisicao", numeroRequisicao);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+
+        public void deleteRequisicao()
+        {
+            deleteRequisicaoPeca();
         }
     }
 }

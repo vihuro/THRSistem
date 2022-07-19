@@ -97,10 +97,22 @@ namespace SistemaTHR.Apllication
                     cboAdm.Enabled = false;
                 }
 
+                if (login.manutencao == "Sim")
+                {
+                    rdbManutencaoSim.Checked = true;
+                    cboManutencao.Enabled = true;
+                }
+                else
+                {
+                    rdbManutencaoNao.Checked = true;
+                    cboManutencao.Enabled = false;
+                }
+
                 cboAdm.Text = login.AdmNivel;
                 cboEmp.Text = login.EmpNivel;
                 cboExp.Text = login.ExpNivel;
                 cboReceb.Text = login.RecebNivel;
+                cboManutencao.Text = login.manutencaoNivel;
 
 
             }
@@ -401,13 +413,13 @@ namespace SistemaTHR.Apllication
 
                 if (controller.tem == true)
                 {
-                    MessageBox.Show("Já existe");
+
                     controller.uptadeModulosUsuario();
                     controller.updateUser();
                 }
                 else
                 {
-                    MessageBox.Show("Não existe");
+
                     controller.inserUsuario();
                     controller.insertMod();
 

@@ -233,5 +233,10 @@ namespace SistemaTHR.Apllication
             frmPainelManutencoesTHR painel = new frmPainelManutencoesTHR();
             painel.Show();
         }
+
+        private void módulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

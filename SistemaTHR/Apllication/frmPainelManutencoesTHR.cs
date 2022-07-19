@@ -29,8 +29,13 @@ namespace SistemaTHR.Apllication
         private void loadGridView1()
         {
             Modelo.OSTHRController controller = new Modelo.OSTHRController();
-            controller.selecOSAber();
+            controller.selectOSTHRemAberto();
             this.dt = controller.dt;
+
+            if(controller.msg != null)
+            {
+                MessageBox.Show(controller.msg);
+            }
 
             dataGridView1.DataSource = dt;
 
@@ -104,6 +109,7 @@ namespace SistemaTHR.Apllication
                 if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "OS/INC" || dataGridView1.Rows[i].Cells[10].Value.ToString() == "Manutenção/NC")
                 {
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                     dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
 
                 }

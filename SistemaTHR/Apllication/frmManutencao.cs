@@ -213,6 +213,7 @@ namespace SistemaTHR.Apllication
             for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
                 dataGridView2.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Black;
+                
                 if (dataGridView2.Rows[i].Cells[4].Value != "")
                 {
                     dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Green;
@@ -223,6 +224,20 @@ namespace SistemaTHR.Apllication
                 {
 
                     dataGridView2.Rows[4].DefaultCellStyle.ForeColor = Color.Gray;
+                }
+
+                if (dataGridView2.Rows[i].Cells[2].Value.ToString() == "Manutenção N/C" && manutencaoNivel != "3" &&
+                    dataGridView2.Rows[i].Cells[4].Value.ToString() == string.Empty)
+                {
+
+                    dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
+                }
+
+                if (dataGridView2.Rows[i].Cells[2].Value.ToString() == "OS Finalizada" && manutencaoNivel != "3" &&
+                    dataGridView2.Rows[i].Cells[4].Value.ToString() == string.Empty)
+                {
+
+                    dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
                 }
 
             }
@@ -285,6 +300,7 @@ namespace SistemaTHR.Apllication
 
                     }
 
+
                     for (i = 0; i < dataGridView2.Rows.Count; i++)
                     {
                         if (dataGridView2.CurrentRow.DefaultCellStyle.ForeColor == Color.Gray)
@@ -295,7 +311,27 @@ namespace SistemaTHR.Apllication
                         else
                         {
                             btnApontar.Enabled = true;
+                        }
+
+                        if (dataGridView2.CurrentRow.Cells[2].Value.ToString() == "Manutenção N/C" &&
+                            manutencaoNivel != "3" ||
+                            dataGridView2.CurrentRow.Cells[2].Value.ToString() == "OS Finalizada" &&
+                            manutencaoNivel != "3")
+                        {
+                            btnApontar.Enabled = false;
+                        }
+
+                    }
+
+                    for (i = 0; i < dataGridView2.Rows.Count; i++)
+                    {
+                        if (dataGridView2.CurrentRow.Cells[4].Value.ToString() != string.Empty && manutencaoNivel == "1")
+                        {
                             btnDesfazer.Enabled = true;
+                        }
+                        else
+                        {
+                            btnDesfazer.Enabled = false;
                         }
                     }
 
@@ -463,6 +499,47 @@ namespace SistemaTHR.Apllication
         {
             frmFiltroManutencoes filtro = new frmFiltroManutencoes(this);
             filtro.ShowDialog();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for(int i = 0; i< dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Black;
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "EM ABERTO")
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
+                }
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "Aguardando/AUT. Peça")
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Purple;
+
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.Violet;
+                }
+
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "Manutenção/FIN")
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.OrangeRed;
+
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.DarkOrange;
+                }
+
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "OS/INC" || dataGridView1.Rows[i].Cells[10].Value.ToString() == "Manutenção/NC")
+                {
+
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.DarkRed;
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.Red;
+
+                }
+
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "OS/Finalizada")
+                {
+
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Green;
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.LightGreen;
+
+                }
+            }
         }
     }
 }

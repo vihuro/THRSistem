@@ -45,10 +45,10 @@ namespace SistemaTHR
             loginController loginController = new loginController();
             loginController.aceesar(txtNome.Text, txtSenha.Text);
 
+    
+
             if (loginController.tem)
             {
-
-
                 loginController.verificarNivel(txtNome.Text);
                 this.Usuario = loginController.usuario;
                 this.Empilhadeiras = loginController.Empilhadeiras;

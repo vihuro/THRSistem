@@ -156,7 +156,8 @@ namespace SistemaTHR.DAO
                     Adm = dr["ADM"].ToString();
                     AdmNivel = dr["ADMNivel"].ToString();
 
-
+                    manutencao = dr["manutencao"].ToString();
+                    manutencaoNivel = dr["manutencaoNivel"].ToString();
 
                 }
             }

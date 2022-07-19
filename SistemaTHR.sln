@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTHR", "SistemaTHR\SistemaTHR.csproj", "{3417280C-97E4-442B-9008-1BF7F2C17785}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Sistema THR", "Sistema THR\Sistema THR.vdproj", "{BEC1A0CF-0ADD-485A-A04A-36B5F1E841B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{3417280C-97E4-442B-9008-1BF7F2C17785}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3417280C-97E4-442B-9008-1BF7F2C17785}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3417280C-97E4-442B-9008-1BF7F2C17785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC1A0CF-0ADD-485A-A04A-36B5F1E841B4}.Debug|Any CPU.ActiveCfg = Debug
+		{BEC1A0CF-0ADD-485A-A04A-36B5F1E841B4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
