@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SistemaTHR.Apllication
@@ -20,10 +21,13 @@ namespace SistemaTHR.Apllication
         String usuarioAlteracao;
         String observacao;
 
+        Thread nt;
+
         public frmManutencao(String usuario)
         {
             InitializeComponent();
             this.Usuario = usuario;
+
 
         }
 
@@ -202,9 +206,6 @@ namespace SistemaTHR.Apllication
             }
 
 
-
-
-
         }
 
         private void dataGridView2_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -238,6 +239,7 @@ namespace SistemaTHR.Apllication
                 {
 
                     dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
+                    dataGridView2.Rows[i].DefaultCellStyle.SelectionForeColor = Color.DarkGray;
                 }
 
             }
@@ -270,6 +272,7 @@ namespace SistemaTHR.Apllication
 
         private void frmManutencao_Load(object sender, EventArgs e)
         {
+
 
             loadGridView1();
             clearAll();
@@ -386,6 +389,8 @@ namespace SistemaTHR.Apllication
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             Modelo.OSTHRController controller = new Modelo.OSTHRController();
+
+
             controller.VerificarPriori(numeroOS);
 
             if (controller.msg != null)
@@ -400,15 +405,36 @@ namespace SistemaTHR.Apllication
                     controller.Prioridade = cboPrioridade.Text;
                     controller.usuarioPrioridade = Usuario;
                     controller.dataHoraPrioridade = "";
+
                     controller.UpdatePriori(numeroOS);
 
-
                 }
-                loadGridView1();
-                clearAll();
+
+                loadGridView1SelectOS();
+                
             }
 
 
+        }
+
+        private void loadGridView1SelectOS()
+        {
+
+
+            for (var i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+
+
+                if (txtOrdemServico.Text == dataGridView1.Rows[dataGridView1.Rows[i].Index].Cells[0].Value.ToString())
+                {
+
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+
+                    break;
+                }
+
+            }
+            clearAll();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -434,7 +460,7 @@ namespace SistemaTHR.Apllication
         {
             frmOSTHR oSTHR = new frmOSTHR(numeroOS);
 
-            oSTHR.Show();
+            oSTHR.ShowDialog();
         }
 
         private void frmManutencao_KeyDown(object sender, KeyEventArgs e)
@@ -540,6 +566,11 @@ namespace SistemaTHR.Apllication
 
                 }
             }
+        }
+
+        private void txtOrdemServico_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

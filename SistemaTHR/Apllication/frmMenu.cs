@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +24,9 @@ namespace SistemaTHR.Apllication
         public String AdmNivel;
         public String manutencao;
         public String manutencaoNivel;
+
+        Thread nt;
+
         public frmMenu(String Usuario)
         {
             InitializeComponent();
@@ -137,36 +141,6 @@ namespace SistemaTHR.Apllication
         }
 
 
-        private void transferênciasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPainelTransferencias frmPainelTransferencias = new frmPainelTransferencias();
-            
-            loginController loginController = new loginController();
-
-            loginController.verificarNivel(this.lblUsuario.Text);
-            this.Empilhadeiras = loginController.Empilhadeiras;
-            this.EmpNivel = loginController.EmpNivel;
-            this.Recebimento = loginController.Recebimento;
-            this.RecebNivel = loginController.RecebNivel;
-            this.Expedicao = loginController.Expedicao;
-            this.ExpNivel = loginController.ExpNivel;
-            this.Adm = loginController.Adm;
-            this.AdmNivel = loginController.AdmNivel;
-            this.manutencao = loginController.manutencao;
-            this.manutencaoNivel = loginController.manutencaoNivel;
-
-            frmPainelTransferencias.btnEditar.Enabled = false;
-            frmPainelTransferencias.lblUsuario.Text = this.lblUsuario.Text;
-
-            if(this.ExpNivel == "1")
-            {
-                frmPainelTransferencias.btnEditar.Enabled = true;
-            }
-
-
-            frmPainelTransferencias.Show();
-        }
-
         public DataTable dt = new DataTable();
         private void gerenciarLoginsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -178,17 +152,12 @@ namespace SistemaTHR.Apllication
             gerenciarLogin.Show();
         }
          
-        private void arquivosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void manutençãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManutencao manutencao = new frmManutencao(Usuario);
             manutencao.lblUsuario.Text = this.lblUsuario.Text;
 
-            manutencao.Show();
         }
 
         private void solicitarManutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -218,15 +187,13 @@ namespace SistemaTHR.Apllication
                 manutencao.cboPrioridade.Enabled = true;
 
             }
+
+
             manutencao.lblUsuario.Text = this.lblUsuario.Text;
             manutencao.manutencaoNivel = this.manutencaoNivel;
             manutencao.Show();
         }
 
-        private void expediçãoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void painelManutençõesmEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -234,9 +201,44 @@ namespace SistemaTHR.Apllication
             painel.Show();
         }
 
-        private void módulosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void expediçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paínesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPainelTransferencias frmPainelTransferencias = new frmPainelTransferencias();
+
+            loginController loginController = new loginController();
+
+            loginController.verificarNivel(this.lblUsuario.Text);
+            this.Empilhadeiras = loginController.Empilhadeiras;
+            this.EmpNivel = loginController.EmpNivel;
+            this.Recebimento = loginController.Recebimento;
+            this.RecebNivel = loginController.RecebNivel;
+            this.Expedicao = loginController.Expedicao;
+            this.ExpNivel = loginController.ExpNivel;
+            this.Adm = loginController.Adm;
+            this.AdmNivel = loginController.AdmNivel;
+            this.manutencao = loginController.manutencao;
+            this.manutencaoNivel = loginController.manutencaoNivel;
+
+            frmPainelTransferencias.btnEditar.Enabled = false;
+            frmPainelTransferencias.lblUsuario.Text = this.lblUsuario.Text;
+
+            if (this.ExpNivel == "1")
+            {
+                frmPainelTransferencias.btnEditar.Enabled = true;
+            }
+
+
+            frmPainelTransferencias.Show();
         }
     }
 }

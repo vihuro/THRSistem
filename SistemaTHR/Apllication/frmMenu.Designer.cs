@@ -53,7 +53,6 @@
             this.expediçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transfêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paínesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitarManutençãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençõesEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +73,7 @@
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // toolStripStatusLabel1
             // 
@@ -84,8 +84,7 @@
             // lblUsuario
             // 
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(118, 17);
-            this.lblUsuario.Text = "toolStripStatusLabel2";
+            this.lblUsuario.Size = new System.Drawing.Size(0, 17);
             // 
             // menuStrip1
             // 
@@ -107,7 +106,6 @@
             this.arquivosToolStripMenuItem.Name = "arquivosToolStripMenuItem";
             this.arquivosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.arquivosToolStripMenuItem.Text = "Arquivos";
-            this.arquivosToolStripMenuItem.Click += new System.EventHandler(this.arquivosToolStripMenuItem_Click);
             // 
             // alterarSenhaToolStripMenuItem
             // 
@@ -132,7 +130,6 @@
             this.módulosToolStripMenuItem.Name = "módulosToolStripMenuItem";
             this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
-            this.módulosToolStripMenuItem.Click += new System.EventHandler(this.módulosToolStripMenuItem_Click);
             // 
             // empilhadeirasToolStripMenuItem
             // 
@@ -141,7 +138,7 @@
             this.solicitarManutençãoToolStripMenuItem,
             this.painéisToolStripMenuItem});
             this.empilhadeirasToolStripMenuItem.Name = "empilhadeirasToolStripMenuItem";
-            this.empilhadeirasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.empilhadeirasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.empilhadeirasToolStripMenuItem.Text = "Empilhadeiras";
             // 
             // trocaGasToolStripMenuItem
@@ -231,7 +228,7 @@
             // recebimentoToolStripMenuItem
             // 
             this.recebimentoToolStripMenuItem.Name = "recebimentoToolStripMenuItem";
-            this.recebimentoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.recebimentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recebimentoToolStripMenuItem.Text = "Recebimento";
             // 
             // expediçãoToolStripMenuItem
@@ -240,31 +237,23 @@
             this.transfêToolStripMenuItem,
             this.paínesToolStripMenuItem});
             this.expediçãoToolStripMenuItem.Name = "expediçãoToolStripMenuItem";
-            this.expediçãoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.expediçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.expediçãoToolStripMenuItem.Text = "Expedição";
             this.expediçãoToolStripMenuItem.Click += new System.EventHandler(this.expediçãoToolStripMenuItem_Click);
             // 
             // transfêToolStripMenuItem
             // 
             this.transfêToolStripMenuItem.Name = "transfêToolStripMenuItem";
-            this.transfêToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.transfêToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.transfêToolStripMenuItem.Text = "Transferência";
             this.transfêToolStripMenuItem.Click += new System.EventHandler(this.transfêToolStripMenuItem_Click);
             // 
             // paínesToolStripMenuItem
             // 
-            this.paínesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.transferênciasToolStripMenuItem});
             this.paínesToolStripMenuItem.Name = "paínesToolStripMenuItem";
-            this.paínesToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.paínesToolStripMenuItem.Text = "Paínes";
-            // 
-            // transferênciasToolStripMenuItem
-            // 
-            this.transferênciasToolStripMenuItem.Name = "transferênciasToolStripMenuItem";
-            this.transferênciasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.transferênciasToolStripMenuItem.Text = "Transferências";
-            this.transferênciasToolStripMenuItem.Click += new System.EventHandler(this.transferênciasToolStripMenuItem_Click);
+            this.paínesToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.paínesToolStripMenuItem.Text = "Histórico de Transferências";
+            this.paínesToolStripMenuItem.Click += new System.EventHandler(this.paínesToolStripMenuItem_Click);
             // 
             // manutençãoToolStripMenuItem
             // 
@@ -273,7 +262,7 @@
             this.manutençõesEmAbertoToolStripMenuItem,
             this.painelManutençõesmEmAbertoToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             this.manutençãoToolStripMenuItem.Click += new System.EventHandler(this.manutençãoToolStripMenuItem_Click);
             // 
@@ -358,7 +347,6 @@
         private System.Windows.Forms.ToolStripMenuItem transfêToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem paínesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transferênciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alterarSenhaToolStripMenuItem;
         public System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripMenuItem arquivosToolStripMenuItem;

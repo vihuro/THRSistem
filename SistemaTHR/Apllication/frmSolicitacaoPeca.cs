@@ -34,7 +34,7 @@ namespace SistemaTHR.Apllication
 
             loadStyleGridView1();
 
-            dataGridView1.ClearSelection();
+
             for (var i = 0; i < dataGridView1.Rows.Count; i++)
             {
 
@@ -47,6 +47,7 @@ namespace SistemaTHR.Apllication
 
             }
             dataGridView1.ClearSelection();
+            
         }
 
         private void loadStyleGridView1()
@@ -72,8 +73,8 @@ namespace SistemaTHR.Apllication
             txtDescricao.Text = string.Empty;
             txtUnidade.Text = string.Empty;
             txtQuantidade.Text = string.Empty;
-
-            loadDataGridView1();
+            dataGridView1.ClearSelection();
+            
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -97,6 +98,8 @@ namespace SistemaTHR.Apllication
                 controller.insertRequisicaoPecas();
 
                 clearall();
+
+                loadDataGridView1();
             }
             else
             {
@@ -146,7 +149,7 @@ namespace SistemaTHR.Apllication
             controller.dataHoraAutorizacao = dataHora.ToString();
             controller.autorizarRequisicao();
 
-            clearall();
+            loadDataGridView1();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -171,10 +174,85 @@ namespace SistemaTHR.Apllication
             clearall();
 
         }
-
+        DateTime datahora;
+        String numeroStatus;
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            int linhas = dataGridView1.Rows.Count;
 
+            datahora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+
+            if (linhas > 0)
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+
+                    MessageBox.Show("Valor de i    " + i);
+                    if (dataGridView1.Rows[i].Cells[8].Value.ToString() == "AGUARDANDO/AUT. PEÇAS")
+                    {
+                        Modelo.OSTHRController controller = new Modelo.OSTHRController();
+
+                        controller.numeroOSTHR = numeroOS;
+                        controller.selectRequisicao();
+
+                        if(controller.msg != null)
+                        {
+                            MessageBox.Show(controller.msg);
+                        }
+                        else
+                        {
+                            if(controller.usuarioApontamento != string.Empty)
+                            {
+                                MessageBox.Show("Já foi apontado" + controller.numeroStatus);
+
+                                controller.statusOP = "Aguardando/AUT. Peça";
+                                controller.UpdateStaOS(numeroOS);
+                            }
+                            else
+                            {
+                                this.numeroStatus = controller.numeroStatus;
+
+                                MessageBox.Show("Não foi apontado" + controller.numeroStatus);
+
+                                controller = new Modelo.OSTHRController();
+                                controller.dataHoraApontament = Convert.ToString(datahora);
+                                controller.usuarioApontamento = usuario;
+                                controller.dataHoraAlteracao = Convert.ToString(datahora);
+                                controller.usuarioAlteracao = usuario;
+                                controller.observacao = "";
+                                controller.updateStatus(numeroStatus);
+
+                                controller.statusOP = "Aguardando/AUT. Peça";
+                                controller.UpdateStaOS(numeroOS);
+                            }
+                        }
+
+                        //controller.statusOP = "Aguardando/AUT. Peça";
+                        //controller.UpdateStaOS(numeroOS);
+
+                        break;
+                    }
+                    if(i == linhas -1)
+                    {
+                        Modelo.OSTHRController controller = new Modelo.OSTHRController();
+
+                        controller.dataHoraAlteracao = Convert.ToString(datahora);
+                        controller.usuarioAlteracao = usuario;
+
+                        MessageBox.Show("Chegou aqui");
+
+                        controller.statusOP = "Peças Autorizadas";
+                        controller.UpdateStaOS(numeroOS);
+
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma peça solicitada");
+            }
         }
     }
 }

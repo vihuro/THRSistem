@@ -52,7 +52,7 @@ namespace SistemaTHR.Modelo
 
 
 
-        String numeroStatus;
+        public String numeroStatus;
 
         DAO.OsTHRDAO dao = new DAO.OsTHRDAO();
 
@@ -227,6 +227,28 @@ namespace SistemaTHR.Modelo
             dao = new DAO.OsTHRDAO();
             this.numeroOSTHR = numeroOSTHR;
             loadInfoOS();
+        }
+
+        private void selectRequisicaoPecas()
+        {
+            dao = new DAO.OsTHRDAO();
+            dao.numeroOSTHR = this.numeroOSTHR;
+            dao.selectRequisicao();
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+            else
+            {
+                this.usuarioApontamento = dao.usuarioApontamento;
+                this.numeroStatus = dao.numeroStatus;
+            }
+            
+        }
+
+        public void selectRequisicao()
+        {
+            selectRequisicaoPecas();
         }
 
         private void verificarPrioridade()

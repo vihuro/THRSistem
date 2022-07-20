@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using SistemaTHR.Apllication;
+using System.Threading;
 
 namespace SistemaTHR
 {
 
     public partial class frmLogin : Form
     {
+
+        Thread nt;
 
 
         public frmLogin()
@@ -67,6 +70,7 @@ namespace SistemaTHR
 
                 frmMenu menu = new frmMenu(nomeUsuario);
 
+ 
                 menu.lblUsuario.Text = Usuario;
                 menu.empilhadeirasToolStripMenuItem.Enabled = false;
                 menu.recebimentoToolStripMenuItem.Enabled = false;
@@ -96,7 +100,6 @@ namespace SistemaTHR
                 }
 
 
-
                 this.txtNome.Text = string.Empty;
                 this.txtSenha.Text = string.Empty;
 
@@ -107,6 +110,14 @@ namespace SistemaTHR
             {
                 MessageBox.Show("Usuário ou senha inválidos!","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+        private void formMenu()
+        {
+            frmMenu menu = new frmMenu(Usuario);
+            //menu.lblUsuario.Text = "vitor";
+            Application.Run(menu);
+
         }
 
         private void txtNome_TextChanged(object sender, EventArgs e)

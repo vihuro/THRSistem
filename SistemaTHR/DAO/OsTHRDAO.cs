@@ -221,7 +221,7 @@ namespace SistemaTHR.DAO
 
         private void selecStatus()
         {
-            cmd.CommandText = "Select * from tab_StatusOSTHR where numeroOSTHR = @numeroOS";
+            cmd.CommandText = "Select * from tab_StatusOSTHR where numeroOSTHR = @numeroOS order by NUMEROStatus";
             cmd.Parameters.AddWithValue("@numeroOS", numeroOSTHR);
 
             try
@@ -248,10 +248,15 @@ namespace SistemaTHR.DAO
             this.numeroOSTHR = numeroOSTHR;
             selecStatus();
         }
-        String numeroStatus;
+        public String numeroStatus;
         
         private void updateStatusOS()
         {
+            if(cmd.Parameters.Count > 0)
+            {
+                cmd.Parameters.Clear();
+            }
+
             cmd.CommandText = "Update tab_StatusOSTHR SET DataHoraApontamento = @dataHoraApontamento," +
                 "UsuarioApontamento = @usuarioApontamento," +
                 "DataHoraAlteracao = @dataHoraAlteracao," +
@@ -290,6 +295,50 @@ namespace SistemaTHR.DAO
         {
             this.numeroStatus = numeroStatus;
             updateStatusOS();
+        }
+
+        private void updateRequisicaoPeca()
+        {
+
+
+        }
+
+        public void updateRequisicao()
+        {
+
+        }
+
+        
+
+        private void selectRequisicaoPecas()
+        {
+            cmd.CommandText = "Select * from tab_StatusOSTHR where NumeroOSTHR = @numeroOS and Andamento = 'Requisição de peça'";
+            cmd.Parameters.AddWithValue("@numeroOS", numeroOSTHR);
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    usuarioApontamento = dr["usuarioApontamento"].ToString();
+                    numeroStatus = dr["NumeroStatus"].ToString();
+                }
+
+            }
+            catch(Exception ex)
+            {
+                this.msg = "Erro "+ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void selectRequisicao()
+        {
+            selectRequisicaoPecas();
         }
 
         private void selectObservacao()

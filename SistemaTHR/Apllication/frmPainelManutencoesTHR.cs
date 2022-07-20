@@ -118,6 +118,8 @@ namespace SistemaTHR.Apllication
             }
         }
 
+        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
     
