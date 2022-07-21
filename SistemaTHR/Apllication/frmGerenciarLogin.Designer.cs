@@ -28,10 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarLogin));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clnUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEmpilhadeiras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnRecebimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnExpedicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnAdm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEmpNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnRecebNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnExpNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnAdmNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnManutencaoNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboManutencao = new System.Windows.Forms.ComboBox();
             this.rdbManutencaoNao = new System.Windows.Forms.RadioButton();
@@ -56,24 +72,9 @@
             this.rbEmpSim = new System.Windows.Forms.RadioButton();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.clnUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEmpilhadeiras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnRecebimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnExpedicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnAdm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnManutencao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEmpNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnRecebNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnExpNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnAdmNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnManutencaoNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -126,393 +127,6 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.splitContainer1.AllowDrop = true;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.AllowDrop = true;
-            this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1043, 463);
-            this.splitContainer1.SplitterDistance = 104;
-            this.splitContainer1.TabIndex = 10;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 333);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1043, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel1
-            // 
-            this.panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.panel1.AutoScroll = true;
-            this.panel1.AutoScrollMargin = new System.Drawing.Size(40, 40);
-            this.panel1.Controls.Add(this.btnExcluir);
-            this.panel1.Controls.Add(this.txtNome);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.grpAdm);
-            this.panel1.Controls.Add(this.grpExpedicao);
-            this.panel1.Controls.Add(this.grpRecebimento);
-            this.panel1.Controls.Add(this.txtSenha);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.grpEmpilhadeiras);
-            this.panel1.Controls.Add(this.txtUsuario);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSalvar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1043, 355);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cboManutencao);
-            this.groupBox1.Controls.Add(this.rdbManutencaoNao);
-            this.groupBox1.Controls.Add(this.rdbManutencaoSim);
-            this.groupBox1.Location = new System.Drawing.Point(453, 132);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 59);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Manutenção";
-            // 
-            // cboManutencao
-            // 
-            this.cboManutencao.FormattingEnabled = true;
-            this.cboManutencao.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cboManutencao.Location = new System.Drawing.Point(144, 19);
-            this.cboManutencao.Name = "cboManutencao";
-            this.cboManutencao.Size = new System.Drawing.Size(77, 21);
-            this.cboManutencao.TabIndex = 4;
-            // 
-            // rdbManutencaoNao
-            // 
-            this.rdbManutencaoNao.AutoSize = true;
-            this.rdbManutencaoNao.Location = new System.Drawing.Point(55, 19);
-            this.rdbManutencaoNao.Name = "rdbManutencaoNao";
-            this.rdbManutencaoNao.Size = new System.Drawing.Size(45, 17);
-            this.rdbManutencaoNao.TabIndex = 1;
-            this.rdbManutencaoNao.TabStop = true;
-            this.rdbManutencaoNao.Text = "Não";
-            this.rdbManutencaoNao.UseVisualStyleBackColor = true;
-            this.rdbManutencaoNao.CheckedChanged += new System.EventHandler(this.rdbManutencaoNao_CheckedChanged);
-            // 
-            // rdbManutencaoSim
-            // 
-            this.rdbManutencaoSim.AutoSize = true;
-            this.rdbManutencaoSim.Location = new System.Drawing.Point(7, 20);
-            this.rdbManutencaoSim.Name = "rdbManutencaoSim";
-            this.rdbManutencaoSim.Size = new System.Drawing.Size(42, 17);
-            this.rdbManutencaoSim.TabIndex = 0;
-            this.rdbManutencaoSim.TabStop = true;
-            this.rdbManutencaoSim.Text = "Sim";
-            this.rdbManutencaoSim.UseVisualStyleBackColor = true;
-            this.rdbManutencaoSim.Click += new System.EventHandler(this.rdbManutencaoSim_Click);
-            // 
-            // grpAdm
-            // 
-            this.grpAdm.Controls.Add(this.cboAdm);
-            this.grpAdm.Controls.Add(this.rbAdmNao);
-            this.grpAdm.Controls.Add(this.rbAdmSim);
-            this.grpAdm.Location = new System.Drawing.Point(199, 132);
-            this.grpAdm.Name = "grpAdm";
-            this.grpAdm.Size = new System.Drawing.Size(227, 59);
-            this.grpAdm.TabIndex = 12;
-            this.grpAdm.TabStop = false;
-            this.grpAdm.Text = "Administrativo";
-            // 
-            // cboAdm
-            // 
-            this.cboAdm.FormattingEnabled = true;
-            this.cboAdm.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.cboAdm.Location = new System.Drawing.Point(144, 19);
-            this.cboAdm.Name = "cboAdm";
-            this.cboAdm.Size = new System.Drawing.Size(77, 21);
-            this.cboAdm.TabIndex = 4;
-            // 
-            // rbAdmNao
-            // 
-            this.rbAdmNao.AutoSize = true;
-            this.rbAdmNao.Location = new System.Drawing.Point(55, 19);
-            this.rbAdmNao.Name = "rbAdmNao";
-            this.rbAdmNao.Size = new System.Drawing.Size(45, 17);
-            this.rbAdmNao.TabIndex = 1;
-            this.rbAdmNao.TabStop = true;
-            this.rbAdmNao.Text = "Não";
-            this.rbAdmNao.UseVisualStyleBackColor = true;
-            this.rbAdmNao.Click += new System.EventHandler(this.rbAdmNao_Click);
-            // 
-            // rbAdmSim
-            // 
-            this.rbAdmSim.AutoSize = true;
-            this.rbAdmSim.Location = new System.Drawing.Point(7, 20);
-            this.rbAdmSim.Name = "rbAdmSim";
-            this.rbAdmSim.Size = new System.Drawing.Size(42, 17);
-            this.rbAdmSim.TabIndex = 0;
-            this.rbAdmSim.TabStop = true;
-            this.rbAdmSim.Text = "Sim";
-            this.rbAdmSim.UseVisualStyleBackColor = true;
-            this.rbAdmSim.Click += new System.EventHandler(this.rbAdmSim_Click);
-            // 
-            // grpExpedicao
-            // 
-            this.grpExpedicao.Controls.Add(this.cboExp);
-            this.grpExpedicao.Controls.Add(this.rbExpNao);
-            this.grpExpedicao.Controls.Add(this.rbExpSim);
-            this.grpExpedicao.Location = new System.Drawing.Point(712, 46);
-            this.grpExpedicao.Name = "grpExpedicao";
-            this.grpExpedicao.Size = new System.Drawing.Size(227, 59);
-            this.grpExpedicao.TabIndex = 10;
-            this.grpExpedicao.TabStop = false;
-            this.grpExpedicao.Text = "Expedição";
-            // 
-            // cboExp
-            // 
-            this.cboExp.FormattingEnabled = true;
-            this.cboExp.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.cboExp.Location = new System.Drawing.Point(144, 19);
-            this.cboExp.Name = "cboExp";
-            this.cboExp.Size = new System.Drawing.Size(77, 21);
-            this.cboExp.TabIndex = 4;
-            // 
-            // rbExpNao
-            // 
-            this.rbExpNao.AutoSize = true;
-            this.rbExpNao.Location = new System.Drawing.Point(55, 19);
-            this.rbExpNao.Name = "rbExpNao";
-            this.rbExpNao.Size = new System.Drawing.Size(45, 17);
-            this.rbExpNao.TabIndex = 1;
-            this.rbExpNao.TabStop = true;
-            this.rbExpNao.Text = "Não";
-            this.rbExpNao.UseVisualStyleBackColor = true;
-            this.rbExpNao.CheckedChanged += new System.EventHandler(this.rbExpNao_CheckedChanged);
-            this.rbExpNao.Click += new System.EventHandler(this.rbExpNao_Click);
-            // 
-            // rbExpSim
-            // 
-            this.rbExpSim.AutoSize = true;
-            this.rbExpSim.Location = new System.Drawing.Point(7, 20);
-            this.rbExpSim.Name = "rbExpSim";
-            this.rbExpSim.Size = new System.Drawing.Size(42, 17);
-            this.rbExpSim.TabIndex = 0;
-            this.rbExpSim.TabStop = true;
-            this.rbExpSim.Text = "Sim";
-            this.rbExpSim.UseVisualStyleBackColor = true;
-            this.rbExpSim.Click += new System.EventHandler(this.rbExpSim_Click);
-            // 
-            // grpRecebimento
-            // 
-            this.grpRecebimento.Controls.Add(this.cboReceb);
-            this.grpRecebimento.Controls.Add(this.rbRecebeNao);
-            this.grpRecebimento.Controls.Add(this.rbEmpRecebSim);
-            this.grpRecebimento.Location = new System.Drawing.Point(453, 46);
-            this.grpRecebimento.Name = "grpRecebimento";
-            this.grpRecebimento.Size = new System.Drawing.Size(227, 59);
-            this.grpRecebimento.TabIndex = 11;
-            this.grpRecebimento.TabStop = false;
-            this.grpRecebimento.Text = "Recebimento";
-            // 
-            // cboReceb
-            // 
-            this.cboReceb.FormattingEnabled = true;
-            this.cboReceb.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.cboReceb.Location = new System.Drawing.Point(144, 19);
-            this.cboReceb.Name = "cboReceb";
-            this.cboReceb.Size = new System.Drawing.Size(77, 21);
-            this.cboReceb.TabIndex = 3;
-            // 
-            // rbRecebeNao
-            // 
-            this.rbRecebeNao.AutoSize = true;
-            this.rbRecebeNao.Location = new System.Drawing.Point(55, 19);
-            this.rbRecebeNao.Name = "rbRecebeNao";
-            this.rbRecebeNao.Size = new System.Drawing.Size(45, 17);
-            this.rbRecebeNao.TabIndex = 1;
-            this.rbRecebeNao.TabStop = true;
-            this.rbRecebeNao.Text = "Não";
-            this.rbRecebeNao.UseVisualStyleBackColor = true;
-            this.rbRecebeNao.Click += new System.EventHandler(this.rbRecebeNao_Click);
-            // 
-            // rbEmpRecebSim
-            // 
-            this.rbEmpRecebSim.AutoSize = true;
-            this.rbEmpRecebSim.Location = new System.Drawing.Point(7, 20);
-            this.rbEmpRecebSim.Name = "rbEmpRecebSim";
-            this.rbEmpRecebSim.Size = new System.Drawing.Size(42, 17);
-            this.rbEmpRecebSim.TabIndex = 0;
-            this.rbEmpRecebSim.TabStop = true;
-            this.rbEmpRecebSim.Text = "Sim";
-            this.rbEmpRecebSim.UseVisualStyleBackColor = true;
-            this.rbEmpRecebSim.Click += new System.EventHandler(this.rbEmpRecebSim_Click);
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Location = new System.Drawing.Point(57, 122);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(100, 20);
-            this.txtSenha.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Senha:";
-            // 
-            // grpEmpilhadeiras
-            // 
-            this.grpEmpilhadeiras.Controls.Add(this.cboEmp);
-            this.grpEmpilhadeiras.Controls.Add(this.rbEmpNao);
-            this.grpEmpilhadeiras.Controls.Add(this.rbEmpSim);
-            this.grpEmpilhadeiras.Location = new System.Drawing.Point(199, 46);
-            this.grpEmpilhadeiras.Name = "grpEmpilhadeiras";
-            this.grpEmpilhadeiras.Size = new System.Drawing.Size(227, 59);
-            this.grpEmpilhadeiras.TabIndex = 9;
-            this.grpEmpilhadeiras.TabStop = false;
-            this.grpEmpilhadeiras.Text = "Empilhadeiras";
-            // 
-            // cboEmp
-            // 
-            this.cboEmp.FormattingEnabled = true;
-            this.cboEmp.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.cboEmp.Location = new System.Drawing.Point(144, 18);
-            this.cboEmp.Name = "cboEmp";
-            this.cboEmp.Size = new System.Drawing.Size(77, 21);
-            this.cboEmp.TabIndex = 2;
-            // 
-            // rbEmpNao
-            // 
-            this.rbEmpNao.AutoSize = true;
-            this.rbEmpNao.Location = new System.Drawing.Point(55, 19);
-            this.rbEmpNao.Name = "rbEmpNao";
-            this.rbEmpNao.Size = new System.Drawing.Size(45, 17);
-            this.rbEmpNao.TabIndex = 1;
-            this.rbEmpNao.TabStop = true;
-            this.rbEmpNao.Text = "Não";
-            this.rbEmpNao.UseVisualStyleBackColor = true;
-            this.rbEmpNao.CheckedChanged += new System.EventHandler(this.rbEmpNao_CheckedChanged_2);
-            this.rbEmpNao.Click += new System.EventHandler(this.rbEmpNao_Click);
-            // 
-            // rbEmpSim
-            // 
-            this.rbEmpSim.AutoSize = true;
-            this.rbEmpSim.Location = new System.Drawing.Point(7, 20);
-            this.rbEmpSim.Name = "rbEmpSim";
-            this.rbEmpSim.Size = new System.Drawing.Size(42, 17);
-            this.rbEmpSim.TabIndex = 0;
-            this.rbEmpSim.TabStop = true;
-            this.rbEmpSim.Text = "Sim";
-            this.rbEmpSim.UseVisualStyleBackColor = true;
-            this.rbEmpSim.Click += new System.EventHandler(this.rbEmpSim_Click);
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(57, 50);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuario.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Usuário:";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(57, 86);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 16;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Nome:";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnLimpar);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1043, 25);
-            this.panel3.TabIndex = 11;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLimpar.Image = global::SistemaTHR.Properties.Resources.mais;
-            this.btnLimpar.Location = new System.Drawing.Point(0, 0);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(28, 25);
-            this.btnLimpar.TabIndex = 1;
-            this.btnLimpar.Text = "button1";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnSalvar.Location = new System.Drawing.Point(849, 272);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 17;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnExcluir.Location = new System.Drawing.Point(930, 272);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 18;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
             // 
             // clnUsuario
             // 
@@ -604,6 +218,398 @@
             this.clnCodigo.ReadOnly = true;
             this.clnCodigo.Visible = false;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.splitContainer1.AllowDrop = true;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.AllowDrop = true;
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
+            this.splitContainer1.Size = new System.Drawing.Size(1043, 463);
+            this.splitContainer1.SplitterDistance = 104;
+            this.splitContainer1.TabIndex = 10;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 333);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1043, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(40, 40);
+            this.panel1.Controls.Add(this.btnExcluir);
+            this.panel1.Controls.Add(this.txtNome);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.grpAdm);
+            this.panel1.Controls.Add(this.grpExpedicao);
+            this.panel1.Controls.Add(this.grpRecebimento);
+            this.panel1.Controls.Add(this.txtSenha);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.grpEmpilhadeiras);
+            this.panel1.Controls.Add(this.txtUsuario);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnSalvar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1043, 355);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnExcluir.Location = new System.Drawing.Point(930, 272);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 18;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(57, 86);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(100, 20);
+            this.txtNome.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Nome:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.cboManutencao);
+            this.groupBox1.Controls.Add(this.rdbManutencaoNao);
+            this.groupBox1.Controls.Add(this.rdbManutencaoSim);
+            this.groupBox1.Location = new System.Drawing.Point(453, 132);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 59);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Manutenção";
+            // 
+            // cboManutencao
+            // 
+            this.cboManutencao.FormattingEnabled = true;
+            this.cboManutencao.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cboManutencao.Location = new System.Drawing.Point(144, 19);
+            this.cboManutencao.Name = "cboManutencao";
+            this.cboManutencao.Size = new System.Drawing.Size(77, 21);
+            this.cboManutencao.TabIndex = 4;
+            // 
+            // rdbManutencaoNao
+            // 
+            this.rdbManutencaoNao.AutoSize = true;
+            this.rdbManutencaoNao.Location = new System.Drawing.Point(55, 19);
+            this.rdbManutencaoNao.Name = "rdbManutencaoNao";
+            this.rdbManutencaoNao.Size = new System.Drawing.Size(45, 17);
+            this.rdbManutencaoNao.TabIndex = 1;
+            this.rdbManutencaoNao.TabStop = true;
+            this.rdbManutencaoNao.Text = "Não";
+            this.rdbManutencaoNao.UseVisualStyleBackColor = true;
+            this.rdbManutencaoNao.CheckedChanged += new System.EventHandler(this.rdbManutencaoNao_CheckedChanged);
+            // 
+            // rdbManutencaoSim
+            // 
+            this.rdbManutencaoSim.AutoSize = true;
+            this.rdbManutencaoSim.Location = new System.Drawing.Point(7, 20);
+            this.rdbManutencaoSim.Name = "rdbManutencaoSim";
+            this.rdbManutencaoSim.Size = new System.Drawing.Size(42, 17);
+            this.rdbManutencaoSim.TabIndex = 0;
+            this.rdbManutencaoSim.TabStop = true;
+            this.rdbManutencaoSim.Text = "Sim";
+            this.rdbManutencaoSim.UseVisualStyleBackColor = true;
+            this.rdbManutencaoSim.Click += new System.EventHandler(this.rdbManutencaoSim_Click);
+            // 
+            // grpAdm
+            // 
+            this.grpAdm.BackColor = System.Drawing.Color.White;
+            this.grpAdm.Controls.Add(this.cboAdm);
+            this.grpAdm.Controls.Add(this.rbAdmNao);
+            this.grpAdm.Controls.Add(this.rbAdmSim);
+            this.grpAdm.Location = new System.Drawing.Point(199, 132);
+            this.grpAdm.Name = "grpAdm";
+            this.grpAdm.Size = new System.Drawing.Size(227, 59);
+            this.grpAdm.TabIndex = 12;
+            this.grpAdm.TabStop = false;
+            this.grpAdm.Text = "Administrativo";
+            // 
+            // cboAdm
+            // 
+            this.cboAdm.FormattingEnabled = true;
+            this.cboAdm.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cboAdm.Location = new System.Drawing.Point(144, 19);
+            this.cboAdm.Name = "cboAdm";
+            this.cboAdm.Size = new System.Drawing.Size(77, 21);
+            this.cboAdm.TabIndex = 4;
+            // 
+            // rbAdmNao
+            // 
+            this.rbAdmNao.AutoSize = true;
+            this.rbAdmNao.Location = new System.Drawing.Point(55, 19);
+            this.rbAdmNao.Name = "rbAdmNao";
+            this.rbAdmNao.Size = new System.Drawing.Size(45, 17);
+            this.rbAdmNao.TabIndex = 1;
+            this.rbAdmNao.TabStop = true;
+            this.rbAdmNao.Text = "Não";
+            this.rbAdmNao.UseVisualStyleBackColor = true;
+            this.rbAdmNao.Click += new System.EventHandler(this.rbAdmNao_Click);
+            // 
+            // rbAdmSim
+            // 
+            this.rbAdmSim.AutoSize = true;
+            this.rbAdmSim.Location = new System.Drawing.Point(7, 20);
+            this.rbAdmSim.Name = "rbAdmSim";
+            this.rbAdmSim.Size = new System.Drawing.Size(42, 17);
+            this.rbAdmSim.TabIndex = 0;
+            this.rbAdmSim.TabStop = true;
+            this.rbAdmSim.Text = "Sim";
+            this.rbAdmSim.UseVisualStyleBackColor = true;
+            this.rbAdmSim.Click += new System.EventHandler(this.rbAdmSim_Click);
+            // 
+            // grpExpedicao
+            // 
+            this.grpExpedicao.BackColor = System.Drawing.Color.White;
+            this.grpExpedicao.Controls.Add(this.cboExp);
+            this.grpExpedicao.Controls.Add(this.rbExpNao);
+            this.grpExpedicao.Controls.Add(this.rbExpSim);
+            this.grpExpedicao.Location = new System.Drawing.Point(712, 46);
+            this.grpExpedicao.Name = "grpExpedicao";
+            this.grpExpedicao.Size = new System.Drawing.Size(227, 59);
+            this.grpExpedicao.TabIndex = 10;
+            this.grpExpedicao.TabStop = false;
+            this.grpExpedicao.Text = "Expedição";
+            // 
+            // cboExp
+            // 
+            this.cboExp.FormattingEnabled = true;
+            this.cboExp.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cboExp.Location = new System.Drawing.Point(144, 19);
+            this.cboExp.Name = "cboExp";
+            this.cboExp.Size = new System.Drawing.Size(77, 21);
+            this.cboExp.TabIndex = 4;
+            // 
+            // rbExpNao
+            // 
+            this.rbExpNao.AutoSize = true;
+            this.rbExpNao.Location = new System.Drawing.Point(55, 19);
+            this.rbExpNao.Name = "rbExpNao";
+            this.rbExpNao.Size = new System.Drawing.Size(45, 17);
+            this.rbExpNao.TabIndex = 1;
+            this.rbExpNao.TabStop = true;
+            this.rbExpNao.Text = "Não";
+            this.rbExpNao.UseVisualStyleBackColor = true;
+            this.rbExpNao.CheckedChanged += new System.EventHandler(this.rbExpNao_CheckedChanged);
+            this.rbExpNao.Click += new System.EventHandler(this.rbExpNao_Click);
+            // 
+            // rbExpSim
+            // 
+            this.rbExpSim.AutoSize = true;
+            this.rbExpSim.Location = new System.Drawing.Point(7, 20);
+            this.rbExpSim.Name = "rbExpSim";
+            this.rbExpSim.Size = new System.Drawing.Size(42, 17);
+            this.rbExpSim.TabIndex = 0;
+            this.rbExpSim.TabStop = true;
+            this.rbExpSim.Text = "Sim";
+            this.rbExpSim.UseVisualStyleBackColor = true;
+            this.rbExpSim.Click += new System.EventHandler(this.rbExpSim_Click);
+            // 
+            // grpRecebimento
+            // 
+            this.grpRecebimento.BackColor = System.Drawing.Color.White;
+            this.grpRecebimento.Controls.Add(this.cboReceb);
+            this.grpRecebimento.Controls.Add(this.rbRecebeNao);
+            this.grpRecebimento.Controls.Add(this.rbEmpRecebSim);
+            this.grpRecebimento.Location = new System.Drawing.Point(453, 46);
+            this.grpRecebimento.Name = "grpRecebimento";
+            this.grpRecebimento.Size = new System.Drawing.Size(227, 59);
+            this.grpRecebimento.TabIndex = 11;
+            this.grpRecebimento.TabStop = false;
+            this.grpRecebimento.Text = "Recebimento";
+            // 
+            // cboReceb
+            // 
+            this.cboReceb.FormattingEnabled = true;
+            this.cboReceb.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cboReceb.Location = new System.Drawing.Point(144, 19);
+            this.cboReceb.Name = "cboReceb";
+            this.cboReceb.Size = new System.Drawing.Size(77, 21);
+            this.cboReceb.TabIndex = 3;
+            // 
+            // rbRecebeNao
+            // 
+            this.rbRecebeNao.AutoSize = true;
+            this.rbRecebeNao.Location = new System.Drawing.Point(55, 19);
+            this.rbRecebeNao.Name = "rbRecebeNao";
+            this.rbRecebeNao.Size = new System.Drawing.Size(45, 17);
+            this.rbRecebeNao.TabIndex = 1;
+            this.rbRecebeNao.TabStop = true;
+            this.rbRecebeNao.Text = "Não";
+            this.rbRecebeNao.UseVisualStyleBackColor = true;
+            this.rbRecebeNao.Click += new System.EventHandler(this.rbRecebeNao_Click);
+            // 
+            // rbEmpRecebSim
+            // 
+            this.rbEmpRecebSim.AutoSize = true;
+            this.rbEmpRecebSim.Location = new System.Drawing.Point(7, 20);
+            this.rbEmpRecebSim.Name = "rbEmpRecebSim";
+            this.rbEmpRecebSim.Size = new System.Drawing.Size(42, 17);
+            this.rbEmpRecebSim.TabIndex = 0;
+            this.rbEmpRecebSim.TabStop = true;
+            this.rbEmpRecebSim.Text = "Sim";
+            this.rbEmpRecebSim.UseVisualStyleBackColor = true;
+            this.rbEmpRecebSim.Click += new System.EventHandler(this.rbEmpRecebSim_Click);
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Location = new System.Drawing.Point(57, 122);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(100, 20);
+            this.txtSenha.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 129);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Senha:";
+            // 
+            // grpEmpilhadeiras
+            // 
+            this.grpEmpilhadeiras.BackColor = System.Drawing.Color.White;
+            this.grpEmpilhadeiras.Controls.Add(this.cboEmp);
+            this.grpEmpilhadeiras.Controls.Add(this.rbEmpNao);
+            this.grpEmpilhadeiras.Controls.Add(this.rbEmpSim);
+            this.grpEmpilhadeiras.Location = new System.Drawing.Point(199, 46);
+            this.grpEmpilhadeiras.Name = "grpEmpilhadeiras";
+            this.grpEmpilhadeiras.Size = new System.Drawing.Size(227, 59);
+            this.grpEmpilhadeiras.TabIndex = 9;
+            this.grpEmpilhadeiras.TabStop = false;
+            this.grpEmpilhadeiras.Text = "Empilhadeiras";
+            // 
+            // cboEmp
+            // 
+            this.cboEmp.FormattingEnabled = true;
+            this.cboEmp.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cboEmp.Location = new System.Drawing.Point(144, 18);
+            this.cboEmp.Name = "cboEmp";
+            this.cboEmp.Size = new System.Drawing.Size(77, 21);
+            this.cboEmp.TabIndex = 2;
+            // 
+            // rbEmpNao
+            // 
+            this.rbEmpNao.AutoSize = true;
+            this.rbEmpNao.Location = new System.Drawing.Point(55, 19);
+            this.rbEmpNao.Name = "rbEmpNao";
+            this.rbEmpNao.Size = new System.Drawing.Size(45, 17);
+            this.rbEmpNao.TabIndex = 1;
+            this.rbEmpNao.TabStop = true;
+            this.rbEmpNao.Text = "Não";
+            this.rbEmpNao.UseVisualStyleBackColor = true;
+            this.rbEmpNao.CheckedChanged += new System.EventHandler(this.rbEmpNao_CheckedChanged_2);
+            this.rbEmpNao.Click += new System.EventHandler(this.rbEmpNao_Click);
+            // 
+            // rbEmpSim
+            // 
+            this.rbEmpSim.AutoSize = true;
+            this.rbEmpSim.Location = new System.Drawing.Point(7, 20);
+            this.rbEmpSim.Name = "rbEmpSim";
+            this.rbEmpSim.Size = new System.Drawing.Size(42, 17);
+            this.rbEmpSim.TabIndex = 0;
+            this.rbEmpSim.TabStop = true;
+            this.rbEmpSim.Text = "Sim";
+            this.rbEmpSim.UseVisualStyleBackColor = true;
+            this.rbEmpSim.Click += new System.EventHandler(this.rbEmpSim_Click);
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(57, 50);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Usuário:";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnSalvar.Location = new System.Drawing.Point(849, 272);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 17;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnLimpar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1043, 25);
+            this.panel3.TabIndex = 11;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLimpar.Image = global::SistemaTHR.Properties.Resources.mais;
+            this.btnLimpar.Location = new System.Drawing.Point(0, 0);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(28, 25);
+            this.btnLimpar.TabIndex = 1;
+            this.btnLimpar.Text = "button1";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // frmGerenciarLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,6 +617,7 @@
             this.ClientSize = new System.Drawing.Size(1043, 488);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGerenciarLogin";
             this.Text = "Gerenciar Login";
             this.Load += new System.EventHandler(this.frmGerenciarLogin_Load);

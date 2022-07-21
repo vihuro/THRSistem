@@ -57,11 +57,41 @@ namespace SistemaTHR.Apllication
             }
             if(chbManInc.Checked == true)
             {
-                manFin = "Manutenção/NC";
+                manINC = "Manutenção/NC";
             }
             if(chbOsFinalizada.Checked == true)
             {
                 osFin = "OS/Finalizada";
+            }
+
+
+            if (chbEmAberto.Checked == false)
+            {
+                emAberto = "";
+            }
+            if (chbManIni.Checked == false)
+            {
+                manIni = "";
+            }
+            if (chbOsINC.Checked == false)
+            {
+                osINC = "";
+            }
+            if (chbAutPeca.Checked == false)
+            {
+                AutPeca = "";
+            }
+            if (chbManFin.Checked == false)
+            {
+                manFin = "";
+            }
+            if (chbManInc.Checked == false)
+            {
+                manINC = "";
+            }
+            if (chbOsFinalizada.Checked == false)
+            {
+                osFin = "";
             }
 
 
@@ -78,16 +108,25 @@ namespace SistemaTHR.Apllication
 
                 Modelo.OSTHRController controller = new Modelo.OSTHRController();
                 controller.emAberto = emAberto;
-                controller.manIni = manIni;
-                controller.osINC = osINC;
-                controller.AutPeca = AutPeca;
-                controller.manFin = manFin;
-                controller.manINC = manINC;
-                controller.osINC = osINC;
-                controller.osFin = osFin;
+                controller.ManIn = manIni;
+                controller.OSINC = osINC;
+                controller.AguardandoPeca = AutPeca;
+                controller.ManFIN = manFin;
+                controller.ManNC = manINC;
+                controller.osINC = manINC;
+                controller.OSFIN = osFin;
+                controller.filtrarstatusOS();
+
+                if(controller.msg != null)
+                {
+                    MessageBox.Show(controller.msg);
+                }
+                manutencao.dt = controller.dt;
+
+                manutencao.loadFilter();
+                this.Close();
 
 
-                MessageBox.Show("Algum checked");
             }
             else
             {

@@ -240,5 +240,10 @@ namespace SistemaTHR.Apllication
 
             frmPainelTransferencias.Show();
         }
+
+        private void módulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

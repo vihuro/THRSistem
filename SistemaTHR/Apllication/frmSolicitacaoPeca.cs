@@ -187,7 +187,7 @@ namespace SistemaTHR.Apllication
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
 
-                    MessageBox.Show("Valor de i    " + i);
+
                     if (dataGridView1.Rows[i].Cells[8].Value.ToString() == "AGUARDANDO/AUT. PEÇAS")
                     {
                         Modelo.OSTHRController controller = new Modelo.OSTHRController();
@@ -203,16 +203,29 @@ namespace SistemaTHR.Apllication
                         {
                             if(controller.usuarioApontamento != string.Empty)
                             {
-                                MessageBox.Show("Já foi apontado" + controller.numeroStatus);
 
                                 controller.statusOP = "Aguardando/AUT. Peça";
+                                controller.dataHoraAlteracao = Convert.ToString(datahora);
+                                controller.usuarioAlteracao = usuario;
+                                controller.observacao = "";
+
+                                controller.updateRequisicao();
+
+                                if(controller.msg != null)
+                                {
+                                    MessageBox.Show(controller.msg);
+                                }
+
                                 controller.UpdateStaOS(numeroOS);
+                                if (controller.msg != null)
+                                {
+                                    MessageBox.Show(controller.msg);
+                                }
                             }
                             else
                             {
                                 this.numeroStatus = controller.numeroStatus;
 
-                                MessageBox.Show("Não foi apontado" + controller.numeroStatus);
 
                                 controller = new Modelo.OSTHRController();
                                 controller.dataHoraApontament = Convert.ToString(datahora);
@@ -224,11 +237,13 @@ namespace SistemaTHR.Apllication
 
                                 controller.statusOP = "Aguardando/AUT. Peça";
                                 controller.UpdateStaOS(numeroOS);
+                                if(controller.msg != null)
+                                {
+                                    MessageBox.Show(controller.msg);
+                                }
+
                             }
                         }
-
-                        //controller.statusOP = "Aguardando/AUT. Peça";
-                        //controller.UpdateStaOS(numeroOS);
 
                         break;
                     }
@@ -239,7 +254,6 @@ namespace SistemaTHR.Apllication
                         controller.dataHoraAlteracao = Convert.ToString(datahora);
                         controller.usuarioAlteracao = usuario;
 
-                        MessageBox.Show("Chegou aqui");
 
                         controller.statusOP = "Peças Autorizadas";
                         controller.UpdateStaOS(numeroOS);
@@ -247,12 +261,23 @@ namespace SistemaTHR.Apllication
                     }
 
                 }
+                this.Close();
 
             }
             else
             {
                 MessageBox.Show("Nenhuma peça solicitada");
             }
+        }
+
+        private void txtUnidade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
         }
     }
 }

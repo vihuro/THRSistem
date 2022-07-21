@@ -473,6 +473,16 @@
     <Content Include="bd-Sistem.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\refresh-button.png" />
+    <None Include="Resources\refresh-button %281%29.png" />
+    <None Include="Resources\refresh-button1.png" />
+    <None Include="Resources\lift-truck.png" />
+    <None Include="Resources\lift-truck %281%29.png" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\expedition.png" />
+    <None Include="Resources\inventory %281%29.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\management.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

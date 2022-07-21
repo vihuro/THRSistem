@@ -299,12 +299,76 @@ namespace SistemaTHR.DAO
 
         private void updateRequisicaoPeca()
         {
+            cmd.CommandText = "Update tab_StatusOSTHR SET " +
+                                "DataHoraAlteracao = @dataHoraAlteracao," +
+                                "UsuarioAlteracao = @usuarioAlteracao," +
+                                "Observacao = @observacao" +
+                                " WHERE NUMEROStatus = @numeroStatus";
 
+            cmd.Parameters.AddWithValue("@dataHoraAlteracao", dataHoraAlteracao);
+            cmd.Parameters.AddWithValue("@usuarioAlteracao", usuarioAlteracao);
+            cmd.Parameters.AddWithValue("@observacao", observacao);
+
+            cmd.Parameters.AddWithValue("@numeroStatus", numeroStatus);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                this.msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
 
         }
 
         public void updateRequisicao()
         {
+            updateRequisicaoPeca();
+        }
+
+        private void desfazerApontamento()
+        {
+            cmd.CommandText = "Update tab_StatusOSTHR set DataHoraApontamento = @dataHoraApontamento," +
+                                "UsuarioApontamento = @usuarioApontamento," +
+                                "DataHoraAlteracao = @dataHoraAlteracao," +
+                                "UsuarioAlteracao = @usuarioAlteracao," +
+                                "Observacao = @observacao " +
+                                "where NUMEROStatus = @numeroStatus";
+            
+            cmd.Parameters.AddWithValue("@dataHoraApontamento",dataHoraApontament);
+            cmd.Parameters.AddWithValue("@usuarioApontamento", usuarioApontamento);
+            cmd.Parameters.AddWithValue("@dataHoraAlteracao", dataHoraAlteracao);
+            cmd.Parameters.AddWithValue("@usuarioAlteracao", usuarioAlteracao);
+            cmd.Parameters.AddWithValue("@observacao", "");
+            cmd.Parameters.AddWithValue("@numeroStatus", numeroStatus);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+                
+            }
+            catch(Exception ex)
+            {
+                this.msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+
+        }
+
+        public void desfazerApont()
+        {
+            desfazerApontamento();
 
         }
 
@@ -386,7 +450,6 @@ namespace SistemaTHR.DAO
 
                 if (dr.Read())
                 {
-                    descricaoServico = dr["DescricaoServico"].ToString();
                     Prioridade = dr["Prioridade"].ToString();
                 }
             }
@@ -692,6 +755,49 @@ namespace SistemaTHR.DAO
         public void deleteRequisicao()
         {
             deleteRequisicaoPeca();
+        }
+
+        public String emAberto;
+        public String ManIn;
+        public String OSINC;
+        public String AguardandoPeca;
+        public String ManFIN;
+        public String ManNC;
+        public String OSFIN;
+
+
+        private void fiterStatusOS()
+        {
+            cmd.CommandText = "Select * from tab_OSTHR where statusOP in(@EmAberto, @ManIN, @OSINC, @AguardandoPeca, @ManFIN, @ManNC, @OSFin)";
+            cmd.Parameters.AddWithValue("@EmAberto",emAberto);
+            cmd.Parameters.AddWithValue("@ManIN", ManIn);
+            cmd.Parameters.AddWithValue("@OSINC", OSINC);
+            cmd.Parameters.AddWithValue("@AguardandoPeca", AguardandoPeca);
+            cmd.Parameters.AddWithValue("@ManFIN",ManFIN);
+            cmd.Parameters.AddWithValue("@ManNC", ManNC);
+            cmd.Parameters.AddWithValue("@OSFin", OSFIN);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+
+                da.Fill(dt);
+            }
+            catch(Exception ex)
+            {
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+
+        }
+
+        public void filtrarstatusOS()
+        {
+            fiterStatusOS();
         }
     }
 }

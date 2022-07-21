@@ -73,6 +73,7 @@
             // 
             // lblCaractere
             // 
+            this.lblCaractere.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCaractere.AutoSize = true;
             this.lblCaractere.Location = new System.Drawing.Point(9, 255);
             this.lblCaractere.Name = "lblCaractere";
@@ -104,6 +105,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmObservacoes";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Observação";
             this.Load += new System.EventHandler(this.frmObservacoes_Load);

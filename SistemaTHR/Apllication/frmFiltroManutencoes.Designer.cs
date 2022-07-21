@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chbEmAberto = new System.Windows.Forms.CheckBox();
-            this.chbManIni = new System.Windows.Forms.CheckBox();
-            this.chbOsINC = new System.Windows.Forms.CheckBox();
-            this.chbAutPeca = new System.Windows.Forms.CheckBox();
-            this.chbManFin = new System.Windows.Forms.CheckBox();
-            this.chbManInc = new System.Windows.Forms.CheckBox();
             this.chbOsFinalizada = new System.Windows.Forms.CheckBox();
+            this.chbManInc = new System.Windows.Forms.CheckBox();
+            this.chbManFin = new System.Windows.Forms.CheckBox();
+            this.chbAutPeca = new System.Windows.Forms.CheckBox();
+            this.chbOsINC = new System.Windows.Forms.CheckBox();
+            this.chbManIni = new System.Windows.Forms.CheckBox();
+            this.chbEmAberto = new System.Windows.Forms.CheckBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -43,6 +43,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.chbOsFinalizada);
             this.groupBox1.Controls.Add(this.chbManInc);
             this.groupBox1.Controls.Add(this.chbManFin);
@@ -57,46 +58,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
             // 
-            // chbEmAberto
+            // chbOsFinalizada
             // 
-            this.chbEmAberto.AutoSize = true;
-            this.chbEmAberto.Location = new System.Drawing.Point(19, 29);
-            this.chbEmAberto.Name = "chbEmAberto";
-            this.chbEmAberto.Size = new System.Drawing.Size(75, 17);
-            this.chbEmAberto.TabIndex = 0;
-            this.chbEmAberto.Text = "Em Aberto";
-            this.chbEmAberto.UseVisualStyleBackColor = true;
-            this.chbEmAberto.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chbOsFinalizada.AutoSize = true;
+            this.chbOsFinalizada.Location = new System.Drawing.Point(19, 167);
+            this.chbOsFinalizada.Name = "chbOsFinalizada";
+            this.chbOsFinalizada.Size = new System.Drawing.Size(91, 17);
+            this.chbOsFinalizada.TabIndex = 6;
+            this.chbOsFinalizada.Text = "OS Finalizada";
+            this.chbOsFinalizada.UseVisualStyleBackColor = true;
             // 
-            // chbManIni
+            // chbManInc
             // 
-            this.chbManIni.AutoSize = true;
-            this.chbManIni.Location = new System.Drawing.Point(19, 52);
-            this.chbManIni.Name = "chbManIni";
-            this.chbManIni.Size = new System.Drawing.Size(126, 17);
-            this.chbManIni.TabIndex = 1;
-            this.chbManIni.Text = "Manutenção Iniciada";
-            this.chbManIni.UseVisualStyleBackColor = true;
-            // 
-            // chbOsINC
-            // 
-            this.chbOsINC.AutoSize = true;
-            this.chbOsINC.Location = new System.Drawing.Point(19, 75);
-            this.chbOsINC.Name = "chbOsINC";
-            this.chbOsINC.Size = new System.Drawing.Size(64, 17);
-            this.chbOsINC.TabIndex = 2;
-            this.chbOsINC.Text = "OS/INC";
-            this.chbOsINC.UseVisualStyleBackColor = true;
-            // 
-            // chbAutPeca
-            // 
-            this.chbAutPeca.AutoSize = true;
-            this.chbAutPeca.Location = new System.Drawing.Point(19, 98);
-            this.chbAutPeca.Name = "chbAutPeca";
-            this.chbAutPeca.Size = new System.Drawing.Size(142, 17);
-            this.chbAutPeca.TabIndex = 3;
-            this.chbAutPeca.Text = "Aguardando/AUT. Peça";
-            this.chbAutPeca.UseVisualStyleBackColor = true;
+            this.chbManInc.AutoSize = true;
+            this.chbManInc.Location = new System.Drawing.Point(19, 144);
+            this.chbManInc.Name = "chbManInc";
+            this.chbManInc.Size = new System.Drawing.Size(106, 17);
+            this.chbManInc.TabIndex = 5;
+            this.chbManInc.Text = "Manutenção/NC";
+            this.chbManInc.UseVisualStyleBackColor = true;
             // 
             // chbManFin
             // 
@@ -108,25 +88,46 @@
             this.chbManFin.Text = "Manutenção Finalizada";
             this.chbManFin.UseVisualStyleBackColor = true;
             // 
-            // chbManInc
+            // chbAutPeca
             // 
-            this.chbManInc.AutoSize = true;
-            this.chbManInc.Location = new System.Drawing.Point(19, 144);
-            this.chbManInc.Name = "chbManInc";
-            this.chbManInc.Size = new System.Drawing.Size(109, 17);
-            this.chbManInc.TabIndex = 5;
-            this.chbManInc.Text = "Manutenção/INC";
-            this.chbManInc.UseVisualStyleBackColor = true;
+            this.chbAutPeca.AutoSize = true;
+            this.chbAutPeca.Location = new System.Drawing.Point(19, 98);
+            this.chbAutPeca.Name = "chbAutPeca";
+            this.chbAutPeca.Size = new System.Drawing.Size(142, 17);
+            this.chbAutPeca.TabIndex = 3;
+            this.chbAutPeca.Text = "Aguardando/AUT. Peça";
+            this.chbAutPeca.UseVisualStyleBackColor = true;
             // 
-            // chbOsFinalizada
+            // chbOsINC
             // 
-            this.chbOsFinalizada.AutoSize = true;
-            this.chbOsFinalizada.Location = new System.Drawing.Point(19, 167);
-            this.chbOsFinalizada.Name = "chbOsFinalizada";
-            this.chbOsFinalizada.Size = new System.Drawing.Size(91, 17);
-            this.chbOsFinalizada.TabIndex = 6;
-            this.chbOsFinalizada.Text = "OS Finalizada";
-            this.chbOsFinalizada.UseVisualStyleBackColor = true;
+            this.chbOsINC.AutoSize = true;
+            this.chbOsINC.Location = new System.Drawing.Point(19, 75);
+            this.chbOsINC.Name = "chbOsINC";
+            this.chbOsINC.Size = new System.Drawing.Size(64, 17);
+            this.chbOsINC.TabIndex = 2;
+            this.chbOsINC.Text = "OS/INC";
+            this.chbOsINC.UseVisualStyleBackColor = true;
+            // 
+            // chbManIni
+            // 
+            this.chbManIni.AutoSize = true;
+            this.chbManIni.Location = new System.Drawing.Point(19, 52);
+            this.chbManIni.Name = "chbManIni";
+            this.chbManIni.Size = new System.Drawing.Size(126, 17);
+            this.chbManIni.TabIndex = 1;
+            this.chbManIni.Text = "Manutenção Iniciada";
+            this.chbManIni.UseVisualStyleBackColor = true;
+            // 
+            // chbEmAberto
+            // 
+            this.chbEmAberto.AutoSize = true;
+            this.chbEmAberto.Location = new System.Drawing.Point(19, 29);
+            this.chbEmAberto.Name = "chbEmAberto";
+            this.chbEmAberto.Size = new System.Drawing.Size(75, 17);
+            this.chbEmAberto.TabIndex = 0;
+            this.chbEmAberto.Text = "Em Aberto";
+            this.chbEmAberto.UseVisualStyleBackColor = true;
+            this.chbEmAberto.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btnFiltrar
             // 
@@ -157,6 +158,8 @@
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmFiltroManutencoes";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Filtrar Manutenções";
             this.Load += new System.EventHandler(this.frmFiltroManutencoes_Load);

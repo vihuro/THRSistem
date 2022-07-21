@@ -214,7 +214,6 @@ namespace SistemaTHR.Modelo
         {
             dao = new DAO.OsTHRDAO();
             dao.loadINFO(numeroOSTHR);
-            this.descricaoServico = dao.descricaoServico;
             this.Prioridade = dao.Prioridade;
             if (dao.msg != null)
             {
@@ -250,6 +249,52 @@ namespace SistemaTHR.Modelo
         {
             selectRequisicaoPecas();
         }
+
+        private void updateRequisicaoPeca()
+        {
+            dao = new DAO.OsTHRDAO();
+            dao.dataHoraAlteracao = this.dataHoraAlteracao;
+            dao.usuarioAlteracao = this.usuarioAlteracao;
+            dao.observacao = this.observacao;
+            dao.numeroStatus = this.numeroStatus;
+
+            dao.updateRequisicao();
+
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+        }
+
+        public void updateRequisicao()
+        {
+            updateRequisicaoPeca();
+        }
+        
+
+        private void desfazerApontamento() 
+        {
+            dao = new DAO.OsTHRDAO();
+            dao.dataHoraApontament = this.dataHoraApontament;
+            dao.usuarioApontamento = this.usuarioApontamento;
+            dao.dataHoraAlteracao = this.dataHoraAlteracao;
+            dao.usuarioAlteracao = this.usuarioAlteracao;
+            dao.numeroStatus = this.numeroStatus;
+
+            dao.desfazerApont();
+
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+
+        }
+
+        public void desfazerApont()
+        {
+            desfazerApontamento();
+        }
+
 
         private void verificarPrioridade()
         {
@@ -419,6 +464,40 @@ namespace SistemaTHR.Modelo
         public void deleteRequisicao()
         {
             deleteRequisicaoPeca();
+        }
+
+        public String ManIn;
+        public String OSINC;
+        public String AguardandoPeca;
+        public String ManFIN;
+        public String ManNC;
+        public String OSFIN;
+
+        private void fiterStatusOS()
+        {
+            dao = new DAO.OsTHRDAO();
+            dao.emAberto = this.emAberto;
+            dao.ManIn = this.ManIn;
+            dao.OSINC = this.OSINC;
+            dao.AguardandoPeca = this.AguardandoPeca;
+            dao.ManFIN = this.ManFIN;
+            dao.ManNC = this.ManNC;
+            dao.OSINC = this.OSINC;
+            dao.OSFIN = this.OSFIN;
+
+            dao.filtrarstatusOS();
+
+            this.dt = dao.dt;
+
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+        }
+
+        public void filtrarstatusOS()
+        {
+            fiterStatusOS();
         }
 
     }
