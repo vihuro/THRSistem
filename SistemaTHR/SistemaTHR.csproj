@@ -121,6 +121,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apllication\frmAlterarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\frmAlterarSenha.Designer.cs">
+      <DependentUpon>frmAlterarSenha.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apllication\frmEditarTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_bd_SistemDataSet3.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Apllication\frmAlterarSenha.resx">
+      <DependentUpon>frmAlterarSenha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\frmEditarTransferencia.resx">
       <DependentUpon>frmEditarTransferencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -483,6 +492,7 @@
     <None Include="Resources\inventory %281%29.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\management.png" />
+    <None Include="Resources\padlock.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

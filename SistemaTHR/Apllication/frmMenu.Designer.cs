@@ -35,10 +35,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarSenhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.módulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.gerenciarLoginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.módulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empilhadeirasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trocaGasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empilhadeira1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +57,8 @@
             this.solicitarManutençãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençõesEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painelManutençõesmEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -109,9 +109,19 @@
             // 
             // alterarSenhaToolStripMenuItem
             // 
+            this.alterarSenhaToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.padlock;
             this.alterarSenhaToolStripMenuItem.Name = "alterarSenhaToolStripMenuItem";
-            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarSenhaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.alterarSenhaToolStripMenuItem.Text = "Alterar Senha";
+            this.alterarSenhaToolStripMenuItem.Click += new System.EventHandler(this.alterarSenhaToolStripMenuItem_Click);
+            // 
+            // gerenciarLoginsToolStripMenuItem
+            // 
+            this.gerenciarLoginsToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.management;
+            this.gerenciarLoginsToolStripMenuItem.Name = "gerenciarLoginsToolStripMenuItem";
+            this.gerenciarLoginsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.gerenciarLoginsToolStripMenuItem.Text = "Gerenciar Logins";
+            this.gerenciarLoginsToolStripMenuItem.Click += new System.EventHandler(this.gerenciarLoginsToolStripMenuItem_Click);
             // 
             // módulosToolStripMenuItem
             // 
@@ -124,31 +134,6 @@
             this.módulosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.módulosToolStripMenuItem.Text = "Módulos";
             this.módulosToolStripMenuItem.Click += new System.EventHandler(this.módulosToolStripMenuItem_Click);
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(107, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // gerenciarLoginsToolStripMenuItem
-            // 
-            this.gerenciarLoginsToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.management;
-            this.gerenciarLoginsToolStripMenuItem.Name = "gerenciarLoginsToolStripMenuItem";
-            this.gerenciarLoginsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gerenciarLoginsToolStripMenuItem.Text = "Gerenciar Logins";
-            this.gerenciarLoginsToolStripMenuItem.Click += new System.EventHandler(this.gerenciarLoginsToolStripMenuItem_Click);
             // 
             // empilhadeirasToolStripMenuItem
             // 
@@ -176,35 +161,35 @@
             // empilhadeira1ToolStripMenuItem
             // 
             this.empilhadeira1ToolStripMenuItem.Name = "empilhadeira1ToolStripMenuItem";
-            this.empilhadeira1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeira1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.empilhadeira1ToolStripMenuItem.Text = "Empilhadeira 1";
             this.empilhadeira1ToolStripMenuItem.Click += new System.EventHandler(this.empilhadeira1ToolStripMenuItem_Click);
             // 
             // empilhadeira2ToolStripMenuItem
             // 
             this.empilhadeira2ToolStripMenuItem.Name = "empilhadeira2ToolStripMenuItem";
-            this.empilhadeira2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeira2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.empilhadeira2ToolStripMenuItem.Text = "Empilhadeira 2";
             this.empilhadeira2ToolStripMenuItem.Click += new System.EventHandler(this.empilhadeira2ToolStripMenuItem_Click);
             // 
             // empilhadeira3ToolStripMenuItem
             // 
             this.empilhadeira3ToolStripMenuItem.Name = "empilhadeira3ToolStripMenuItem";
-            this.empilhadeira3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeira3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.empilhadeira3ToolStripMenuItem.Text = "Empilhadeira 3";
             this.empilhadeira3ToolStripMenuItem.Click += new System.EventHandler(this.empilhadeira3ToolStripMenuItem_Click);
             // 
             // empilhadeira3ToolStripMenuItem1
             // 
             this.empilhadeira3ToolStripMenuItem1.Name = "empilhadeira3ToolStripMenuItem1";
-            this.empilhadeira3ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeira3ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.empilhadeira3ToolStripMenuItem1.Text = "Empilhadeira 4";
             this.empilhadeira3ToolStripMenuItem1.Click += new System.EventHandler(this.empilhadeira3ToolStripMenuItem1_Click);
             // 
             // empilhadeira3ToolStripMenuItem2
             // 
             this.empilhadeira3ToolStripMenuItem2.Name = "empilhadeira3ToolStripMenuItem2";
-            this.empilhadeira3ToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeira3ToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.empilhadeira3ToolStripMenuItem2.Text = "Empilhadeira 5";
             this.empilhadeira3ToolStripMenuItem2.Click += new System.EventHandler(this.empilhadeira3ToolStripMenuItem2_Click);
             // 
@@ -310,6 +295,23 @@
             this.painelManutençõesmEmAbertoToolStripMenuItem.Text = "Painel/Manutençõesm em Aberto";
             this.painelManutençõesmEmAbertoToolStripMenuItem.Click += new System.EventHandler(this.painelManutençõesmEmAbertoToolStripMenuItem_Click);
             // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(107, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,9 +362,9 @@
         public System.Windows.Forms.ToolStripMenuItem recebimentoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem expediçãoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem gerenciarLoginsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem solicitarManutençãoToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem manutençõesEmAbertoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem manutençãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem painelManutençõesmEmAbertoToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem solicitarManutençãoToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem manutençõesEmAbertoToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem painelManutençõesmEmAbertoToolStripMenuItem;
     }
 }

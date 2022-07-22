@@ -145,10 +145,7 @@ namespace SistemaTHR.Apllication
         private void gerenciarLoginsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmGerenciarLogin gerenciarLogin = new frmGerenciarLogin();
-            loginController login = new loginController();
-            login.loadUser();
-            this.dt = login.dt;
-            gerenciarLogin.dataGridView1.DataSource = this.dt;
+
             gerenciarLogin.Show();
         }
          
@@ -244,6 +241,12 @@ namespace SistemaTHR.Apllication
         private void módulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void alterarSenhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAlterarSenha alterarSenha = new frmAlterarSenha(lblUsuario.Text);
+            alterarSenha.ShowDialog();
         }
     }
 }

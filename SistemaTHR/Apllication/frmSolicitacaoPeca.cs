@@ -47,6 +47,7 @@ namespace SistemaTHR.Apllication
 
             }
             dataGridView1.ClearSelection();
+            clearall();
             
         }
 
@@ -171,9 +172,11 @@ namespace SistemaTHR.Apllication
             {
                 MessageBox.Show(controller.msg);
             }
-            clearall();
+            loadDataGridView1();
 
         }
+
+
         DateTime datahora;
         String numeroStatus;
         private void btnGravar_Click(object sender, EventArgs e)
@@ -197,7 +200,7 @@ namespace SistemaTHR.Apllication
 
                         if(controller.msg != null)
                         {
-                            MessageBox.Show(controller.msg);
+                            MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -239,7 +242,7 @@ namespace SistemaTHR.Apllication
                                 controller.UpdateStaOS(numeroOS);
                                 if(controller.msg != null)
                                 {
-                                    MessageBox.Show(controller.msg);
+                                    MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " +controller.msg,"THR SISTEMAS",MessageBoxButtons.OK,MessageBoxIcon.Error);
                                 }
 
                             }
@@ -257,6 +260,10 @@ namespace SistemaTHR.Apllication
 
                         controller.statusOP = "Peças Autorizadas";
                         controller.UpdateStaOS(numeroOS);
+                        if(controller.msg != null)
+                        {
+                            MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
 
                     }
 
@@ -266,7 +273,23 @@ namespace SistemaTHR.Apllication
             }
             else
             {
-                MessageBox.Show("Nenhuma peça solicitada");
+                MessageBox.Show("Nenhuma peça solicitada","THR SISTEMAS", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+
+                Modelo.OSTHRController controller = new Modelo.OSTHRController();
+
+                controller.dataHoraAlteracao = Convert.ToString(datahora);
+                controller.usuarioAlteracao = usuario;
+
+
+                controller.statusOP = "Peças Autorizadas";
+                controller.UpdateStaOS(numeroOS);
+
+                if(controller.msg != null)
+                {
+                    MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                this.Close();
             }
         }
 

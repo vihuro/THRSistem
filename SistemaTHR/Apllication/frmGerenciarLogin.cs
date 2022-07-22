@@ -12,6 +12,8 @@ namespace SistemaTHR.Apllication
 {
     public partial class frmGerenciarLogin : Form
     {
+        public DataTable dt = new DataTable();
+
         public frmGerenciarLogin()
         {
             InitializeComponent();
@@ -27,8 +29,20 @@ namespace SistemaTHR.Apllication
 
         }
 
+        private void loadDataGridView()
+        {
+            loginController controller = new loginController();
+            controller.loadUser();
+            this.dt = controller.dt;
+            dataGridView1.DataSource = this.dt;
+        }
+
         private void frmGerenciarLogin_Load(object sender, EventArgs e)
         {
+
+            loadDataGridView();
+            clearAll();
+
 
         }
 
@@ -424,7 +438,7 @@ namespace SistemaTHR.Apllication
                     controller.insertMod();
 
                 }
-
+                loadDataGridView();
                 clearAll();
             }
             else
@@ -433,6 +447,41 @@ namespace SistemaTHR.Apllication
             }
 
 
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            loginController controller = new loginController();
+            controller.usuario = txtUsuario.Text;
+            controller.deleteUsuario();
+
+            if(controller.menssagem != null)
+            {
+                MessageBox.Show("Erro inespereado. Contate o administrador do sistema! " + controller.msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            controller = new loginController();
+            controller.usuario = txtUsuario.Text;
+            controller.deleteUsuarioModulos();
+
+            if(controller.menssagem != null)
+            {
+                MessageBox.Show("Erro inespereado. Contate o administrador do sistema! " + controller.msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            loadDataGridView();
+            clearAll();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtSenha.PasswordChar.ToString() == "•")
+            {
+                txtSenha.PasswordChar = '\0';
+            }
+            else
+            {
+                txtSenha.PasswordChar = '•';
+            }
         }
     }
 }

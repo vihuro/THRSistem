@@ -11,6 +11,7 @@ namespace SistemaTHR
     {
         public bool tem;
         public string menssagem;
+        public String msg;
         public String usuario;
         public String Empilhadeiras = "Não";
         public String EmpNivel = "0";
@@ -216,5 +217,58 @@ namespace SistemaTHR
         {
             insertModulos();
         }
+
+        private void alterarSenha()
+        {
+            DAO.LoginDao dao = new DAO.LoginDao();
+            dao.usuario = this.usuario;
+            dao.senha = this.senha;
+            dao.alterarS();
+            if(dao.menssagem != string.Empty)
+            {
+                this.menssagem = dao.menssagem;
+            }
+
+        }
+
+        public void alterarS()
+        {
+            alterarSenha();
+        }
+
+        private void deleteUsuer()
+        {
+            DAO.LoginDao dao = new DAO.LoginDao();
+            dao.usuario = this.usuario;
+            dao.deleteUsuario();
+            if(dao.menssagem != string.Empty)
+            {
+                this.msg = dao.msg;
+            }
+        }
+
+        public void deleteUsuario()
+        {
+            deleteUsuer();
+        }
+
+        private void deleteUsuerModulos()
+        {
+            DAO.LoginDao dao = new DAO.LoginDao();
+            dao.usuario = this.usuario;
+            dao.deleteUsuarioModulos();
+
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+        }
+
+        public void deleteUsuarioModulos()
+        {
+            deleteUsuerModulos();
+
+        }
     }
+
 }

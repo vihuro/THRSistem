@@ -193,7 +193,7 @@ namespace SistemaTHR.DAO
 
         private void selectOSPainel()
         {
-            cmd.CommandText = "Select * from tab_OSTHR where StatusOP <> 'OS/Finalizada' order by NOP asc";
+            cmd.CommandText = "Select * from tab_OSTHR where StatusOP <> 'OS/Finalizada' order by Prioridade asc";
             try
             {
                 cmd.Connection = con.conectar();

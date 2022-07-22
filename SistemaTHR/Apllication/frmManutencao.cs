@@ -187,7 +187,10 @@ namespace SistemaTHR.Apllication
                 {
                     Status = "OS/Finalizada";
                 }
-
+                if (dataGridView2.SelectedRows[0].Cells[2].Value.ToString() == "Geração")
+                {
+                    Status = "EM ABERTO (G 2)";
+                }
 
             }
 
@@ -207,7 +210,7 @@ namespace SistemaTHR.Apllication
             if (controller.msg != null)
             {
 
-                MessageBox.Show("OS sendo alterada por outro usuário. Tente novamente mais tarde", "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("OS sendo alterada por outro usuário. Tente novamente mais tarde. " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 clearAll();
             }
             else
@@ -454,7 +457,7 @@ namespace SistemaTHR.Apllication
         private void loadGridView1SelectOS(String numeroOs)
         {
 
-            this.numeroOS = numeroOs;
+
 
             loadGridView1();
 
@@ -462,7 +465,7 @@ namespace SistemaTHR.Apllication
             {
 
 
-                if (txtOrdemServico.Text == dataGridView1.Rows[dataGridView1.Rows[i].Index].Cells[0].Value.ToString())
+                if (numeroOs == dataGridView1.Rows[dataGridView1.Rows[i].Index].Cells[0].Value.ToString())
                 {
 
                     dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
@@ -600,6 +603,21 @@ namespace SistemaTHR.Apllication
 
                     dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Green;
                     dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.LightGreen;
+                }
+
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "Peças Autorizadas")
+                {
+
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Blue;
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.Yellow;
+
+                }
+
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "EM ABERTO (G 2)")
+                {
+
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.HotPink;
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.LightPink;
 
                 }
             }

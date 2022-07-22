@@ -98,7 +98,7 @@
             this.btnSenha.BackgroundImage = global::SistemaTHR.Properties.Resources.show;
             this.btnSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSenha.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnSenha.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSenha.Location = new System.Drawing.Point(160, 62);
             this.btnSenha.Name = "btnSenha";
             this.btnSenha.Size = new System.Drawing.Size(22, 21);
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(193, 156);
+            this.ClientSize = new System.Drawing.Size(193, 159);
             this.Controls.Add(this.btnSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -127,7 +127,6 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

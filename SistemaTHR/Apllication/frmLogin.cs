@@ -23,6 +23,7 @@ namespace SistemaTHR
         public frmLogin()
         {
             InitializeComponent();
+
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -45,10 +46,10 @@ namespace SistemaTHR
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+
+
             loginController loginController = new loginController();
             loginController.aceesar(txtNome.Text, txtSenha.Text);
-
-    
 
             if (loginController.tem)
             {
@@ -70,7 +71,7 @@ namespace SistemaTHR
 
                 frmMenu menu = new frmMenu(nomeUsuario);
 
- 
+
                 menu.lblUsuario.Text = Usuario;
                 menu.empilhadeirasToolStripMenuItem.Enabled = false;
                 menu.recebimentoToolStripMenuItem.Enabled = false;
@@ -98,16 +99,22 @@ namespace SistemaTHR
                 {
                     menu.manutençãoToolStripMenuItem.Enabled = true;
                 }
+                if(this.manutencaoNivel == "4")
+                {
+                    menu.solicitarManutençãoToolStripMenuItem1.Enabled = false;
+                    menu.manutençõesEmAbertoToolStripMenuItem.Enabled = false;
+                }
 
 
                 this.txtNome.Text = string.Empty;
                 this.txtSenha.Text = string.Empty;
-
+                this.UseWaitCursor = false;
                 menu.Show();
 
             }
             else
             {
+
                 MessageBox.Show("Usuário ou senha inválidos!","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
@@ -153,9 +160,6 @@ namespace SistemaTHR
             }
         }
 
-        private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
-        }
     }
 }

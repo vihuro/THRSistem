@@ -15,6 +15,7 @@ namespace SistemaTHR.DAO
         OleDbDataReader dr;
         Connection con = new Connection();
         public String menssagem = "";
+        public String msg;
         public String nomeUsuario;
         public String manutencao;
         public String manutencaoNivel;
@@ -406,6 +407,80 @@ namespace SistemaTHR.DAO
         {
             verificarUser();
         }
+
+        private void alterarSenha()
+        {
+            cmd.CommandText = "Update tbUsuario set senha = @senha where usuario = @usuario";
+            cmd.Parameters.AddWithValue("@senha", senha);
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                menssagem = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void alterarS()
+        {
+            alterarSenha();
+        }
+
+        private void deleteUsuer()
+        {
+            cmd.CommandText = "Delete from tbUsuario where usuario = @usuario";
+            cmd.Parameters.AddWithValue("@usuario",usuario);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void deleteUsuario()
+        {
+            deleteUsuer();
+        }
+
+        private void deleteUsuerModulos()
+        {
+            cmd.CommandText = "Delete from tabModulos where usuario = @usuario";
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void deleteUsuarioModulos()
+        {
+            deleteUsuerModulos();
+        }
+
 
     }
 }

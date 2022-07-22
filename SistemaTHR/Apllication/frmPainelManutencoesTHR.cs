@@ -113,7 +113,21 @@ namespace SistemaTHR.Apllication
                     dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.White;
 
                 }
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "Peças Autorizadas")
+                {
 
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Blue;
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Yellow;
+
+                }
+
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "EM ABERTO (G 2)")
+                {
+
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.HotPink;
+                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+
+                }
 
             }
         }
@@ -127,7 +141,7 @@ namespace SistemaTHR.Apllication
 
             lblSegundos.Text = num.ToString();
 
-            if (num == 60)
+            if (num == 150)
             {
 
                loadGridView1();
