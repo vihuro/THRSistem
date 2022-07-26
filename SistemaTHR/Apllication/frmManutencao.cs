@@ -44,7 +44,6 @@ namespace SistemaTHR.Apllication
 
             dataGridView1.DataSource = dt;
 
-            //loadStyleGridView1();
 
             for (var i = 0; i < dataGridView1.Rows.Count; i++)
             {
@@ -60,14 +59,6 @@ namespace SistemaTHR.Apllication
 
         }
 
-        private void loadStyleGridView1()
-        {
-
-           // dataGridView1.Columns["descricaoServico"].Visible = false;
-
-           // dataGridView1.Columns["DataHoraFinalizacao"].Visible = false;
-
-        }
 
 
         private void groupBox1_Enter(object sender, EventArgs e)

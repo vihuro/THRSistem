@@ -49,6 +49,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmImp";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Impressão";
             this.Load += new System.EventHandler(this.frmImp_Load);
             this.ResumeLayout(false);

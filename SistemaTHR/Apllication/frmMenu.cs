@@ -210,7 +210,7 @@ namespace SistemaTHR.Apllication
 
         private void paínesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPainelTransferencias frmPainelTransferencias = new frmPainelTransferencias();
+            frmPainelTransferencias frmPainelTransferencias = new frmPainelTransferencias(Usuario);
 
             loginController loginController = new loginController();
 
@@ -247,6 +247,13 @@ namespace SistemaTHR.Apllication
         {
             frmAlterarSenha alterarSenha = new frmAlterarSenha(lblUsuario.Text);
             alterarSenha.ShowDialog();
+        }
+
+        private void gerenciarLocaisDeManutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmGerenciarLocaisManu manutencao = new frmGerenciarLocaisManu(Usuario);
+            manutencao.lblUsuario.Text = this.lblUsuario.Text;
+            manutencao.Show();
         }
     }
 }

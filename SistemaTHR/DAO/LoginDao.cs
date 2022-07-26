@@ -21,7 +21,7 @@ namespace SistemaTHR.DAO
         public String manutencaoNivel;
         public String senha;
 
-        public bool verificar(String usuario, String senha)
+        public void verificar()
         {
             cmd.CommandText = "Select * from tbUsuario where Usuario = @usuario and senha = @senha";
             cmd.Parameters.AddWithValue("@usuario", usuario);
@@ -34,6 +34,12 @@ namespace SistemaTHR.DAO
                 if (dr.HasRows)
                 {
                     tem = true;
+                    while (dr.Read())
+                    {
+
+                        nomeUsuario = dr["nome"].ToString();
+                    }
+
                 }
 
             }
@@ -45,7 +51,7 @@ namespace SistemaTHR.DAO
             {
                 con.desconectar();
             }
-            return tem;
+
         }
 
         public String usuario;

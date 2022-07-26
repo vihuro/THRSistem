@@ -330,6 +330,7 @@
             // 
             // cboManutencao
             // 
+            this.cboManutencao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboManutencao.FormattingEnabled = true;
             this.cboManutencao.Items.AddRange(new object[] {
             "1",
@@ -380,6 +381,7 @@
             // 
             // cboAdm
             // 
+            this.cboAdm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAdm.FormattingEnabled = true;
             this.cboAdm.Items.AddRange(new object[] {
             "1",
@@ -428,6 +430,7 @@
             // 
             // cboExp
             // 
+            this.cboExp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboExp.FormattingEnabled = true;
             this.cboExp.Items.AddRange(new object[] {
             "1",
@@ -477,6 +480,7 @@
             // 
             // cboReceb
             // 
+            this.cboReceb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboReceb.FormattingEnabled = true;
             this.cboReceb.Items.AddRange(new object[] {
             "1",
@@ -542,6 +546,7 @@
             // 
             // cboEmp
             // 
+            this.cboEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmp.FormattingEnabled = true;
             this.cboEmp.Items.AddRange(new object[] {
             "1",

@@ -220,6 +220,7 @@
             this.txtNumeroPA.Name = "txtNumeroPA";
             this.txtNumeroPA.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroPA.TabIndex = 4;
+            this.txtNumeroPA.TextChanged += new System.EventHandler(this.txtNumeroPA_TextChanged);
             this.txtNumeroPA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumeroPA_KeyUp_1);
             // 
             // groupBox1

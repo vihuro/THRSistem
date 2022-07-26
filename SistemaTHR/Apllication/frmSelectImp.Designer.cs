@@ -36,6 +36,7 @@
             // 
             // cboSelect
             // 
+            this.cboSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSelect.FormattingEnabled = true;
             this.cboSelect.Items.AddRange(new object[] {
             "Movimentação",
@@ -82,9 +83,12 @@
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.cboSelect);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSelectImp";
-            this.Text = "frmSelectImp";
-
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Impressão";
             this.ResumeLayout(false);
 
         }

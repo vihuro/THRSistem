@@ -41,8 +41,8 @@
             this.cboAondeSera = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtDataIdeal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +99,7 @@
             this.cboTipoServico.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboTipoServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoServico.FormattingEnabled = true;
             this.cboTipoServico.Items.AddRange(new object[] {
             "Elétrico",
@@ -156,45 +157,9 @@
             this.cboAondeSera.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboAondeSera.BackColor = System.Drawing.Color.White;
+            this.cboAondeSera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAondeSera.FormattingEnabled = true;
-            this.cboAondeSera.Items.AddRange(new object[] {
-            "EXT-PP 01",
-            "EXT-PP 02",
-            "EXT-PP 03",
-            "EXT-PP 04",
-            "EXT-PP 05",
-            "EXT-FITILHO ",
-            "EXT-PET 12",
-            "EXT-PET 13",
-            "EXT-PET 14",
-            "EXT-RECUP. 06",
-            "EXT-BALÂO MONO",
-            "EXT-BALÂO COEX",
-            "EXT-PLANA",
-            "REBOB. 12",
-            "REBOB. 13",
-            "REBOB. 14",
-            "REBOB. 15",
-            "REBOB. 16",
-            "REBOB. 17",
-            "REBOB. 18",
-            "REBOB. 19",
-            "REBOB. 20",
-            "REBOB. 21",
-            "REBOB. 22",
-            "REBOB. 23",
-            "CORTE. 01",
-            "CORTE. 02",
-            "CORTE. 03",
-            "CORTE. 04",
-            "MOINHO",
-            "CQ",
-            "PCP",
-            "EXPEDIÇÂO",
-            "ESTOQUE",
-            "ADMINISTRATIVO",
-            "REFEITORIO",
-            "AREA EXTERNA"});
             this.cboAondeSera.Location = new System.Drawing.Point(19, 30);
             this.cboAondeSera.Name = "cboAondeSera";
             this.cboAondeSera.Size = new System.Drawing.Size(121, 21);
@@ -226,17 +191,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtDataIdeal
-            // 
-            this.txtDataIdeal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDataIdeal.Location = new System.Drawing.Point(19, 155);
-            this.txtDataIdeal.Name = "txtDataIdeal";
-            this.txtDataIdeal.Size = new System.Drawing.Size(100, 20);
-            this.txtDataIdeal.TabIndex = 2;
-            this.txtDataIdeal.TextChanged += new System.EventHandler(this.txtDataIdeal_TextChanged);
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -250,13 +204,23 @@
             this.label4.Text = "Data ideal para realização do serviço:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "00/00/0000";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(19, 164);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
+            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // frmSolicitarManutencaoTHR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 446);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtDataIdeal);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.cboAondeSera);
@@ -296,7 +260,7 @@
         private System.Windows.Forms.ComboBox cboAondeSera;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtDataIdeal;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

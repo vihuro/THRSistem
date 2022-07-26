@@ -57,6 +57,10 @@
             this.solicitarManutençãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.manutençõesEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painelManutençõesmEmAbertoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerencialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manutençãoTHRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciarLocaisDeManutençãoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciarPrioridadeDeManutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
@@ -91,6 +95,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivosToolStripMenuItem,
             this.módulosToolStripMenuItem,
+            this.gerencialToolStripMenuItem,
             this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -143,7 +148,7 @@
             this.painéisToolStripMenuItem});
             this.empilhadeirasToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.lift_truck__1_;
             this.empilhadeirasToolStripMenuItem.Name = "empilhadeirasToolStripMenuItem";
-            this.empilhadeirasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empilhadeirasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.empilhadeirasToolStripMenuItem.Text = "Empilhadeiras";
             // 
             // trocaGasToolStripMenuItem
@@ -234,7 +239,7 @@
             // 
             this.recebimentoToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.inventory;
             this.recebimentoToolStripMenuItem.Name = "recebimentoToolStripMenuItem";
-            this.recebimentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recebimentoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.recebimentoToolStripMenuItem.Text = "Recebimento";
             // 
             // expediçãoToolStripMenuItem
@@ -244,7 +249,7 @@
             this.paínesToolStripMenuItem});
             this.expediçãoToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.expedition;
             this.expediçãoToolStripMenuItem.Name = "expediçãoToolStripMenuItem";
-            this.expediçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.expediçãoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.expediçãoToolStripMenuItem.Text = "Expedição";
             this.expediçãoToolStripMenuItem.Click += new System.EventHandler(this.expediçãoToolStripMenuItem_Click);
             // 
@@ -270,7 +275,7 @@
             this.painelManutençõesmEmAbertoToolStripMenuItem});
             this.manutençãoToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.settings;
             this.manutençãoToolStripMenuItem.Name = "manutençãoToolStripMenuItem";
-            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manutençãoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.manutençãoToolStripMenuItem.Text = "Manutenção";
             this.manutençãoToolStripMenuItem.Click += new System.EventHandler(this.manutençãoToolStripMenuItem_Click);
             // 
@@ -294,6 +299,37 @@
             this.painelManutençõesmEmAbertoToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.painelManutençõesmEmAbertoToolStripMenuItem.Text = "Painel/Manutençõesm em Aberto";
             this.painelManutençõesmEmAbertoToolStripMenuItem.Click += new System.EventHandler(this.painelManutençõesmEmAbertoToolStripMenuItem_Click);
+            // 
+            // gerencialToolStripMenuItem
+            // 
+            this.gerencialToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manutençãoTHRToolStripMenuItem});
+            this.gerencialToolStripMenuItem.Name = "gerencialToolStripMenuItem";
+            this.gerencialToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.gerencialToolStripMenuItem.Text = "Gerencial";
+            // 
+            // manutençãoTHRToolStripMenuItem
+            // 
+            this.manutençãoTHRToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gerenciarLocaisDeManutençãoToolStripMenuItem1,
+            this.gerenciarPrioridadeDeManutençãoToolStripMenuItem});
+            this.manutençãoTHRToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.settings;
+            this.manutençãoTHRToolStripMenuItem.Name = "manutençãoTHRToolStripMenuItem";
+            this.manutençãoTHRToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manutençãoTHRToolStripMenuItem.Text = "Manutenção THR";
+            // 
+            // gerenciarLocaisDeManutençãoToolStripMenuItem1
+            // 
+            this.gerenciarLocaisDeManutençãoToolStripMenuItem1.Name = "gerenciarLocaisDeManutençãoToolStripMenuItem1";
+            this.gerenciarLocaisDeManutençãoToolStripMenuItem1.Size = new System.Drawing.Size(267, 22);
+            this.gerenciarLocaisDeManutençãoToolStripMenuItem1.Text = "Gerenciar Locais de Manutenção";
+            this.gerenciarLocaisDeManutençãoToolStripMenuItem1.Click += new System.EventHandler(this.gerenciarLocaisDeManutençãoToolStripMenuItem1_Click);
+            // 
+            // gerenciarPrioridadeDeManutençãoToolStripMenuItem
+            // 
+            this.gerenciarPrioridadeDeManutençãoToolStripMenuItem.Name = "gerenciarPrioridadeDeManutençãoToolStripMenuItem";
+            this.gerenciarPrioridadeDeManutençãoToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.gerenciarPrioridadeDeManutençãoToolStripMenuItem.Text = "Gerenciar Prioridade de Manutenção";
             // 
             // ajudaToolStripMenuItem
             // 
@@ -366,5 +402,9 @@
         public System.Windows.Forms.ToolStripMenuItem solicitarManutençãoToolStripMenuItem1;
         public System.Windows.Forms.ToolStripMenuItem manutençõesEmAbertoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem painelManutençõesmEmAbertoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciarPrioridadeDeManutençãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciarLocaisDeManutençãoToolStripMenuItem1;
+        public System.Windows.Forms.ToolStripMenuItem gerencialToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem manutençãoTHRToolStripMenuItem;
     }
 }

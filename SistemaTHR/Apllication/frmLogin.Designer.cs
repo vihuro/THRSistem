@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSenha = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblVersao = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNome
@@ -106,11 +108,33 @@
             this.btnSenha.UseVisualStyleBackColor = false;
             this.btnSenha.Click += new System.EventHandler(this.btnSenha_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "SITEMA THR";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lblVersao
+            // 
+            this.lblVersao.AutoSize = true;
+            this.lblVersao.Location = new System.Drawing.Point(117, 158);
+            this.lblVersao.Name = "lblVersao";
+            this.lblVersao.Size = new System.Drawing.Size(37, 13);
+            this.lblVersao.TabIndex = 8;
+            this.lblVersao.Text = "(1.0.0)";
+            this.lblVersao.Click += new System.EventHandler(this.lblVersao_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(193, 159);
+            this.ClientSize = new System.Drawing.Size(193, 180);
+            this.Controls.Add(this.lblVersao);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -140,6 +164,8 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnSenha;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblVersao;
     }
 }
 

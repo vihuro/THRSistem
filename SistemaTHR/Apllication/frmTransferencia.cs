@@ -564,5 +564,10 @@ namespace SistemaTHR.Apllication
         {
 
         }
+
+        private void txtNumeroPA_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

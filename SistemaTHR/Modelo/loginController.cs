@@ -26,16 +26,25 @@ namespace SistemaTHR
         public String manutencaoNivel;
         public String senha;
 
-        public bool aceesar(String nome, String senha)
+        private void aceesar()
         {
             DAO.LoginDao loginDao = new DAO.LoginDao();
-            tem = loginDao.verificar(nome, senha);
+            loginDao.usuario = this.usuario;
+            loginDao.senha = this.senha;
+            loginDao.verificar();
+            this.tem = loginDao.tem;
+            this.nomeUsuario = loginDao.nomeUsuario;
 
             if (!loginDao.menssagem.Equals(""))
             {
                 this.menssagem = loginDao.menssagem;
             }
-            return tem;
+            
+        }
+
+        public void verificarUsuarioSenha()
+        {
+            aceesar();
         }
 
         private void verificarNivel()

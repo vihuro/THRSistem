@@ -19,18 +19,38 @@ namespace SistemaTHR.Apllication
             InitializeComponent();
             this.usuario = usuario;
         }
+       
+        String dataServico;
+        DateTime data;
+        private void verificarData()
+        {
 
+
+            if (dateTimePicker1.Format == DateTimePickerFormat.Custom)
+            {
+                dataServico = "00/00/0000";
+            }
+            else
+            {
+                dateTimePicker1.Value = dateTimePicker1.Value.Date;
+
+                data = Convert.ToDateTime(dateTimePicker1.Value.ToString());
+
+                dataServico = data.ToString("dd/MM/yyyy");
+
+            }
+        }
 
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if(cboAondeSera.Text != string.Empty && cboTipoServico.Text != string.Empty && txtDescricao.Text != string.Empty)
             {
-                DateTime dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:00"));
-
+                DateTime dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                verificarData();
 
                 Modelo.OSTHRController oSTHRController = new Modelo.OSTHRController();
-                oSTHRController.insertOrdemServico(txtDescricao.Text, cboTipoServico.Text, Convert.ToString(dataHora), usuario,cboAondeSera.Text,txtDataIdeal.Text , "EM ABERTO");
+                oSTHRController.insertOrdemServico(txtDescricao.Text, cboTipoServico.Text, Convert.ToString(dataHora), usuario,cboAondeSera.Text, dataServico, "EM ABERTO");
 
                 if(oSTHRController.msg != null)
                 {
@@ -105,7 +125,18 @@ namespace SistemaTHR.Apllication
 
         private void frmSolicitarManutencaoTHR_Load(object sender, EventArgs e)
         {
+            Modelo.aseController controller = new Modelo.aseController();
+            controller.ASE();
+            foreach(var item in controller.ase)
+            {
+                cboAondeSera.Items.Add(item);
+            }
 
+            if(controller.msg != null)
+            {
+                MessageBox.Show(controller.msg);
+            }
+           
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
@@ -147,6 +178,18 @@ namespace SistemaTHR.Apllication
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if(dateTimePicker1.Value >= DateTime.Today)
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Short;
+            }
+            else
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            }
         }
     }
 }

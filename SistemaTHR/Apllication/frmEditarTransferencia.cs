@@ -13,7 +13,7 @@ namespace SistemaTHR.Apllication
     public partial class frmEditarTransferencia : Form
     {
         private String numeroTransferencia;
-        private String usuarioMovimentacao;
+        private String usuario;
         private String idFechamento;
         private String numeroPa;
         private String codigo;
@@ -23,45 +23,20 @@ namespace SistemaTHR.Apllication
         private String qtBobinas;
         private DataTable dt;
         Modelo.transferenciaController transferenciaController = new Modelo.transferenciaController();
+        Modelo.loadPaController loadPaController = new Modelo.loadPaController();
 
-        public frmEditarTransferencia(String numeroTransferencia, string usuarioMovimentacao)
+        public frmEditarTransferencia(String numeroTransferencia, string usuario)
         {
             InitializeComponent();
             this.numeroTransferencia = numeroTransferencia;
-            this.usuarioMovimentacao = usuarioMovimentacao;
+            this.usuario = usuario;
         }
 
         private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        public void loadStyleGridView1()
-        {
-
-            dataGridView1.Columns["id"].HeaderText = "Nº/Movimentação";
-            dataGridView1.Columns["numeroPA"].HeaderText = "Nº P.A";
-            dataGridView1.Columns["codigo"].HeaderText = "Código";
-            dataGridView1.Columns["descricao"].HeaderText = "Descrição";
-            dataGridView1.Columns["pesoBruto"].HeaderText = "Peso Bruto";
-            dataGridView1.Columns["pesoLiquido"].HeaderText = "Peso Liquido";
-            dataGridView1.Columns["Bobinas"].HeaderText = "Qt: Bobinas";
-            dataGridView1.Columns["idTransferencia"].HeaderText = "Nº/Transfenrecia";
-            dataGridView1.Columns["usuarioTransferencia"].HeaderText = "Usuário/Transferencia";
-  ;
-
-
-        }
-        public void loadStyleGridView2()
-        {
-            dataGridView2.Columns["id"].HeaderText = "Nº/Fechamento";
-            dataGridView2.Columns["codigo"].HeaderText = "Código";
-            dataGridView2.Columns["descricao"].HeaderText = "Descrição";
-            dataGridView2.Columns["pesoBruto"].HeaderText = "Peso Bruto";
-            dataGridView2.Columns["pesoLiquido"].HeaderText = "Peso Liquido";
-            dataGridView2.Columns["QTBobinas"].HeaderText = "Qt: Bobinas";
-            dataGridView2.Columns["idTransferencia"].HeaderText = "Nº/Transfenrecia";
-
-        }
+ 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -180,10 +155,19 @@ namespace SistemaTHR.Apllication
         }
 
 
-        private void btnConectar_Click(object sender, EventArgs e)
+        private void loadPA()
         {
-            Modelo.loadPaController loadPaController = new Modelo.loadPaController();
-            loadPaController.selectPA(txtNumeroPA.Text);
+            loadPaController = new Modelo.loadPaController();
+
+            if(rdbProdução.Checked == true)
+            {
+                loadPaController.selectPA(txtNumeroPA.Text);
+            }
+            if(rdbExpedicao.Checked == true)
+            {
+                loadPaController.selectExp(txtNumeroPA.Text);
+            }
+
 
             if (loadPaController.codigo != null)
             {
@@ -193,72 +177,88 @@ namespace SistemaTHR.Apllication
                 this.pesoBruto = loadPaController.pesoBruto.ToString("###,###.#0");
                 this.pesoLiquido = loadPaController.pesoLiquido.ToString("###,###.#0");
                 this.qtBobinas = loadPaController.qtBobinas.ToString();
+            }
 
-                if(dataGridView2.Rows.Count > 0)
+        }
+
+
+        private void carregar()
+        {
+            if (dataGridView2.Rows.Count > 0)
+            {
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
                 {
-                    for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                    if (dataGridView2.Rows[i].Cells[1].Value.ToString() == codigo)
                     {
-                        if (dataGridView2.Rows[i].Cells[1].Value.ToString() == codigo)
-                        {
-                            this.i = i;
-                            somar();
+                        this.i = i;
+                        somar();
 
 
-                            dataGridView2.Rows[i].Cells[3].Value = pesoBrutoResultado.ToString("###,###.#0");
-                            dataGridView2.Rows[i].Cells[4].Value = pesoLiquidoResultado.ToString("###,###.#0");
-                            dataGridView2.Rows[i].Cells[5].Value = qtBobinasResultado.ToString("###,###");
+                        dataGridView2.Rows[i].Cells[3].Value = pesoBrutoResultado.ToString("###,###.#0");
+                        dataGridView2.Rows[i].Cells[4].Value = pesoLiquidoResultado.ToString("###,###.#0");
+                        dataGridView2.Rows[i].Cells[5].Value = qtBobinasResultado.ToString("###,###");
 
-                            transferenciaController.numeroFech = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                            transferenciaController.pesoBruto = pesoBrutoResultado.ToString("###,###.#0");
-                            transferenciaController.pesoLiquido = pesoLiquidoResultado.ToString("###,###.#0");
-                            transferenciaController.bobinas = qtBobinasResultado.ToString("###,###");
-                            transferenciaController.updateFech();
- 
+                        transferenciaController.numeroFech = dataGridView2.Rows[i].Cells[0].Value.ToString();
+                        transferenciaController.pesoBruto = pesoBrutoResultado.ToString("###,###.#0");
+                        transferenciaController.pesoLiquido = pesoLiquidoResultado.ToString("###,###.#0");
+                        transferenciaController.bobinas = qtBobinasResultado.ToString("###,###");
+                        transferenciaController.updateFech();
 
-                            break;
-                        }
-                        if (i == dataGridView2.Rows.Count - 1)
-                        {
-                            transferenciaController.codigo = this.codigo;
-                            transferenciaController.descricao = this.descricao;
-                            transferenciaController.pesoBruto = this.pesoBruto;
-                            transferenciaController.pesoLiquido = this.pesoLiquido;
-                            transferenciaController.bobinas = this.qtBobinas;
 
-                            transferenciaController.InsertFechamento();
-
-                        }
+                        break;
                     }
+                    if (i == dataGridView2.Rows.Count - 1)
+                    {
+                        transferenciaController.codigo = this.codigo;
+                        transferenciaController.descricao = this.descricao;
+                        transferenciaController.pesoBruto = this.pesoBruto;
+                        transferenciaController.pesoLiquido = this.pesoLiquido;
+                        transferenciaController.bobinas = this.qtBobinas;
+                        transferenciaController.idTransferencia = this.numeroTransferencia;
 
+                        transferenciaController.InsertFechamento();
+
+                    }
                 }
-                else
-                {
-                    transferenciaController.codigo = this.codigo;
-                    transferenciaController.descricao = this.descricao;
-                    transferenciaController.pesoBruto = this.pesoBruto;
-                    transferenciaController.pesoLiquido = this.pesoLiquido;
-                    transferenciaController.bobinas = this.qtBobinas;
-                    transferenciaController.idTransferencia = this.numeroTransferencia;
-
-                    transferenciaController.InsertFechamento();
-
-                }
-
-                transferenciaController.insertMov(numeroPa, codigo, descricao, pesoBruto, pesoLiquido, qtBobinas, numeroTransferencia, "vitor");
-
-                loadGridView2();
-                //loadStyleGridView2();
-                loadGridView1();
-                loadStyleGridView1();
-
 
             }
             else
             {
-                MessageBox.Show("P.A não encontrada. Tente alterar o local de estocagem.");
+                transferenciaController.codigo = this.codigo;
+                transferenciaController.descricao = this.descricao;
+                transferenciaController.pesoBruto = this.pesoBruto;
+                transferenciaController.pesoLiquido = this.pesoLiquido;
+                transferenciaController.bobinas = this.qtBobinas;
+                transferenciaController.idTransferencia = this.numeroTransferencia;
+
+                transferenciaController.InsertFechamento();
+
+            }
+
+            transferenciaController.insertMov(numeroPa, codigo, descricao, pesoBruto, pesoLiquido, qtBobinas, numeroTransferencia, usuario);
+
+            loadGridView1();
+
+            LoadGridSelectCodigo(codigo);
+            txtNumeroPA.Text = string.Empty;
+        }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            loadPA();
+
+            if(loadPaController.codigo != null)
+            {
+                carregar();
+            }
+            else
+            {
+                MessageBox.Show("P.A não encontrada. Tente alterar o local de estocagem!","SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
         }
+
+
 
         private void loadGridView1()
         {
@@ -267,8 +267,19 @@ namespace SistemaTHR.Apllication
             this.dt = transferenciaController.dt;
 
             dataGridView1.DataSource = dt;
-            dataGridView1.DataMember = dt.TableName;
+            
+            for (var i = 0; i < dataGridView1.Rows.Count; i++)
+            {
 
+                if (i == dataGridView1.Rows.Count - 1)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+
+                    break;
+                }
+
+            }
+            dataGridView1.ClearSelection();
         }
 
         private void loadGridView2()
@@ -278,18 +289,65 @@ namespace SistemaTHR.Apllication
             this.dt = controller.dt;
 
             dataGridView2.DataSource = dt;
-            dataGridView2.DataMember = dt.TableName;
+
+            for (var i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+
+                if (i == dataGridView2.Rows.Count -1)
+                {
+                    dataGridView2.CurrentCell = dataGridView2.Rows[i].Cells[1];
+
+                    break;
+                }
+
+            }
+            dataGridView2.ClearSelection();
         }
 
-        private void txtNumeroPA_TextChanged(object sender, EventArgs e)
+        private void LoadGridSelectCodigo(String codigo)
         {
+            Modelo.transferenciaController controller = new Modelo.transferenciaController();
+            controller.selectFech(numeroTransferencia);
+            this.dt = controller.dt;
+
+            dataGridView2.DataSource = dt;
+
+            for (var i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+
+                if (dataGridView2.Rows[i].Cells[1].Value.ToString() == codigo)
+                {
+                    dataGridView2.CurrentCell = dataGridView2.Rows[i].Cells[1];
+
+                    break;
+                }
+
+            }
 
         }
+
 
         private void frmEditarTransferencia_Load(object sender, EventArgs e)
         {
             loadGridView1();
             loadGridView2();
+        }
+
+        private void txtNumeroPA_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                loadPA();
+
+                if (loadPaController.codigo != null)
+                {
+                    carregar();
+                }
+                else
+                {
+                    MessageBox.Show("P.A não encontrada. Tente alterar o local de estocagem!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }
