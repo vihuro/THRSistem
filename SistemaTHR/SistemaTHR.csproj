@@ -121,173 +121,181 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apllication\frmAlterarSenha.cs">
+    <Compile Include="Apllication\Login\frmAlterarSenha.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmAlterarSenha.Designer.cs">
+    <Compile Include="Apllication\Login\frmAlterarSenha.Designer.cs">
       <DependentUpon>frmAlterarSenha.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmEditarTransferencia.cs">
+    <Compile Include="Apllication\Transferencia\frmEditarTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmEditarTransferencia.Designer.cs">
+    <Compile Include="Apllication\Transferencia\frmEditarTransferencia.Designer.cs">
       <DependentUpon>frmEditarTransferencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmFiltroManutencoes.cs">
+    <Compile Include="Apllication\Manutencao\frmFiltroManutencoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmFiltroManutencoes.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmFiltroManutencoes.Designer.cs">
       <DependentUpon>frmFiltroManutencoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmGerenciarLocaisManu.cs">
+    <Compile Include="Apllication\Manutencao\frmGeracaoOS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmGerenciarLocaisManu.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmGeracaoOS.Designer.cs">
+      <DependentUpon>frmGeracaoOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmGerenciarLocaisManu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmGerenciarLocaisManu.Designer.cs">
       <DependentUpon>frmGerenciarLocaisManu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmGerenciarLogin.cs">
+    <Compile Include="Apllication\Login\frmGerenciarLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmGerenciarLogin.Designer.cs">
+    <Compile Include="Apllication\Login\frmGerenciarLogin.Designer.cs">
       <DependentUpon>frmGerenciarLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmImp.cs">
+    <Compile Include="Apllication\Manutencao\frmImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmImp.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmImp.Designer.cs">
       <DependentUpon>frmImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmImpMovimento.cs">
+    <Compile Include="Apllication\Transferencia\frmImpMovimento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmImpMovimento.Designer.cs">
+    <Compile Include="Apllication\Transferencia\frmImpMovimento.Designer.cs">
       <DependentUpon>frmImpMovimento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmLogin.cs">
+    <Compile Include="Apllication\Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmLogin.Designer.cs">
+    <Compile Include="Apllication\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmManutencao.cs">
+    <Compile Include="Apllication\Manutencao\frmManutencao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmManutencao.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmManutencao.Designer.cs">
       <DependentUpon>frmManutencao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmMenu.cs">
+    <Compile Include="Apllication\Menu\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmMenu.Designer.cs">
+    <Compile Include="Apllication\Menu\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmObservacoes.cs">
+    <Compile Include="Apllication\Manutencao\frmObservacoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmObservacoes.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmObservacoes.Designer.cs">
       <DependentUpon>frmObservacoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmOrdemServico.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmOrdemServico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmOrdemServico.Designer.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmOrdemServico.Designer.cs">
       <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmOSTHR.cs">
+    <Compile Include="Apllication\Manutencao\frmOSTHR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmOSTHR.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmOSTHR.Designer.cs">
       <DependentUpon>frmOSTHR.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmPainelGas.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmPainelGas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmPainelGas.Designer.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmPainelGas.Designer.cs">
       <DependentUpon>frmPainelGas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmPainelManutencoesAberto.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmPainelManutencoesAberto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmPainelManutencoesAberto.Designer.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmPainelManutencoesAberto.Designer.cs">
       <DependentUpon>frmPainelManutencoesAberto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmPainelManutencoesTHR.cs">
+    <Compile Include="Apllication\Manutencao\frmPainelManutencoesTHR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmPainelManutencoesTHR.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmPainelManutencoesTHR.Designer.cs">
       <DependentUpon>frmPainelManutencoesTHR.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmPainelTransferencias.cs">
+    <Compile Include="Apllication\Transferencia\frmPainelTransferencias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmPainelTransferencias.Designer.cs">
+    <Compile Include="Apllication\Transferencia\frmPainelTransferencias.Designer.cs">
       <DependentUpon>frmPainelTransferencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmSelectImp.cs">
+    <Compile Include="Apllication\Transferencia\frmSelectImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmSelectImp.Designer.cs">
+    <Compile Include="Apllication\Transferencia\frmSelectImp.Designer.cs">
       <DependentUpon>frmSelectImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmSolicitacaoPeca.cs">
+    <Compile Include="Apllication\Manutencao\frmSolicitacaoPeca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmSolicitacaoPeca.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmSolicitacaoPeca.Designer.cs">
       <DependentUpon>frmSolicitacaoPeca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmSolicitarManutencao.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmSolicitarManutencao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmSolicitarManutencao.Designer.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmSolicitarManutencao.Designer.cs">
       <DependentUpon>frmSolicitarManutencao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmSolicitarManutencaoTHR.cs">
+    <Compile Include="Apllication\Manutencao\frmSolicitarManutencaoTHR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmSolicitarManutencaoTHR.Designer.cs">
+    <Compile Include="Apllication\Manutencao\frmSolicitarManutencaoTHR.Designer.cs">
       <DependentUpon>frmSolicitarManutencaoTHR.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmTeste.cs">
+    <Compile Include="Apllication\Transferencia\frmTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmTeste.Designer.cs">
-      <DependentUpon>frmTeste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Apllication\frmTransferencia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apllication\frmTransferencia.Designer.cs">
+    <Compile Include="Apllication\Transferencia\frmTransferencia.Designer.cs">
       <DependentUpon>frmTransferencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\frmTrocaGas.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmTrocaGas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\frmTrocaGas.Designer.cs">
+    <Compile Include="Apllication\Empilhadeiras\frmTrocaGas.Designer.cs">
       <DependentUpon>frmTrocaGas.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAO\aseDao.cs" />
-    <Compile Include="DAO\Connection.cs" />
-    <Compile Include="DAO\ConnectionBDEstoque.cs" />
-    <Compile Include="DAO\loadPADAO.cs" />
-    <Compile Include="DAO\loadTrocasDao.cs" />
-    <Compile Include="DAO\LoginDao.cs" />
-    <Compile Include="DAO\manutecaoEmpilhadeiraDao.cs" />
-    <Compile Include="DAO\OsTHRDAO.cs" />
-    <Compile Include="DAO\prioridadeManDAO.cs" />
-    <Compile Include="DAO\transferenciaDao.cs" />
-    <Compile Include="DAO\trocaGasDao.cs" />
-    <Compile Include="DAO\ultimaTrocaDao.cs" />
+    <Compile Include="DAO\Manutencao\apontamentoDAO.cs" />
+    <Compile Include="DAO\Manutencao\aseDao.cs" />
+    <Compile Include="DAO\Connection\Connection.cs" />
+    <Compile Include="DAO\Connection\ConnectionBDEstoque.cs" />
+    <Compile Include="DAO\Manutencao\geracaoOSTHRDAO.cs" />
+    <Compile Include="DAO\Manutencao\SolicitaCompraOSTHRDAO.cs" />
+    <Compile Include="DAO\Transferencia\loadPADAO.cs" />
+    <Compile Include="DAO\Empilhadeiras\loadTrocasDao.cs" />
+    <Compile Include="DAO\Login\LoginDao.cs" />
+    <Compile Include="DAO\Empilhadeiras\manutecaoEmpilhadeiraDao.cs" />
+    <Compile Include="DAO\Manutencao\OsTHRDAO.cs" />
+    <Compile Include="DAO\Manutencao\prioridadeManDAO.cs" />
+    <Compile Include="DAO\Manutencao\situacaoOSTHRDao.cs" />
+    <Compile Include="DAO\Transferencia\transferenciaDao.cs" />
+    <Compile Include="DAO\Empilhadeiras\trocaGasDao.cs" />
+    <Compile Include="DAO\Empilhadeiras\ultimaTrocaDao.cs" />
     <Compile Include="DAO\version.cs" />
     <Compile Include="impFechamento.cs" />
-    <Compile Include="Modelo\aseController.cs" />
-    <Compile Include="Modelo\loadPaController.cs" />
-    <Compile Include="Modelo\loadTrocaGasController.cs" />
-    <Compile Include="Modelo\loginController.cs" />
-    <Compile Include="Modelo\manutecaoEmpilhadeirasController.cs" />
-    <Compile Include="Modelo\OSTHRController.cs" />
-    <Compile Include="Modelo\transferenciaController.cs" />
-    <Compile Include="Modelo\trocaGasController.cs" />
-    <Compile Include="Modelo\ultimaTrocaController.cs" />
+    <Compile Include="Modelo\Manutencao\apontamentoController.cs" />
+    <Compile Include="Modelo\Manutencao\aseController.cs" />
+    <Compile Include="Modelo\Manutencao\geracaoOSTHRController.cs" />
+    <Compile Include="Modelo\Manutencao\SolicitacaoCompraOSTHRController.cs" />
+    <Compile Include="Modelo\Transferencia\loadPaController.cs" />
+    <Compile Include="Modelo\Empilhadeiras\loadTrocaGasController.cs" />
+    <Compile Include="Modelo\Login\loginController.cs" />
+    <Compile Include="Modelo\Empilhadeiras\manutecaoEmpilhadeirasController.cs" />
+    <Compile Include="Modelo\Manutencao\OSTHRController.cs" />
+    <Compile Include="Modelo\Manutencao\situacaoOSTHRController.cs" />
+    <Compile Include="Modelo\Transferencia\transferenciaController.cs" />
+    <Compile Include="Modelo\Empilhadeiras\trocaGasController.cs" />
+    <Compile Include="Modelo\Empilhadeiras\ultimaTrocaController.cs" />
     <Compile Include="Modelo\versionController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,76 +320,76 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_bd_SistemDataSet3.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Apllication\frmAlterarSenha.resx">
+    <EmbeddedResource Include="Apllication\Login\frmAlterarSenha.resx">
       <DependentUpon>frmAlterarSenha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmEditarTransferencia.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\frmEditarTransferencia.resx">
       <DependentUpon>frmEditarTransferencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmFiltroManutencoes.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmFiltroManutencoes.resx">
       <DependentUpon>frmFiltroManutencoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmGerenciarLocaisManu.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmGeracaoOS.resx">
+      <DependentUpon>frmGeracaoOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmGerenciarLocaisManu.resx">
       <DependentUpon>frmGerenciarLocaisManu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmGerenciarLogin.resx">
+    <EmbeddedResource Include="Apllication\Login\frmGerenciarLogin.resx">
       <DependentUpon>frmGerenciarLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmImp.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmImp.resx">
       <DependentUpon>frmImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmImpMovimento.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\frmImpMovimento.resx">
       <DependentUpon>frmImpMovimento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmLogin.resx">
+    <EmbeddedResource Include="Apllication\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmManutencao.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmManutencao.resx">
       <DependentUpon>frmManutencao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmMenu.resx">
+    <EmbeddedResource Include="Apllication\Menu\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmObservacoes.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmObservacoes.resx">
       <DependentUpon>frmObservacoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmOrdemServico.resx">
+    <EmbeddedResource Include="Apllication\Empilhadeiras\frmOrdemServico.resx">
       <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmOSTHR.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmOSTHR.resx">
       <DependentUpon>frmOSTHR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmPainelGas.resx">
+    <EmbeddedResource Include="Apllication\Empilhadeiras\frmPainelGas.resx">
       <DependentUpon>frmPainelGas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmPainelManutencoesAberto.resx">
+    <EmbeddedResource Include="Apllication\Empilhadeiras\frmPainelManutencoesAberto.resx">
       <DependentUpon>frmPainelManutencoesAberto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmPainelManutencoesTHR.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmPainelManutencoesTHR.resx">
       <DependentUpon>frmPainelManutencoesTHR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmPainelTransferencias.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\frmPainelTransferencias.resx">
       <DependentUpon>frmPainelTransferencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmSelectImp.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\frmSelectImp.resx">
       <DependentUpon>frmSelectImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmSolicitacaoPeca.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmSolicitacaoPeca.resx">
       <DependentUpon>frmSolicitacaoPeca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmSolicitarManutencao.resx">
+    <EmbeddedResource Include="Apllication\Empilhadeiras\frmSolicitarManutencao.resx">
       <DependentUpon>frmSolicitarManutencao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmSolicitarManutencaoTHR.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\frmSolicitarManutencaoTHR.resx">
       <DependentUpon>frmSolicitarManutencaoTHR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmTeste.resx">
-      <DependentUpon>frmTeste.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmTransferencia.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\frmTransferencia.resx">
       <DependentUpon>frmTransferencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\frmTrocaGas.resx">
+    <EmbeddedResource Include="Apllication\Empilhadeiras\frmTrocaGas.resx">
       <DependentUpon>frmTrocaGas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="impMovimentacao.rdlc" />
@@ -521,5 +529,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
