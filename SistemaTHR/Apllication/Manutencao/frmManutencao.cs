@@ -81,6 +81,10 @@ namespace SistemaTHR.Apllication
                 loadDataGridView2();
 
             }
+            if(manutencaoNivel == "1" || manutencaoNivel == "2")
+            {
+                btnCompra.Enabled = true;
+            }
 
         }
 
@@ -163,7 +167,7 @@ namespace SistemaTHR.Apllication
             {
                 Status = "Manutenção/NC";
             }
-            else if (dataGridView1.SelectedRows[0].Cells[10].Value.ToString() == "Solicitado/Compra" && manutencaoNivel == "3")
+            else if (dataGridView1.SelectedRows[0].Cells[10].Value.ToString() == "Solicitado/Compra")
             {
                 Status = "Solicitado/Compra";
             }
@@ -196,9 +200,16 @@ namespace SistemaTHR.Apllication
                 {
                     Status = "Manutenção/NC";
                 }
+                if (dataGridView2.SelectedRows[0].Cells[2].Value.ToString() == "Compra de Peça ENT")
+                {
+                    Status = "Solicitado/Compra";
+                }
+                if (dataGridView2.SelectedRows[0].Cells[2].Value.ToString() == "Compra de Peça SDA")
+                {
+                    Status = "Comprado";
+                }
 
             }
-
 
 
             Modelo.OSTHRController controller = new Modelo.OSTHRController();
@@ -246,7 +257,13 @@ namespace SistemaTHR.Apllication
                 if (dataGridView2.Rows[i].Cells[4].Value == "" && dataGridView2.Rows[i].Cells[2].Value.ToString() == "Início de manutenção")
                 {
 
-                    dataGridView2.Rows[4].DefaultCellStyle.ForeColor = Color.Gray;
+                    dataGridView2.Rows[6].DefaultCellStyle.ForeColor = Color.Gray;
+                }
+
+                if (dataGridView2.Rows[i].Cells[4].Value == "" && dataGridView2.Rows[i].Cells[2].Value.ToString() == "Compra de Peça ENT")
+                {
+
+                    dataGridView2.Rows[5].DefaultCellStyle.ForeColor = Color.Gray;
                 }
 
                 if (dataGridView2.Rows[i].Cells[2].Value.ToString() == "Manutenção N/C" && manutencaoNivel != "3" &&
@@ -290,6 +307,7 @@ namespace SistemaTHR.Apllication
             cboPrioridade.Text = string.Empty;
             btnApontar.Enabled = false;
             btnDesfazer.Enabled = false;
+            btnCompra.Enabled = false;
         }
 
         private void frmManutencao_Load(object sender, EventArgs e)
@@ -376,7 +394,7 @@ namespace SistemaTHR.Apllication
 
         private void btnCompra_MouseMove(object sender, MouseEventArgs e)
         {
-            toolTip1.SetToolTip(btnCompra, "Solicitar peça");
+            toolTip1.SetToolTip(btnCompra, "Solicitar Peça");
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -387,7 +405,7 @@ namespace SistemaTHR.Apllication
 
         private void btnCompra_Click(object sender, EventArgs e)
         {
-            frmSolicitacaoPeca peca = new frmSolicitacaoPeca(Usuario, numeroOS);
+            frmSolicitacaoPeca peca = new frmSolicitacaoPeca(Usuario, numeroOS, manutencaoNivel);
             peca.lblUsuario.Text = this.lblUsuario.Text;
             peca.btnAutorizar.Enabled = false;
             if (manutencaoNivel == "1")
@@ -595,7 +613,8 @@ namespace SistemaTHR.Apllication
                     dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.DarkOrange;
                 }
 
-                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "OS/INC" || dataGridView1.Rows[i].Cells[10].Value.ToString() == "Manutenção/NC")
+                if (dataGridView1.Rows[i].Cells[10].Value.ToString() == "OS/INC" 
+                    || dataGridView1.Rows[i].Cells[10].Value.ToString() == "Manutenção/NC")
                 {
 
                     dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.DarkRed;

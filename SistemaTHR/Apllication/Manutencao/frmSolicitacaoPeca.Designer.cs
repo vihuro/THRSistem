@@ -53,8 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnComprar = new System.Windows.Forms.Button();
-            this.btnComprado = new System.Windows.Forms.Button();
             this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,7 +82,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1418, 101);
+            this.panel1.Size = new System.Drawing.Size(1134, 101);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -131,7 +129,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1418, 101);
+            this.dataGridView1.Size = new System.Drawing.Size(1134, 101);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -145,7 +143,7 @@
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.statusStrip1.Location = new System.Drawing.Point(0, 427);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1422, 20);
+            this.statusStrip1.Size = new System.Drawing.Size(1138, 20);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -176,8 +174,6 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.btnComprado);
-            this.splitContainer1.Panel2.Controls.Add(this.btnComprar);
             this.splitContainer1.Panel2.Controls.Add(this.btnAutorizar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel2.Controls.Add(this.btnGravar);
@@ -185,7 +181,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAdicionar);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1422, 402);
+            this.splitContainer1.Size = new System.Drawing.Size(1138, 402);
             this.splitContainer1.SplitterDistance = 105;
             this.splitContainer1.TabIndex = 20;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -328,7 +324,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1422, 25);
+            this.panel2.Size = new System.Drawing.Size(1138, 25);
             this.panel2.TabIndex = 18;
             // 
             // btnLimpar
@@ -344,27 +340,6 @@
             this.btnLimpar.Text = "button1";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // btnComprar
-            // 
-            this.btnComprar.Enabled = false;
-            this.btnComprar.Location = new System.Drawing.Point(881, 147);
-            this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(75, 23);
-            this.btnComprar.TabIndex = 9;
-            this.btnComprar.Text = "Comprar";
-            this.btnComprar.UseVisualStyleBackColor = true;
-            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
-            // 
-            // btnComprado
-            // 
-            this.btnComprado.Enabled = false;
-            this.btnComprado.Location = new System.Drawing.Point(881, 185);
-            this.btnComprado.Name = "btnComprado";
-            this.btnComprado.Size = new System.Drawing.Size(75, 23);
-            this.btnComprado.TabIndex = 10;
-            this.btnComprado.Text = "Comprado";
-            this.btnComprado.UseVisualStyleBackColor = true;
             // 
             // clnCodigo
             // 
@@ -460,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1422, 447);
+            this.ClientSize = new System.Drawing.Size(1138, 447);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
@@ -512,8 +487,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLimpar;
         public System.Windows.Forms.Button btnAutorizar;
-        private System.Windows.Forms.Button btnComprado;
-        private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnQuantidade;

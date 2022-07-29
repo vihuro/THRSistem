@@ -18,11 +18,12 @@ namespace SistemaTHR.Apllication
         public String manutencaoNivel;
         Modelo.Manutencao.SolicitacaoCompraOSTHRController compraController;
 
-        public frmSolicitacaoPeca(String usuario, String numeroOS)
+        public frmSolicitacaoPeca(String usuario, String numeroOS, String manutencaoNivel)
         {
             InitializeComponent();
             this.usuario = usuario;
             this.numeroOS = numeroOS;
+            this.manutencaoNivel = manutencaoNivel;
             loadDataGridView1();
         }
 
@@ -133,19 +134,15 @@ namespace SistemaTHR.Apllication
 
                 loadInfoDataGrid();
 
-                if(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[8].Value.ToString() == "Autorizado")
+                if (dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[8].Value.ToString() == "AGUARDANDO/AUT. PEÇAS" &&
+                    manutencaoNivel == "1")
                 {
-                    btnComprar.Enabled = true;
-                    
-                }
-                else if(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[8].Value.ToString() == "Compra/Solicitada")
-                {
-                    btnComprado.Enabled = true;
-                    btnComprar.Enabled = false;
+                    btnAutorizar.Enabled = true;
                 }
                 else
                 {
                     btnAutorizar.Enabled = false;
+ 
                 }
             }
         }
@@ -202,6 +199,75 @@ namespace SistemaTHR.Apllication
 
         DateTime datahora;
         String numeroStatus;
+
+        private void aguardandoAutPeca()
+        {
+            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+
+            controller.numeroOSTHR = numeroOS;
+            controller.selectRequisicao();
+
+            if (controller.msg != null)
+            {
+                MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (controller.usuarioApontamento != string.Empty)
+                {
+
+                    controller.statusOP = "Aguardando/AUT. Peça";
+                    controller.dataHoraAlteracao = Convert.ToString(datahora);
+                    controller.usuarioAlteracao = usuario;
+                    controller.observacao = "";
+
+                    controller.updateRequisicao();
+
+                    if (controller.msg != null)
+                    {
+                        MessageBox.Show(controller.msg);
+                    }
+
+                    controller.UpdateStaOS(numeroOS);
+                    if (controller.msg != null)
+                    {
+                        MessageBox.Show(controller.msg);
+                    }
+                }
+                else
+                {
+                    this.numeroStatus = controller.numeroStatus;
+
+
+                    controller = new Modelo.OSTHRController();
+                    controller.dataHoraApontament = Convert.ToString(datahora);
+                    controller.usuarioApontamento = usuario;
+                    controller.dataHoraAlteracao = Convert.ToString(datahora);
+                    controller.usuarioAlteracao = usuario;
+                    controller.observacao = "";
+                    controller.updateStatus(numeroStatus);
+
+                    controller.statusOP = "Aguardando/AUT. Peça";
+                    controller.UpdateStaOS(numeroOS);
+                    if (controller.msg != null)
+                    {
+                        MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+        }
+
+        private void compraSolicitada()
+        {
+
+        }
+
+        private void comprado()
+        {
+
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             int linhas = dataGridView1.Rows.Count;
@@ -213,67 +279,15 @@ namespace SistemaTHR.Apllication
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
 
-
                     if (dataGridView1.Rows[i].Cells[8].Value.ToString() == "AGUARDANDO/AUT. PEÇAS")
                     {
-                        Modelo.OSTHRController controller = new Modelo.OSTHRController();
-
-                        controller.numeroOSTHR = numeroOS;
-                        controller.selectRequisicao();
-
-                        if(controller.msg != null)
-                        {
-                            MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            if(controller.usuarioApontamento != string.Empty)
-                            {
-
-                                controller.statusOP = "Aguardando/AUT. Peça";
-                                controller.dataHoraAlteracao = Convert.ToString(datahora);
-                                controller.usuarioAlteracao = usuario;
-                                controller.observacao = "";
-
-                                controller.updateRequisicao();
-
-                                if(controller.msg != null)
-                                {
-                                    MessageBox.Show(controller.msg);
-                                }
-
-                                controller.UpdateStaOS(numeroOS);
-                                if (controller.msg != null)
-                                {
-                                    MessageBox.Show(controller.msg);
-                                }
-                            }
-                            else
-                            {
-                                this.numeroStatus = controller.numeroStatus;
-
-
-                                controller = new Modelo.OSTHRController();
-                                controller.dataHoraApontament = Convert.ToString(datahora);
-                                controller.usuarioApontamento = usuario;
-                                controller.dataHoraAlteracao = Convert.ToString(datahora);
-                                controller.usuarioAlteracao = usuario;
-                                controller.observacao = "";
-                                controller.updateStatus(numeroStatus);
-
-                                controller.statusOP = "Aguardando/AUT. Peça";
-                                controller.UpdateStaOS(numeroOS);
-                                if(controller.msg != null)
-                                {
-                                    MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " +controller.msg,"THR SISTEMAS",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                                }
-
-                            }
-                        }
+                        aguardandoAutPeca();
 
                         break;
                     }
-                    if(i == linhas -1)
+
+
+                    else if(i == linhas -1)
                     {
                         Modelo.OSTHRController controller = new Modelo.OSTHRController();
 
@@ -337,6 +351,22 @@ namespace SistemaTHR.Apllication
             controller.nomeAutorizador = usuario;
             controller.dataHoraAutorizacao = dataHora.ToString();
             controller.statusRequisicao = "Compra/Solicitada";
+            controller.autorizarRequisicao();
+
+            loadDataGridView1();
+        }
+
+        private void btnComprado_Click(object sender, EventArgs e)
+        {
+            DateTime dataHora;
+
+            dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+
+            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+            controller.numeroRequisicao = numeroRequisicao;
+            controller.nomeAutorizador = usuario;
+            controller.dataHoraAutorizacao = dataHora.ToString();
+            controller.statusRequisicao = "Comprado";
             controller.autorizarRequisicao();
 
             loadDataGridView1();
