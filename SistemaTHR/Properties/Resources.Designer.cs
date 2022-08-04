@@ -173,6 +173,16 @@ namespace SistemaTHR.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap production {
+            get {
+                object obj = ResourceManager.GetObject("production", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_button {
             get {
                 object obj = ResourceManager.GetObject("refresh-button", resourceCulture);
@@ -206,6 +216,16 @@ namespace SistemaTHR.Properties {
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shelf {
+            get {
+                object obj = ResourceManager.GetObject("shelf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

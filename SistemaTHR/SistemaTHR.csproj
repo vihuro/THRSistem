@@ -63,14 +63,17 @@
     <Reference Include="App.Metrics.Reporting.TextFile, Version=4.3.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812, processorArchitecture=MSIL">
       <HintPath>..\packages\App.Metrics.Reporting.TextFile.4.3.0\lib\netstandard2.0\App.Metrics.Reporting.TextFile.dll</HintPath>
     </Reference>
+    <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
     <Reference Include="DatabaseConnections, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DatabaseConnections.2.0.0\lib\net35\DatabaseConnections.dll</HintPath>
     </Reference>
     <Reference Include="DatabaseConnections.OleDb, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DatabaseConnections.OleDb.2.0.0\lib\net35\DatabaseConnections.OleDb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -99,16 +102,38 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.OleDb.6.0.0\lib\net461\System.Data.OleDb.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -126,6 +151,24 @@
     </Compile>
     <Compile Include="Apllication\Login\frmAlterarSenha.Designer.cs">
       <DependentUpon>frmAlterarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmFichaQuarentena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmFichaQuarentena.Designer.cs">
+      <DependentUpon>frmFichaQuarentena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmPainelQuarentena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmPainelQuarentena.Designer.cs">
+      <DependentUpon>frmPainelQuarentena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\Impressao\frmImprimirFicha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\Impressao\frmImprimirFicha.Designer.cs">
+      <DependentUpon>frmImprimirFicha.cs</DependentUpon>
     </Compile>
     <Compile Include="Apllication\Transferencia\frmEditarTransferencia.cs">
       <SubType>Form</SubType>
@@ -271,6 +314,8 @@
     <Compile Include="DAO\Connection\ConnectionBDEstoque.cs" />
     <Compile Include="DAO\Manutencao\geracaoOSTHRDAO.cs" />
     <Compile Include="DAO\Manutencao\SolicitaCompraOSTHRDAO.cs" />
+    <Compile Include="DAO\Producao\FichaDao.cs" />
+    <Compile Include="DAO\Producao\selectLoteDao.cs" />
     <Compile Include="DAO\Transferencia\loadPADAO.cs" />
     <Compile Include="DAO\Empilhadeiras\loadTrocasDao.cs" />
     <Compile Include="DAO\Login\LoginDao.cs" />
@@ -282,11 +327,18 @@
     <Compile Include="DAO\Empilhadeiras\trocaGasDao.cs" />
     <Compile Include="DAO\Empilhadeiras\ultimaTrocaDao.cs" />
     <Compile Include="DAO\version.cs" />
+    <Compile Include="fichaQuarentena.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>fichaQuarentena.xsd</DependentUpon>
+    </Compile>
     <Compile Include="impFechamento.cs" />
     <Compile Include="Modelo\Manutencao\apontamentoController.cs" />
     <Compile Include="Modelo\Manutencao\aseController.cs" />
     <Compile Include="Modelo\Manutencao\geracaoOSTHRController.cs" />
     <Compile Include="Modelo\Manutencao\SolicitacaoCompraOSTHRController.cs" />
+    <Compile Include="Modelo\Producao\fichaController.cs" />
+    <Compile Include="Modelo\Producao\selectLoteController.cs" />
     <Compile Include="Modelo\Transferencia\loadPaController.cs" />
     <Compile Include="Modelo\Empilhadeiras\loadTrocaGasController.cs" />
     <Compile Include="Modelo\Login\loginController.cs" />
@@ -320,9 +372,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_bd_SistemDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_bd_SistemDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_bd_SistemDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_bd_SistemDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_bd_SistemDataSet5.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Apllication\Login\frmAlterarSenha.resx">
       <DependentUpon>frmAlterarSenha.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\frmFichaQuarentena.resx">
+      <DependentUpon>frmFichaQuarentena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\frmPainelQuarentena.resx">
+      <DependentUpon>frmPainelQuarentena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\Impressao\frmImprimirFicha.resx">
+      <DependentUpon>frmImprimirFicha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\Impressao\Report1.rdlc" />
     <EmbeddedResource Include="Apllication\Transferencia\frmEditarTransferencia.resx">
       <DependentUpon>frmEditarTransferencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +477,17 @@
     </Compile>
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Ordem de Serviço THR.rdlc" />
+    <None Include="fichaQuarentena.xsc">
+      <DependentUpon>fichaQuarentena.xsd</DependentUpon>
+    </None>
+    <None Include="fichaQuarentena.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>fichaQuarentena.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="fichaQuarentena.xss">
+      <DependentUpon>fichaQuarentena.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -459,6 +542,28 @@
     <None Include="_bd_SistemDataSet3.xss">
       <DependentUpon>_bd_SistemDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="_bd_SistemDataSet4.xsc">
+      <DependentUpon>_bd_SistemDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_bd_SistemDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_bd_SistemDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_bd_SistemDataSet4.xss">
+      <DependentUpon>_bd_SistemDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="_bd_SistemDataSet5.xsc">
+      <DependentUpon>_bd_SistemDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="_bd_SistemDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_bd_SistemDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_bd_SistemDataSet5.xss">
+      <DependentUpon>_bd_SistemDataSet5.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -501,9 +606,6 @@
   <ItemGroup>
     <None Include="Resources\mais.png" />
     <None Include="Resources\order.png" />
-    <Content Include="bd-Sistem.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\refresh-button.png" />
     <None Include="Resources\refresh-button %281%29.png" />
     <None Include="Resources\refresh-button1.png" />
@@ -515,6 +617,11 @@
     <None Include="Resources\settings.png" />
     <None Include="Resources\management.png" />
     <None Include="Resources\padlock.png" />
+    <None Include="Resources\production.png" />
+    <None Include="Resources\shelf.png" />
+    <Content Include="bd-Sistem.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -260,5 +260,17 @@ namespace SistemaTHR.Apllication
             frmGeracaoOS geracao = new frmGeracaoOS();
             geracao.Show();
         }
+
+        private void fichaDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Apllication.Produção.frmFichaQuarentena quarentena = new Produção.frmFichaQuarentena();
+            quarentena.ShowDialog();
+        }
+
+        private void painelDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Producao.frmPainelQuarentena painel = new Producao.frmPainelQuarentena();
+            painel.Show();
+        }
     }
 }

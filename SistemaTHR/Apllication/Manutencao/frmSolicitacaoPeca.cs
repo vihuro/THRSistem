@@ -49,7 +49,7 @@ namespace SistemaTHR.Apllication
 
                 if (i == dataGridView1.Rows.Count - 1)
                 {
-                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[3];
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
 
                     break;
                 }
@@ -130,7 +130,8 @@ namespace SistemaTHR.Apllication
 
             if (i > 0)
             {
-                numeroRequisicao = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[0].Value.ToString();
+
+                //numeroRequisicao = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[0].Value.ToString();
 
                 loadInfoDataGrid();
 
