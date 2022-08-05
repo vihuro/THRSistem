@@ -164,6 +164,12 @@
     <Compile Include="Apllication\Producao\frmPainelQuarentena.Designer.cs">
       <DependentUpon>frmPainelQuarentena.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apllication\Producao\frmControleQuarentena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmControleQuarentena.Designer.cs">
+      <DependentUpon>frmControleQuarentena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apllication\Producao\Impressao\frmImprimirFicha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,12 @@
     <Compile Include="DAO\Manutencao\geracaoOSTHRDAO.cs" />
     <Compile Include="DAO\Manutencao\SolicitaCompraOSTHRDAO.cs" />
     <Compile Include="DAO\Producao\FichaDao.cs" />
+    <Compile Include="DAO\Producao\frmFimAnalise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DAO\Producao\frmFimAnalise.Designer.cs">
+      <DependentUpon>frmFimAnalise.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Producao\selectLoteDao.cs" />
     <Compile Include="DAO\Transferencia\loadPADAO.cs" />
     <Compile Include="DAO\Empilhadeiras\loadTrocasDao.cs" />
@@ -391,6 +403,9 @@
     <EmbeddedResource Include="Apllication\Producao\frmPainelQuarentena.resx">
       <DependentUpon>frmPainelQuarentena.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\frmControleQuarentena.resx">
+      <DependentUpon>frmControleQuarentena.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Producao\Impressao\frmImprimirFicha.resx">
       <DependentUpon>frmImprimirFicha.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Empilhadeiras\frmTrocaGas.resx">
       <DependentUpon>frmTrocaGas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DAO\Producao\frmFimAnalise.resx">
+      <DependentUpon>frmFimAnalise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="impMovimentacao.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">

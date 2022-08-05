@@ -321,11 +321,12 @@ namespace SistemaTHR.Apllication
             cboReceb.Enabled = true;
             cboExp.Enabled = true;
 
-            cboAdm.Text = "deixa eu ver";
+
             cboExp.Text = string.Empty;
             cboEmp.Text = string.Empty;
             cboManutencao.Text = string.Empty;
             cboEmp.Text = string.Empty;
+            cboProducao.Text = string.Empty;
 
             rbAdmSim.Checked = false;
             rbAdmNao.Checked = false;
@@ -341,6 +342,9 @@ namespace SistemaTHR.Apllication
 
             rdbManutencaoSim.Checked = false;
             rdbManutencaoNao.Checked = false;
+
+            rdbProducaoSim.Checked = false;
+            rdbProducaoNao.Checked = false;
 
             dataGridView1.ClearSelection();
         }
@@ -365,6 +369,7 @@ namespace SistemaTHR.Apllication
                 String expedicao = "Não";
                 String aDM = "Não";
                 String manutencao = "Não";
+                String producao = "Não";
 
                 if (rbEmpSim.Checked == true)
                 {
@@ -407,6 +412,16 @@ namespace SistemaTHR.Apllication
                     manutencao = rdbManutencaoSim.Text;
                 }
                 if (rdbManutencaoNao.Checked == true)
+                {
+                    manutencao = rdbManutencaoNao.Text;
+                }
+
+                if (rdbProducaoSim.Checked == true)
+                {
+                    manutencao = rdbManutencaoSim.Text;
+                }
+
+                if (rdbProducaoNao.Checked == true)
                 {
                     manutencao = rdbManutencaoNao.Text;
                 }

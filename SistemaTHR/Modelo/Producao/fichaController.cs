@@ -16,14 +16,18 @@ namespace SistemaTHR.Modelo.Producao
         public String descricao;
         public String codigo;
         public String dataHoraInicio;
+        public String usuarioLancamento;
         public String dataHoraFinAnalise;
+        public String usuarioFinAnalise;
         public String dataHoraFinProd;
+        public String usuarioFinProd;
         public String status;
         public String msg;
 
         private void selectFichaImpressao()
         {
             dao = new DAO.Producao.FichaDao();
+            dao.id = this.id;
             dao.selectFicha();
             this.dt = dao.dt;
             if(dao.msg != null)
@@ -39,7 +43,7 @@ namespace SistemaTHR.Modelo.Producao
         private void selectIdFicha()
         {
             dao = new DAO.Producao.FichaDao();
-            dao.selectFicha();
+            dao.selectId();
             this.id = dao.id;
             if(dao.msg != null)
             {
@@ -56,7 +60,9 @@ namespace SistemaTHR.Modelo.Producao
             dao = new DAO.Producao.FichaDao();
             dao.lote = this.lote;
             dao.codigo = this.codigo;
+            dao.descricao = this.descricao;
             dao.dataHoraInicio = this.dataHoraInicio;
+            dao.usuarioLancamento = this.usuarioLancamento;
             dao.status = this.status;
             dao.insert();
             if(dao.msg != null)
@@ -121,6 +127,23 @@ namespace SistemaTHR.Modelo.Producao
         public void painel()
         {
             painelFichas();
+        }
+
+        private void selectAnaliseS()
+        {
+            dao = new DAO.Producao.FichaDao();
+            dao.selectAnalise();
+            this.dt = dao.dt;
+            if(dao.msg != null)
+            {
+                this.msg = dao.msg;
+            }
+
+        }
+
+        public void selectAnalise()
+        {
+            selectAnaliseS();
         }
 
     }

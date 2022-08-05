@@ -76,6 +76,10 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboProducao = new System.Windows.Forms.ComboBox();
+            this.rdbProducaoNao = new System.Windows.Forms.RadioButton();
+            this.rdbProducaoSim = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -88,6 +92,7 @@
             this.grpRecebimento.SuspendLayout();
             this.grpEmpilhadeiras.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -255,6 +260,7 @@
             this.panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.panel1.AutoScroll = true;
             this.panel1.AutoScrollMargin = new System.Drawing.Size(40, 40);
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.txtNome);
@@ -637,6 +643,56 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.cboProducao);
+            this.groupBox2.Controls.Add(this.rdbProducaoNao);
+            this.groupBox2.Controls.Add(this.rdbProducaoSim);
+            this.groupBox2.Location = new System.Drawing.Point(719, 132);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(227, 59);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Produção";
+            // 
+            // cboProducao
+            // 
+            this.cboProducao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProducao.FormattingEnabled = true;
+            this.cboProducao.Items.AddRange(new object[] {
+            "",
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.cboProducao.Location = new System.Drawing.Point(144, 19);
+            this.cboProducao.Name = "cboProducao";
+            this.cboProducao.Size = new System.Drawing.Size(77, 21);
+            this.cboProducao.TabIndex = 4;
+            // 
+            // rdbProducaoNao
+            // 
+            this.rdbProducaoNao.AutoSize = true;
+            this.rdbProducaoNao.Location = new System.Drawing.Point(55, 19);
+            this.rdbProducaoNao.Name = "rdbProducaoNao";
+            this.rdbProducaoNao.Size = new System.Drawing.Size(45, 17);
+            this.rdbProducaoNao.TabIndex = 1;
+            this.rdbProducaoNao.TabStop = true;
+            this.rdbProducaoNao.Text = "Não";
+            this.rdbProducaoNao.UseVisualStyleBackColor = true;
+            // 
+            // rdbProducaoSim
+            // 
+            this.rdbProducaoSim.AutoSize = true;
+            this.rdbProducaoSim.Location = new System.Drawing.Point(7, 20);
+            this.rdbProducaoSim.Name = "rdbProducaoSim";
+            this.rdbProducaoSim.Size = new System.Drawing.Size(42, 17);
+            this.rdbProducaoSim.TabIndex = 0;
+            this.rdbProducaoSim.TabStop = true;
+            this.rdbProducaoSim.Text = "Sim";
+            this.rdbProducaoSim.UseVisualStyleBackColor = true;
+            // 
             // frmGerenciarLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,6 +723,8 @@
             this.grpEmpilhadeiras.ResumeLayout(false);
             this.grpEmpilhadeiras.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -719,5 +777,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnManutencaoNivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cboProducao;
+        private System.Windows.Forms.RadioButton rdbProducaoNao;
+        private System.Windows.Forms.RadioButton rdbProducaoSim;
     }
 }

@@ -283,3 +283,5 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\System.Text.Json.xml
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\System.ValueTuple.xml
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Producao.Impressao.frmImprimirFicha.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Producao.frmPainelQuarentena.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.DAO.Producao.frmFimAnalise.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Producao.Impressao.frmControleQuarentena.resources

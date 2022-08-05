@@ -263,7 +263,8 @@ namespace SistemaTHR.Apllication
 
         private void fichaDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Apllication.Produção.frmFichaQuarentena quarentena = new Produção.frmFichaQuarentena();
+            Apllication.Produção.frmFichaQuarentena quarentena = new Produção.frmFichaQuarentena(Usuario);
+            quarentena.lblUsuario.Text = this.lblUsuario.Text;
             quarentena.ShowDialog();
         }
 
@@ -271,6 +272,14 @@ namespace SistemaTHR.Apllication
         {
             Producao.frmPainelQuarentena painel = new Producao.frmPainelQuarentena();
             painel.Show();
+        }
+
+        private void finalizarAnáliseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Producao.Impressao.frmControleQuarentena quarentena = new Producao.Impressao.frmControleQuarentena(Usuario);
+            quarentena.lblUsuario.Text = this.lblUsuario.Text;
+            quarentena.Show();
+
         }
     }
 }

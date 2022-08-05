@@ -63,6 +63,8 @@ namespace SistemaTHR.DAO
         public String ExpNivel = "0";
         public String Adm = "Não";
         public String AdmNivel = "0";
+        public String producao = "Não";
+        public String producaoNivel = "0";
 
         private void verificarNivel()
         {
@@ -96,13 +98,16 @@ namespace SistemaTHR.DAO
                         manutencao = dr["manutencao"].ToString();
                         manutencaoNivel = dr["manutencaoNivel"].ToString();
 
+                        producao = dr["producao"].ToString();
+                        producaoNivel = dr["producaoNivel"].ToString();
+
 
                 }
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally
             {
@@ -124,9 +129,9 @@ namespace SistemaTHR.DAO
                 da.Fill(dt);
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally
             {
@@ -166,11 +171,14 @@ namespace SistemaTHR.DAO
                     manutencao = dr["manutencao"].ToString();
                     manutencaoNivel = dr["manutencaoNivel"].ToString();
 
+                    producao = dr["producao"].ToString();
+                    producaoNivel = dr["producaoNivel"].ToString();
+
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + msg;
             }
             finally { con.desconectar(); }
         }
@@ -268,12 +276,12 @@ namespace SistemaTHR.DAO
                 cmd.Connection = con.conectar();
                 cmd.ExecuteReader();
 
-                con.desconectar();
+
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally { con.desconectar(); }
         }
@@ -286,7 +294,8 @@ namespace SistemaTHR.DAO
         private void updateModulosUser()
         {
             cmd.CommandText = "Update tabModulos set empilhadeiras = @empilhadeiras, empNivel = @empNivel, Recebimento = @Recebimento, RecebNivel = @RecebNivel," +
-                "Expedicao = @expedicao, ExpNivel = @ExpNivel, ADM = @ADM, ADMNIVEL = @admNivel, Manutencao = @manutencao, ManutencaoNivel = @manutencaoNivel" +
+                "Expedicao = @expedicao, ExpNivel = @ExpNivel, ADM = @ADM, ADMNIVEL = @admNivel, Manutencao = @manutencao, ManutencaoNivel = @manutencaoNivel," +
+                "producao = @producao, producaoNivel = @producaoNivel " +
                 " where usuario = @usuario ";
             cmd.Parameters.AddWithValue("@empilhadeiras",Empilhadeiras);
             cmd.Parameters.AddWithValue("@empNivel",EmpNivel);
@@ -298,18 +307,21 @@ namespace SistemaTHR.DAO
             cmd.Parameters.AddWithValue("@admNivel",AdmNivel);
             cmd.Parameters.AddWithValue("@manutencao",manutencao);
             cmd.Parameters.AddWithValue("@manutencaoNivel",manutencaoNivel);
+            cmd.Parameters.AddWithValue("@producao", producao);
+            cmd.Parameters.AddWithValue("@producaoNivel", producaoNivel);
             cmd.Parameters.AddWithValue("@usuario",usuario);
+
 
             try
             {
                 cmd.Connection = con.conectar();
-                cmd.ExecuteReader();
+                cmd.ExecuteNonQuery();
 
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally { con.desconectar(); }
         }
@@ -348,8 +360,8 @@ namespace SistemaTHR.DAO
         private void insertModulos()
         {
             cmd.CommandText = "Insert into tabModulos (empilhadeiras,empNivel,Recebimento,RecebNivel, " +
-                "Expedicao, ExpNivel, ADM,ADMNIVEL,Manutencao,ManutencaoNivel, usuario) values " +
-                "(@empilhadeiras, @empNivel,@Recebimento, @RecebNivel, @expedicao, @ExpNivel, @ADM, @admNivel, @manutencao, @manutencaoNivel,@usuario)";
+                "Expedicao, ExpNivel, ADM,ADMNIVEL,Manutencao,ManutencaoNivel, usuario, producao, prudcaoNivel) values " +
+                "(@empilhadeiras, @empNivel,@Recebimento, @RecebNivel, @expedicao, @ExpNivel, @ADM, @admNivel, @manutencao, @manutencaoNivel,@usuario,@producao, @producaoNivel)";
 
             cmd.Parameters.AddWithValue("@empilhadeiras", Empilhadeiras);
             cmd.Parameters.AddWithValue("@empNivel", EmpNivel);
@@ -362,6 +374,8 @@ namespace SistemaTHR.DAO
             cmd.Parameters.AddWithValue("@manutencao", manutencao);
             cmd.Parameters.AddWithValue("@manutencaoNivel", manutencaoNivel);
             cmd.Parameters.AddWithValue("@usuario", usuario);
+            cmd.Parameters.AddWithValue("@producao",producao);
+            cmd.Parameters.AddWithValue("@producaoNivel",producaoNivel);
 
             try
             {
