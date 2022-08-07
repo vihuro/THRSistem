@@ -167,7 +167,8 @@ namespace SistemaTHR.Apllication
             {
                 Status = "Manutenção/NC";
             }
-            else if (dataGridView1.SelectedRows[0].Cells[10].Value.ToString() == "Solicitado/Compra")
+            else if (dataGridView1.SelectedRows[0].Cells[10].Value.ToString() == "Solicitado/Compra" &&
+                dataGridView2.SelectedRows[0].Cells[2].Value.ToString() != "Compra de Peça SDA")
             {
                 Status = "Solicitado/Compra";
             }
@@ -184,7 +185,7 @@ namespace SistemaTHR.Apllication
                     Status = "OS/INC";
                 }
 
-                if (dataGridView2.SelectedRows[0].Cells[2].Value.ToString() == "Fim de manutenção")
+                if (dataGridView2.SelectedRows[0].Cells[2].Value.ToString() == "Fim de Manutenção")
                 {
                     Status = "Manutenção/FIN";
                 }
@@ -210,6 +211,8 @@ namespace SistemaTHR.Apllication
                 }
 
             }
+
+
 
 
             Modelo.OSTHRController controller = new Modelo.OSTHRController();

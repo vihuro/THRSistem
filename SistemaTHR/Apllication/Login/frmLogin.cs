@@ -128,7 +128,7 @@ namespace SistemaTHR
             }
             else
             {
-                MessageBox.Show("Você não está com a verão mais atualizada deste programa. Procure o administrador do sistema!","SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Você não está com a verão mais atualizada deste programa. Procure o administrador do sistema!" +controller.msg ,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             this.Cursor = Cursors.Default;
 

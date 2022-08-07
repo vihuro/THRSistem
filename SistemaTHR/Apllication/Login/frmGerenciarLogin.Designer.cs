@@ -45,6 +45,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboProducao = new System.Windows.Forms.ComboBox();
+            this.rdbProducaoNao = new System.Windows.Forms.RadioButton();
+            this.rdbProducaoSim = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -76,23 +80,19 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cboProducao = new System.Windows.Forms.ComboBox();
-            this.rdbProducaoNao = new System.Windows.Forms.RadioButton();
-            this.rdbProducaoSim = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpAdm.SuspendLayout();
             this.grpExpedicao.SuspendLayout();
             this.grpRecebimento.SuspendLayout();
             this.grpEmpilhadeiras.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -281,6 +281,56 @@
             this.panel1.Size = new System.Drawing.Size(1043, 355);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.cboProducao);
+            this.groupBox2.Controls.Add(this.rdbProducaoNao);
+            this.groupBox2.Controls.Add(this.rdbProducaoSim);
+            this.groupBox2.Location = new System.Drawing.Point(719, 132);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(227, 59);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Produção";
+            // 
+            // cboProducao
+            // 
+            this.cboProducao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProducao.FormattingEnabled = true;
+            this.cboProducao.Items.AddRange(new object[] {
+            "",
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.cboProducao.Location = new System.Drawing.Point(144, 19);
+            this.cboProducao.Name = "cboProducao";
+            this.cboProducao.Size = new System.Drawing.Size(77, 21);
+            this.cboProducao.TabIndex = 4;
+            // 
+            // rdbProducaoNao
+            // 
+            this.rdbProducaoNao.AutoSize = true;
+            this.rdbProducaoNao.Location = new System.Drawing.Point(55, 19);
+            this.rdbProducaoNao.Name = "rdbProducaoNao";
+            this.rdbProducaoNao.Size = new System.Drawing.Size(45, 17);
+            this.rdbProducaoNao.TabIndex = 1;
+            this.rdbProducaoNao.TabStop = true;
+            this.rdbProducaoNao.Text = "Não";
+            this.rdbProducaoNao.UseVisualStyleBackColor = true;
+            // 
+            // rdbProducaoSim
+            // 
+            this.rdbProducaoSim.AutoSize = true;
+            this.rdbProducaoSim.Location = new System.Drawing.Point(7, 20);
+            this.rdbProducaoSim.Name = "rdbProducaoSim";
+            this.rdbProducaoSim.Size = new System.Drawing.Size(42, 17);
+            this.rdbProducaoSim.TabIndex = 0;
+            this.rdbProducaoSim.TabStop = true;
+            this.rdbProducaoSim.Text = "Sim";
+            this.rdbProducaoSim.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -643,56 +693,6 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.cboProducao);
-            this.groupBox2.Controls.Add(this.rdbProducaoNao);
-            this.groupBox2.Controls.Add(this.rdbProducaoSim);
-            this.groupBox2.Location = new System.Drawing.Point(719, 132);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(227, 59);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Produção";
-            // 
-            // cboProducao
-            // 
-            this.cboProducao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProducao.FormattingEnabled = true;
-            this.cboProducao.Items.AddRange(new object[] {
-            "",
-            "1",
-            "2",
-            "3",
-            "4"});
-            this.cboProducao.Location = new System.Drawing.Point(144, 19);
-            this.cboProducao.Name = "cboProducao";
-            this.cboProducao.Size = new System.Drawing.Size(77, 21);
-            this.cboProducao.TabIndex = 4;
-            // 
-            // rdbProducaoNao
-            // 
-            this.rdbProducaoNao.AutoSize = true;
-            this.rdbProducaoNao.Location = new System.Drawing.Point(55, 19);
-            this.rdbProducaoNao.Name = "rdbProducaoNao";
-            this.rdbProducaoNao.Size = new System.Drawing.Size(45, 17);
-            this.rdbProducaoNao.TabIndex = 1;
-            this.rdbProducaoNao.TabStop = true;
-            this.rdbProducaoNao.Text = "Não";
-            this.rdbProducaoNao.UseVisualStyleBackColor = true;
-            // 
-            // rdbProducaoSim
-            // 
-            this.rdbProducaoSim.AutoSize = true;
-            this.rdbProducaoSim.Location = new System.Drawing.Point(7, 20);
-            this.rdbProducaoSim.Name = "rdbProducaoSim";
-            this.rdbProducaoSim.Size = new System.Drawing.Size(42, 17);
-            this.rdbProducaoSim.TabIndex = 0;
-            this.rdbProducaoSim.TabStop = true;
-            this.rdbProducaoSim.Text = "Sim";
-            this.rdbProducaoSim.UseVisualStyleBackColor = true;
-            // 
             // frmGerenciarLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,6 +712,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpAdm.ResumeLayout(false);
@@ -723,8 +725,6 @@
             this.grpEmpilhadeiras.ResumeLayout(false);
             this.grpEmpilhadeiras.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

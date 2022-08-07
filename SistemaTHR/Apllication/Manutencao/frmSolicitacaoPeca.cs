@@ -41,7 +41,7 @@ namespace SistemaTHR.Apllication
                 MessageBox.Show(compraController.msg);
             }
 
-            loadStyleGridView1();
+
 
 
             for (var i = 0; i < dataGridView1.Rows.Count; i++)
@@ -49,7 +49,7 @@ namespace SistemaTHR.Apllication
 
                 if (i == dataGridView1.Rows.Count - 1)
                 {
-                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[4];
 
                     break;
                 }
@@ -60,12 +60,6 @@ namespace SistemaTHR.Apllication
             
         }
 
-        private void loadStyleGridView1()
-        {
-            dataGridView1.Columns["NRequisicao"].Visible = false;
-            dataGridView1.Columns["NOS"].Visible = false;
-
-        }
         private void frmSolicitacaoPeca_Load(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();
@@ -118,10 +112,7 @@ namespace SistemaTHR.Apllication
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -131,7 +122,7 @@ namespace SistemaTHR.Apllication
             if (i > 0)
             {
 
-                //numeroRequisicao = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[0].Value.ToString();
+                numeroRequisicao = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[0].Value.ToString();
 
                 loadInfoDataGrid();
 
@@ -179,10 +170,6 @@ namespace SistemaTHR.Apllication
             clearall();
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
@@ -259,16 +246,6 @@ namespace SistemaTHR.Apllication
             }
         }
 
-        private void compraSolicitada()
-        {
-
-        }
-
-        private void comprado()
-        {
-
-        }
-
         private void btnGravar_Click(object sender, EventArgs e)
         {
             int linhas = dataGridView1.Rows.Count;
@@ -279,6 +256,7 @@ namespace SistemaTHR.Apllication
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
+                   
 
                     if (dataGridView1.Rows[i].Cells[8].Value.ToString() == "AGUARDANDO/AUT. PEÇAS")
                     {
@@ -313,64 +291,12 @@ namespace SistemaTHR.Apllication
             {
                 MessageBox.Show("Nenhuma peça solicitada","THR SISTEMAS", MessageBoxButtons.OK,MessageBoxIcon.Warning);
 
-                Modelo.OSTHRController controller = new Modelo.OSTHRController();
-
-                controller.dataHoraAlteracao = Convert.ToString(datahora);
-                controller.usuarioAlteracao = usuario;
-
-
-                controller.statusOP = "Peças Autorizadas";
-                controller.UpdateStaOS(numeroOS);
-
-                if(controller.msg != null)
-                {
-                    MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               
 
                 this.Close();
             }
         }
 
-        private void txtUnidade_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void btnComprar_Click(object sender, EventArgs e)
-        {
-            DateTime dataHora;
-
-            dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-
-            Modelo.OSTHRController controller = new Modelo.OSTHRController();
-            controller.numeroRequisicao = numeroRequisicao;
-            controller.nomeAutorizador = usuario;
-            controller.dataHoraAutorizacao = dataHora.ToString();
-            controller.statusRequisicao = "Compra/Solicitada";
-            controller.autorizarRequisicao();
-
-            loadDataGridView1();
-        }
-
-        private void btnComprado_Click(object sender, EventArgs e)
-        {
-            DateTime dataHora;
-
-            dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-
-            Modelo.OSTHRController controller = new Modelo.OSTHRController();
-            controller.numeroRequisicao = numeroRequisicao;
-            controller.nomeAutorizador = usuario;
-            controller.dataHoraAutorizacao = dataHora.ToString();
-            controller.statusRequisicao = "Comprado";
-            controller.autorizarRequisicao();
-
-            loadDataGridView1();
-        }
+        
     }
 }

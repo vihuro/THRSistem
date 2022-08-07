@@ -43,9 +43,9 @@ namespace SistemaTHR.DAO
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                this.menssagem = "Erro com banco de dados";
+                this.menssagem = "Erro com banco de dados " + ex;
             }
             finally
             {
@@ -222,9 +222,9 @@ namespace SistemaTHR.DAO
                 con.desconectar();
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally { con.desconectar(); }
         }
@@ -253,9 +253,9 @@ namespace SistemaTHR.DAO
 
                 con.desconectar();
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally { con.desconectar(); }
         }
@@ -345,9 +345,9 @@ namespace SistemaTHR.DAO
 
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro " + ex;
             }
             finally { con.desconectar(); }
         }
@@ -384,9 +384,9 @@ namespace SistemaTHR.DAO
 
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Errp " + ex;
             }
             finally { con.desconectar(); }
         }
@@ -416,9 +416,9 @@ namespace SistemaTHR.DAO
                     tem = false;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Erro" + ex;
             }
             finally { con.desconectar(); }
         }

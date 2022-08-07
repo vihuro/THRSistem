@@ -53,6 +53,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.clnNRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,9 +64,6 @@
             this.clnStatusSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNomeAutorizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDataHoraAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioSolicitacaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraSolicitacaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraCompraRealizada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -107,6 +106,8 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnNRequisicao,
+            this.clnNos,
             this.clnCodigo,
             this.clnDescricao,
             this.clnQuantidade,
@@ -115,10 +116,7 @@
             this.clnDataHoraSolicitacao,
             this.clnStatusSolicitacao,
             this.clnNomeAutorizador,
-            this.clnDataHoraAutorizacao,
-            this.clnUsuarioSolicitacaoCompra,
-            this.clnDataHoraSolicitacaoCompra,
-            this.clnDataHoraCompraRealizada});
+            this.clnDataHoraAutorizacao});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -132,7 +130,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1134, 101);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.TabStop = false;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // statusStrip1
@@ -180,11 +178,11 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnRemover);
             this.splitContainer1.Panel2.Controls.Add(this.btnAdicionar);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+
             this.splitContainer1.Size = new System.Drawing.Size(1138, 402);
             this.splitContainer1.SplitterDistance = 105;
             this.splitContainer1.TabIndex = 20;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+
             // 
             // btnAutorizar
             // 
@@ -307,7 +305,7 @@
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.Size = new System.Drawing.Size(69, 20);
             this.txtUnidade.TabIndex = 2;
-            this.txtUnidade.TextChanged += new System.EventHandler(this.txtUnidade_TextChanged);
+
             // 
             // label3
             // 
@@ -340,6 +338,22 @@
             this.btnLimpar.Text = "button1";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // clnNRequisicao
+            // 
+            this.clnNRequisicao.DataPropertyName = "NRequisicao";
+            this.clnNRequisicao.HeaderText = "Nº/ Requisição";
+            this.clnNRequisicao.Name = "clnNRequisicao";
+            this.clnNRequisicao.ReadOnly = true;
+            this.clnNRequisicao.Visible = false;
+            // 
+            // clnNos
+            // 
+            this.clnNos.DataPropertyName = "NOS";
+            this.clnNos.HeaderText = "Nº OS";
+            this.clnNos.Name = "clnNos";
+            this.clnNos.ReadOnly = true;
+            this.clnNos.Visible = false;
             // 
             // clnCodigo
             // 
@@ -408,29 +422,6 @@
             this.clnDataHoraAutorizacao.Name = "clnDataHoraAutorizacao";
             this.clnDataHoraAutorizacao.ReadOnly = true;
             // 
-            // clnUsuarioSolicitacaoCompra
-            // 
-            this.clnUsuarioSolicitacaoCompra.DataPropertyName = "dataHoraSolicitacaoCompra";
-            this.clnUsuarioSolicitacaoCompra.HeaderText = "Usuario/Solic/Compr.";
-            this.clnUsuarioSolicitacaoCompra.Name = "clnUsuarioSolicitacaoCompra";
-            this.clnUsuarioSolicitacaoCompra.ReadOnly = true;
-            // 
-            // clnDataHoraSolicitacaoCompra
-            // 
-            this.clnDataHoraSolicitacaoCompra.DataPropertyName = "DataHoraSolicitacaoCompra";
-            this.clnDataHoraSolicitacaoCompra.HeaderText = "Data/Hora Solic/Compr.";
-            this.clnDataHoraSolicitacaoCompra.Name = "clnDataHoraSolicitacaoCompra";
-            this.clnDataHoraSolicitacaoCompra.ReadOnly = true;
-            this.clnDataHoraSolicitacaoCompra.Width = 200;
-            // 
-            // clnDataHoraCompraRealizada
-            // 
-            this.clnDataHoraCompraRealizada.DataPropertyName = "DataHoraCompraRealizada";
-            this.clnDataHoraCompraRealizada.HeaderText = "DataHora/Compr. Rel";
-            this.clnDataHoraCompraRealizada.Name = "clnDataHoraCompraRealizada";
-            this.clnDataHoraCompraRealizada.ReadOnly = true;
-            this.clnDataHoraCompraRealizada.Width = 200;
-            // 
             // frmSolicitacaoPeca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,6 +478,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLimpar;
         public System.Windows.Forms.Button btnAutorizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNRequisicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNos;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnQuantidade;
@@ -496,8 +489,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnStatusSolicitacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNomeAutorizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAutorizacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioSolicitacaoCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraSolicitacaoCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraCompraRealizada;
     }
 }
