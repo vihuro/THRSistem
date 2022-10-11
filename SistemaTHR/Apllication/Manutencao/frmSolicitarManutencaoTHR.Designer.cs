@@ -43,6 +43,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 427);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(315, 22);
             this.statusStrip1.TabIndex = 2;
@@ -78,8 +80,7 @@
             // lblUsuario
             // 
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(118, 17);
-            this.lblUsuario.Text = "toolStripStatusLabel2";
+            this.lblUsuario.Size = new System.Drawing.Size(0, 17);
             // 
             // label2
             // 
@@ -87,12 +88,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 78);
+            this.label2.Location = new System.Drawing.Point(16, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tipo de Serviço:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cboTipoServico
             // 
@@ -107,11 +107,10 @@
             "Serralheria",
             "Jardinagem",
             "Alvenaria"});
-            this.cboTipoServico.Location = new System.Drawing.Point(19, 94);
+            this.cboTipoServico.Location = new System.Drawing.Point(19, 77);
             this.cboTipoServico.Name = "cboTipoServico";
             this.cboTipoServico.Size = new System.Drawing.Size(121, 21);
             this.cboTipoServico.TabIndex = 1;
-            this.cboTipoServico.SelectedIndexChanged += new System.EventHandler(this.cboTipoServico_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -119,12 +118,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 212);
+            this.label3.Location = new System.Drawing.Point(16, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Descreva o serviço:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtDescricao
             // 
@@ -135,8 +133,8 @@
             this.txtDescricao.MaxLength = 1000;
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(287, 121);
-            this.txtDescricao.TabIndex = 3;
+            this.txtDescricao.Size = new System.Drawing.Size(287, 137);
+            this.txtDescricao.TabIndex = 4;
             this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
             // lblCaractere
@@ -145,12 +143,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCaractere.AutoSize = true;
-            this.lblCaractere.Location = new System.Drawing.Point(16, 357);
+            this.lblCaractere.Location = new System.Drawing.Point(16, 370);
             this.lblCaractere.Name = "lblCaractere";
             this.lblCaractere.Size = new System.Drawing.Size(134, 13);
             this.lblCaractere.TabIndex = 7;
             this.lblCaractere.Text = "Caracteres restantes: 1000";
-            this.lblCaractere.Click += new System.EventHandler(this.lblCaractere_Click);
             // 
             // cboAondeSera
             // 
@@ -172,8 +169,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Location = new System.Drawing.Point(16, 388);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.Size = new System.Drawing.Size(75, 26);
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -185,8 +182,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Location = new System.Drawing.Point(228, 388);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Size = new System.Drawing.Size(75, 26);
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -197,28 +194,58 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 139);
+            this.label4.Location = new System.Drawing.Point(16, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(185, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Data ideal para realização do serviço:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "00/00/0000";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(19, 164);
+            this.dateTimePicker1.Location = new System.Drawing.Point(19, 177);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // cboCategoria
+            // 
+            this.cboCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Items.AddRange(new object[] {
+            "",
+            "Corretiva",
+            "Preventiva",
+            "Preditiva"});
+            this.cboCategoria.Location = new System.Drawing.Point(19, 123);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(121, 21);
+            this.cboCategoria.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Categoria do Serviço:";
             // 
             // frmSolicitarManutencaoTHR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 446);
+            this.ClientSize = new System.Drawing.Size(315, 449);
+            this.Controls.Add(this.cboCategoria);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCancelar);
@@ -262,5 +289,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cboCategoria;
+        private System.Windows.Forms.Label label5;
     }
 }

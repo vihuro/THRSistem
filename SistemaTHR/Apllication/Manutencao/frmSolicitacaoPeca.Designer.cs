@@ -330,7 +330,6 @@
             this.btnLimpar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLimpar.Image = global::SistemaTHR.Properties.Resources.mais;
             this.btnLimpar.Location = new System.Drawing.Point(0, 0);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(28, 25);

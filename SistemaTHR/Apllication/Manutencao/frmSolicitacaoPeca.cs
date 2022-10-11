@@ -16,7 +16,7 @@ namespace SistemaTHR.Apllication
         String numeroOS;
         String numeroRequisicao;
         public String manutencaoNivel;
-        Modelo.Manutencao.SolicitacaoCompraOSTHRController compraController;
+
 
         public frmSolicitacaoPeca(String usuario, String numeroOS, String manutencaoNivel)
         {
@@ -29,18 +29,6 @@ namespace SistemaTHR.Apllication
 
         private void loadDataGridView1()
         {
-            compraController = new Modelo.Manutencao.SolicitacaoCompraOSTHRController();
-            compraController.nOS = this.numeroOS;
-            compraController.selectPecas();
-            
-
-
-            dataGridView1.DataSource = compraController.dt;
-            if (compraController.msg != null)
-            {
-                MessageBox.Show(compraController.msg);
-            }
-
 
 
 
@@ -89,7 +77,7 @@ namespace SistemaTHR.Apllication
 
             if (txtDescricao.Text != string.Empty && txtUnidade.Text != string.Empty && txtQuantidade.Text != string.Empty)
             {
-                Modelo.OSTHRController controller = new Modelo.OSTHRController();
+               /* Modelo.OSTHRController controller = new Modelo.OSTHRController();
                 controller.numeroOSTHR = numeroOS;
                 controller.codigoPeca = txtCodigo.Text;
                 controller.descricaoPeca = txtDescricao.Text;
@@ -103,7 +91,7 @@ namespace SistemaTHR.Apllication
 
                 clearall();
 
-                loadDataGridView1();
+                loadDataGridView1();*/
             }
             else
             {
@@ -140,13 +128,13 @@ namespace SistemaTHR.Apllication
         }
         private void loadInfoDataGrid()
         {
-            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+           /* Modelo.OSTHRController controller = new Modelo.OSTHRController();
             controller.numeroRequisicao = numeroRequisicao;
             controller.selectInfoRequi();
             txtCodigo.Text = controller.codigoPeca;
             txtDescricao.Text = controller.descricaoPeca;
             txtUnidade.Text = controller.unidade;
-            txtQuantidade.Text = controller.QTD;
+            txtQuantidade.Text = controller.QTD;*/
         }
 
         private void btnAutorizar_Click(object sender, EventArgs e)
@@ -155,12 +143,12 @@ namespace SistemaTHR.Apllication
 
             dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
 
-            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+            /*Modelo.OSTHRController controller = new Modelo.OSTHRController();
             controller.numeroRequisicao = numeroRequisicao;
             controller.nomeAutorizador = usuario;
             controller.dataHoraAutorizacao = dataHora.ToString();
             controller.statusRequisicao = "Autorizado";
-            controller.autorizarRequisicao();
+            controller.autorizarRequisicao();*/
 
             loadDataGridView1();
         }
@@ -173,24 +161,20 @@ namespace SistemaTHR.Apllication
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+           /* Modelo.OSTHRController controller = new Modelo.OSTHRController();
             controller.numeroRequisicao = numeroRequisicao;
             controller.deleteRequisicao();
             if(controller.msg != null)
             {
                 MessageBox.Show(controller.msg);
             }
-            loadDataGridView1();
+            loadDataGridView1();*/
 
         }
 
-
-        DateTime datahora;
-        String numeroStatus;
-
         private void aguardandoAutPeca()
         {
-            Modelo.OSTHRController controller = new Modelo.OSTHRController();
+           /* Modelo.OSTHRController controller = new Modelo.OSTHRController();
 
             controller.numeroOSTHR = numeroOS;
             controller.selectRequisicao();
@@ -243,19 +227,20 @@ namespace SistemaTHR.Apllication
                     }
 
                 }
-            }
+            }*/
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
             int linhas = dataGridView1.Rows.Count;
 
-            datahora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+            //datahora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
 
             if (linhas > 0)
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
+
                    
 
                     if (dataGridView1.Rows[i].Cells[8].Value.ToString() == "AGUARDANDO/AUT. PEÇAS")
@@ -268,18 +253,18 @@ namespace SistemaTHR.Apllication
 
                     else if(i == linhas -1)
                     {
-                        Modelo.OSTHRController controller = new Modelo.OSTHRController();
+                       /* Modelo.OSTHRController controller = new Modelo.OSTHRController();
 
                         controller.dataHoraAlteracao = Convert.ToString(datahora);
                         controller.usuarioAlteracao = usuario;
 
 
                         controller.statusOP = "Peças Autorizadas";
-                        controller.UpdateStaOS(numeroOS);
-                        if(controller.msg != null)
-                        {
-                            MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        controller.UpdateStaOS(numeroOS);*/
+                       // if(controller.msg != null)
+                       // {
+                           // MessageBox.Show("Erro inesperado. Contante o administrador do sistema!  " + controller.msg, "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                       // }
 
                     }
 
@@ -290,8 +275,6 @@ namespace SistemaTHR.Apllication
             else
             {
                 MessageBox.Show("Nenhuma peça solicitada","THR SISTEMAS", MessageBoxButtons.OK,MessageBoxIcon.Warning);
-
-               
 
                 this.Close();
             }

@@ -46,7 +46,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
             this.txtNome.TabIndex = 0;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // txtSenha
             // 
@@ -97,13 +96,13 @@
             // btnSenha
             // 
             this.btnSenha.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSenha.BackgroundImage = global::SistemaTHR.Properties.Resources.show;
             this.btnSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSenha.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSenha.Location = new System.Drawing.Point(160, 62);
+            this.btnSenha.Image = global::SistemaTHR.Properties.Resources.view;
+            this.btnSenha.Location = new System.Drawing.Point(157, 62);
             this.btnSenha.Name = "btnSenha";
-            this.btnSenha.Size = new System.Drawing.Size(22, 21);
+            this.btnSenha.Size = new System.Drawing.Size(21, 20);
             this.btnSenha.TabIndex = 6;
             this.btnSenha.UseVisualStyleBackColor = false;
             this.btnSenha.Click += new System.EventHandler(this.btnSenha_Click);
@@ -116,7 +115,6 @@
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "SITEMA THR";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblVersao
             // 
@@ -125,8 +123,7 @@
             this.lblVersao.Name = "lblVersao";
             this.lblVersao.Size = new System.Drawing.Size(37, 13);
             this.lblVersao.TabIndex = 8;
-            this.lblVersao.Text = "(1.0.1)";
-            this.lblVersao.Click += new System.EventHandler(this.lblVersao_Click);
+            this.lblVersao.Text = "(1.1.1)";
             // 
             // frmLogin
             // 
@@ -149,7 +146,6 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -5,442 +5,200 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
+using Npgsql;
+using SistemaTHR.dto.Login;
 
-namespace SistemaTHR.DAO
+namespace SistemaTHR.DAO.Login
 {
     internal class LoginDao
     {
-        public bool tem = false;
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataReader dr;
-        Connection con = new Connection();
-        public String menssagem = "";
-        public String msg;
-        public String nomeUsuario;
-        public String manutencao;
-        public String manutencaoNivel;
-        public String senha;
 
-        public void verificar()
-        {
-            cmd.CommandText = "Select * from tbUsuario where Usuario = @usuario and senha = @senha";
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            cmd.Parameters.AddWithValue("@senha", senha);
-
-            try
-            {
-                cmd.Connection = con.conectar();
-                dr = cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    tem = true;
-                    while (dr.Read())
-                    {
-
-                        nomeUsuario = dr["nome"].ToString();
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                this.menssagem = "Erro com banco de dados " + ex;
-            }
-            finally
-            {
-                con.desconectar();
-            }
-
-        }
-
-        public String usuario;
-        public String Empilhadeiras = "Não";
-        public String EmpNivel = "0";
-        public String Recebimento = "Não";
-        public String RecebNivel = "0";
-        public String Expedicao = "Não";
-        public String ExpNivel = "0";
-        public String Adm = "Não";
-        public String AdmNivel = "0";
-        public String producao = "Não";
-        public String producaoNivel = "0";
-
-        private void verificarNivel()
-        {
-            cmd.CommandText = "Select * from tabModulos where Usuario = @usuario";
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            try
-            {
-                cmd.Connection = con.conectar();
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-
-                        usuario = dr["usuario"].ToString();
-
-                        Empilhadeiras = dr["Empilhadeiras"].ToString();
-                        EmpNivel = dr["EmpNivel"].ToString();
+        //NpgsqlCommand cmd;
+        //NpgsqlDataReader dr;
 
 
-                        Recebimento = dr["Recebimento"].ToString();
-                        RecebNivel = dr["recebNivel"].ToString();
-
-
-                        Expedicao = dr["Expedicao"].ToString();
-                        ExpNivel = dr["ExpNivel"].ToString();
-
-                        
-                        Adm = dr["ADM"].ToString();
-                        AdmNivel = dr["ADMNivel"].ToString();
-
-                        manutencao = dr["manutencao"].ToString();
-                        manutencaoNivel = dr["manutencaoNivel"].ToString();
-
-                        producao = dr["producao"].ToString();
-                        producaoNivel = dr["producaoNivel"].ToString();
-
-
-                }
-
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally
-            {
-                con.desconectar();
-            }
-
-        }
-        public DataTable dt = new DataTable();
-        private void loadUsuario()
-        {
-            cmd.CommandText = "Select * from tabModulos";
-            
-
-            try
-            {
-                cmd.Connection=con.conectar();
-                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-
-                da.Fill(dt);
-
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally
-            {
-                con.desconectar();
-            }
-        }
+        private OleDbCommand cmd;
+        private OleDbDataReader dr;
+        private Connection con = new Connection();
+        private OleDbDataAdapter da;
         
+        private dto.Login.loginDto dto;
 
-        private void loadInformacoes()
+        private void updateUser()
         {
-            cmd.CommandText = "Select * from tabModulos where Usuario = @usuario";
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            try
-            {
-                cmd.Connection = con.conectar();
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    usuario = dr["usuario"].ToString();
-
-                    Empilhadeiras = dr["Empilhadeiras"].ToString();
-                    EmpNivel = dr["EmpNivel"].ToString();
-
-
-                    Recebimento = dr["Recebimento"].ToString();
-                    RecebNivel = dr["recebNivel"].ToString();
-
-
-                    Expedicao = dr["Expedicao"].ToString();
-                    ExpNivel = dr["ExpNivel"].ToString();
-
-
-                    Adm = dr["ADM"].ToString();
-                    AdmNivel = dr["ADMNivel"].ToString();
-
-                    manutencao = dr["manutencao"].ToString();
-                    manutencaoNivel = dr["manutencaoNivel"].ToString();
-
-                    producao = dr["producao"].ToString();
-                    producaoNivel = dr["producaoNivel"].ToString();
-
-                }
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + msg;
-            }
-            finally { con.desconectar(); }
-        }
-
-        public void loadInfo(String usuario)
-        {
-            this.usuario = usuario;
-            loadInformacoes();
-        }
-
-        public void loadUser()
-        {
-            
-            loadUsuario();
-        }
-
-        public void verificarNivel(String usuario)
-        {
-            this.usuario = usuario;
-            verificarNivel();
-
-        }
-
-        private void SelectNome()
-        {
-            cmd.CommandText = "Select * from tbUsuario where usuario = @usuario";
-            cmd.Parameters.AddWithValue("usuario", usuario);
+            cmd = new OleDbCommand();
+            cmd.CommandText = "Update tbUsuario set nome = @nome , senha = @senha where usuario = @usuario";
+            cmd.Parameters.AddWithValue("@nome", dto.NomeUsuario);
+            cmd.Parameters.AddWithValue("@senha", dto.Senha);
+            cmd.Parameters.AddWithValue("@usuario", dto.Nome);
 
             try
             {
-                cmd.Connection = con.conectar();
-
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    nomeUsuario = dr["Nome"].ToString();
-
-
-                }
-                con.desconectar();
-
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally { con.desconectar(); }
-        }
-
-        public void SelecNomeUsuario(String usuario)
-        {
-            this.usuario = usuario;
-            SelectNome();
-        }
-
-        private void selectNome()
-        {
-            cmd.CommandText = "Select * from tbUsuario where usuario = @usuario";
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-
-            try
-            {
-                cmd.Connection = con.conectar();
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    nomeUsuario = dr["nome"].ToString();
-                    senha = dr["senha"].ToString();
-                }
-
-                con.desconectar();
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally { con.desconectar(); }
-        }
-
-        public void selectNomeUsuario()
-        {
-            selectNome();
-        }
-
-        private void updateUsuario()
-        {
-            cmd.CommandText = "Update tbUsuario set nome = @nome where usuario = @usuario";
-            cmd.Parameters.AddWithValue("@nome", nomeUsuario);
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-
-            try
-            {
-                cmd.Connection = con.conectar();
-                cmd.ExecuteReader();
-
-
-
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally { con.desconectar(); }
-        }
-
-        public void updateUser()
-        {
-            updateUsuario();
-        }
-
-        private void updateModulosUser()
-        {
-            cmd.CommandText = "Update tabModulos set empilhadeiras = @empilhadeiras, empNivel = @empNivel, Recebimento = @Recebimento, RecebNivel = @RecebNivel," +
-                "Expedicao = @expedicao, ExpNivel = @ExpNivel, ADM = @ADM, ADMNIVEL = @admNivel, Manutencao = @manutencao, ManutencaoNivel = @manutencaoNivel," +
-                "producao = @producao, producaoNivel = @producaoNivel " +
-                " where usuario = @usuario ";
-            cmd.Parameters.AddWithValue("@empilhadeiras",Empilhadeiras);
-            cmd.Parameters.AddWithValue("@empNivel",EmpNivel);
-            cmd.Parameters.AddWithValue("@Recebimento",Recebimento);
-            cmd.Parameters.AddWithValue("@RecebNivel",RecebNivel);
-            cmd.Parameters.AddWithValue("@expedicao",Expedicao);
-            cmd.Parameters.AddWithValue("@ExpNivel",ExpNivel);
-            cmd.Parameters.AddWithValue("@ADM",Adm);
-            cmd.Parameters.AddWithValue("@admNivel",AdmNivel);
-            cmd.Parameters.AddWithValue("@manutencao",manutencao);
-            cmd.Parameters.AddWithValue("@manutencaoNivel",manutencaoNivel);
-            cmd.Parameters.AddWithValue("@producao", producao);
-            cmd.Parameters.AddWithValue("@producaoNivel", producaoNivel);
-            cmd.Parameters.AddWithValue("@usuario",usuario);
-
-
-            try
-            {
+                
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
-
-
             }
             catch(Exception ex)
             {
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
-            finally { con.desconectar(); }
+            finally 
+            {
+                con.desconectar(); 
+            }
         }
 
-        public void uptadeModulosUsuario()
+        public void update(dto.Login.loginDto dto)
         {
-           updateModulosUser();
+            this.dto = dto;
+            updateUser();
         }
 
         private void insertUser()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Insert into tbUsuario (Usuario,Nome,Senha) Values (@usuario,@nome,@senha)";
-            cmd.Parameters.AddWithValue("@usuario",usuario);
-            cmd.Parameters.AddWithValue("@nome",nomeUsuario);
-            cmd.Parameters.AddWithValue("@senha",senha);
+            cmd.Parameters.AddWithValue("@usuario",dto.Nome);
+            cmd.Parameters.AddWithValue("@nome",dto.NomeUsuario);
+            cmd.Parameters.AddWithValue("@senha",dto.Senha);
 
             try
             {
                 cmd.Connection = con.conectar();
-                cmd.ExecuteReader();
+                cmd.ExecuteNonQuery();
 
 
             }
             catch(Exception ex)
             {
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
-            finally { con.desconectar(); }
+            finally
+            { 
+                con.desconectar();
+            }
         }
 
-        public void inserUsuario()
+        public void insert(dto.Login.loginDto dto)
         {
+            this.dto = dto;
             insertUser();
         }
 
-        private void insertModulos()
-        {
-            cmd.CommandText = "Insert into tabModulos (empilhadeiras,empNivel,Recebimento,RecebNivel, " +
-                "Expedicao, ExpNivel, ADM,ADMNIVEL,Manutencao,ManutencaoNivel, usuario, producao, prudcaoNivel) values " +
-                "(@empilhadeiras, @empNivel,@Recebimento, @RecebNivel, @expedicao, @ExpNivel, @ADM, @admNivel, @manutencao, @manutencaoNivel,@usuario,@producao, @producaoNivel)";
 
-            cmd.Parameters.AddWithValue("@empilhadeiras", Empilhadeiras);
-            cmd.Parameters.AddWithValue("@empNivel", EmpNivel);
-            cmd.Parameters.AddWithValue("@Recebimento", Recebimento);
-            cmd.Parameters.AddWithValue("@RecebNivel", RecebNivel);
-            cmd.Parameters.AddWithValue("@expedicao", Expedicao);
-            cmd.Parameters.AddWithValue("@ExpNivel", ExpNivel);
-            cmd.Parameters.AddWithValue("@ADM", Adm);
-            cmd.Parameters.AddWithValue("@admNivel", AdmNivel);
-            cmd.Parameters.AddWithValue("@manutencao", manutencao);
-            cmd.Parameters.AddWithValue("@manutencaoNivel", manutencaoNivel);
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            cmd.Parameters.AddWithValue("@producao",producao);
-            cmd.Parameters.AddWithValue("@producaoNivel",producaoNivel);
+        private void authorizedUser()
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "Select * from tbUsuario where Usuario = @usuario and senha = @senha";
+            cmd.Parameters.AddWithValue("@usuario", dto.NomeUsuario);
+            cmd.Parameters.AddWithValue("@senha", dto.Senha);
 
             try
             {
                 cmd.Connection = con.conectar();
-                cmd.ExecuteReader();
-
-
-            }
-            catch(Exception ex)
-            {
-                msg = "Errp " + ex;
-            }
-            finally { con.desconectar(); }
-        }
-
-        public void insertMod()
-        {
-            insertModulos();
-        }
-
-        private void verificarUser()
-        {
-            cmd.CommandText = "Select * from tbUsuario where usuario = @usuario";
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-
-            try
-            {
-                cmd.Connection = con.conectar();
-
+                 
                 dr = cmd.ExecuteReader();
 
                 if (dr.HasRows)
                 {
-                    tem = true;
+                    dto.Autorizado = true;
+                    while (dr.Read())
+                    {
+                        dto.Nome = dr["Nome"].ToString();
+                        dto.NomeUsuario = dr["usuario"].ToString();
+                    }
                 }
-                else
+
+            }
+            catch(Exception ex)
+            {
+                dto.Msg = "Erro" + ex;
+            }
+            finally
+            { 
+                con.desconectar(); 
+            }
+        }
+
+        public void authorized(dto.Login.loginDto dto)
+        {
+            this.dto = dto;
+            authorizedUser();
+        }
+
+
+        private void deleteUser()
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "Delete from tb_Usuario where usuario = @usuario";
+            cmd.Parameters.AddWithValue("@usuario",dto.Nome);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                dto.Msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        internal void Table(loginDto dto)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "Select * from tbUsuario order by Nome asc";
+            try
+            {
+                cmd.Connection = con.conectar();
+
+                da = new OleDbDataAdapter(cmd);
+                dto.Dt = new DataTable();
+                da.Fill(dto.Dt);
+            }
+            catch (Exception ex)
+            {
+
+                dto.Msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void delete(dto.Login.loginDto dto)
+        {
+            this.dto = dto;
+            deleteUser();
+        }
+
+        private void infoUser()
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "Select * from tbUsuario where usuario = @usuario";
+            cmd.Parameters.AddWithValue("@usuario",dto.Nome);
+
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
                 {
-                    tem = false;
+                    while (dr.Read())
+                    {
+                        dto.Nome = dr["usuario"].ToString();
+                        dto.NomeUsuario = dr["nome"].ToString();
+                        dto.Senha = dr["Senha"].ToString();
+                    }
                 }
             }
             catch(Exception ex)
             {
-                msg = "Erro" + ex;
-            }
-            finally { con.desconectar(); }
-        }
-
-        public void verificarUsuario()
-        {
-            verificarUser();
-        }
-
-        private void alterarSenha()
-        {
-            cmd.CommandText = "Update tbUsuario set senha = @senha where usuario = @usuario";
-            cmd.Parameters.AddWithValue("@senha", senha);
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            try
-            {
-                cmd.Connection = con.conectar();
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                menssagem = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -448,59 +206,11 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void alterarS()
+        public void info(dto.Login.loginDto dto)
         {
-            alterarSenha();
+            this.dto = dto;
+            infoUser();
         }
-
-        private void deleteUsuer()
-        {
-            cmd.CommandText = "Delete from tbUsuario where usuario = @usuario";
-            cmd.Parameters.AddWithValue("@usuario",usuario);
-            try
-            {
-                cmd.Connection = con.conectar();
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally
-            {
-                con.desconectar();
-            }
-        }
-
-        public void deleteUsuario()
-        {
-            deleteUsuer();
-        }
-
-        private void deleteUsuerModulos()
-        {
-            cmd.CommandText = "Delete from tabModulos where usuario = @usuario";
-            cmd.Parameters.AddWithValue("@usuario", usuario);
-            try
-            {
-                cmd.Connection = con.conectar();
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                msg = "Erro " + ex;
-            }
-            finally
-            {
-                con.desconectar();
-            }
-        }
-
-        public void deleteUsuarioModulos()
-        {
-            deleteUsuerModulos();
-        }
-
 
     }
 }

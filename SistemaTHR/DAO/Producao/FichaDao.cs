@@ -26,6 +26,7 @@ namespace SistemaTHR.DAO.Producao
         public String usuarioFinAnalise;
         public String dataHoraFinProd;
         public String usuarioFinProd;
+        public String tempoAnalise;
         public String status;
         public String msg;
 
@@ -152,9 +153,11 @@ namespace SistemaTHR.DAO.Producao
 
         private void updateFichaProd()
         {
-            cmd.CommandText = "Update tab_ficha set dataHoraFinProd = @dataHoraFinProd, UsuarioFinProd = @usuarioFinProd, status = @status where id = @id";
+            cmd.CommandText = "Update tab_ficha set dataHoraFinProd = @dataHoraFinProd, UsuarioFinProd = @usuarioFinProd," +
+                "tempoAnalise = @tempoAnalise, status = @status where id = @id";
             cmd.Parameters.AddWithValue("@dataHoraFinProd",dataHoraFinProd);
             cmd.Parameters.AddWithValue("@usuarioFinProd",usuarioFinProd);
+            cmd.Parameters.AddWithValue("@tempoAnalise", tempoAnalise);
             cmd.Parameters.AddWithValue("@status",status);
             cmd.Parameters.AddWithValue("@id",id);
 
@@ -179,9 +182,66 @@ namespace SistemaTHR.DAO.Producao
             updateFichaProd();
         }
 
+        private void updateAguardando()
+        {
+            cmd.CommandText = "Update tab_ficha set dataHoraIniAnalise = @dataHoraIniAnalise, usuarioLancamento = @usuarioLancamento, " +
+                               "dataHoraFinAnalise = '', usuarioFinAnalise = '', dataHoraFinProd = '', usuarioFinProd = ''," +
+                               "tempoAnalise = '', status = 'Aguardando' where  id = @id";
+
+
+            cmd.Parameters.AddWithValue("dataHoraIniAnalise",dataHoraInicio);
+            cmd.Parameters.AddWithValue("@usuarioLancamento",usuarioLancamento);
+            cmd.Parameters.AddWithValue("@id",id);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void BackAguardando()
+        {
+            updateAguardando();
+        }
+
+        private void deleteFicha()
+        {
+            cmd.CommandText = "Delete from tab_ficha where id = @id";
+            cmd.Parameters.AddWithValue("@id",id);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                msg = "Erro " + ex;
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void delete()
+        {
+            deleteFicha();
+        }
+
         private void painelFichas()
         {
-            cmd.CommandText = "Select * from tab_ficha order by id asc";
+            cmd.CommandText = "Select * from tab_ficha where status <> 'Finalizado' order by id asc";
 
             try
             {

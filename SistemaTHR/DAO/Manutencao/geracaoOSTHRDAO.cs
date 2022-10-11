@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaTHR.DAO
+namespace SistemaTHR.DAO.Manutencao
 {
     internal class geracaoOSTHRDAO
     {
@@ -15,27 +15,24 @@ namespace SistemaTHR.DAO
         Connection con = new Connection();
         OleDbDataAdapter da;
 
-        public DataTable dt = new DataTable();
-        public String geracao;
-        public String usuario;
-        public String dataHoraCriacao;
-        public String msg;
-        public String status;
-        public List<string> situacao = new List<string>();
+        private dto.manutencao.geracaoOsTHRDto dto;
 
-        private void selectGeracaoGRID()
+
+        private void selectTable()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_GeracaoOSTHR";
 
             try
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                da.Fill(dt);
+                dto.Dt = new DataTable();
+                da.Fill(dto.Dt);
             }
             catch(Exception ex)
             {
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -43,18 +40,20 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void selectGrid()
+        public void table(dto.manutencao.geracaoOsTHRDto dto)
         {
-            selectGeracaoGRID();
+            this.dto = dto;
+            selectTable();
         }
 
         private void insertGeracao()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Insert into tab_GeracaoOSTHR (usuarioCriacao, dataHoraCriacao, Status) Values " +
                                                             "(@usuario, @dataHora, @Status)";
-            cmd.Parameters.AddWithValue("@usuario",usuario);
-            cmd.Parameters.AddWithValue("@dataHora",dataHoraCriacao);
-            cmd.Parameters.AddWithValue("@status",status);
+            cmd.Parameters.AddWithValue("@usuario",dto.Usuario);
+            cmd.Parameters.AddWithValue("@dataHora", dto.DataHora);
+            cmd.Parameters.AddWithValue("@status", dto.Status);
             try
             {
                 cmd.Connection = con.conectar();
@@ -63,7 +62,7 @@ namespace SistemaTHR.DAO
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -71,16 +70,18 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void insert()
+        public void insert(dto.manutencao.geracaoOsTHRDto dto)
         {
+            this.dto = dto;
             insertGeracao();
         }
 
         private void updateGeracao()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Update tab_geracaoOSTHR set Status = @status where geracao = @geracao";
-            cmd.Parameters.AddWithValue("@status",status);
-            cmd.Parameters.AddWithValue("@geracao",geracao);
+            cmd.Parameters.AddWithValue("@status",dto.Status);
+            cmd.Parameters.AddWithValue("@geracao",dto.Geracao);
 
             try
             {
@@ -90,7 +91,7 @@ namespace SistemaTHR.DAO
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -98,13 +99,15 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void updateGer()
+        public void update(dto.manutencao.geracaoOsTHRDto dto)
         {
+            this.dto = dto;
             updateGeracao();
         }
 
-        private void selectAtivo()
+        private void selectActive()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_geracaoOSTHR where status = 'Ativo'";
 
             try
@@ -115,14 +118,14 @@ namespace SistemaTHR.DAO
                 {
                     while (dr.Read())
                     {
-                        geracao = dr["geracao"].ToString();
+                        dto.Geracao = dr["geracao"].ToString();
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -130,9 +133,10 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void selectAtiv()
+        public void active(dto.manutencao.geracaoOsTHRDto dto)
         {
-            selectAtivo();
+            this.dto = dto;
+            selectActive();
         }
         
     }

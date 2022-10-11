@@ -6,59 +6,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaTHR.DAO
+namespace SistemaTHR.DAO.Manutencao
 {
     internal class aseDao
     {
 
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataReader dr;
-        Connection con = new Connection();
-        public DataTable dt = new DataTable();
-        OleDbDataAdapter da;
+        private OleDbCommand cmd = new OleDbCommand();
+        private OleDbDataReader dr;
+        private Connection con = new Connection();
+        private OleDbDataAdapter da;
+        private dto.manutencao.aseDto dto;
 
-        public String numero;
-        public String execucao;
-        public String usuarioCadastro;
-        public String dataHoraCadastro;
-        public String msg;
-        public bool tem = false;
-        
-        public List<String>ase = new List<String>(); 
-
-
-        private void selectExecucao()
+        private void selectTable()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_ASE order by execucao asc";
 
             try
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                da.Fill(dt);
+                dto.Dt = new DataTable();
+                da.Fill(dto.Dt);
 
             }
             catch (Exception ex)
             {
 
-                msg = "Erro " +ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void selectEx()
+        public void table(dto.manutencao.aseDto dto)
         {
-            selectExecucao();
+            this.dto = dto;
+            selectTable();
         }
 
-        private void insertExecuxao()
+        private void insertEx()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Insert into tab_ASE (Execucao, UsuarioCadastro, dataHoraCadastro) values (@execucao, @usuarioCadastro, @dataHoraCadastro)";
-            cmd.Parameters.AddWithValue("@execucao",execucao);
-            cmd.Parameters.AddWithValue("@usuarioCadastro",usuarioCadastro);
-            cmd.Parameters.AddWithValue("@dataHoraCadastro",dataHoraCadastro);
+            cmd.Parameters.AddWithValue("@execucao",dto.Execucao);
+            cmd.Parameters.AddWithValue("@usuarioCadastro",dto.Usuario);
+            cmd.Parameters.AddWithValue("@dataHoraCadastro",dto.DataHora);
             try
             {
                 cmd.Connection = con.conectar();
@@ -68,7 +62,7 @@ namespace SistemaTHR.DAO
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -76,15 +70,17 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void insertEx()
+        public void insert(dto.manutencao.aseDto dto)
         {
-            insertExecuxao();
+            this.dto = dto;
+            insertEx();
         }
 
-        private void deleteExecuxao()
+        private void deleteEx()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Delete from tab_ASE where NumeroASE = @numero";
-            cmd.Parameters.AddWithValue("@numero",numero);
+            cmd.Parameters.AddWithValue("@numero",dto.Numero);
 
             try
             {
@@ -94,7 +90,7 @@ namespace SistemaTHR.DAO
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -102,15 +98,15 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void deleteEx()
+        public void delete(dto.manutencao.aseDto dto)
         {
-            deleteExecuxao();
+            this.dto = dto;
+            deleteEx();
         }
 
-
-
-        private void selectASE()
+        private void selectList()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_ASE order by execucao asc ";
 
             try
@@ -120,9 +116,10 @@ namespace SistemaTHR.DAO
 
                 if (dr.HasRows)
                 {
+                    dto.Ase = new List<string>();
                     while (dr.Read())
                     {
-                        ase.Add(dr.GetString(dr.GetOrdinal("execucao")));
+                        dto.Ase.Add(dr.GetString(dr.GetOrdinal("execucao")));
                     }
                     
                 }
@@ -130,7 +127,7 @@ namespace SistemaTHR.DAO
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -138,15 +135,16 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void ASE()
+        public void list(dto.manutencao.aseDto dto)
         {
-            selectASE();
+            this.dto = dto;
+            selectList();
         }
 
         private void verificarEx()
         {
             cmd.CommandText = "Select * from tab_ASE where execucao = @execusao";
-            cmd.Parameters.AddWithValue("@execuxao",execucao);
+            cmd.Parameters.AddWithValue("@execuxao",dto.Execucao);
             try
             {
                 cmd.Connection = con.conectar();
@@ -154,13 +152,17 @@ namespace SistemaTHR.DAO
 
                 if (dr.HasRows)
                 {
-                    tem = true;
+                    dto.Check = true;
+                }
+                else
+                {
+                    dto.Check = false;
                 }
             }
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -168,8 +170,9 @@ namespace SistemaTHR.DAO
             }
         }
 
-        public void verificar()
+        public void verificar(dto.manutencao.aseDto dto)
         {
+            this.dto = dto;
             verificarEx();
         }
 

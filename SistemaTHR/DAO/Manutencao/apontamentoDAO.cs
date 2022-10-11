@@ -10,33 +10,30 @@ namespace SistemaTHR.DAO.Manutencao
 {
     internal class apontamentoDAO
     {
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataReader dr;
-        Connection con = new Connection();
-        public DataTable dt = new DataTable();
-        OleDbDataAdapter da;
+        private OleDbCommand cmd = new OleDbCommand();
+        private OleDbDataReader dr;
+        private Connection con = new Connection();
+        private OleDbDataAdapter da;
+        private dto.manutencao.apontamentoOsTHRDto dto;
 
-        public String apontamento;
-        public String geracao;
-        public String msg;
-        public List<String> apont = new List<string>();
-
-        private void selectApontamento()
+        private void selectTable()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_apontamentoOSTHR where geracao = @geracao";
-            cmd.Parameters.AddWithValue("geracao",geracao);
+            cmd.Parameters.AddWithValue("geracao",dto.Geracao);
 
             try
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                da.Fill(dt);
+                dto.Dt = new DataTable();
+                da.Fill(dto.Dt);
 
             }
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -44,16 +41,17 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
-        public void selectApont()
+        public void table(dto.manutencao.apontamentoOsTHRDto dto)
         {
-            selectApontamento();
+            this.dto = dto;
+            selectTable();
         }
 
         private void insertApontamento()
         {
             cmd.CommandText = "Insert into tab_apontamentoOSTHR(apontamento, geracao) Values (@apontamento, @geracao)";
-            cmd.Parameters.AddWithValue("@apontamento",apontamento);
-            cmd.Parameters.AddWithValue("@geracao",geracao);
+            cmd.Parameters.AddWithValue("@apontamento",dto.Apontamento);
+            cmd.Parameters.AddWithValue("@geracao",dto.Geracao);
 
             try
             {
@@ -63,7 +61,7 @@ namespace SistemaTHR.DAO.Manutencao
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -71,15 +69,16 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
-        public void insertApont()
+        public void insert(dto.manutencao.apontamentoOsTHRDto dto)
         {
+            this.dto = dto;
             insertApontamento();
         }
 
-        private void selectApontSitu()
+        private void selectList()
         {
             cmd.CommandText = "Select * from tab_apontamentoOSTHR where geracao = @geracao";
-            cmd.Parameters.AddWithValue("@geracao",geracao);
+            cmd.Parameters.AddWithValue("@geracao",dto.Geracao);
 
             try
             {
@@ -88,16 +87,17 @@ namespace SistemaTHR.DAO.Manutencao
 
                 if (dr.HasRows)
                 {
+                    dto.Apont = new List<string>();
                     while (dr.Read())
                     {
-                        apont.Add(dr.GetString(dr.GetOrdinal("apontamento")));
+                        dto.Apont.Add(dr.GetString(dr.GetOrdinal("apontamento")));
                     }
                 }
             }
             catch (Exception ex)
             {
 
-                msg = "Erro " + ex;
+                dto.Msg = "Erro " + ex;
             }
             finally
             {
@@ -105,9 +105,10 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
-        public void selectSituacao()
+        public void list(dto.manutencao.apontamentoOsTHRDto dto)
         {
-            selectApontSitu();
+            this.dto = dto;
+            selectList();
         }
     }
 }

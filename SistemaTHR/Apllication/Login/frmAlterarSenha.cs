@@ -12,12 +12,14 @@ namespace SistemaTHR.Apllication
 {
     public partial class frmAlterarSenha : Form
     {
-        String usuario;
+        Controller.Login.loginController controller;
+        Service.login.loginService service = new Service.login.loginService();
         
-        public frmAlterarSenha(String usuario)
+        public frmAlterarSenha(Controller.Login.loginController controller)
         {
             InitializeComponent();
-            this.usuario = usuario;
+            this.controller = controller;
+           
         }
 
         private void frmAlterarSenha_Load(object sender, EventArgs e)
@@ -31,35 +33,30 @@ namespace SistemaTHR.Apllication
             {
                 if (txtSenha.Text == txtConfirmacao.Text)
                 {
-                    loginController controller = new loginController();
-                    controller.usuario = this.usuario;
-                    controller.senha = txtConfirmacao.Text;
-                    controller.alterarS();
-
-                    if(controller.menssagem != null)
+                    controller.Senha = txtConfirmacao.Text;
+                    service.update(controller);
+                    if(controller.Msg != null)
                     {
-                        MessageBox.Show("Erro inesperado. Contate o administrador do sistema. " + controller.menssagem, "SITEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(controller.Msg);
                     }
                     else
                     {
                         MessageBox.Show("Alteração feita com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-
-                        
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Campos não correspondentes!","SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Senha não correspondente!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                    
+
             }
             else
             {
-                MessageBox.Show("Campo(s) obrigatório(s) vazio(s)!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              MessageBox.Show("Campos vazios!","SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
-
-
+           
         }
 
         private void frmAlterarSenha_KeyDown(object sender, KeyEventArgs e)

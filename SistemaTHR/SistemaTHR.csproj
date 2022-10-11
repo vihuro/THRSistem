@@ -27,6 +27,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,8 +74,11 @@
     <Reference Include="DatabaseConnections.OleDb, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DatabaseConnections.OleDb.2.0.0\lib\net35\DatabaseConnections.OleDb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -99,16 +104,25 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Npgsql, Version=6.0.6.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.6.0.6\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Collections.Immutable, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.6.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.OleDb.6.0.0\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
@@ -120,14 +134,17 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.6.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -146,11 +163,194 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apllication\Compras\frmPequisarEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Compras\frmPequisarEstoque.Designer.cs">
+      <DependentUpon>frmPequisarEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Compras\frmRequisicaoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Compras\frmRequisicaoCompra.Designer.cs">
+      <DependentUpon>frmRequisicaoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmEstoque.Designer.cs">
+      <DependentUpon>frmEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmFilterEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmFilterEstoque.Designer.cs">
+      <DependentUpon>frmFilterEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmFinalizarRequisicao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmFinalizarRequisicao.Designer.cs">
+      <DependentUpon>frmFinalizarRequisicao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmGrupo.Designer.cs">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmMovimentacaoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmMovimentacaoMaterial.Designer.cs">
+      <DependentUpon>frmMovimentacaoMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmRequisicaoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmRequisicaoMaterial.Designer.cs">
+      <DependentUpon>frmRequisicaoMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmPainelSolicitacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Estoque\frmPainelSolicitacoes.Designer.cs">
+      <DependentUpon>frmPainelSolicitacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Gerencial\frmFiltroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Gerencial\frmFiltroUsuarios.Designer.cs">
+      <DependentUpon>frmFiltroUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmAsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmAsu.Designer.cs">
+      <DependentUpon>frmAsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmEstoquePecas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmEstoquePecas.Designer.cs">
+      <DependentUpon>frmEstoquePecas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmEstoquePesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmEstoquePesquisa.Designer.cs">
+      <DependentUpon>frmEstoquePesquisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmFiltroRequisicoesPeca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmFiltroRequisicoesPeca.Designer.cs">
+      <DependentUpon>frmFiltroRequisicoesPeca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmMovimentacaPecas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmMovimentacaPecas.Designer.cs">
+      <DependentUpon>frmMovimentacaPecas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmRequisicoesPecas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmRequisicoesPecas.Designer.cs">
+      <DependentUpon>frmRequisicoesPecas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\Impressao\frmRelatorioRequisicoesPeca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\Impressao\frmRelatorioRequisicoesPeca.Designer.cs">
+      <DependentUpon>frmRelatorioRequisicoesPeca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmFazerPa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmFazerPa.Designer.cs">
+      <DependentUpon>frmFazerPa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmOrdensProdução.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmOrdensProdução.Designer.cs">
+      <DependentUpon>frmOrdensProdução.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\Impressao\frmImprimirPA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\Impressao\frmImprimirPA.Designer.cs">
+      <DependentUpon>frmImprimirPA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\estoque\EstoqueAntigoController.cs" />
+    <Compile Include="Controller\estoque\EstoqueController.cs" />
+    <Compile Include="Controller\estoque\GrupoController.cs" />
+    <Compile Include="Controller\estoque\MovimentacaoController.cs" />
+    <Compile Include="Controller\estoque\MpController.cs" />
+    <Compile Include="Controller\estoque\paController.cs" />
+    <Compile Include="Controller\estoque\SolicitacaoController.cs" />
+    <Compile Include="Controller\manutencao\apontamentoOsThrController.cs" />
+    <Compile Include="Controller\manutencao\aseController.cs" />
+    <Compile Include="Controller\manutencao\asuController.cs" />
+    <Compile Include="Controller\manutencao\EstoquePecasController.cs" />
+    <Compile Include="Controller\manutencao\FiltroOSController.cs" />
+    <Compile Include="Controller\manutencao\geracaoOsTHRController.cs" />
+    <Compile Include="Controller\manutencao\movimentacaoPecasController.cs" />
+    <Compile Include="Controller\manutencao\osThrController.cs" />
+    <Compile Include="Controller\manutencao\prioridadeManController.cs" />
+    <Compile Include="Controller\Compras\requisicaoCompraController.cs" />
+    <Compile Include="Controller\manutencao\solicitacaoPecaoController.cs" />
+    <Compile Include="Controller\manutencao\statusOsThrController.cs" />
+    <Compile Include="Controller\Pcp\OrdemDeProducaoController.cs" />
+    <Compile Include="Controller\Producao\OrdensProducaoController.cs" />
+    <Compile Include="Controller\transferencia\fechamentoController.cs" />
+    <Compile Include="Controller\transferencia\movimentacaoController.cs" />
+    <Compile Include="Controller\transferencia\transferenciaController.cs" />
+    <Compile Include="Controller\Versao\VersionController.cs" />
+    <Compile Include="DAO\Connection\ConnectionEstoque.cs" />
+    <Compile Include="DAO\Estoque\EstoqueAntigoDao.cs" />
+    <Compile Include="DAO\Estoque\EstoqueDao.cs" />
+    <Compile Include="DAO\Estoque\GrupoDao.cs" />
+    <Compile Include="DAO\Estoque\MovimentacaoDao.cs" />
+    <Compile Include="DAO\Estoque\MpDao.cs" />
+    <Compile Include="DAO\Estoque\PaDao.cs" />
+    <Compile Include="DAO\Estoque\SolicitacaoDao.cs" />
+    <Compile Include="DAO\Manutencao\asuDao.cs" />
+    <Compile Include="DAO\Manutencao\EstoquePecasDao.cs" />
+    <Compile Include="DAO\Manutencao\movimentacaoPecasDao.cs" />
+    <Compile Include="DAO\Compras\requisicaoCompraDao.cs" />
+    <Compile Include="DAO\Manutencao\solicitacaoPecaDao.cs" />
+    <Compile Include="DAO\Manutencao\statusOsTHRDao.cs" />
+    <Compile Include="DAO\Producao\OrdensProducaoDao.cs" />
+    <Compile Include="DAO\Transferencia\fechamentoDao.cs" />
+    <Compile Include="DAO\Transferencia\movimentacaoDao.cs" />
+    <Compile Include="dto\estoque\EstoqueAntigoDto.cs" />
+    <Compile Include="dto\estoque\EstoqueDto.cs" />
+    <Compile Include="dto\estoque\GrupoDto.cs" />
+    <Compile Include="dto\estoque\MovimentacaoDto.cs" />
+    <Compile Include="dto\estoque\MpDto.cs" />
+    <Compile Include="dto\estoque\paDto.cs" />
+    <Compile Include="dto\estoque\SolicitacaoDto.cs" />
+    <Compile Include="dto\Login\loginDto.cs" />
+    <Compile Include="dto\Login\modulosDto.cs" />
+    <Compile Include="Apllication\Gerencial\frmGerenciarPrioridade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Gerencial\frmGerenciarPrioridade.Designer.cs">
+      <DependentUpon>frmGerenciarPrioridade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apllication\Login\frmAlterarSenha.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apllication\Login\frmAlterarSenha.Designer.cs">
       <DependentUpon>frmAlterarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmEcolhaStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Producao\frmEcolhaStatus.Designer.cs">
+      <DependentUpon>frmEcolhaStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Apllication\Producao\frmFichaQuarentena.cs">
       <SubType>Form</SubType>
@@ -188,34 +388,34 @@
     <Compile Include="Apllication\Manutencao\frmFiltroManutencoes.Designer.cs">
       <DependentUpon>frmFiltroManutencoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmGeracaoOS.cs">
+    <Compile Include="Apllication\Gerencial\frmGeracaoOS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmGeracaoOS.Designer.cs">
+    <Compile Include="Apllication\Gerencial\frmGeracaoOS.Designer.cs">
       <DependentUpon>frmGeracaoOS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmGerenciarLocaisManu.cs">
+    <Compile Include="Apllication\Gerencial\frmGerenciarLocaisManu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmGerenciarLocaisManu.Designer.cs">
+    <Compile Include="Apllication\Gerencial\frmGerenciarLocaisManu.Designer.cs">
       <DependentUpon>frmGerenciarLocaisManu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Login\frmGerenciarLogin.cs">
+    <Compile Include="Apllication\Gerencial\frmGerenciarLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\Login\frmGerenciarLogin.Designer.cs">
+    <Compile Include="Apllication\Gerencial\frmGerenciarLogin.Designer.cs">
       <DependentUpon>frmGerenciarLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmImp.cs">
+    <Compile Include="Apllication\Transferencia\Impressao\frmImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmImp.Designer.cs">
+    <Compile Include="Apllication\Transferencia\Impressao\frmImp.Designer.cs">
       <DependentUpon>frmImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Transferencia\frmImpMovimento.cs">
+    <Compile Include="Apllication\Transferencia\Impressao\frmImpMovimento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\Transferencia\frmImpMovimento.Designer.cs">
+    <Compile Include="Apllication\Transferencia\Impressao\frmImpMovimento.Designer.cs">
       <DependentUpon>frmImpMovimento.cs</DependentUpon>
     </Compile>
     <Compile Include="Apllication\Login\frmLogin.cs">
@@ -248,10 +448,10 @@
     <Compile Include="Apllication\Empilhadeiras\frmOrdemServico.Designer.cs">
       <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmOSTHR.cs">
+    <Compile Include="Apllication\Manutencao\Impressao\frmOSTHR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmOSTHR.Designer.cs">
+    <Compile Include="Apllication\Manutencao\Impressao\frmOSTHR.Designer.cs">
       <DependentUpon>frmOSTHR.cs</DependentUpon>
     </Compile>
     <Compile Include="Apllication\Empilhadeiras\frmPainelGas.cs">
@@ -314,6 +514,8 @@
     <Compile Include="Apllication\Empilhadeiras\frmTrocaGas.Designer.cs">
       <DependentUpon>frmTrocaGas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\login\modulosController.cs" />
+    <Compile Include="DAO\Login\modulosDao.cs" />
     <Compile Include="DAO\Manutencao\apontamentoDAO.cs" />
     <Compile Include="DAO\Manutencao\aseDao.cs" />
     <Compile Include="DAO\Connection\Connection.cs" />
@@ -321,14 +523,7 @@
     <Compile Include="DAO\Manutencao\geracaoOSTHRDAO.cs" />
     <Compile Include="DAO\Manutencao\SolicitaCompraOSTHRDAO.cs" />
     <Compile Include="DAO\Producao\FichaDao.cs" />
-    <Compile Include="DAO\Producao\frmFimAnalise.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DAO\Producao\frmFimAnalise.Designer.cs">
-      <DependentUpon>frmFimAnalise.cs</DependentUpon>
-    </Compile>
     <Compile Include="DAO\Producao\selectLoteDao.cs" />
-    <Compile Include="DAO\Transferencia\loadPADAO.cs" />
     <Compile Include="DAO\Empilhadeiras\loadTrocasDao.cs" />
     <Compile Include="DAO\Login\LoginDao.cs" />
     <Compile Include="DAO\Empilhadeiras\manutecaoEmpilhadeiraDao.cs" />
@@ -338,31 +533,65 @@
     <Compile Include="DAO\Transferencia\transferenciaDao.cs" />
     <Compile Include="DAO\Empilhadeiras\trocaGasDao.cs" />
     <Compile Include="DAO\Empilhadeiras\ultimaTrocaDao.cs" />
-    <Compile Include="DAO\version.cs" />
+    <Compile Include="DAO\Versao\version.cs" />
+    <Compile Include="dto\manutencao\apontamentoOsThrDto.cs" />
+    <Compile Include="dto\manutencao\aseDto.cs" />
+    <Compile Include="dto\manutencao\asuDto.cs" />
+    <Compile Include="dto\manutencao\EstoquePecasDto.cs" />
+    <Compile Include="dto\manutencao\geracaoOsTHRDto.cs" />
+    <Compile Include="dto\manutencao\movimentacaoPecasDto.cs" />
+    <Compile Include="dto\manutencao\osThrDto.cs" />
+    <Compile Include="dto\manutencao\prioidadeManDto.cs" />
+    <Compile Include="dto\Compras\requisicaoCompraDto.cs" />
+    <Compile Include="dto\manutencao\solicitacaoPecaDto.cs" />
+    <Compile Include="dto\manutencao\statusOsThrDto.cs" />
+    <Compile Include="dto\Producao\OrdensProducaoDto.cs" />
+    <Compile Include="dto\transferencia\fechamentoDto.cs" />
+    <Compile Include="dto\transferencia\movimentacaoDto.cs" />
+    <Compile Include="dto\transferencia\transferenciaDto.cs" />
+    <Compile Include="dto\Versao\versaoDto.cs" />
     <Compile Include="fichaQuarentena.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>fichaQuarentena.xsd</DependentUpon>
     </Compile>
-    <Compile Include="impFechamento.cs" />
-    <Compile Include="Modelo\Manutencao\apontamentoController.cs" />
-    <Compile Include="Modelo\Manutencao\aseController.cs" />
-    <Compile Include="Modelo\Manutencao\geracaoOSTHRController.cs" />
-    <Compile Include="Modelo\Manutencao\SolicitacaoCompraOSTHRController.cs" />
-    <Compile Include="Modelo\Producao\fichaController.cs" />
-    <Compile Include="Modelo\Producao\selectLoteController.cs" />
-    <Compile Include="Modelo\Transferencia\loadPaController.cs" />
-    <Compile Include="Modelo\Empilhadeiras\loadTrocaGasController.cs" />
-    <Compile Include="Modelo\Login\loginController.cs" />
-    <Compile Include="Modelo\Empilhadeiras\manutecaoEmpilhadeirasController.cs" />
-    <Compile Include="Modelo\Manutencao\OSTHRController.cs" />
-    <Compile Include="Modelo\Manutencao\situacaoOSTHRController.cs" />
-    <Compile Include="Modelo\Transferencia\transferenciaController.cs" />
-    <Compile Include="Modelo\Empilhadeiras\trocaGasController.cs" />
-    <Compile Include="Modelo\Empilhadeiras\ultimaTrocaController.cs" />
-    <Compile Include="Modelo\versionController.cs" />
+    <Compile Include="Controller\login\loginController.cs" />
+    <Compile Include="Model\Estoque\EstoqueModel.cs" />
+    <Compile Include="Model\Pcp\OrdemProducaoModel.cs" />
+    <Compile Include="Model\versionController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\estoque\EstoqueAntigoService.cs" />
+    <Compile Include="Service\estoque\EstoqueService.cs" />
+    <Compile Include="Service\estoque\GrupoService.cs" />
+    <Compile Include="Service\estoque\MovimentacaoSerivce.cs" />
+    <Compile Include="Service\estoque\MpService.cs" />
+    <Compile Include="Service\estoque\paService.cs" />
+    <Compile Include="Service\estoque\SolicitacaoService.cs" />
+    <Compile Include="Service\login\loginService.cs" />
+    <Compile Include="Service\login\modulosService.cs" />
+    <Compile Include="Service\manutencao\apontamentoOsThrService.cs" />
+    <Compile Include="Service\manutencao\aseService.cs" />
+    <Compile Include="Service\manutencao\asuService.cs" />
+    <Compile Include="Service\manutencao\EstoquePecasService.cs" />
+    <Compile Include="Service\manutencao\geracaoOsThrService.cs" />
+    <Compile Include="Service\manutencao\movimentacaoPecasService.cs" />
+    <Compile Include="Service\manutencao\osThrService.cs" />
+    <Compile Include="Service\manutencao\prioridadeManService.cs" />
+    <Compile Include="Service\Compras\requisicaoCompraService.cs" />
+    <Compile Include="Service\manutencao\solictacaoPecaService.cs" />
+    <Compile Include="Service\manutencao\statusOsThrService.cs" />
+    <Compile Include="Service\Pcp\OrdemProducaoService.cs" />
+    <Compile Include="Service\Producao\OrdenProducaoService.cs" />
+    <Compile Include="Service\transferencia\fechamentoService.cs" />
+    <Compile Include="Service\transferencia\movimentacaoService.cs" />
+    <Compile Include="Service\transferencia\transferenciaService.cs" />
+    <Compile Include="Service\Versao\VersaoService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="_bd_SistemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -394,11 +623,85 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_bd_SistemDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_bd_SistemDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_bd_SistemDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_bd_SistemDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Apllication\Compras\frmPequisarEstoque.resx">
+      <DependentUpon>frmPequisarEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Compras\frmRequisicaoCompra.resx">
+      <DependentUpon>frmRequisicaoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmEstoque.resx">
+      <DependentUpon>frmEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmFilterEstoque.resx">
+      <DependentUpon>frmFilterEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmFinalizarRequisicao.resx">
+      <DependentUpon>frmFinalizarRequisicao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmGrupo.resx">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmMovimentacaoMaterial.resx">
+      <DependentUpon>frmMovimentacaoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmRequisicaoMaterial.resx">
+      <DependentUpon>frmRequisicaoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Estoque\frmPainelSolicitacoes.resx">
+      <DependentUpon>frmPainelSolicitacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Gerencial\frmFiltroUsuarios.resx">
+      <DependentUpon>frmFiltroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmFiltroRequisicoesPeca.resx">
+      <DependentUpon>frmFiltroRequisicoesPeca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\Impressao\frmRelatorioRequisicoesPeca.resx">
+      <DependentUpon>frmRelatorioRequisicoesPeca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\Impressao\Relatorio Requisições de Peças.rdlc" />
+    <EmbeddedResource Include="Apllication\Manutencao\frmAsu.resx">
+      <DependentUpon>frmAsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmEstoquePecas.resx">
+      <DependentUpon>frmEstoquePecas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmEstoquePesquisa.resx">
+      <DependentUpon>frmEstoquePesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmMovimentacaPecas.resx">
+      <DependentUpon>frmMovimentacaPecas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmRequisicoesPecas.resx">
+      <DependentUpon>frmRequisicoesPecas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Gerencial\frmGerenciarPrioridade.resx">
+      <DependentUpon>frmGerenciarPrioridade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Login\frmAlterarSenha.resx">
       <DependentUpon>frmAlterarSenha.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\frmEcolhaStatus.resx">
+      <DependentUpon>frmEcolhaStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\frmFazerPa.resx">
+      <DependentUpon>frmFazerPa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Producao\frmFichaQuarentena.resx">
       <DependentUpon>frmFichaQuarentena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\frmOrdensProdução.resx">
+      <DependentUpon>frmOrdensProdução.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Producao\frmPainelQuarentena.resx">
       <DependentUpon>frmPainelQuarentena.cs</DependentUpon>
@@ -409,26 +712,30 @@
     <EmbeddedResource Include="Apllication\Producao\Impressao\frmImprimirFicha.resx">
       <DependentUpon>frmImprimirFicha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Producao\Impressao\Report1.rdlc" />
+    <EmbeddedResource Include="Apllication\Producao\Impressao\frmImprimirPA.resx">
+      <DependentUpon>frmImprimirPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Producao\Impressao\Impressão de Ficha.rdlc" />
+    <EmbeddedResource Include="Apllication\Producao\Impressao\PA.rdlc" />
     <EmbeddedResource Include="Apllication\Transferencia\frmEditarTransferencia.resx">
       <DependentUpon>frmEditarTransferencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Manutencao\frmFiltroManutencoes.resx">
       <DependentUpon>frmFiltroManutencoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Manutencao\frmGeracaoOS.resx">
+    <EmbeddedResource Include="Apllication\Gerencial\frmGeracaoOS.resx">
       <DependentUpon>frmGeracaoOS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Manutencao\frmGerenciarLocaisManu.resx">
+    <EmbeddedResource Include="Apllication\Gerencial\frmGerenciarLocaisManu.resx">
       <DependentUpon>frmGerenciarLocaisManu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Login\frmGerenciarLogin.resx">
+    <EmbeddedResource Include="Apllication\Gerencial\frmGerenciarLogin.resx">
       <DependentUpon>frmGerenciarLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Manutencao\frmImp.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\Impressao\frmImp.resx">
       <DependentUpon>frmImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Transferencia\frmImpMovimento.resx">
+    <EmbeddedResource Include="Apllication\Transferencia\Impressao\frmImpMovimento.resx">
       <DependentUpon>frmImpMovimento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Login\frmLogin.resx">
@@ -446,7 +753,7 @@
     <EmbeddedResource Include="Apllication\Empilhadeiras\frmOrdemServico.resx">
       <DependentUpon>frmOrdemServico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Manutencao\frmOSTHR.resx">
+    <EmbeddedResource Include="Apllication\Manutencao\Impressao\frmOSTHR.resx">
       <DependentUpon>frmOSTHR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Empilhadeiras\frmPainelGas.resx">
@@ -479,22 +786,18 @@
     <EmbeddedResource Include="Apllication\Empilhadeiras\frmTrocaGas.resx">
       <DependentUpon>frmTrocaGas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DAO\Producao\frmFimAnalise.resx">
-      <DependentUpon>frmFimAnalise.cs</DependentUpon>
+    <EmbeddedResource Include="Apllication\Transferencia\Impressao\Movimentação.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="impMovimentacao.rdlc" />
+    <EmbeddedResource Include="Apllication\Transferencia\Impressao\Pedido de Transferencia.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\Impressao\Ordem de Serviço THR.rdlc" />
+    <EmbeddedResource Include="Apllication\Transferencia\Impressao\Pedido de Transferencia N.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Report2.rdlc" />
-    <EmbeddedResource Include="Ordem de Serviço THR.rdlc" />
     <None Include="fichaQuarentena.xsc">
       <DependentUpon>fichaQuarentena.xsd</DependentUpon>
     </None>
@@ -516,6 +819,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SistemaTHR.Controller.Producao.OrdensProducaoController.datasource" />
     <None Include="_bd_SistemDataSet.xsc">
       <DependentUpon>_bd_SistemDataSet.xsd</DependentUpon>
     </None>
@@ -532,7 +836,6 @@
     </None>
     <None Include="_bd_SistemDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_bd_SistemDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="_bd_SistemDataSet1.xss">
@@ -582,6 +885,28 @@
     <None Include="_bd_SistemDataSet5.xss">
       <DependentUpon>_bd_SistemDataSet5.xsd</DependentUpon>
     </None>
+    <None Include="_bd_SistemDataSet6.xsc">
+      <DependentUpon>_bd_SistemDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_bd_SistemDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_bd_SistemDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_bd_SistemDataSet6.xss">
+      <DependentUpon>_bd_SistemDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="_bd_SistemDataSet8.xsc">
+      <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="_bd_SistemDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_bd_SistemDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_bd_SistemDataSet8.xss">
+      <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -613,33 +938,25 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\filtro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\filtro %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\show.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\seo.png" />
+    <None Include="Resources\view.png" />
     <None Include="Resources\mais.png" />
-    <None Include="Resources\order.png" />
+    <None Include="Resources\filter.png" />
     <None Include="Resources\refresh-button.png" />
-    <None Include="Resources\refresh-button %281%29.png" />
-    <None Include="Resources\refresh-button1.png" />
+    <None Include="Resources\padlock.png" />
+    <None Include="Resources\management.png" />
+    <None Include="Resources\order.png" />
+    <None Include="Resources\expedition.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\production.png" />
+    <None Include="Resources\inventory.png" />
     <None Include="Resources\lift-truck.png" />
     <None Include="Resources\lift-truck %281%29.png" />
-    <None Include="Resources\inventory.png" />
-    <None Include="Resources\expedition.png" />
-    <None Include="Resources\inventory %281%29.png" />
-    <None Include="Resources\settings.png" />
-    <None Include="Resources\management.png" />
-    <None Include="Resources\padlock.png" />
-    <None Include="Resources\production.png" />
     <None Include="Resources\shelf.png" />
     <Content Include="bd-Sistem.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\document.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -654,6 +971,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Apllication\Estoque\Impressao\" />
+    <Folder Include="Apllication\Expedicao\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+  </Target>
 </Project>

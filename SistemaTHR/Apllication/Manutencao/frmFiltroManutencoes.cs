@@ -106,7 +106,7 @@ namespace SistemaTHR.Apllication
 
                 verificarCheked();
 
-                Modelo.OSTHRController controller = new Modelo.OSTHRController();
+                /*  Modelo.OSTHRController controller = new Modelo.OSTHRController();
                 controller.emAberto = emAberto;
                 controller.ManIn = manIni;
                 controller.OSINC = osINC;
@@ -124,7 +124,7 @@ namespace SistemaTHR.Apllication
                 manutencao.dt = controller.dt;
 
                 manutencao.loadFilter();
-                this.Close();
+                this.Close();*/
 
 
             }

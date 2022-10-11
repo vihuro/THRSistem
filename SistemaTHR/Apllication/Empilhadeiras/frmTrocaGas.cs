@@ -14,7 +14,7 @@ namespace SistemaTHR.Apllication
 {
     public partial class frmTrocaGas : Form
     {
-        public frmTrocaGas()
+       /* public frmTrocaGas()
         {
             InitializeComponent();
 
@@ -152,7 +152,7 @@ namespace SistemaTHR.Apllication
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }*/
     }
     
 }

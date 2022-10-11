@@ -12,19 +12,31 @@ namespace SistemaTHR.Apllication
 {
     public partial class frmSolicitarManutencaoTHR : Form
     {
-        String usuario;
-        public String numeroOP;
-        private String geracao;
-        private String apontamentos;
-        private List<String> apont = new List<string>();
-        public frmSolicitarManutencaoTHR(String usuario)
+
+        private Controller.Login.loginController loginController;
+        private Controller.manutencao.osThrController controller;
+        private Service.manutencao.osThrService service = new Service.manutencao.osThrService();
+
+        private Controller.manutencao.geracaoOsTHRController geracaoController;
+        private Service.manutencao.geracaoOsThrService geracaoService;
+
+        private Controller.manutencao.apontamentoOsThrController apontamentoController;
+        private Service.manutencao.apontamentoOsThrService apontamentoService;
+
+        private Controller.manutencao.statusOsThrController statusController;
+        private Service.manutencao.statusOsThrService statusService;
+
+        private Controller.manutencao.aseController aseController;
+        private Service.manutencao.aseService asService;
+
+        public frmSolicitarManutencaoTHR(Controller.Login.loginController loginController)
         {
             InitializeComponent();
-            this.usuario = usuario;
+            this.loginController = loginController;
         }
-       
-        String dataServico;
-        DateTime data;
+
+        public String dataServico;
+        public DateTime data;
         private void verificarData()
         {
 
@@ -47,73 +59,119 @@ namespace SistemaTHR.Apllication
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(cboAondeSera.Text != string.Empty && cboTipoServico.Text != string.Empty && txtDescricao.Text != string.Empty)
+            this.Cursor = Cursors.WaitCursor;
+
+            if (cboAondeSera.Text != string.Empty && cboTipoServico.Text != string.Empty && txtDescricao.Text != string.Empty)
             {
                 DateTime dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                String horaAgora = dataHora.ToString();
+
+                statusController = new Controller.manutencao.statusOsThrController();
+                statusService = new Service.manutencao.statusOsThrService();
+
+                controller = new Controller.manutencao.osThrController();
+                controller.Descricao = txtDescricao.Text;
+                controller.TipoServico = cboTipoServico.Text;
+                controller.DataHora = horaAgora;
+                controller.Usuario = loginController.Nome;
+                controller.Categoria = cboCategoria.Text;
+                controller.Ase = cboAondeSera.Text;
                 verificarData();
+                controller.DataIdeal = dataServico.ToString();
+                controller.StatusOs = "EM ABERTO";
 
-                Modelo.OSTHRController oSTHRController = new Modelo.OSTHRController();
-                oSTHRController.insertOrdemServico(txtDescricao.Text, cboTipoServico.Text, Convert.ToString(dataHora), usuario,cboAondeSera.Text, dataServico, "EM ABERTO");
 
-                if(oSTHRController.msg != null)
+                service.insert(controller);
+                if (controller.Msg != null)
                 {
-                    MessageBox.Show(oSTHRController.msg,"ERRO COM BANCO DE DADOS!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(controller.Msg);
                 }
+
                 else
                 {
-                    oSTHRController.selectOrdemServico();
-                    if (oSTHRController.msg != null)
+
+                    service.selectOS(controller);
+                    if (controller.Msg != null)
                     {
-                        MessageBox.Show(oSTHRController.msg, "ERRO COM BANCO DE DADOS!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(controller.Msg, "ERRO COM BANCO DE DADOS!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        this.numeroOP = oSTHRController.numeroOP;
-                    }
-
-                    if(this.numeroOP != null)
-                    {
-                        Modelo.geracaoOSTHRController geracaoController = new Modelo.geracaoOSTHRController();
-                        geracaoController.selectAtiv();
-                        this.geracao = geracaoController.geracao;
-
-                        Modelo.Manutencao.apontamentoController apontamento = new Modelo.Manutencao.apontamentoController();
-                        apontamento.geracao = this.geracao;
-                        apontamento.selectSituacao();
-                        this.apont = apontamento.apont;
-
-
-                        foreach(var apont in this.apont)
+                        geracaoController = new Controller.manutencao.geracaoOsTHRController();
+                        geracaoService = new Service.manutencao.geracaoOsThrService();
+                        geracaoService.active(geracaoController);
+                        if (geracaoController.Msg != null)
                         {
-                            if (apont == "Geração")
+                            MessageBox.Show(geracaoController.Msg);
+                        }
+                        else
+                        {
+                            apontamentoController = new Controller.manutencao.apontamentoOsThrController();
+                            apontamentoController.Geracao = geracaoController.Geracao;
+                            apontamentoService = new Service.manutencao.apontamentoOsThrService();
+                            statusService = new Service.manutencao.statusOsThrService();
+                            apontamentoService.list(apontamentoController);
+                            if (apontamentoController.Msg != null)
                             {
-                                oSTHRController.insertStatusOS(numeroOP, apont, Convert.ToString(dataHora), usuario, Convert.ToString(dataHora), usuario, "");
+                                MessageBox.Show(apontamentoController.Msg);
                             }
                             else
                             {
-                                oSTHRController.insertStatusOS(numeroOP, apont, "00/00/0000 00:00:00", "", "00/00/0000 00:00:00", "", "");
+                                foreach (var apont in apontamentoController.Apont)
+                                {
+                                    statusController = new Controller.manutencao.statusOsThrController();
+                                    statusService = new Service.manutencao.statusOsThrService();
+                                    if (apont == "Geração")
+                                    {
+                                        statusController.NOsThr = controller.NOs;
+                                        statusController.Andamento = apont;
+                                        statusController.DataHoraApontamento = Convert.ToString(dataHora);
+                                        statusController.UsuarioApontamento = loginController.Nome;
+                                        statusController.DataHoraAlteracao = Convert.ToString(dataHora);
+                                        statusController.UsuarioAlteracao = loginController.Nome;
+                                        statusController.Observacao = "";
+                                        statusService.insert(statusController);
+                                        if (statusController.Msg != null)
+                                        {
+                                            MessageBox.Show(statusController.Msg);
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        statusController.NOsThr = controller.NOs;
+                                        statusController.Andamento = apont;
+                                        statusController.DataHoraApontamento = "00/00/0000 00:00:00";
+                                        statusController.UsuarioApontamento = "";
+                                        statusController.DataHoraAlteracao = "00/00/0000 00:00:00";
+                                        statusController.UsuarioAlteracao = "";
+                                        statusController.Observacao = "";
+                                        statusService.insert(statusController);
+                                        if (statusController.Msg != null)
+                                        {
+                                            MessageBox.Show(statusController.Msg);
+                                        }
+
+                                    }
+                                }
+                                MessageBox.Show("Ordem solicitada com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                            
                         }
 
 
-                        MessageBox.Show("Serviço solicitado com sucesso!", "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao acrescentar o acompanhamento da OS. Contante o administrador do sistema!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
 
-
-
+            this.Cursor = Cursors.Default;
+            this.Close();
             }
             else
             {
                 MessageBox.Show("Campos obrigatório(s) vazio(s)", "THR SISTEMAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -123,18 +181,22 @@ namespace SistemaTHR.Apllication
 
         private void frmSolicitarManutencaoTHR_Load(object sender, EventArgs e)
         {
-            Modelo.aseController controller = new Modelo.aseController();
-            controller.ASE();
-            foreach(var item in controller.ase)
+
+            aseController = new Controller.manutencao.aseController();
+            asService = new Service.manutencao.aseService();
+            asService.list(aseController);
+            if(aseController.Msg != null)
             {
-                cboAondeSera.Items.Add(item);
+                MessageBox.Show(aseController.Msg);
+            }
+            else
+            {
+                foreach (var item in aseController.Ase)
+                {
+                    cboAondeSera.Items.Add(item);
+                }
             }
 
-            if(controller.msg != null)
-            {
-                MessageBox.Show(controller.msg);
-            }
-           
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)
@@ -148,39 +210,9 @@ namespace SistemaTHR.Apllication
             lblCaractere.Text = "Caracteres restantes: " + totalCaractere;
         }
 
-        private void lblCaractere_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDataIdeal_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboTipoServico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            if(dateTimePicker1.Value >= DateTime.Today)
+            if (dateTimePicker1.Value >= DateTime.Today)
             {
                 dateTimePicker1.Format = DateTimePickerFormat.Short;
             }

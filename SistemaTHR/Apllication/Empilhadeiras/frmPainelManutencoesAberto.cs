@@ -71,10 +71,10 @@ namespace SistemaTHR.Apllication
 
                 int numeroID = int.Parse(listView1.SelectedItems[0].SubItems[0].Text);
 
-                Modelo.manutecaoEmpilhadeirasController manutecaoEmpilhadeirasController = new Modelo.manutecaoEmpilhadeirasController();
+               /* Modelo.manutecaoEmpilhadeirasController manutecaoEmpilhadeirasController = new Modelo.manutecaoEmpilhadeirasController();
                 manutecaoEmpilhadeirasController.selectIDTrocaGas(numeroID);
 
-                txtDescricao.Text = manutecaoEmpilhadeirasController.descricao;
+                txtDescricao.Text = manutecaoEmpilhadeirasController.descricao;*/
             }
         }
 

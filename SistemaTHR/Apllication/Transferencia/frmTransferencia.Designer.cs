@@ -89,6 +89,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             // 
             // clNumeroPA
             // 
@@ -161,7 +162,6 @@
             this.splitContainer3.Panel1.Controls.Add(this.label1);
             this.splitContainer3.Panel1.Controls.Add(this.txtNumeroPA);
             this.splitContainer3.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer3.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer3_Panel1_Paint);
             // 
             // splitContainer3.Panel2
             // 
@@ -186,6 +186,7 @@
             // 
             // btnRemover
             // 
+            this.btnRemover.Enabled = false;
             this.btnRemover.Location = new System.Drawing.Point(249, 112);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(75, 23);
@@ -220,8 +221,7 @@
             this.txtNumeroPA.Name = "txtNumeroPA";
             this.txtNumeroPA.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroPA.TabIndex = 4;
-            this.txtNumeroPA.TextChanged += new System.EventHandler(this.txtNumeroPA_TextChanged);
-            this.txtNumeroPA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumeroPA_KeyUp_1);
+            this.txtNumeroPA.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumeroPA_KeyUp);
             // 
             // groupBox1
             // 
@@ -341,8 +341,7 @@
             // lblUsuario
             // 
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(118, 17);
-            this.lblUsuario.Text = "toolStripStatusLabel2";
+            this.lblUsuario.Size = new System.Drawing.Size(0, 17);
             // 
             // printPreviewDialog1
             // 

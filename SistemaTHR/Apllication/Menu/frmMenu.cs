@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaTHR.Apllication.Estoque;
+using SistemaTHR.Apllication.Producao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,102 +15,260 @@ namespace SistemaTHR.Apllication
 {
     public partial class frmMenu : Form
     {
-        String Usuario;
-        public String Empilhadeiras;
-        public String EmpNivel;
-        public String Recebimento;
-        public String RecebNivel;
-        public String Expedicao;
-        public String ExpNivel;
-        public String Adm;
-        public String AdmNivel;
-        public String manutencao;
-        public String manutencaoNivel;
 
-        Thread nt;
+        Controller.Login.modulosController modulosController;
+        Controller.Login.loginController loginController;
 
-        public frmMenu(String Usuario)
+        public frmMenu(Controller.Login.loginController loginController, Controller.Login.modulosController modulosController)
         {
             InitializeComponent();
-            this.Usuario = Usuario;
+            this.loginController = loginController;
+            this.modulosController = modulosController;
         }
 
-        private void empilhadeira1ToolStripMenuItem_Click(object sender, EventArgs e)
+       private void empilhadeira1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmTrocaGas frmTrocaGas = new frmTrocaGas();
-            
             frmTrocaGas.lblNumeroEmp.Text = "1";
             frmTrocaGas.lblUsuario.Text = this.lblUsuario.Text;
             frmTrocaGas.Show();
+            this.Cursor = Cursors.Default;
         }
 
         private void empilhadeira2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmTrocaGas frmTrocaGas = new frmTrocaGas();
-
             frmTrocaGas.lblNumeroEmp.Text = "2";
             frmTrocaGas.lblUsuario.Text = this.lblUsuario.Text;
             frmTrocaGas.Show();
+            this.Cursor = Cursors.Default;
         }
 
         private void empilhadeira3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmTrocaGas frmTrocaGas = new frmTrocaGas();
-
             frmTrocaGas.lblNumeroEmp.Text = "3";
             frmTrocaGas.lblUsuario.Text = this.lblUsuario.Text;
             frmTrocaGas.Show();
+            this.Cursor = Cursors.Default;
 
         }
 
         private void empilhadeira3ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmTrocaGas frmTrocaGas = new frmTrocaGas();
-
             frmTrocaGas.lblNumeroEmp.Text = "4";
             frmTrocaGas.lblUsuario.Text = this.lblUsuario.Text;
             frmTrocaGas.Show();
+            this.Cursor = Cursors.Default;
 
         }
 
         private void empilhadeira3ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmTrocaGas frmTrocaGas = new frmTrocaGas();
-
             frmTrocaGas.lblNumeroEmp.Text = "5";
             frmTrocaGas.lblUsuario.Text = this.lblUsuario.Text;
             frmTrocaGas.Show();
+            this.Cursor = Cursors.Default;
 
         }
 
         private void trocaGásToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmPainelTrocaGas frmPainelTrocaGas = new frmPainelTrocaGas();
             frmPainelTrocaGas.Show();
+            this.Cursor = Cursors.Default;
         }
 
         private void solicitarManutençãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmSolicitarManutencao frmSolicitarManutencao = new frmSolicitarManutencao();
             frmSolicitarManutencao.lblUsuario.Text = this.lblUsuario.Text;
             frmSolicitarManutencao.ShowDialog();
+            this.Cursor = Cursors.Default;
         }
 
         private void manutenççõesEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             frmPainelManutencoesAberto frmPainelManutencoesAberto = new frmPainelManutencoesAberto();
             frmPainelManutencoesAberto.lblUsuario.Text = this.lblUsuario.Text;
      
             frmPainelManutencoesAberto.Show();
+            this.Cursor = Cursors.Default;
         }
 
 
 
         private void transfêToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTransferencia frmTransferencia = new frmTransferencia(Usuario);
+            this.Cursor = Cursors.WaitCursor;
+            frmTransferencia frmTransferencia = new frmTransferencia(this.loginController, this.modulosController);
             frmTransferencia.lblUsuario.Text = this.lblUsuario.Text;
             frmTransferencia.Show();
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void gerenciarLoginsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmGerenciarLogin gerenciarLogin = new frmGerenciarLogin(loginController,modulosController);
+            gerenciarLogin.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+         
+
+        private void manutençãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmManutencao manutencao = new frmManutencao(this.loginController, this.modulosController);
+            manutencao.lblUsuario.Text = this.lblUsuario.Text;
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void solicitarManutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmSolicitarManutencaoTHR frmSolicitar = new frmSolicitarManutencaoTHR(this.loginController);
+            frmSolicitar.lblUsuario.Text = this.lblUsuario.Text;
+            frmSolicitar.ShowDialog();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void manutençõesEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frmManutencao manutencao = new frmManutencao(this.loginController,this.modulosController);
+            manutencao.lblUsuario.Text = this.lblUsuario.Text;
+            manutencao.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+        private void painelManutençõesmEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmPainelManutencoesTHR painel = new frmPainelManutencoesTHR();
+            painel.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+
+        private void paínesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmPainelTransferencias frmPainelTransferencias = new frmPainelTransferencias(this.loginController, this.modulosController);
+
+            frmPainelTransferencias.btnEditar.Enabled = false;
+            frmPainelTransferencias.lblUsuario.Text = this.lblUsuario.Text;
+
+            if (modulosController.ExpNivel == "1")
+            {
+                frmPainelTransferencias.btnEditar.Enabled = true;
+            }
+
+
+            frmPainelTransferencias.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+
+
+
+        private void alterarSenhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmAlterarSenha alterarSenha = new frmAlterarSenha(this.loginController);
+            alterarSenha.ShowDialog();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void gerenciarLocaisDeManutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmGerenciarLocaisManu manutencao = new frmGerenciarLocaisManu(this.loginController, this.modulosController);
+            manutencao.lblUsuario.Text = this.lblUsuario.Text;
+            manutencao.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void gerenciarApontamentosdeOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmGeracaoOS geracao = new frmGeracaoOS();
+            geracao.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void fichaDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            Apllication.Produção.frmFichaQuarentena quarentena = new Produção.frmFichaQuarentena(this.loginController, this.modulosController);
+            quarentena.lblUsuario.Text = this.lblUsuario.Text;
+            quarentena.ShowDialog();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void painelDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            Producao.frmPainelQuarentena painel = new Producao.frmPainelQuarentena();
+            painel.Show();
+
+            this.Cursor = Cursors.Default;
+        }
+
+        private void finalizarAnáliseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            //Producao.Impressao.frmControleQuarentena quarentena = new Producao.Impressao.frmControleQuarentena(this.loginController, this.modulosController);
+            //quarentena.lblUsuario.Text = this.lblUsuario.Text;
+            //quarentena.Show();
+
+            this.Cursor = Cursors.Default;
+
+        }
+
+        private void gerenciarPrioridadeDeManutençãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            Gerencial.frmGerenciarPrioridade gerenciarPrioridade = new Gerencial.frmGerenciarPrioridade(this.loginController, this.modulosController);
+            gerenciarPrioridade.lblUsuario.Text = this.lblUsuario.Text;
+            gerenciarPrioridade.Show();
+
+            this.Cursor = Cursors.Default;
 
         }
 
@@ -117,169 +277,106 @@ namespace SistemaTHR.Apllication
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void requisicaoPeçasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void verificarLogin()
-        {
-            loginController loginController = new loginController();
-
-            loginController.verificarNivel(this.lblUsuario.Text);
-            this.Empilhadeiras = loginController.Empilhadeiras;
-            this.EmpNivel = loginController.EmpNivel;
-            this.Recebimento = loginController.Recebimento;
-            this.RecebNivel = loginController.RecebNivel;
-            this.Expedicao = loginController.Expedicao;
-            this.ExpNivel = loginController.ExpNivel;
-            this.Adm = loginController.Adm;
-            this.AdmNivel = loginController.AdmNivel;
-            this.manutencao = loginController.manutencao;
-            this.manutencaoNivel = loginController.manutencaoNivel;
-        }
-
-
-        public DataTable dt = new DataTable();
-        private void gerenciarLoginsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmGerenciarLogin gerenciarLogin = new frmGerenciarLogin();
-
-            gerenciarLogin.Show();
-        }
-         
-
-        private void manutençãoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmManutencao manutencao = new frmManutencao(Usuario);
-            manutencao.lblUsuario.Text = this.lblUsuario.Text;
+            this.Cursor = Cursors.WaitCursor;
+            frmRequisicoesPecas requisicoes = new frmRequisicoesPecas(modulosController, loginController);
+            requisicoes.lblUsuario.Text = this.lblUsuario.Text;
+            requisicoes.Show();
+            this.Cursor = Cursors.Default;
 
         }
 
-        private void solicitarManutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void estoquePeçasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSolicitarManutencaoTHR frmSolicitar = new frmSolicitarManutencaoTHR(Usuario);
-            frmSolicitar.lblUsuario.Text = this.lblUsuario.Text;
-            frmSolicitar.ShowDialog();
+            this.Cursor = Cursors.WaitCursor;
+            Apllication.Manutencao.frmEstoquePecas estoquePecas = new Manutencao.frmEstoquePecas(loginController,modulosController);
+            estoquePecas.lblUsuario.Text = this.lblUsuario.Text;
+            estoquePecas.Show();
+            this.Cursor = Cursors.Default;
         }
 
-        private void manutençõesEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void movimentaçãoPeçasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmManutencao manutencao = new frmManutencao(Usuario);
-            verificarLogin();
-
-            manutencao.btnCompra.Enabled = false;
-            manutencao.btnDesfazer.Enabled = false;
-            manutencao.cboPrioridade.Enabled = false;
-
-            if (this.manutencaoNivel == "2" || this.manutencaoNivel == "1")
-            {
-                manutencao.btnCompra.Enabled = true;
-
-            }
-            if(this.manutencaoNivel == "1")
-            {
-                manutencao.btnDesfazer.Enabled = true;
-                manutencao.cboPrioridade.Enabled = true;
-
-            }
-
-
-            manutencao.lblUsuario.Text = this.lblUsuario.Text;
-            manutencao.manutencaoNivel = this.manutencaoNivel;
-            manutencao.Show();
+            this.Cursor = Cursors.WaitCursor;
+            Manutencao.frmMovimentacaPecas movimentacao = new Manutencao.frmMovimentacaPecas(loginController, modulosController);
+            movimentacao.Show();
+            this.Cursor = Cursors.Default;
         }
 
-
-        private void painelManutençõesmEmAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void gerenciarAondeSeráUsadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPainelManutencoesTHR painel = new frmPainelManutencoesTHR();
-            painel.Show();
+            this.Cursor = Cursors.WaitCursor;
+            Manutencao.frmAsu asu = new Manutencao.frmAsu(loginController, modulosController);
+            asu.lblUsuario.Text = this.lblUsuario.Text;
+            asu.Show();
+            this.Cursor = Cursors.Default;
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void requisiçõesDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Cursor = Cursors.WaitCursor;
+            Compras.frmRequisicaoCompra compras = new Compras.frmRequisicaoCompra(loginController, modulosController);
+            compras.lblUsuario.Text = this.lblUsuario.Text;
+            compras.Show();
+            this.Cursor = Cursors.Default;
         }
 
-        private void expediçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void estoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Cursor = Cursors.WaitCursor;
+            frmEstoque estoque = new frmEstoque(loginController, modulosController);
+            estoque.lblUsuario.Text = this.lblUsuario.Text;
+            estoque.Show();
+            this.Cursor = Cursors.Default;
         }
 
-        private void paínesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void solicitaçãoDeMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPainelTransferencias frmPainelTransferencias = new frmPainelTransferencias(Usuario);
-
-            loginController loginController = new loginController();
-
-            loginController.verificarNivel(this.lblUsuario.Text);
-            this.Empilhadeiras = loginController.Empilhadeiras;
-            this.EmpNivel = loginController.EmpNivel;
-            this.Recebimento = loginController.Recebimento;
-            this.RecebNivel = loginController.RecebNivel;
-            this.Expedicao = loginController.Expedicao;
-            this.ExpNivel = loginController.ExpNivel;
-            this.Adm = loginController.Adm;
-            this.AdmNivel = loginController.AdmNivel;
-            this.manutencao = loginController.manutencao;
-            this.manutencaoNivel = loginController.manutencaoNivel;
-
-            frmPainelTransferencias.btnEditar.Enabled = false;
-            frmPainelTransferencias.lblUsuario.Text = this.lblUsuario.Text;
-
-            if (this.ExpNivel == "1")
-            {
-                frmPainelTransferencias.btnEditar.Enabled = true;
-            }
-
-
-            frmPainelTransferencias.Show();
-        }
-
-        private void módulosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            this.Cursor = Cursors.WaitCursor;
+            frmRequisicaoMaterial requisicaMaterial = new frmRequisicaoMaterial(loginController, modulosController);
+            requisicaMaterial.lblUsuario.Text = this.lblUsuario.Text;
+            requisicaMaterial.ShowDialog();
+            this.Cursor = Cursors.Default;
 
         }
 
-        private void alterarSenhaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void finalizarSolicitaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAlterarSenha alterarSenha = new frmAlterarSenha(lblUsuario.Text);
-            alterarSenha.ShowDialog();
+            this.Cursor = Cursors.WaitCursor;
+
+            frmFinalizarRequisicao finalizar = new frmFinalizarRequisicao(loginController,modulosController);
+            finalizar.lblUsuario.Text = this.lblUsuario.Text;
+            finalizar.Show();
+
+            this.Cursor = Cursors.Default;
         }
 
-        private void gerenciarLocaisDeManutençãoToolStripMenuItem1_Click(object sender, EventArgs e)
+
+        private void ordensDeProduçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGerenciarLocaisManu manutencao = new frmGerenciarLocaisManu(Usuario);
-            manutencao.lblUsuario.Text = this.lblUsuario.Text;
-            manutencao.Show();
+            frmOrdensProdução producao = new frmOrdensProdução();
+            producao.Show();
+
         }
 
-        private void gerenciarApontamentosdeOSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void impressãoDePAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGeracaoOS geracao = new frmGeracaoOS();
-            geracao.Show();
+            frmFazerPa producao = new frmFazerPa();
+
+            producao.Show();
         }
 
-        private void fichaDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void painelSolicitaçãoWindToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Apllication.Produção.frmFichaQuarentena quarentena = new Produção.frmFichaQuarentena(Usuario);
-            quarentena.lblUsuario.Text = this.lblUsuario.Text;
-            quarentena.ShowDialog();
+            frmPainelSolicitacoes wind = new frmPainelSolicitacoes(loginController);
+            wind.Show();
         }
 
-        private void painelDeQuarentenaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void entradaSaídaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Producao.frmPainelQuarentena painel = new Producao.frmPainelQuarentena();
-            painel.Show();
-        }
-
-        private void finalizarAnáliseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Producao.Impressao.frmControleQuarentena quarentena = new Producao.Impressao.frmControleQuarentena(Usuario);
-            quarentena.lblUsuario.Text = this.lblUsuario.Text;
-            quarentena.Show();
-
+            frmMovimentacaoMaterial entradaSaida = new frmMovimentacaoMaterial(loginController);
+            entradaSaida.ShowDialog();
         }
     }
 }

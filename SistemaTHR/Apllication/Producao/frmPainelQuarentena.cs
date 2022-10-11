@@ -12,7 +12,7 @@ namespace SistemaTHR.Apllication.Producao
 {
     public partial class frmPainelQuarentena : Form
     {
-        Modelo.Producao.fichaController controller;
+
 
         DateTime dataLanc;
         DateTime dataAgora;
@@ -41,10 +41,10 @@ namespace SistemaTHR.Apllication.Producao
 
         private void frmPainelQuarentena_Load(object sender, EventArgs e)
         {
-            loadGrid();
+
         }
 
-        private void loadGrid()
+        /*private void loadGrid()
         {
             txtData.Text = DateTime.Now.ToString("dd/MM/yyyy   HH:mm:ss");
             controller = new Modelo.Producao.fichaController();
@@ -151,6 +151,6 @@ namespace SistemaTHR.Apllication.Producao
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
+        }*/
     }
 }

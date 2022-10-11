@@ -42,19 +42,11 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.clnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDataHoraTransf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuarioTransf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnIdFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCodigoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricaoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnPesoBrutoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnPesoLiquidoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnQtBobinas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnidTransfFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.clnIdMovi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNumeroPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +56,14 @@
             this.clnBobinas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnIdTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuarioTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.clnIdFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricaoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnPesoBrutoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnPesoLiquidoFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnQtBobinas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnidTransfFech = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -100,8 +100,7 @@
             // lblUsuario
             // 
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(118, 17);
-            this.lblUsuario.Text = "toolStripStatusLabel2";
+            this.lblUsuario.Size = new System.Drawing.Size(0, 17);
             // 
             // panel1
             // 
@@ -116,16 +115,16 @@
             // 
             // btnFiltro
             // 
+            this.btnFiltro.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filtro__1_;
+            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
             this.btnFiltro.Location = new System.Drawing.Point(0, 0);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(29, 28);
             this.btnFiltro.TabIndex = 0;
             this.btnFiltro.UseVisualStyleBackColor = true;
-            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
             // 
             // panel2
             // 
@@ -213,9 +212,31 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(427, 461);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // clnID
+            // 
+            this.clnID.DataPropertyName = "ID";
+            this.clnID.HeaderText = "Nº Transferencia";
+            this.clnID.Name = "clnID";
+            this.clnID.ReadOnly = true;
+            // 
+            // clnDataHoraTransf
+            // 
+            this.clnDataHoraTransf.DataPropertyName = "dataHoraTransf";
+            this.clnDataHoraTransf.HeaderText = "Data/Hora Transferencia";
+            this.clnDataHoraTransf.Name = "clnDataHoraTransf";
+            this.clnDataHoraTransf.ReadOnly = true;
+            this.clnDataHoraTransf.Width = 180;
+            // 
+            // clnUsuarioTransf
+            // 
+            this.clnUsuarioTransf.DataPropertyName = "usuarioTransf";
+            this.clnUsuarioTransf.HeaderText = "Usuário/Transferencia";
+            this.clnUsuarioTransf.Name = "clnUsuarioTransf";
+            this.clnUsuarioTransf.ReadOnly = true;
+            this.clnUsuarioTransf.Width = 131;
             // 
             // splitContainer2
             // 
@@ -233,7 +254,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView3);
             this.splitContainer2.Size = new System.Drawing.Size(779, 465);
-            this.splitContainer2.SplitterDistance = 211;
+            this.splitContainer2.SplitterDistance = 210;
             this.splitContainer2.TabIndex = 0;
             // 
             // dataGridView2
@@ -274,129 +295,8 @@
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(775, 207);
+            this.dataGridView2.Size = new System.Drawing.Size(775, 206);
             this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToOrderColumns = true;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clnIdFecha,
-            this.clnCodigoFech,
-            this.clnDescricaoFech,
-            this.clnPesoBrutoFech,
-            this.clnPesoLiquidoFech,
-            this.clnQtBobinas,
-            this.clnidTransfFech});
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.EnableHeadersVisualStyles = false;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(775, 246);
-            this.dataGridView3.TabIndex = 0;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
-            // 
-            // clnID
-            // 
-            this.clnID.DataPropertyName = "ID";
-            this.clnID.HeaderText = "Nº Transferencia";
-            this.clnID.Name = "clnID";
-            this.clnID.ReadOnly = true;
-            // 
-            // clnDataHoraTransf
-            // 
-            this.clnDataHoraTransf.DataPropertyName = "dataHoraTransf";
-            this.clnDataHoraTransf.HeaderText = "Data/Hora Transferencia";
-            this.clnDataHoraTransf.Name = "clnDataHoraTransf";
-            this.clnDataHoraTransf.ReadOnly = true;
-            this.clnDataHoraTransf.Width = 180;
-            // 
-            // clnUsuarioTransf
-            // 
-            this.clnUsuarioTransf.DataPropertyName = "usuarioTransf";
-            this.clnUsuarioTransf.HeaderText = "Usuário/Transferencia";
-            this.clnUsuarioTransf.Name = "clnUsuarioTransf";
-            this.clnUsuarioTransf.ReadOnly = true;
-            this.clnUsuarioTransf.Width = 131;
-            // 
-            // clnIdFecha
-            // 
-            this.clnIdFecha.DataPropertyName = "id";
-            this.clnIdFecha.HeaderText = "ID/Fehcamento";
-            this.clnIdFecha.Name = "clnIdFecha";
-            this.clnIdFecha.ReadOnly = true;
-            this.clnIdFecha.Visible = false;
-            // 
-            // clnCodigoFech
-            // 
-            this.clnCodigoFech.DataPropertyName = "codigo";
-            this.clnCodigoFech.HeaderText = "Código";
-            this.clnCodigoFech.Name = "clnCodigoFech";
-            this.clnCodigoFech.ReadOnly = true;
-            this.clnCodigoFech.Width = 127;
-            // 
-            // clnDescricaoFech
-            // 
-            this.clnDescricaoFech.DataPropertyName = "Descricao";
-            this.clnDescricaoFech.HeaderText = "Descrição";
-            this.clnDescricaoFech.Name = "clnDescricaoFech";
-            this.clnDescricaoFech.ReadOnly = true;
-            this.clnDescricaoFech.Width = 300;
-            // 
-            // clnPesoBrutoFech
-            // 
-            this.clnPesoBrutoFech.DataPropertyName = "PesoBruto";
-            this.clnPesoBrutoFech.HeaderText = "Peso Bruto";
-            this.clnPesoBrutoFech.Name = "clnPesoBrutoFech";
-            this.clnPesoBrutoFech.ReadOnly = true;
-            this.clnPesoBrutoFech.Width = 127;
-            // 
-            // clnPesoLiquidoFech
-            // 
-            this.clnPesoLiquidoFech.DataPropertyName = "PesoLiquido";
-            this.clnPesoLiquidoFech.HeaderText = "Peso Liquido";
-            this.clnPesoLiquidoFech.Name = "clnPesoLiquidoFech";
-            this.clnPesoLiquidoFech.ReadOnly = true;
-            this.clnPesoLiquidoFech.Width = 127;
-            // 
-            // clnQtBobinas
-            // 
-            this.clnQtBobinas.DataPropertyName = "QtBobinas";
-            this.clnQtBobinas.HeaderText = "QT/Bobinas";
-            this.clnQtBobinas.Name = "clnQtBobinas";
-            this.clnQtBobinas.ReadOnly = true;
-            this.clnQtBobinas.Width = 127;
-            // 
-            // clnidTransfFech
-            // 
-            this.clnidTransfFech.DataPropertyName = "IdTransferencia";
-            this.clnidTransfFech.HeaderText = "ID/Transferencia";
-            this.clnidTransfFech.Name = "clnidTransfFech";
-            this.clnidTransfFech.ReadOnly = true;
-            this.clnidTransfFech.Visible = false;
-            this.clnidTransfFech.Width = 127;
             // 
             // clnIdMovi
             // 
@@ -469,6 +369,102 @@
             this.clnUsuarioTransferencia.Name = "clnUsuarioTransferencia";
             this.clnUsuarioTransferencia.ReadOnly = true;
             this.clnUsuarioTransferencia.Visible = false;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToOrderColumns = true;
+            this.dataGridView3.AllowUserToResizeRows = false;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnIdFecha,
+            this.clnCodigoFech,
+            this.clnDescricaoFech,
+            this.clnPesoBrutoFech,
+            this.clnPesoLiquidoFech,
+            this.clnQtBobinas,
+            this.clnidTransfFech});
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.EnableHeadersVisualStyles = false;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(775, 247);
+            this.dataGridView3.TabIndex = 0;
+            // 
+            // clnIdFecha
+            // 
+            this.clnIdFecha.DataPropertyName = "id";
+            this.clnIdFecha.HeaderText = "ID/Fehcamento";
+            this.clnIdFecha.Name = "clnIdFecha";
+            this.clnIdFecha.ReadOnly = true;
+            this.clnIdFecha.Visible = false;
+            // 
+            // clnCodigoFech
+            // 
+            this.clnCodigoFech.DataPropertyName = "codigo";
+            this.clnCodigoFech.HeaderText = "Código";
+            this.clnCodigoFech.Name = "clnCodigoFech";
+            this.clnCodigoFech.ReadOnly = true;
+            this.clnCodigoFech.Width = 127;
+            // 
+            // clnDescricaoFech
+            // 
+            this.clnDescricaoFech.DataPropertyName = "Descricao";
+            this.clnDescricaoFech.HeaderText = "Descrição";
+            this.clnDescricaoFech.Name = "clnDescricaoFech";
+            this.clnDescricaoFech.ReadOnly = true;
+            this.clnDescricaoFech.Width = 300;
+            // 
+            // clnPesoBrutoFech
+            // 
+            this.clnPesoBrutoFech.DataPropertyName = "PesoBruto";
+            this.clnPesoBrutoFech.HeaderText = "Peso Bruto";
+            this.clnPesoBrutoFech.Name = "clnPesoBrutoFech";
+            this.clnPesoBrutoFech.ReadOnly = true;
+            this.clnPesoBrutoFech.Width = 127;
+            // 
+            // clnPesoLiquidoFech
+            // 
+            this.clnPesoLiquidoFech.DataPropertyName = "PesoLiquido";
+            this.clnPesoLiquidoFech.HeaderText = "Peso Liquido";
+            this.clnPesoLiquidoFech.Name = "clnPesoLiquidoFech";
+            this.clnPesoLiquidoFech.ReadOnly = true;
+            this.clnPesoLiquidoFech.Width = 127;
+            // 
+            // clnQtBobinas
+            // 
+            this.clnQtBobinas.DataPropertyName = "QtBobinas";
+            this.clnQtBobinas.HeaderText = "QT/Bobinas";
+            this.clnQtBobinas.Name = "clnQtBobinas";
+            this.clnQtBobinas.ReadOnly = true;
+            this.clnQtBobinas.Width = 127;
+            // 
+            // clnidTransfFech
+            // 
+            this.clnidTransfFech.DataPropertyName = "IdTransferencia";
+            this.clnidTransfFech.HeaderText = "ID/Transferencia";
+            this.clnidTransfFech.Name = "clnidTransfFech";
+            this.clnidTransfFech.ReadOnly = true;
+            this.clnidTransfFech.Visible = false;
+            this.clnidTransfFech.Width = 127;
             // 
             // frmPainelTransferencias
             // 

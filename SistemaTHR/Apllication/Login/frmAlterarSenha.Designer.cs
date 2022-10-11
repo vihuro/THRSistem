@@ -99,7 +99,6 @@
             // 
             this.btnSenha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSenha.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSenha.Image = global::SistemaTHR.Properties.Resources.show;
             this.btnSenha.Location = new System.Drawing.Point(251, 23);
             this.btnSenha.Name = "btnSenha";
             this.btnSenha.Size = new System.Drawing.Size(23, 20);
@@ -111,7 +110,6 @@
             // 
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnConfirmar.Image = global::SistemaTHR.Properties.Resources.show;
             this.btnConfirmar.Location = new System.Drawing.Point(251, 49);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(23, 20);

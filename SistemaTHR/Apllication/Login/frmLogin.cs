@@ -17,8 +17,10 @@ namespace SistemaTHR
     public partial class frmLogin : Form
     {
 
-        Thread nt;
-
+        private Controller.Login.modulosController modulosController;
+        private Service.login.loginService service = new Service.login.loginService();
+        private Service.modulosService modulosService = new Service.modulosService();
+        private frmMenu menu;
 
         public frmLogin()
         {
@@ -26,126 +28,192 @@ namespace SistemaTHR
 
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public String Usuario;
-        public String Empilhadeiras;
-        public String EmpNivel;
-        public String Recebimento;
-        public String RecebNivel;
-        public String Expedicao;
-        public String ExpNivel;
-        public String Adm;
-        public String AdmNivel;
-        public String manutencao;
-        public String manutencaoNivel;
-        public String nomeUsuario;
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            Modelo.versionController controller = new Modelo.versionController();
-            controller.versao = lblVersao.Text;
             this.Cursor = Cursors.WaitCursor;
-            
-            controller.verificar();
-            if(controller.tem == true)
+
+            Controller.Login.modulosController modulosController = new Controller.Login.modulosController();
+            Controller.Login.loginController loginController = new Controller.Login.loginController();
+
+            Controller.Versao.VersionController versao = new Controller.Versao.VersionController();
+            Service.Versao.VersaoService versaoService = new Service.Versao.VersaoService();
+            versao.NVersao = lblVersao.Text;
+            versaoService.verificar(versao);
+            if(versao.Msg != null)
             {
-                loginController loginController = new loginController();
-                loginController.usuario = txtNome.Text;
-                loginController.senha = txtSenha.Text;
-                loginController.verificarUsuarioSenha();
-
-                if (loginController.tem == true)
-                {
-                    this.nomeUsuario = loginController.nomeUsuario;
-
-                    loginController.verificarNivel(txtNome.Text);
-                    this.Usuario = loginController.usuario;
-                    this.Empilhadeiras = loginController.Empilhadeiras;
-                    this.EmpNivel = loginController.EmpNivel;
-                    this.Recebimento = loginController.Recebimento;
-                    this.RecebNivel = loginController.RecebNivel;
-                    this.Expedicao = loginController.Expedicao;
-                    this.ExpNivel = loginController.ExpNivel;
-                    this.Adm = loginController.Adm;
-                    this.AdmNivel = loginController.AdmNivel;
-                    this.manutencao = loginController.manutencao;
-                    this.manutencaoNivel = loginController.manutencaoNivel;
-
-                    frmMenu menu = new frmMenu(nomeUsuario);
-
-
-                    menu.lblUsuario.Text = Usuario;
-                    menu.empilhadeirasToolStripMenuItem.Enabled = false;
-                    menu.recebimentoToolStripMenuItem.Enabled = false;
-                    menu.expediçãoToolStripMenuItem.Enabled = false;
-                    menu.gerenciarLoginsToolStripMenuItem.Enabled = false;
-                    menu.manutençãoToolStripMenuItem.Enabled = false;
-                    menu.gerencialToolStripMenuItem.Enabled = false;
-
-                    if (this.Empilhadeiras == "Sim")
-                    {
-                        menu.empilhadeirasToolStripMenuItem.Enabled = true;
-                    }
-                    if (this.Recebimento == "Sim")
-                    {
-                        menu.recebimentoToolStripMenuItem.Enabled = true;
-                    }
-                    if (this.Expedicao == "Sim")
-                    {
-                        menu.expediçãoToolStripMenuItem.Enabled = true;
-                    }
-                    if (this.Adm == "Sim")
-                    {
-                        menu.gerenciarLoginsToolStripMenuItem.Enabled = true;
-                        menu.gerencialToolStripMenuItem.Enabled = true;
-                    }
-                    if (this.manutencao == "Sim")
-                    {
-                        menu.manutençãoToolStripMenuItem.Enabled = true;
-                    }
-                    if (this.manutencaoNivel == "4")
-                    {
-                        menu.solicitarManutençãoToolStripMenuItem1.Enabled = false;
-                        menu.manutençõesEmAbertoToolStripMenuItem.Enabled = false;
-                    }
-
-
-                    this.txtNome.Text = string.Empty;
-                    this.txtSenha.Text = string.Empty;
-
-                    menu.Show();
-
-                }
-                else
-                {
-
-                    MessageBox.Show("Usuário ou senha inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(versao.Msg);
             }
             else
             {
-                MessageBox.Show("Você não está com a verão mais atualizada deste programa. Procure o administrador do sistema!" +controller.msg ,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                if (versao.Exists)
+                {
+                    loginController.NomeUsuario = txtNome.Text;
+                    loginController.Senha = txtSenha.Text;
+                    service.authorized(loginController);
+
+                    if (loginController.Msg != null)
+                    {
+                        MessageBox.Show(loginController.Msg);
+                    }
+                    else
+                    {
+                        if (loginController.Autorizado == true)
+                        {
+
+                            modulosController.Usuario = txtNome.Text;
+                            modulosService.info(modulosController);
+                            if (modulosController.Msg != null)
+                            {
+                                MessageBox.Show(modulosController.Msg);
+                            }
+                            else
+                            {
+                                menu = new frmMenu(loginController, modulosController);
+                                this.modulosController = modulosController;
+                                hits(loginController);
+                                txtNome.Text = string.Empty;
+
+                                txtSenha.Text = string.Empty;
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário ou senha inválidos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Você não está com a versão mais atualizada desse programa. Contate o administrador do sistema!",
+                        "Sistema THR",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
             }
+
+
             this.Cursor = Cursors.Default;
+
 
         }
 
-
-
-        private void txtNome_TextChanged(object sender, EventArgs e)
+        private void hits(Controller.Login.loginController loginController)
         {
+            menu.lblUsuario.Text = loginController.NomeUsuario;
+            menu.empilhadeirasToolStripMenuItem.Enabled = false;
+            menu.recebimentoToolStripMenuItem.Enabled = false;
+            menu.expediçãoToolStripMenuItem.Enabled = false;
+            menu.gerenciarLoginsToolStripMenuItem.Enabled = false;
+            menu.manutençãoToolStripMenuItem.Enabled = false;
+            menu.gerencialToolStripMenuItem.Enabled = false;
+            menu.produçãoToolStripMenuItem.Enabled = false;
+            menu.requisicaoPeçasToolStripMenuItem.Enabled = false;
+            menu.estoquePeçasToolStripMenuItem.Enabled = false;
+            menu.estoqueToolStripMenuItem1.Enabled = false;
+            menu.estoqueToolStripMenuItem.Enabled = false;
+            menu.comprasToolStripMenuItem.Enabled = false;
+            menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = false;
+            menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = false;
+            menu.entradaSaídaToolStripMenuItem.Enabled = false;
+            menu.painelSolicitaçãoWindToolStripMenuItem.Enabled = true;
 
+
+            if (modulosController.Empilhadeiras == "Sim")
+            {
+                menu.empilhadeirasToolStripMenuItem.Enabled = true;
+            }
+            if (modulosController.Recebimento == "Sim")
+            {
+                menu.recebimentoToolStripMenuItem.Enabled = true;
+            }
+            if (modulosController.Expedicao == "Sim")
+            {
+                menu.expediçãoToolStripMenuItem.Enabled = true;
+            }
+            if (modulosController.Adm == "Sim")
+            {
+                menu.gerenciarLoginsToolStripMenuItem.Enabled = true;
+                menu.gerencialToolStripMenuItem.Enabled = true;
+            }
+            if (modulosController.Manutencao == "Sim")
+            {
+                menu.manutençãoToolStripMenuItem.Enabled = true;
+            }
+            if (modulosController.ManutencaoNivel == "5")
+            {
+                menu.solicitarManutençãoToolStripMenuItem1.Enabled = false;
+                menu.manutençõesEmAbertoToolStripMenuItem.Enabled = false;
+            }
+            if (modulosController.Producao == "Sim")
+            {
+                menu.produçãoToolStripMenuItem.Enabled = true;
+            }
+            if (modulosController.ProducaoNivel == "4")
+            {
+                menu.fichaDeQuarentenaToolStripMenuItem.Enabled = false;
+                menu.ControleAnáliseToolStripMenuItem.Enabled = false;
+            }
+            if (modulosController.Almoxarifado == "Sim")
+            {
+
+                menu.requisicaoPeçasToolStripMenuItem.Enabled = true;
+                menu.estoquePeçasToolStripMenuItem.Enabled = true;
+
+
+            }
+            if (modulosController.Estoque == "Sim")
+            {
+                menu.estoqueToolStripMenuItem1.Enabled = true;
+                if(modulosController.EstoqueNivel != "1")
+                {
+                    if(modulosController.EstoqueNivel == "4")
+                    {
+                        menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = true;
+                    }
+                    else if(modulosController.EstoqueNivel == "3")
+                    {
+                        menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = true;
+                        menu.entradaSaídaToolStripMenuItem.Enabled = true;
+                    }
+                }
+                else
+                {
+                    if(modulosController.EstoqueNivel == "2")
+                    {
+                        menu.estoqueToolStripMenuItem.Enabled = true;
+                        menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = true;
+                        menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = true;
+                        menu.estoquePeçasToolStripMenuItem.Enabled = true;
+                        menu.entradaSaídaToolStripMenuItem.Enabled = true;
+                    }
+                    menu.estoqueToolStripMenuItem.Enabled = true;
+                    menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = true;
+                    menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = true;
+                    menu.estoquePeçasToolStripMenuItem.Enabled = true;
+                    menu.entradaSaídaToolStripMenuItem.Enabled = true;
+                }
+            }
+            if (modulosController.Compras == "Sim")
+            {
+                if(modulosController.ComprasNivel == "1")
+                {
+                    menu.comprasToolStripMenuItem.Enabled = true;
+                }
+
+            }
+
+
+            this.txtNome.Text = string.Empty;
+            this.txtSenha.Text = string.Empty;
+
+            menu.Show();
         }
 
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-  
+
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
 
@@ -159,7 +227,7 @@ namespace SistemaTHR
 
         private void btnSenha_Click(object sender, EventArgs e)
         {
-            if(txtSenha.PasswordChar.ToString() == "•")
+            if (txtSenha.PasswordChar.ToString() == "•")
             {
                 txtSenha.PasswordChar = '\0';
             }
@@ -169,14 +237,5 @@ namespace SistemaTHR
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblVersao_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

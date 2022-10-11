@@ -41,8 +41,8 @@ namespace SistemaTHR.Apllication
             DateTime dataHora = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
             if(cboNumeroEmp.Text != string.Empty && cboPrioridade.Text != string.Empty && txtDescricao.Text != string.Empty)
             {
-                Modelo.manutecaoEmpilhadeirasController manutecaoEmpilhadeirasController = new Modelo.manutecaoEmpilhadeirasController();
-                manutecaoEmpilhadeirasController.insertSolicitacao(cboNumeroEmp.Text, txtDescricao.Text, cboPrioridade.Text, emAberto, dataHora, lblUsuario.Text);
+                //Modelo.manutecaoEmpilhadeirasController manutecaoEmpilhadeirasController = new Modelo.manutecaoEmpilhadeirasController();
+                //manutecaoEmpilhadeirasController.insertSolicitacao(cboNumeroEmp.Text, txtDescricao.Text, cboPrioridade.Text, emAberto, dataHora, lblUsuario.Text);
 
                 
 

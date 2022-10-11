@@ -120,9 +120,6 @@
             this.txtTrocaAtual.Name = "txtTrocaAtual";
             this.txtTrocaAtual.Size = new System.Drawing.Size(68, 20);
             this.txtTrocaAtual.TabIndex = 1;
-            this.txtTrocaAtual.EnabledChanged += new System.EventHandler(this.txtTrocaAtual_EnabledChanged);
-            this.txtTrocaAtual.TextChanged += new System.EventHandler(this.txtTrocaAtual_TextChanged);
-            this.txtTrocaAtual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTrocaAtual_KeyPress);
             // 
             // txtUltimaTroca
             // 
@@ -140,7 +137,6 @@
             this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnCancelar
             // 
@@ -150,7 +146,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+
             // 
             // statusStrip1
             // 
@@ -194,8 +190,6 @@
             this.MaximizeBox = false;
             this.Name = "frmTrocaGas";
             this.Text = "Troca de Gás";
-            this.Load += new System.EventHandler(this.frmTrocaGas_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmTrocaGas_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

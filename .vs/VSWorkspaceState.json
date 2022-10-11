@@ -3,8 +3,14 @@
     "",
     "\\SistemaTHR",
     "\\SistemaTHR\\Apllication",
+    "\\SistemaTHR\\Apllication\\Estoque",
+    "\\SistemaTHR\\Apllication\\Estoque\\Impressao",
     "\\SistemaTHR\\DAO",
-    "\\SistemaTHR\\Modelo"
+    "\\SistemaTHR\\DAO\\Producao",
+    "\\SistemaTHR\\dto",
+    "\\SistemaTHR\\dto\\Login",
+    "\\SistemaTHR\\Service",
+    "\\SistemaTHR\\Service\\manutencao"
   ],
   "SelectedNode": "\\SistemaTHR.sln",
   "PreviewInSolutionExplorer": false
