@@ -10,7 +10,7 @@ namespace SistemaTHR.DAO
 {
     public class Connection
     {
-        NpgsqlConnection connPostGres = new Npgsql.NpgsqlConnection();
+        //NpgsqlConnection connPostGres = new Npgsql.NpgsqlConnection();
         OleDbConnection conn = new OleDbConnection();
         String conexao;
 
@@ -41,10 +41,10 @@ namespace SistemaTHR.DAO
             conn.Close();
         }
 
-        public NpgsqlConnection conPost()
+        /*public NpgsqlConnection conPost()
         {
             connPostGres.Open();
             return connPostGres;
-        }
+        }*/
     }
 }

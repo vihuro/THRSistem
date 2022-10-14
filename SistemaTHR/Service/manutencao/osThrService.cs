@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaTHR.Controller.manutencao;
+using SistemaTHR.Service.manutencao;
+using SistemaTHR.DAO.Manutencao;
+using SistemaTHR.dto.manutencao;
 
 namespace SistemaTHR.Service.manutencao
 {
@@ -154,6 +158,26 @@ namespace SistemaTHR.Service.manutencao
         {
             this.controller = controller;
             loadInfoOS();
+        }
+
+        public void SelectTableFilter(osThrController controller)
+        {
+            dto = new osThrDto();
+            dto.EmAberto = controller.EmAberto;
+            dto.ManutenacaoIniciada = controller.ManutenacaoIniciada;
+            dto.OrdemINC = controller.OrdemINC;
+            dto.AguardandoPeca = controller.AguardandoPeca;
+            dto.ManutencaoNC = controller.ManutencaoNC;
+            dto.ManutencaoFinalizada = controller.ManutencaoFinalizada;
+            dao.fiterStatusOS(dto);
+            if(dto.Msg != null)
+            {
+                controller.Msg = dto.Msg;
+            }
+            else
+            {
+                controller.Dt = dto.Dt;
+            }
         }
 
     }

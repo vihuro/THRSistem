@@ -4,19 +4,21 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaTHR.dto.manutencao;
 
 namespace SistemaTHR.DAO.Manutencao
 {
     internal class movimentacaoPecasDao
     {
-        private OleDbCommand cmd = new OleDbCommand();
+
+        private OleDbCommand cmd;
         private OleDbDataReader dr;
         private Connection con = new Connection();
         private OleDbDataAdapter da;
 
-        private dto.manutencao.movimentacaoPecasDto dto;
+        private movimentacaoPecasDto dto;
 
-        private void insertMovimentacaoSaida()
+        public void Insert(movimentacaoPecasDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Insert into tab_movimentacaoPecas " +
@@ -54,11 +56,8 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
-        public void insert(dto.manutencao.movimentacaoPecasDto dto)
-        {
-            this.dto = dto;
-            insertMovimentacaoSaida();
-        }
+
+     
         private void updateMovimentacao()
         {
             cmd = new OleDbCommand();
@@ -146,6 +145,8 @@ namespace SistemaTHR.DAO.Manutencao
 
         private void selectCodigo()
         {
+
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_movimentacaoPecas where codigoPeca = @codigoPeca";
             cmd.Parameters.AddWithValue("",dto.CodigoPeca);
             try

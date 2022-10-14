@@ -7,8 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaTHR.Apllication.Estoque;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.manutencao;
+using SistemaTHR.Controller.Login;
+
 
 namespace SistemaTHR.Apllication.Manutencao
 {
@@ -20,35 +23,52 @@ namespace SistemaTHR.Apllication.Manutencao
         private EstoquePecasController controller;
         private EstoquePecasService service;
         private frmEstoquePecas frmEstoquePecas;
+        private frmEntradaSaidaPecas frmEntradaSaidaPecas;
+        private loginController loginController;
+        private modulosController modulosController;
+
 
         public frmEstoquePesquisa(frmRequisicoesPecas requisicao)
         {
             this.requisicao = requisicao;
-            IniviarService();
+            IniciarService();
             InitializeComponent();
             cboCampo.Text = "Descrição";
         }
 
-        private EstoquePecasService IniviarService()
+
+        private EstoquePecasService IniciarService()
         {
-            return service = new EstoquePecasService();
+            return service = new EstoquePecasService(loginController,modulosController);
         }
 
         public frmEstoquePesquisa(frmManutencao manutencao)
         {
             this.manutencao = manutencao;
-            IniviarService();
+            IniciarService();
             InitializeComponent();
             cboCampo.Text = "Descrição";
         }
 
-        public frmEstoquePesquisa(frmEstoquePecas frmEstoquePecas)
+        public frmEstoquePesquisa(frmEstoquePecas frmEstoquePecas,loginController loginController, modulosController modulosController)
         {
             this.frmEstoquePecas = frmEstoquePecas;
-            IniviarService();
+            this.loginController = loginController;
+            this.modulosController = modulosController;
+            IniciarService();
             InitializeComponent();
             cboCampo.Text = "Descrição";
 
+        }
+
+        public frmEstoquePesquisa(frmEntradaSaidaPecas frmEntradaSaidaPecas, loginController loginController, modulosController modulosController)
+        {
+            this.frmEntradaSaidaPecas = frmEntradaSaidaPecas;
+            this.loginController = loginController;
+            this.modulosController = modulosController;
+            IniciarService();
+            InitializeComponent();
+            cboCampo.Text = "Descrição";
         }
 
         private void frmEstoquePesquisa_Load(object sender, EventArgs e)
@@ -80,10 +100,32 @@ namespace SistemaTHR.Apllication.Manutencao
                 requisicao.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 this.Close();
             }
-            else if(Application.OpenForms.OfType<frmEstoquePecas>().Count() > 0)
+            else if(Application.OpenForms.OfType<frmEstoquePecas>().Count() > 0 || 
+                Application.OpenForms.OfType<frmEntradaSaidaPecas>().Count() > 0)
             {
-                frmEstoquePecas.loadGridView1(controller);
-                this.Close();
+                if(frmEstoquePecas != null)
+                {
+                    frmEstoquePecas.loadGridView1(controller);
+                    this.Close();
+                }
+                else if(frmEntradaSaidaPecas != null)
+                {
+                    frmEntradaSaidaPecas.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    frmEntradaSaidaPecas.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    frmEntradaSaidaPecas.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                    this.Close();
+                }
+
+            }
+            else if(Application.OpenForms.OfType<frmManutencao>().Count() > 0)
+            {
+                if(manutencao != null)
+                {
+                    manutencao.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    manutencao.txtDescricaoPeca.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    manutencao.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                    this.Close();
+                }
             }
 
         }

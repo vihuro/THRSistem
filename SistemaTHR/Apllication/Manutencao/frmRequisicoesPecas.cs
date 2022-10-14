@@ -28,6 +28,8 @@ namespace SistemaTHR.Apllication
         {
             this.modulosController = modulosController;
             this.loginController = loginController;
+            IniciarEstoqueService();
+            IniciarMovimetacaoService();
             InitializeComponent();
         }
 
@@ -35,8 +37,7 @@ namespace SistemaTHR.Apllication
         {
             loadGridView();
             listComboBox();
-            IniciarEstoqueService();
-            IniciarMovimetacaoService();
+
 
 
             if (modulosController.ManutencaoNivel != "1" && modulosController.ManutencaoNivel != "2")
@@ -51,20 +52,20 @@ namespace SistemaTHR.Apllication
 
         private movimentacaoPecasService IniciarMovimetacaoService()
         {
-            return movimentacaoService = new movimentacaoPecasService(loginController);
+            return movimentacaoService = new movimentacaoPecasService(loginController,modulosController);
         }
 
         private EstoquePecasService IniciarEstoqueService()
         {
-            return estoqueService = new EstoquePecasService();
+            return estoqueService = new EstoquePecasService(loginController,modulosController);
         }
 
         private void loadGridView2()
         {
             movimentacaoPecasController controller = new movimentacaoPecasController();
-            movimentacaoPecasService service = new movimentacaoPecasService(loginController);
+
             controller.NRequisicao = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            service.export(controller);
+            movimentacaoService.export(controller);
             if (controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg);
@@ -131,6 +132,11 @@ namespace SistemaTHR.Apllication
             this.Cursor = Cursors.WaitCursor;
 
 
+            txtCodigoPeca.ReadOnly = false;
+            txtDescricao.ReadOnly = false;
+            txtUnidade.ReadOnly = false;
+            cboAsu.Enabled = false;
+
             txtDescricao.Text = string.Empty;
             txtCodigoPeca.Text = string.Empty;
             txtUnidade.Text = string.Empty;
@@ -178,11 +184,17 @@ namespace SistemaTHR.Apllication
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 loadGridView2();
 
                 btnSalvar.Enabled = false;
+                txtCodigoPeca.ReadOnly = true;
+                txtDescricao.ReadOnly = true;
+                txtUnidade.ReadOnly = true;
+                cboAsu.Enabled = false;
+
                 txtRequisicao.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 txtCodigoPeca.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
@@ -190,9 +202,11 @@ namespace SistemaTHR.Apllication
                 txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
                 cboAsu.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
 
-                if (dataGridView1.SelectedRows[0].Cells[9].Value.ToString() == "AGUARDANDO/AUT. PEÇAS" && modulosController.ManutencaoNivel == "1" &&
+                if (dataGridView1.SelectedRows[0].Cells[9].Value.ToString() == "AGUARDANDO/AUT. PEÇAS" && 
+                    modulosController.ManutencaoNivel == "1" &&
                     dataGridView1.SelectedRows[0].Cells[1].Value.ToString() == "" ||
-                    dataGridView1.SelectedRows[0].Cells[9].Value.ToString() == "AGUARDANDO/AUT. PEÇAS" && modulosController.ManutencaoNivel == "2" &&
+                    dataGridView1.SelectedRows[0].Cells[9].Value.ToString() == "AGUARDANDO/AUT. PEÇAS" && 
+                    modulosController.ManutencaoNivel == "2" &&
                     dataGridView1.SelectedRows[0].Cells[1].Value.ToString() == "")
                 {
                     btnAutorizar.Enabled = true;

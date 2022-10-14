@@ -19,7 +19,7 @@ namespace SistemaTHR.Apllication.Compras
 
         private void loadGridView()
         {
-            Controller.manutencao.EstoquePecasController controller = new Controller.manutencao.EstoquePecasController();
+           /* Controller.manutencao.EstoquePecasController controller = new Controller.manutencao.EstoquePecasController();
             Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
             service.table(controller);
             if(controller.Msg != null)
@@ -29,7 +29,7 @@ namespace SistemaTHR.Apllication.Compras
             else
             {
                 dataGridView1.DataSource = controller.Dt;
-            }
+            }*/
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)

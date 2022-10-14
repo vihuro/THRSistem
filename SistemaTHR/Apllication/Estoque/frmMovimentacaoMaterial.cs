@@ -82,6 +82,34 @@ namespace SistemaTHR.Apllication.Estoque
         {
 
         }
+        string QuantidadeAntiga;
+        string QuantidadeNova;
+        string texto;
+        private void IniciarMovimentacaoController()
+        {
+            movimentacaoController = new MovimentacaoController();
+            movimentacaoController.Codigo = txtCodigo.Text;
+            movimentacaoController.Descricao = txtDescricao.Text;
+            movimentacaoController.Quantidade = txtQuantidade.Text;
+            movimentacaoController.Operacao = cboTipoMovimentacao.Text;
+        }
+
+        public string textoMenssagem()
+        {
+            double antigo = Convert.ToDouble(quantidadeDisponivel);
+            double total = 0;
+            if (rdbEntrada.Checked)
+            {
+                total = Convert.ToDouble(quantidadeDisponivel) + Convert.ToDouble(txtQuantidade.Text);
+            }
+            else if (rdbSaida.Checked)
+            {
+                total = Convert.ToDouble(quantidadeDisponivel) - Convert.ToDouble(txtQuantidade.Text);
+            }
+
+            return texto = $"Quantidade anterior = {antigo.ToString("###,###.##")} \r\n" +
+                           $"Nova quantidade     = {total.ToString("###,###.##")} ";
+        }
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
@@ -89,43 +117,53 @@ namespace SistemaTHR.Apllication.Estoque
                 cboTipoMovimentacao.Text != string.Empty)
             {
 
+                IniciarMovimentacaoController();
+
                 movimentacaoController = new MovimentacaoController();
                 movimentacaoController.Codigo = txtCodigo.Text;
                 movimentacaoController.Descricao = txtDescricao.Text;
                 movimentacaoController.Quantidade = txtQuantidade.Text;
                 movimentacaoController.Operacao = cboTipoMovimentacao.Text;
 
+                VerificarQuantidadeDisponivel();
 
                 if (rdbEntrada.Checked)
                 {
-                    movimentacaoService.InsertEntradaManual(movimentacaoController);
+                    movimentacaoService.InsertEntradaManual(movimentacaoController,quantidadeDisponivel);
                     if (movimentacaoController.Msg != null)
                     {
                         MessageBox.Show(movimentacaoController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Entrada de material realizada com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        MessageBox.Show("Entrada de material realizada com sucesso!\r\n" +
+                            movimentacaoService.quantidadeDisponivel(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        ClearAll();
                         if (Application.OpenForms.OfType<frmEstoque>().Count() > 0)
                         {
                             formularioEstoque.BuscarMovimentacao(movimentacaoController.Codigo);
                             
                         }
-                        ClearAll();
+
                     }
 
                 }
                 else if (rdbSaida.Checked)
                 {
+
                     movimentacaoService.InsertSaidaManual(movimentacaoController,quantidadeDisponivel);
                     if(movimentacaoController.Msg != null)
                     {
                         MessageBox.Show(movimentacaoController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ClearAll();
                     }
                     else
                     {
 
-                        MessageBox.Show("Saída de material realizada com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Saída de material realizada com sucesso!\r\n" +
+                            movimentacaoService.quantidadeDisponivel(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information); ;
                         if (Application.OpenForms.OfType<frmEstoque>().Count() > 0)
                         {
                             formularioEstoque.BuscarMovimentacao(movimentacaoController.Codigo);
@@ -157,6 +195,7 @@ namespace SistemaTHR.Apllication.Estoque
             rdbSaida.Checked = false;
             txtQuantidade.Text = string.Empty;
             quantidadeDisponivel = string.Empty;
+            cboTipoMovimentacao.Text = string.Empty;
         }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
@@ -182,6 +221,54 @@ namespace SistemaTHR.Apllication.Estoque
             this.Close();
         }
 
+
+        private void VerificarQuantidadeDisponivel()
+        {
+            controller = new EstoqueController();
+            estoqueService.selectTable(controller);
+            if (controller.Msg != null)
+            {
+                MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if(movimentacaoController == null)
+                {
+                    movimentacaoController = new MovimentacaoController();
+                }
+                else
+                {
+                    movimentacaoController.Msg = null;
+                }
+
+
+                movimentacaoService.SelectTable(movimentacaoController);
+                if (movimentacaoController.Msg != null)
+                {
+                    MessageBox.Show(movimentacaoController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    var linha = controller.Dt.Select($"Codigo = '{txtCodigo.Text.ToUpper()}'");
+                    if (linha.Count() > 0)
+                    {
+                        txtDescricao.Text = linha[0]["Descricao"].ToString();
+                        txtFornecedor.Text = linha[0]["Fornecedor"].ToString();
+
+
+                        quantidadeDisponivel = Convert.ToString(estoqueService.Count(movimentacaoController, txtCodigo.Text.ToUpper()));
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Código não encontrado!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCodigo.Text = string.Empty;
+                    }
+                }
+
+            }
+        }
+
         private void txtCodigo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -190,40 +277,8 @@ namespace SistemaTHR.Apllication.Estoque
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
 
-                controller = new EstoqueController();
-                estoqueService.selectTable(controller);
-                if(controller.Msg != null)
-                {
-                    MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    movimentacaoController = new MovimentacaoController();
-                    movimentacaoService.SelectTable(movimentacaoController);
-                    if(movimentacaoController.Msg != null)
-                    {
-                        MessageBox.Show(movimentacaoController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        var linha = controller.Dt.Select($"Codigo = '{txtCodigo.Text.ToUpper()}'");
-                        if (linha.Count() > 0)
-                        {
-                            txtDescricao.Text = linha[0]["Descricao"].ToString();
-                            txtFornecedor.Text = linha[0]["Fornecedor"].ToString();
+                VerificarQuantidadeDisponivel();
 
-
-                            quantidadeDisponivel = Convert.ToString(estoqueService.Count(movimentacaoController, txtCodigo.Text.ToUpper()));
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Código não encontrado!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            txtCodigo.Text = string.Empty;
-                        }
-                    }
-
-                }
             }
 
             this.Cursor = Cursors.Default;
@@ -232,6 +287,15 @@ namespace SistemaTHR.Apllication.Estoque
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
             quantidadeDisponivel = null;
+        }
+
+        private void frmMovimentacaoMaterial_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+            }
         }
     }
 }

@@ -43,12 +43,12 @@ namespace SistemaTHR.Service.estoque
         public void Insert(EstoqueController controller)
         {
             dto = new EstoqueDto();
-            dto.CodRef = controller.CodRef;
-            dto.Codigo = controller.Codigo;
-            dto.Descricao = controller.Descricao;
+            dto.CodRef = controller.CodRef.ToUpper();
+            dto.Codigo = controller.Codigo.ToUpper();
+            dto.Descricao = controller.Descricao.ToUpper();
             dto.Unidade = controller.Unidade;
             dto.Grupo = controller.Grupo;
-            dto.Fornecedor = controller.Fornecedor;
+            dto.Fornecedor = controller.Fornecedor.ToUpper();
             dto.Usuario = loginController.Nome;
             dto.DataHoraCadatro = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
             dto.EstoqueMinimo = controller.EstoqueMinimo;
@@ -64,12 +64,12 @@ namespace SistemaTHR.Service.estoque
         public void Update(EstoqueController controller)
         {
             dto = new EstoqueDto();
-            dto.Codigo = controller.Codigo;
-            dto.CodRef = controller.CodRef;
-            dto.Descricao = controller.Descricao;
+            dto.Codigo = controller.Codigo.ToUpper();
+            dto.CodRef = controller.CodRef.ToUpper();
+            dto.Descricao = controller.Descricao.ToUpper();
             dto.Unidade = controller.Unidade;
             dto.Grupo = controller.Grupo;
-            dto.Fornecedor = controller.Fornecedor;
+            dto.Fornecedor = controller.Fornecedor.ToUpper();
             dto.Usuario = loginController.Nome;
             dto.DataHoraCadatro = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
             dto.EstoqueMinimo = controller.EstoqueMinimo;

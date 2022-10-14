@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaTHR.Controller.manutencao;
 
 namespace SistemaTHR.Apllication
 {
@@ -22,6 +23,8 @@ namespace SistemaTHR.Apllication
         String manINC;
         String osFin;
 
+        private osThrController controller;
+
         public frmFiltroManutencoes(frmManutencao manutencao)
         {
             InitializeComponent();
@@ -33,98 +36,85 @@ namespace SistemaTHR.Apllication
 
         }
 
-        private void verificarCheked()
+        private osThrController verificarCheked()
         {
-            if(chbEmAberto.Checked == true)
+            controller = new osThrController();
+
+            if (chbEmAberto.Checked == true)
             {
-                emAberto = "EM ABERTO";
+                controller.EmAberto = "EM ABERTO";
             }
             if (chbManIni.Checked == true)
             {
-                manIni = "Manutenção/INI";
+                controller.ManutenacaoIniciada = "Manutenção/INI";
             }
-            if(chbOsINC.Checked == true)
+            if (chbOsINC.Checked == true)
             {
-                osINC = "OS/INC";
+                controller.OrdemINC = "OS/INC";
             }
             if (chbAutPeca.Checked == true)
             {
-                AutPeca = "Aguardando/AUT. Peça";
+                controller.AguardandoPeca = "Aguardando/AUT. Peça";
             }
-            if(chbManFin.Checked == true)
+            if (chbManFin.Checked == true)
             {
-                manFin = "Manutenção/FIN";
+                controller.AguardandoPeca = "Manutenção/FIN";
             }
-            if(chbManInc.Checked == true)
+            if (chbManInc.Checked == true)
             {
-                manINC = "Manutenção/NC";
+                controller.ManutencaoNC = "Manutenção/NC";
             }
-            if(chbOsFinalizada.Checked == true)
+            if (chbOsFinalizada.Checked == true)
             {
-                osFin = "OS/Finalizada";
+                controller.ManutencaoFinalizada = "OS/Finalizada";
             }
 
 
             if (chbEmAberto.Checked == false)
             {
-                emAberto = "";
+                controller.EmAberto = "";
             }
             if (chbManIni.Checked == false)
             {
-                manIni = "";
+                controller.ManutenacaoIniciada = "";
             }
             if (chbOsINC.Checked == false)
             {
-                osINC = "";
+                controller.OrdemINC = "";
             }
             if (chbAutPeca.Checked == false)
             {
-                AutPeca = "";
+                controller.AguardandoPeca = "";
             }
             if (chbManFin.Checked == false)
             {
-                manFin = "";
+                controller.AguardandoPeca = "";
             }
             if (chbManInc.Checked == false)
             {
-                manINC = "";
+                controller.ManutencaoNC = "";
             }
             if (chbOsFinalizada.Checked == false)
             {
-                osFin = "";
+                controller.ManutencaoFinalizada = "";
             }
 
 
+            return controller;
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            if(chbEmAberto.Checked == true || chbManIni.Checked == true || chbOsINC.Checked == true || 
-                chbAutPeca.Checked == true || chbManFin.Checked == true || chbManInc.Checked == true || 
+            if (chbEmAberto.Checked == true || chbManIni.Checked == true || chbOsINC.Checked == true ||
+                chbAutPeca.Checked == true || chbManFin.Checked == true || chbManInc.Checked == true ||
                 chbOsFinalizada.Checked == true)
             {
 
                 verificarCheked();
 
-                /*  Modelo.OSTHRController controller = new Modelo.OSTHRController();
-                controller.emAberto = emAberto;
-                controller.ManIn = manIni;
-                controller.OSINC = osINC;
-                controller.AguardandoPeca = AutPeca;
-                controller.ManFIN = manFin;
-                controller.ManNC = manINC;
-                controller.osINC = manINC;
-                controller.OSFIN = osFin;
-                controller.filtrarstatusOS();
+                manutencao.loadFilter(verificarCheked());
+                this.Close();
 
-                if(controller.msg != null)
-                {
-                    MessageBox.Show(controller.msg);
-                }
-                manutencao.dt = controller.dt;
-
-                manutencao.loadFilter();
-                this.Close();*/
 
 
             }

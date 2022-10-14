@@ -7,14 +7,19 @@ namespace SistemaTHR.DAO.Manutencao
 {
     internal class EstoquePecasDao
     {
-        private OleDbCommand cmd = new OleDbCommand();
+        private OleDbCommand cmd;
 
-        private Connection con = new Connection();
+        private Connection con;
         private OleDbDataReader dr;
         private OleDbDataAdapter da;
         private EstoquePecasDto dto;
 
-        private void insertEstoque()
+        public EstoquePecasDao()
+        {
+            con = new Connection();
+        }
+
+        public void Insert(EstoquePecasDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Insert into tab_EstoquePecas (Codigo, Descricao, Unidade, QtEstoque, EstoqueMax, " +
@@ -97,11 +102,7 @@ namespace SistemaTHR.DAO.Manutencao
             this.dto = dto;
             qtEstoque();
         }
-        public void insert(EstoquePecasDto dto)
-        {
-            this.dto = dto;
-            insertEstoque();
-        }
+
         public void updateQtEstoque(EstoquePecasDto dto)
         {
             cmd = new OleDbCommand();
@@ -125,21 +126,33 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
-        private void updateInfoEstoque()
+        public void Update(EstoquePecasDto dto)
         {
             cmd = new OleDbCommand();
-            cmd.CommandText = "Update tab_EstoquePecas Set Unidade = @unidade, " +
-                                "EstoqueMax = @EstoqueMax, " +
-                                "EstoqueMin = @EstoqueMin, " +
-                                "UsuarioGravacao = @UsuarioGravacao, " +
-                                "DataHoraGravacao = @DataHoraGravacao " +
-                                "where codigo = @codigo";
-            cmd.Parameters.AddWithValue("",dto.Unidade);
+            cmd.CommandText = "UPDATE tab_EstoquePecas SET Descricao = @Descricao, Unidade = @Unidade, " +
+                "Fornecedor1 = @Fornecedor1, CodigoFornecedor1 = @CodigoFornecedor1, " +
+                "Fornecedor2 = @Fornecedor2, CodigoFornecedor2 = @CodigoFornecedor2, " +
+                "Fornecedor3 = @Fornecedor3, CodigoFornecedor3 = @CodigoFornecedor3, " +
+                "EstoqueMax = @EstoqueMax, EstoqueMin = @EstoqueMin, " +
+                "UsuarioGravacao = @UsuarioGravacao, DataHoraGravacao = @DataHoraGravacao" +
+
+                " WHERE codigo = @codigo";
+            cmd.Parameters.AddWithValue("", dto.Descricao);
+            cmd.Parameters.AddWithValue("", dto.Unidade);
+
+            cmd.Parameters.AddWithValue("", dto.Fornecedor1);
+            cmd.Parameters.AddWithValue("", dto.CodFornecedor1);
+            cmd.Parameters.AddWithValue("", dto.Fornecedor2);
+            cmd.Parameters.AddWithValue("", dto.CodFornecedor2);
+            cmd.Parameters.AddWithValue("", dto.Fornecedor3);
+            cmd.Parameters.AddWithValue("", dto.CodFornecedor3);
             cmd.Parameters.AddWithValue("", dto.EstoqueMax);
             cmd.Parameters.AddWithValue("", dto.EstoqueMin);
             cmd.Parameters.AddWithValue("", dto.UsuarioGravacao);
             cmd.Parameters.AddWithValue("", dto.DataHoraGravacao);
             cmd.Parameters.AddWithValue("", dto.Codigo);
+
+             
             try
             {
                 cmd.Connection = con.conectar();
@@ -182,11 +195,7 @@ namespace SistemaTHR.DAO.Manutencao
             selectTable();
 
         }
-        public void updateInfo(EstoquePecasDto dto)
-        {
-            this.dto = dto;
-            updateInfoEstoque();
-        }
+
         private void deleteCadastro()
         {
             cmd = new OleDbCommand();

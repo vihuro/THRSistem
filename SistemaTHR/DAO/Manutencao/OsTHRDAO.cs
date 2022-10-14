@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaTHR.dto.manutencao;
 
 namespace SistemaTHR.DAO.Manutencao
 {
@@ -187,22 +188,25 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
-        public void updateStatus(dto.manutencao.osThrDto dto)
+        public void updateStatus(osThrDto dto)
         {
             this.dto = dto;
             update();
         }
-        private void fiterStatusOS()
+
+
+        public void fiterStatusOS(osThrDto dto)
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_OSTHR where statusOP in(@EmAberto, @ManIN, @OSINC, @AguardandoPeca," +
                                                                         " @ManFIN, @ManNC, @OSFin)";
-            //cmd.Parameters.AddWithValue("@EmAberto", emAberto);
-            //cmd.Parameters.AddWithValue("@ManIN", ManIn);
-            //cmd.Parameters.AddWithValue("@OSINC", OSINC);
-            //cmd.Parameters.AddWithValue("@AguardandoPeca", AguardandoPeca);
-            //cmd.Parameters.AddWithValue("@ManFIN", ManFIN);
-            //cmd.Parameters.AddWithValue("@ManNC", ManNC);
-            //cmd.Parameters.AddWithValue("@OSFin", OSFIN);
+            cmd.Parameters.AddWithValue("@EmAberto", dto.EmAberto);
+            cmd.Parameters.AddWithValue("@ManIN", dto.ManutenacaoIniciada);
+            cmd.Parameters.AddWithValue("@OSINC", dto.OrdemINC);
+            cmd.Parameters.AddWithValue("@AguardandoPeca", dto.AguardandoPeca);
+            cmd.Parameters.AddWithValue("@ManFIN", dto.ManutencaoFinalizada);
+            cmd.Parameters.AddWithValue("@ManNC", dto.ManutencaoNC);
+            cmd.Parameters.AddWithValue("@OSFin", dto.ManutencaoFinalizada);
 
             try
             {
@@ -224,10 +228,7 @@ namespace SistemaTHR.DAO.Manutencao
             }
 
         }
-        public void filtrarstatusOS()
-        {
-            fiterStatusOS();
-        }
+
         private void loadInfoOS()
         {
             cmd.CommandText = "Select * from tab_OSTHR where NOP = @numeroOS";

@@ -451,7 +451,6 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmPainelManutencoesTHR.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmPainelTransferencias.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmSelectImp.resources
-C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmSolicitacaoPeca.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmSolicitarManutencao.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmSolicitarManutencaoTHR.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.frmTransferencia.resources
@@ -475,3 +474,6 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.frmFiltroRequisicoesPeca.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Gerencial.frmFiltroUsuarios.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Estoque.frmPainelSolicitacoes.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Estoque.frmEntradaSaidaPecas.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\Autofac.dll
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\Autofac.xml

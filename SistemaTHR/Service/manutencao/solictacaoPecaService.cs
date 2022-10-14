@@ -60,7 +60,7 @@ namespace SistemaTHR.Service.manutencao
             dto.DataHoraSolicitacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
 
 
-            if (controller.NOs != string.Empty && controller.CodigoPeca != string.Empty && controller.DescricaoPeca != string.Empty && controller.Qtd != string.Empty && 
+            if (controller.CodigoPeca != string.Empty && controller.DescricaoPeca != string.Empty && controller.Qtd != string.Empty && 
                 controller.ASU != string.Empty && controller.Unidade != string.Empty)
             {
                 if(modulosController.ManutencaoNivel != "1" || modulosController.ManutencaoNivel != "2")
@@ -92,19 +92,28 @@ namespace SistemaTHR.Service.manutencao
         public void delete(solicitacaoPecaoController controller)
         {
             dto = new solicitacaoPecaDto();
-            if(controller.StatusSolicitacao == "AGUARDANDO/AUT. PEÇAS")
+            if (modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel != "2" || 
+                modulosController.ManutencaoNivel != "3" || modulosController.ManutencaoNivel != "4")
             {
-                dto.NRequisicao = controller.NRequisicao;
-                dao.delete(dto);
-                if (dto.Msg != null)
+                if (controller.StatusSolicitacao == "AGUARDANDO/AUT. PEÇAS")
                 {
-                    controller.Msg = dto.Msg;
+                    dto.NRequisicao = controller.NRequisicao;
+                    dao.delete(dto);
+                    if (dto.Msg != null)
+                    {
+                        controller.Msg = dto.Msg;
+                    }
+                }
+                else
+                {
+                    controller.Msg = "Não é possivel cancelar essa solicitação. Contante o administrador do sistema!";
                 }
             }
             else
             {
-                controller.Msg = "Não é possivel cancelar essa solicitação. Contante o administrador do sistema!";
+                controller.Msg = "Esse usuário não tem permissão para excluir uma peça!";
             }
+
 
         }
 
@@ -114,6 +123,9 @@ namespace SistemaTHR.Service.manutencao
             dto = new solicitacaoPecaDto();
             if(modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel == "2")
             {
+
+                //quando não puder mais solicitar sem o código correto, trocar a ordem de autorização.
+                //Primeiro verifica se existi a peça e se tem quantidade suficiente em estoque, depois autoriza.
 
                 dto.StatusSolicitacao = "AUTORIZADO";
                 dto.UsuarioAutorizacao = loginController.Nome;
@@ -126,32 +138,61 @@ namespace SistemaTHR.Service.manutencao
                 }
                 else
                 {
+
+
+                    //verfificar se está dando certo
                     estoqueController = new EstoquePecasController();
                     estoqueController.Codigo = controller.CodigoPeca;
-                    estoqueController.QtEstoque = controller.Qtd;
-                    estoqueService.VerificarCodigo(estoqueController);
+                    //estoqueController.QtEstoque = controller.Qtd;
+
+
+                    //remover tipo de movimentação
+
+                    estoqueService.VerificarCodigo(estoqueController,"Saída");
                     if (estoqueController.Msg != null)
                     {
                         controller.Msg = estoqueController.Msg;
                     }
                     else
                     {
-                        movimentacaoController = new movimentacaoPecasController();
-                        movimentacaoController.CodigoPeca = controller.CodigoPeca;
-                        movimentacaoController.DescricaoPeca = controller.DescricaoPeca;
-                        movimentacaoController.Qtd = estoqueController.QtEstoque;
-                        movimentacaoController.Unidade = controller.Unidade;
-                        movimentacaoController.UsuarioSolicitacao = controller.UsuarioSolicitacao;
-                        movimentacaoController.DataHoraSolicitacao = controller.DataHoraSolicitacao;
-                        movimentacaoController.Asu = controller.ASU;
-                        movimentacaoController.UsuarioAutorizacao = dto.UsuarioAutorizacao;
-                        movimentacaoController.DataHoraAutorizacao = dto.DataHoraAutorizacao;
-                        movimentacaoController.NRequisicao = controller.NRequisicao;
-                        movimentacaoService.InsertSaida(movimentacaoController);
-                        if (movimentacaoController.Msg != null)
+                        if (estoqueController.Exists)
                         {
-                            controller.Msg = movimentacaoController.Msg;
+                            movimentacaoController = new movimentacaoPecasController();
+                            movimentacaoController.CodigoPeca = controller.CodigoPeca;
+                            movimentacaoController.DescricaoPeca = controller.DescricaoPeca;
+                            movimentacaoController.Qtd = controller.Qtd;
+                            movimentacaoController.Unidade = controller.Unidade;
+                            movimentacaoController.UsuarioSolicitacao = controller.UsuarioSolicitacao;
+                            movimentacaoController.DataHoraSolicitacao = controller.DataHoraSolicitacao;
+                            movimentacaoController.Asu = controller.ASU;
+                            movimentacaoController.UsuarioAutorizacao = dto.UsuarioAutorizacao;
+                            movimentacaoController.Status = "Pendente";
+                            movimentacaoController.DataHoraAutorizacao = dto.DataHoraAutorizacao;
+                            movimentacaoController.NRequisicao = controller.NRequisicao;
+                            movimentacaoController.TipoMovimentacao = "Saída";
+                            movimentacaoService.insertMovimentacao(movimentacaoController,estoqueController.QtEstoque);
+                            if (movimentacaoController.Msg != null)
+                            {
+                                controller.Msg = movimentacaoController.Msg;
+                            }
                         }
+                        else
+                        {
+                            controller.Msg = "Peça não encontrada! Não é possivel gerar a movimentação de uma peça não cadastrada!";
+                        }
+
+
+
+                        /*estoqueService.SaidaEstoque(estoqueController,"Saída");
+                        if(estoqueController.Msg != null)
+                        {
+                            controller.Msg = estoqueController.Msg;
+                        }
+                        else
+                        {
+
+                        }*/
+
                     }
                 }
 
@@ -166,7 +207,7 @@ namespace SistemaTHR.Service.manutencao
 
         private void seletecRequisicao()
         {
-            dto = new dto.manutencao.solicitacaoPecaDto();
+            dto = new solicitacaoPecaDto();
             dto.NOs = controller.NOs;
             dao.selectTable(dto);
             if(dto.Msg != null)

@@ -73,22 +73,70 @@ namespace SistemaTHR.Service.estoque
             }
         }
 
+        string QuantidadeAntiga;
+        string QuantidadeNova;
+        string texto;
+         
+
         public void InsertSaidaManual(MovimentacaoController controller, string QuantidadeEstoque)
         {
             dto = new MovimentacaoDto();
-            if(Convert.ToDouble(QuantidadeEstoque.ToString()) < Convert.ToDouble(controller.Quantidade.ToString()))
+            if(controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Quantidade != string.Empty && controller.Movimento != string.Empty && 
+                QuantidadeEstoque != string.Empty)
             {
-                controller.Msg = $"Não é possivel inserir uma saída maior do que a quantidade disponivel! Quantidade Disponivel = {QuantidadeEstoque}";
+                if (Convert.ToDouble(QuantidadeEstoque) < Convert.ToDouble(controller.Quantidade))
+                {
+                    controller.Msg = $"Não é possivel inserir uma saída maior do que a quantidade disponivel! \r\n " +
+                        $"Quantidade Disponivel = {QuantidadeEstoque} \r\n" +
+                        $"Quantidade Solicitada = {controller.Quantidade}";
+                }
+                else
+                {
+                    double quantidadeMovimetacao = Convert.ToDouble(controller.Quantidade) * -1;
+
+                    dto.Codigo = controller.Codigo;
+                    dto.Descricao = controller.Descricao;
+                    dto.Movimento = "SAIDA";
+                    dto.DataMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyy HH:mm:ss"));
+                    dto.Quantidade = quantidadeMovimetacao.ToString();
+                    dto.Operacao = controller.Operacao;
+                    dto.Usuario = loginController.Nome;
+                    dao.Insert(dto);
+                    if (dto.Msg != null)
+                    {
+                        controller.Msg = dto.Msg;
+                    }
+                    double EmEstoque = Convert.ToDouble(QuantidadeEstoque);
+                    double total = Convert.ToDouble(QuantidadeEstoque) - Convert.ToDouble(controller.Quantidade);
+                    this.QuantidadeAntiga = EmEstoque.ToString("###,###.##");
+                    this.QuantidadeNova = total.ToString("###,###.##");
+                }
             }
             else
             {
-                double quantidadeMovimetacao = Convert.ToDouble(controller.Quantidade) * -1;
+                controller.Msg = "Campo(s) obrigatorio(s) vazio(s)!";
+            }
 
-                dto.Codigo = controller.Codigo;
-                dto.Descricao = controller.Descricao;
-                dto.Movimento = "SAIDA";
+        }
+
+        public string quantidadeDisponivel()
+        {
+
+            return texto = $"Quantidade anterior = {QuantidadeAntiga} \r\n" +
+                           $"Nova quantidade     = {QuantidadeNova} ";
+        }
+
+        public void InsertEntradaManual(MovimentacaoController controller, string QuantidadeEstoque)
+        {
+            if(controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Operacao != string.Empty && 
+                controller.Quantidade != string.Empty)
+            {
+                dto = new MovimentacaoDto();
+                dto.Codigo = controller.Codigo.ToUpper();
+                dto.Descricao = controller.Descricao.ToUpper();
+                dto.Movimento = "ENTRADA";
                 dto.DataMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyy HH:mm:ss"));
-                dto.Quantidade = quantidadeMovimetacao.ToString();
+                dto.Quantidade = controller.Quantidade;
                 dto.Operacao = controller.Operacao;
                 dto.Usuario = loginController.Nome;
                 dao.Insert(dto);
@@ -96,25 +144,19 @@ namespace SistemaTHR.Service.estoque
                 {
                     controller.Msg = dto.Msg;
                 }
+                else
+                {
+                    double EmEstoque = Convert.ToDouble(QuantidadeEstoque);
+                    double total = Convert.ToDouble(QuantidadeEstoque) + Convert.ToDouble(controller.Quantidade);
+                    this.QuantidadeAntiga = EmEstoque.ToString("###,###.##");
+                    this.QuantidadeNova = total.ToString("###,###.##");
+                }
             }
-
-        }
-
-        public void InsertEntradaManual(MovimentacaoController controller)
-        {
-            dto = new MovimentacaoDto();
-            dto.Codigo = controller.Codigo;
-            dto.Descricao = controller.Descricao;
-            dto.Movimento = "ENTRADA";
-            dto.DataMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyy HH:mm:ss"));
-            dto.Quantidade = controller.Quantidade;
-            dto.Operacao = controller.Operacao;
-            dto.Usuario = loginController.Nome;
-            dao.Insert(dto);
-            if (dto.Msg != null)
+            else
             {
-                controller.Msg = dto.Msg;
+                controller.Msg = "Campo(s) obrigatorio(s) vazio(s)!";
             }
+
         }
     }
 }

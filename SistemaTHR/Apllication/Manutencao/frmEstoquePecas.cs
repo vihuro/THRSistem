@@ -7,20 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaTHR.Apllication.Estoque;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.manutencao;
+using SistemaTHR.Controller.Login;
+
 
 namespace SistemaTHR.Apllication.Manutencao
 {
     public partial class frmEstoquePecas : Form
     {
-        Controller.Login.loginController loginController;
-        Controller.Login.modulosController modulosController;
-        public frmEstoquePecas(Controller.Login.loginController loginController, Controller.Login.modulosController modulosController)
+        private loginController loginController;
+        private modulosController modulosController;
+        private movimentacaoPecasService movimentacaoService;
+        private EstoquePecasService estoqueService;
+        private EstoquePecasController controller;
+        private movimentacaoPecasController movimentacaoController;
+        public frmEstoquePecas(loginController loginController, modulosController modulosController)
         {
             this.loginController = loginController;
             this.modulosController = modulosController;
+            IniciarMovimentacaoService();
+            IniciarEstoqueService();
             InitializeComponent();
+        }
+
+        private EstoquePecasService IniciarEstoqueService()
+        {
+            return estoqueService = new EstoquePecasService(loginController,modulosController);
+        }
+
+        private movimentacaoPecasService IniciarMovimentacaoService()
+        {
+            return movimentacaoService = new movimentacaoPecasService(loginController, modulosController);
         }
 
         private void frmEstoquePecas_Load(object sender, EventArgs e)
@@ -40,12 +59,11 @@ namespace SistemaTHR.Apllication.Manutencao
                 }
                 else
                 {
-                    Controller.manutencao.EstoquePecasController controller = new Controller.manutencao.EstoquePecasController();
-                    Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
+                    controller = new EstoquePecasController();
+
                     controller.Codigo = txtCodigo.Text;
                     controller.Descricao = txtDescricao.Text;
                     controller.Unidade = cboUnidade.Text;
-                    controller.QtEstoque = "0";
                     controller.Fornecedor1 = txtFornecedor1.Text;
                     controller.CodFornecedor1 = txtCodFornecedor1.Text;
                     controller.Fornecedor2 = txtFornecedor2.Text;
@@ -54,15 +72,16 @@ namespace SistemaTHR.Apllication.Manutencao
                     controller.CodFornecedor3 = txtCodFornecedor3.Text;
                     controller.EstoqueMin = txtEstoqueMin.Text;
                     controller.EstoqueMax = txtEstoqueMax.Text;
-                    controller.UsuarioGravacao = loginController.Nome;
-                    controller.DataHoraGravacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:sss"));
-                    service.insert(controller);
+
+                    estoqueService.Insert(controller);
                     if (controller.Msg != null)
                     {
-                        MessageBox.Show(controller.Msg);
+                        MessageBox.Show(controller.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                     else
                     {
+                        MessageBox.Show("Item adicionado com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadGridView1();
                         clearAll();
 
                     }
@@ -70,7 +89,7 @@ namespace SistemaTHR.Apllication.Manutencao
             }
             else
             {
-                MessageBox.Show("Iten(s) obrigatório(s) vazio(s). Não é possível salvar itens em braco!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campo(s) obrigatório(s) vazio(s). Não é possível salvar itens em branco!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             this.Cursor = Cursors.Default;
         }
@@ -80,6 +99,15 @@ namespace SistemaTHR.Apllication.Manutencao
 
 
             dataGridView1.ClearSelection();
+
+            for(int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                dataGridView2.Rows.Remove(dataGridView2.Rows[i]);
+                if(i == dataGridView2.Rows.Count - 1)
+                {
+                    break;
+                }
+            }
 
             txtCodigo.Text = string.Empty;
             txtDescricao.Text = string.Empty;
@@ -91,8 +119,9 @@ namespace SistemaTHR.Apllication.Manutencao
             txtCodFornecedor2.Text = string.Empty;
             txtCodFornecedor3.Text = string.Empty;
             txtEstoqueMax.Text = string.Empty;
-            txtEstoqueMax.Text = string.Empty;
+            txtEstoqueMin.Text = string.Empty;
             btnSalvar.Enabled = true;
+            btnAlterar.Enabled = false;
 
 
         }
@@ -100,9 +129,9 @@ namespace SistemaTHR.Apllication.Manutencao
         private void loadGridView1()
         {
             this.Cursor = Cursors.WaitCursor;
-            Controller.manutencao.EstoquePecasController controller = new Controller.manutencao.EstoquePecasController();
-            Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
-            service.table(controller);
+             controller = new EstoquePecasController();
+
+            estoqueService.table(controller);
             if (controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg);
@@ -146,12 +175,16 @@ namespace SistemaTHR.Apllication.Manutencao
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 btnSalvar.Enabled = false;
+                btnAlterar.Enabled = true;
 
                 dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
                 dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Black;
-                Controller.manutencao.movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
-                controller.CodigoPeca = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                loadGridView2(controller);
+
+                movimentacaoController = new movimentacaoPecasController();
+
+                movimentacaoController.CodigoPeca = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                loadGridView2(movimentacaoController);
 
                 txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
 
@@ -177,10 +210,10 @@ namespace SistemaTHR.Apllication.Manutencao
             }
         }
 
-        private void loadGridView2(Controller.manutencao.movimentacaoPecasController controller)
+        private void loadGridView2(movimentacaoPecasController controller)
         {
-            Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController);
-            service.history(controller);
+
+            movimentacaoService.history(controller);
             if (controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg);
@@ -203,7 +236,7 @@ namespace SistemaTHR.Apllication.Manutencao
         {
             this.Cursor = Cursors.WaitCursor;
 
-            frmEstoquePesquisa filtro = new frmEstoquePesquisa(this);
+            frmEstoquePesquisa filtro = new frmEstoquePesquisa(this,loginController,modulosController);
             filtro.ShowDialog();
 
             this.Cursor = Cursors.Default;
@@ -216,7 +249,92 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            loadGridView1();
             clearAll();
+        }
+
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            frmEntradaSaidaPecas filtro = new frmEntradaSaidaPecas(this,loginController,modulosController);
+            filtro.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            controller = new EstoquePecasController();
+
+            controller.Descricao = txtDescricao.Text;
+            controller.Unidade = cboUnidade.Text;
+            controller.Fornecedor1 = txtFornecedor1.Text;
+            controller.CodFornecedor1 = txtCodFornecedor1.Text;
+            controller.Fornecedor2 = txtFornecedor2.Text;
+            controller.CodFornecedor2 = txtCodFornecedor2.Text;
+            controller.Fornecedor3 = txtFornecedor3.Text;
+            controller.CodFornecedor3 = txtCodFornecedor3.Text;
+            controller.EstoqueMin = txtEstoqueMin.Text;
+            controller.EstoqueMax = txtEstoqueMax.Text;
+
+            controller.Codigo = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+            estoqueService.Update(controller);
+            if(controller.Msg != null)
+            {
+                MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Alteração feita com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadGridView1();
+                clearAll();
+            }
+
+        }
+
+        private void txtCodigo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if(e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
+            {
+                for(int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value.ToString() == txtCodigo.Text)
+                    {
+                        Console.WriteLine(dataGridView1.Rows[i].Cells[1].Value.ToString());
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+                        break;
+                    }
+                    else if(i == dataGridView1.Rows.Count - 1)
+                    {
+                        DialogResult result = MessageBox.Show("Código não econtrado!\r\n" +
+                            "Deseja cadastrar um novo código?", "SISTEMA THR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if(result == DialogResult.No)
+                        {
+                            loadGridView1();
+                            clearAll();
+                        }
+                        else
+                        {
+                            txtDescricao.Text = string.Empty;
+                            cboUnidade.Text = string.Empty;
+                            txtFornecedor1.Text = string.Empty;
+                            txtFornecedor2.Text = string.Empty;
+                            txtFornecedor3.Text = string.Empty;
+                            txtCodFornecedor1.Text = string.Empty;
+                            txtCodFornecedor2.Text = string.Empty;
+                            txtCodFornecedor3.Text = string.Empty;
+                            txtEstoqueMax.Text = string.Empty;
+                            txtEstoqueMin.Text = string.Empty;
+                            btnSalvar.Enabled = true;
+                            btnAlterar.Enabled = false;
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

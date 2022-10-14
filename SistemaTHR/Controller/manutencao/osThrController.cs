@@ -25,6 +25,16 @@ namespace SistemaTHR.Controller.manutencao
         private DataTable dt;
         private string msg;
 
+
+        //filtros
+        private string emAberto;
+        private string manutenacaoIniciada;
+        private string ordemINC;
+        private string aguardandoPeca;
+        private string manutencaoFinalizada;
+        private string manutencaoNC;
+        private string ordemFinalizada;
+
         public string NOs
         {
             get { return nOs; }
@@ -114,5 +124,13 @@ namespace SistemaTHR.Controller.manutencao
             get { return msg; }
             set { msg = value; }
         }
+
+        public string EmAberto { get => emAberto; set => emAberto = value; }
+        public string ManutenacaoIniciada { get => manutenacaoIniciada; set => manutenacaoIniciada = value; }
+        public string OrdemINC { get => ordemINC; set => ordemINC = value; }
+        public string AguardandoPeca { get => aguardandoPeca; set => aguardandoPeca = value; }
+        public string ManutencaoFinalizada { get => manutencaoFinalizada; set => manutencaoFinalizada = value; }
+        public string ManutencaoNC { get => manutencaoNC; set => manutencaoNC = value; }
+        public string OrdemFinalizada { get => ordemFinalizada; set => ordemFinalizada = value; }
     }
 }

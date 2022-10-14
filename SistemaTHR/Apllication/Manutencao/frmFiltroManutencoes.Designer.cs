@@ -51,9 +51,9 @@
             this.groupBox1.Controls.Add(this.chbOsINC);
             this.groupBox1.Controls.Add(this.chbManIni);
             this.groupBox1.Controls.Add(this.chbEmAberto);
-            this.groupBox1.Location = new System.Drawing.Point(186, 12);
+            this.groupBox1.Location = new System.Drawing.Point(9, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 206);
+            this.groupBox1.Size = new System.Drawing.Size(245, 206);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
@@ -131,7 +131,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(186, 346);
+            this.btnFiltrar.Location = new System.Drawing.Point(9, 234);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
             this.btnFiltrar.TabIndex = 1;
@@ -141,7 +141,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(311, 346);
+            this.btnLimpar.Location = new System.Drawing.Point(179, 234);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 2;
@@ -153,10 +153,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 381);
+            this.ClientSize = new System.Drawing.Size(266, 280);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmFiltroManutencoes";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

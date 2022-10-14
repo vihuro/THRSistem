@@ -35,7 +35,7 @@ namespace SistemaTHR.Apllication.Manutencao
         private void loadGridView1()
         {
             Controller.manutencao.movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
-            Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController);
+            Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController,modulosController);
             service.table(controller);
             if (controller.Msg != null)
             {
@@ -77,7 +77,7 @@ namespace SistemaTHR.Apllication.Manutencao
         private void movimentacao()
         {
             Controller.manutencao.movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
-            Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController);
+            Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController,modulosController);
             controller.CodigoPeca = txtCodigo.Text;
             controller.DescricaoPeca = txtDescriao.Text;
             controller.Unidade = cboUnidade.Text;
@@ -94,12 +94,12 @@ namespace SistemaTHR.Apllication.Manutencao
         }
         private void alterarEstoque(Controller.manutencao.EstoquePecasController controller)
         {
-            Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
-            service.entradaEstoque(controller);
-            if (controller.Msg != null)
-            {
-                MessageBox.Show(controller.Msg);
-            }
+            //Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
+            //service.entradaEstoque(controller);
+            //if (controller.Msg != null)
+            //{
+              //  MessageBox.Show(controller.Msg);
+            //}
         }
     }
 }

@@ -25,9 +25,9 @@ namespace SistemaTHR.Apllication
         private solictacaoPecaService solictacaoPecaService;
         private solicitacaoPecaoController solicitacaoPecaoController;
 
-        private EstoquePecasService estoqueService = new EstoquePecasService();
+        private EstoquePecasService estoqueService;
         private movimentacaoPecasService movimentacaoService;
-        
+
 
         String Status;
 
@@ -35,25 +35,30 @@ namespace SistemaTHR.Apllication
         private modulosController modulosController;
         public frmManutencao(loginController loginController, modulosController modulosController)
         {
-            InitializeComponent();
             this.loginController = loginController;
             this.modulosController = modulosController;
+            InitializeComponent();
             IniciarOsThrService();
             IniciarStatusService();
             IniciarPrioridadeManuntecaoService();
             IniciarSolicitacaoPecaService();
             IniciarMovimentacaoService();
+            IniciarEstoqueService();
 
+        }
+        private EstoquePecasService IniciarEstoqueService()
+        {
+            return estoqueService = new EstoquePecasService(loginController, modulosController);
         }
 
         private movimentacaoPecasService IniciarMovimentacaoService()
         {
-            return movimentacaoService = new movimentacaoPecasService(loginController);
+            return movimentacaoService = new movimentacaoPecasService(loginController, modulosController);
         }
 
         private solictacaoPecaService IniciarSolicitacaoPecaService()
         {
-            return solictacaoPecaService = new solictacaoPecaService(loginController,modulosController);
+            return solictacaoPecaService = new solictacaoPecaService(loginController, modulosController);
         }
 
         private prioridadeManService IniciarPrioridadeManuntecaoService()
@@ -71,9 +76,17 @@ namespace SistemaTHR.Apllication
             return this.statusService = new statusOsThrService();
         }
 
-        public void loadFilter()
+        public void loadFilter(osThrController osController)
         {
-           // dataGridView1.DataSource = this.dt;
+            osService.SelectTableFilter(osController);
+            if (osController.Msg != null)
+            {
+                MessageBox.Show(osController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                dataGridView1.DataSource = osController.Dt;
+            }
         }
 
         public void loadGridView1()
@@ -160,7 +173,7 @@ namespace SistemaTHR.Apllication
             solictacaoPecaService.selectTable(solicitacaoPecaoController);
             if (solicitacaoPecaoController.Msg != null)
             {
-                MessageBox.Show(solicitacaoPecaoController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(solicitacaoPecaoController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -171,7 +184,7 @@ namespace SistemaTHR.Apllication
 
         private void loadDataGridView2()
         {
-             statusController = new statusOsThrController();
+            statusController = new statusOsThrController();
 
 
             statusController.NOsThr = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -236,7 +249,7 @@ namespace SistemaTHR.Apllication
                             if (osController.StatusOs == "Aguardando/AUT.Peça")
                             {
                                 Status = "Peças Autorizadas";
-                                break ;
+                                break;
                             }
                         }
                     }
@@ -294,16 +307,21 @@ namespace SistemaTHR.Apllication
                     {
                         Status = "OS/INC";
                     }
+                    else
+                    {
+                        Status = osController.StatusOs;
+                    }
+
                 }
             }
             osController = new osThrController();
 
             osController.StatusOs = Status;
-            osController.NOs = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            osController.NOs = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
             osService.status(osController);
             if (osController.Msg != null)
             {
-                MessageBox.Show(osController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(osController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -429,6 +447,9 @@ namespace SistemaTHR.Apllication
             cboPrioridade.Text = string.Empty;
             btnApontar.Enabled = false;
             btnDesfazer.Enabled = false;
+            btnAutorizar.Enabled = false;
+            btnAdicionar.Enabled = false;
+
 
         }
 
@@ -452,7 +473,7 @@ namespace SistemaTHR.Apllication
             {
                 if (prioriadadeController.Msg != null)
                 {
-                    MessageBox.Show(prioriadadeController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(prioriadadeController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -474,6 +495,7 @@ namespace SistemaTHR.Apllication
 
                 if (i > 0)
                 {
+
                     txtObservacao.Text = dataGridView2.SelectedRows[0].Cells[7].Value.ToString();
                     for (i = 0; i < dataGridView2.Rows.Count; i++)
                     {
@@ -495,11 +517,15 @@ namespace SistemaTHR.Apllication
                     {
                         if (modulosController.ManutencaoNivel == "4" || modulosController.ManutencaoNivel == "1")
                         {
-                            if(modulosController.ManutencaoNivel == "4" && dataGridView1.SelectedRows[0].Cells[4].Value.ToString() == loginController.Nome)
+                            if (modulosController.ManutencaoNivel == "4" && dataGridView1.SelectedRows[0].Cells[4].Value.ToString() == loginController.Nome)
                             {
                                 btnApontar.Enabled = true;
                             }
-                            else if(modulosController.ManutencaoNivel == "1")
+                            else if (modulosController.ManutencaoNivel == "1")
+                            {
+                                btnApontar.Enabled = true;
+                            }
+                            else if (modulosController.ManutencaoNivel == "2" && dataGridView1.SelectedRows[0].Cells[4].Value.ToString() == loginController.Nome)
                             {
                                 btnApontar.Enabled = true;
                             }
@@ -511,7 +537,7 @@ namespace SistemaTHR.Apllication
                         }
                         else if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "Preventiva")
                         {
-                            if(modulosController.ManutencaoNivel == "2")
+                            if (modulosController.ManutencaoNivel == "2")
                             {
                                 btnApontar.Enabled = true;
                             }
@@ -520,6 +546,10 @@ namespace SistemaTHR.Apllication
                                 btnApontar.Enabled = false;
                             }
 
+                        }
+                        else if (modulosController.ManutencaoNivel == "2" && dataGridView1.SelectedRows[0].Cells[4].Value.ToString() == loginController.Nome)
+                        {
+                            btnApontar.Enabled = true;
                         }
                         else
                         {
@@ -582,7 +612,7 @@ namespace SistemaTHR.Apllication
             controller.UsuarioAlteracao = loginController.Nome;
             controller.NStatus = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
             service.desfazer(controller);
-            if(controller.Msg != null)
+            if (controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg);
             }
@@ -647,7 +677,7 @@ namespace SistemaTHR.Apllication
                         {
                             if (dataGridView2.Rows[i2].Cells[2].Value.ToString() == "Requisição de Peça")
                             {
-                                if(dataGridView2.Rows[i2].Cells[4].Value.ToString() == "")
+                                if (dataGridView2.Rows[i2].Cells[4].Value.ToString() == "")
                                 {
                                     statusController = new Controller.manutencao.statusOsThrController();
                                     statusService = new Service.manutencao.statusOsThrService();
@@ -658,11 +688,11 @@ namespace SistemaTHR.Apllication
                                     statusController.NStatus = dataGridView2.Rows[i2].Cells[0].Value.ToString();
                                     statusController.Observacao = "";
                                     statusService.update(statusController);
-                                    if(statusController.Msg != null)
+                                    if (statusController.Msg != null)
                                     {
                                         MessageBox.Show(statusController.Msg);
                                     }
-                                    
+
                                 }
                                 else
                                 {
@@ -675,7 +705,7 @@ namespace SistemaTHR.Apllication
                                     statusController.NStatus = dataGridView2.Rows[i2].Cells[0].Value.ToString();
                                     statusController.Observacao = "";
                                     statusService.update(statusController);
-                                    if(statusController.Msg != null)
+                                    if (statusController.Msg != null)
                                     {
                                         MessageBox.Show(statusController.Msg);
                                     }
@@ -693,7 +723,7 @@ namespace SistemaTHR.Apllication
                         if (osController.StatusOs == "Aguardando/AUT. Peça")
                         {
                             Status = "Peças Autorizadas";
-                            for(int i2 = 0; i2 < dataGridView2.Rows.Count; i2++)
+                            for (int i2 = 0; i2 < dataGridView2.Rows.Count; i2++)
                             {
                                 if (dataGridView2.Rows[i2].Cells[2].Value.ToString() == "Requisição de Peça")
                                 {
@@ -713,7 +743,7 @@ namespace SistemaTHR.Apllication
 
                     }
                 }
-                if(Status != null)
+                if (Status != null)
                 {
                     osController = new Controller.manutencao.osThrController();
                     osService = new Service.manutencao.osThrService();
@@ -728,7 +758,7 @@ namespace SistemaTHR.Apllication
 
 
             }
-            
+
             loadGridView1();
 
             this.Cursor = Cursors.Default;
@@ -893,7 +923,7 @@ namespace SistemaTHR.Apllication
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            if(txtCodigo.Text != string.Empty && txtDescricao.Text != string.Empty && txtUnidade.Text != string.Empty && 
+            if (txtCodigo.Text != string.Empty && txtDescricao.Text != string.Empty && txtUnidade.Text != string.Empty &&
                 txtQuantidade.Text != string.Empty)
             {
                 solicitacaoPecaoController = new solicitacaoPecaoController();
@@ -919,6 +949,10 @@ namespace SistemaTHR.Apllication
                     else
                     {
                         dataGridView3.DataSource = solicitacaoPecaoController.Dt;
+                        txtDescricaoPeca.Text = string.Empty;
+                        txtCodigo.Text = string.Empty;
+                        txtUnidade.Text = string.Empty;
+                        txtQuantidadePeca.Text = string.Empty;
                     }
                 }
             }
@@ -956,22 +990,18 @@ namespace SistemaTHR.Apllication
 
                 if (modulosController.ManutencaoNivel == "1" ||
                     modulosController.ManutencaoNivel == "2" ||
-                    modulosController.ManutencaoNivel == "3")
+                    modulosController.ManutencaoNivel == "3" || 
+                    modulosController.ManutencaoNivel == "4")
                 {
-                    if (modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel == "2")
+                    if (modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel == "2" &&
+                        dataGridView3.SelectedRows[0].Cells[9].Value.ToString() != "AUTORIZADO")
                     {
                         btnAutorizar.Enabled = true;
                     }
                     if (dataGridView3.SelectedRows[0].Cells[9].Value.ToString() == "AUTORIZADO")
                     {
-                        if (modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel == "2")
-                        {
-                            btnInvalidar.Enabled = true;
-                        }
-                        else
-                        {
-                            btnInvalidar.Enabled = false;
-                        }
+                        btnInvalidar.Enabled = false;
+
                     }
                     else
                     {
@@ -989,7 +1019,7 @@ namespace SistemaTHR.Apllication
             if (modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel == "2")
             {
                 solicitacaoPecaoController = new solicitacaoPecaoController();
-                solictacaoPecaService = new solictacaoPecaService(loginController, modulosController, estoqueService,movimentacaoService );
+                solictacaoPecaService = new solictacaoPecaService(loginController, modulosController, estoqueService, movimentacaoService);
 
 
                 solicitacaoPecaoController.NRequisicao = dataGridView3.SelectedRows[0].Cells[0].Value.ToString();
@@ -1004,7 +1034,7 @@ namespace SistemaTHR.Apllication
                 solictacaoPecaService.authorizeRequisicao(solicitacaoPecaoController);
                 if (solicitacaoPecaoController.Msg != null)
                 {
-                    MessageBox.Show(solicitacaoPecaoController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(solicitacaoPecaoController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     loadGridView3();
                 }
                 else
@@ -1055,6 +1085,14 @@ namespace SistemaTHR.Apllication
         {
             frmEstoquePesquisa pesquisa = new frmEstoquePesquisa(this);
             pesquisa.ShowDialog();
+        }
+
+        private void btnLimparPecas_Click(object sender, EventArgs e)
+        {
+            txtDescricaoPeca.ReadOnly = false;
+            txtCodigo.ReadOnly = false;
+            txtUnidade.ReadOnly = false;
+            txtQuantidadePeca.ReadOnly = false;
         }
     }
 }

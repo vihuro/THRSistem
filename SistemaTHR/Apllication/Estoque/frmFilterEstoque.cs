@@ -118,7 +118,7 @@ namespace SistemaTHR.Apllication.Estoque
                 {
                     MessageBox.Show("Não é possivel requisitar um material com o saldo zero!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
+                else if(movimentacaoMaterial != null)
                 {
                     movimentacaoMaterial.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                     movimentacaoMaterial.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -129,18 +129,27 @@ namespace SistemaTHR.Apllication.Estoque
                 }
 
             }
-            else
+            else if (movimentacaoMaterial != null)
             {
-                if (requisicaoMaterial != null)
-                {
-
-                    requisicaoMaterial.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    requisicaoMaterial.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                    requisicaoMaterial.txtFornecedor.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-
-                }
+                movimentacaoMaterial.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                movimentacaoMaterial.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                movimentacaoMaterial.quantidadeDisponivel = dataGridView1.SelectedRows[0].Cells[9].Value.ToString();
+                movimentacaoMaterial.txtFornecedor.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
 
                 this.Close();
+
+            }
+            else if (requisicaoMaterial != null)
+            {
+                requisicaoMaterial.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                requisicaoMaterial.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                requisicaoMaterial.txtFornecedor.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Não é possivel movimentar um material com o saldo zero!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 

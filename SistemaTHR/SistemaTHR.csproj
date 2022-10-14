@@ -65,6 +65,9 @@
     <Reference Include="App.Metrics.Reporting.TextFile, Version=4.3.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812, processorArchitecture=MSIL">
       <HintPath>..\packages\App.Metrics.Reporting.TextFile.4.3.0\lib\netstandard2.0\App.Metrics.Reporting.TextFile.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac, Version=6.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.4.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
     </Reference>
@@ -174,6 +177,12 @@
     </Compile>
     <Compile Include="Apllication\Compras\frmRequisicaoCompra.Designer.cs">
       <DependentUpon>frmRequisicaoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmEntradaSaidaPecas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmEntradaSaidaPecas.Designer.cs">
+      <DependentUpon>frmEntradaSaidaPecas.cs</DependentUpon>
     </Compile>
     <Compile Include="Apllication\Estoque\frmEstoque.cs">
       <SubType>Form</SubType>
@@ -484,12 +493,6 @@
     <Compile Include="Apllication\Transferencia\frmSelectImp.Designer.cs">
       <DependentUpon>frmSelectImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Apllication\Manutencao\frmSolicitacaoPeca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apllication\Manutencao\frmSolicitacaoPeca.Designer.cs">
-      <DependentUpon>frmSolicitacaoPeca.cs</DependentUpon>
-    </Compile>
     <Compile Include="Apllication\Empilhadeiras\frmSolicitarManutencao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -639,6 +642,9 @@
     <EmbeddedResource Include="Apllication\Compras\frmRequisicaoCompra.resx">
       <DependentUpon>frmRequisicaoCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmEntradaSaidaPecas.resx">
+      <DependentUpon>frmEntradaSaidaPecas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Estoque\frmEstoque.resx">
       <DependentUpon>frmEstoque.cs</DependentUpon>
     </EmbeddedResource>
@@ -770,9 +776,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Transferencia\frmSelectImp.resx">
       <DependentUpon>frmSelectImp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Apllication\Manutencao\frmSolicitacaoPeca.resx">
-      <DependentUpon>frmSolicitacaoPeca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Empilhadeiras\frmSolicitarManutencao.resx">
       <DependentUpon>frmSolicitarManutencao.cs</DependentUpon>

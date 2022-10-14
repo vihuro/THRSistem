@@ -81,6 +81,7 @@
             this.cboPrioridade = new System.Windows.Forms.ComboBox();
             this.txtOrdemServico = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnBuscarPecas = new System.Windows.Forms.Button();
             this.txtQuantidadePeca = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.Label();
             this.txtUnidade = new System.Windows.Forms.TextBox();
@@ -111,7 +112,7 @@
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnBuscarPecas = new System.Windows.Forms.Button();
+            this.btnLimparPecas = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -636,6 +637,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnLimparPecas);
             this.tabPage2.Controls.Add(this.btnBuscarPecas);
             this.tabPage2.Controls.Add(this.txtQuantidadePeca);
             this.tabPage2.Controls.Add(this.txtQuantidade);
@@ -656,6 +658,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Peças";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarPecas
+            // 
+            this.btnBuscarPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarPecas.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarPecas.Image = global::SistemaTHR.Properties.Resources.seo;
+            this.btnBuscarPecas.Location = new System.Drawing.Point(204, 244);
+            this.btnBuscarPecas.Name = "btnBuscarPecas";
+            this.btnBuscarPecas.Size = new System.Drawing.Size(24, 21);
+            this.btnBuscarPecas.TabIndex = 11;
+            this.btnBuscarPecas.UseVisualStyleBackColor = true;
+            this.btnBuscarPecas.Click += new System.EventHandler(this.btnBuscarPecas_Click);
             // 
             // txtQuantidadePeca
             // 
@@ -948,17 +962,17 @@
             this.panel3.Size = new System.Drawing.Size(1337, 36);
             this.panel3.TabIndex = 14;
             // 
-            // btnBuscarPecas
+            // btnLimparPecas
             // 
-            this.btnBuscarPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarPecas.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarPecas.Image = global::SistemaTHR.Properties.Resources.seo;
-            this.btnBuscarPecas.Location = new System.Drawing.Point(204, 244);
-            this.btnBuscarPecas.Name = "btnBuscarPecas";
-            this.btnBuscarPecas.Size = new System.Drawing.Size(24, 21);
-            this.btnBuscarPecas.TabIndex = 11;
-            this.btnBuscarPecas.UseVisualStyleBackColor = true;
-            this.btnBuscarPecas.Click += new System.EventHandler(this.btnBuscarPecas_Click);
+            this.btnLimparPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimparPecas.ForeColor = System.Drawing.Color.White;
+            this.btnLimparPecas.Image = global::SistemaTHR.Properties.Resources.mais;
+            this.btnLimparPecas.Location = new System.Drawing.Point(656, 268);
+            this.btnLimparPecas.Name = "btnLimparPecas";
+            this.btnLimparPecas.Size = new System.Drawing.Size(25, 23);
+            this.btnLimparPecas.TabIndex = 12;
+            this.btnLimparPecas.UseVisualStyleBackColor = true;
+            this.btnLimparPecas.Click += new System.EventHandler(this.btnLimparPecas_Click);
             // 
             // frmManutencao
             // 
@@ -1035,10 +1049,8 @@
         private System.Windows.Forms.Button btnAutorizar;
         private System.Windows.Forms.Button btnInvalidar;
         private System.Windows.Forms.Button btnAdicionar;
-        private System.Windows.Forms.TextBox txtDescricaoPeca;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clNOP;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTipoServico;
@@ -1052,9 +1064,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraPrioridade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraFinalizacao;
-        private System.Windows.Forms.TextBox txtQuantidadePeca;
         private System.Windows.Forms.Label txtQuantidade;
-        private System.Windows.Forms.TextBox txtUnidade;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroOsThr;
@@ -1077,5 +1087,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNomeAutorizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAutorizacao;
         private System.Windows.Forms.Button btnBuscarPecas;
+        public System.Windows.Forms.TextBox txtDescricaoPeca;
+        public System.Windows.Forms.TextBox txtCodigo;
+        public System.Windows.Forms.TextBox txtQuantidadePeca;
+        public System.Windows.Forms.TextBox txtUnidade;
+        private System.Windows.Forms.Button btnLimparPecas;
     }
 }

@@ -382,7 +382,7 @@
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.ForeColor = System.Drawing.Color.White;
             this.btnPesquisar.Image = global::SistemaTHR.Properties.Resources.seo;
-            this.btnPesquisar.Location = new System.Drawing.Point(216, 92);
+            this.btnPesquisar.Location = new System.Drawing.Point(214, 92);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(25, 20);
             this.btnPesquisar.TabIndex = 17;
@@ -717,7 +717,7 @@
             // 
             this.btnAutorizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAutorizar.Enabled = false;
-            this.btnAutorizar.Location = new System.Drawing.Point(934, 4);
+            this.btnAutorizar.Location = new System.Drawing.Point(979, 4);
             this.btnAutorizar.Name = "btnAutorizar";
             this.btnAutorizar.Size = new System.Drawing.Size(75, 23);
             this.btnAutorizar.TabIndex = 13;
@@ -728,7 +728,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(853, 4);
+            this.btnSalvar.Location = new System.Drawing.Point(898, 4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 12;
