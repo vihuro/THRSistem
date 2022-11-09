@@ -84,6 +84,7 @@ namespace SistemaTHR.Apllication.Estoque
                 else
                 {
                     dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+
                     dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                 }
 

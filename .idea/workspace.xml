@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2de74005-9801-42db-8d35-49348ca0153a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.vs/SistemaTHR/FileContentIndex/73406cc7-1cf4-446f-8fb5-e830f1b98c1f.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/SistemaTHR/FileContentIndex/84d996f1-f9e7-4b80-9c81-5016834ee059.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/SistemaTHR/FileContentIndex/97a97ff3-c8fa-4c36-b30e-37f947c30e8e.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/SistemaTHR/FileContentIndex/af9887d1-12e4-4b2c-920f-718247801f02.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/SistemaTHR/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/SistemaTHR/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema THR/Debug/Sistema THR.msi" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema THR/Debug/Sistema THR.msi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/Apllication/Login/frmLogin.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/Apllication/Login/frmLogin.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/Apllication/Manutencao/frmManutencao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/Apllication/Manutencao/frmManutencao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/Apllication/Manutencao/frmRequisicoesPecas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/Apllication/Manutencao/frmRequisicoesPecas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/bin/Debug/SistemaTHR.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/bin/Debug/SistemaTHR.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/bin/Debug/SistemaTHR.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/bin/Debug/SistemaTHR.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/obj/Debug/Interop.ADODB.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/obj/Debug/Interop.ADODB.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaTHR/obj/Debug/SistemaTHR.pdb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2GOnWKLz2FFKEQ84FVrkWTNXUkA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/thr/eclipse-workspace/Sistema-THR"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2de74005-9801-42db-8d35-49348ca0153a" name="Changes" comment="" />
+      <created>1666268528028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666268528028</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

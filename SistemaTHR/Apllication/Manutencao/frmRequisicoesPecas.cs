@@ -135,7 +135,7 @@ namespace SistemaTHR.Apllication
             txtCodigoPeca.ReadOnly = false;
             txtDescricao.ReadOnly = false;
             txtUnidade.ReadOnly = false;
-            cboAsu.Enabled = false;
+            cboAsu.Enabled = true;
 
             txtDescricao.Text = string.Empty;
             txtCodigoPeca.Text = string.Empty;

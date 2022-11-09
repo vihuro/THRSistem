@@ -231,7 +231,7 @@ namespace SistemaTHR.Apllication
             osService.load(osController);
             if (osController.Msg != null)
             {
-                MessageBox.Show(osController.Msg);
+                MessageBox.Show(osController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
@@ -317,7 +317,7 @@ namespace SistemaTHR.Apllication
             osController = new osThrController();
 
             osController.StatusOs = Status;
-            osController.NOs = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+            osController.NOs = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
             osService.status(osController);
             if (osController.Msg != null)
             {
