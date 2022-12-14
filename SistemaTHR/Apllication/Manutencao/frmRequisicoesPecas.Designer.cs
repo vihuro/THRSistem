@@ -41,18 +41,6 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clnNRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCodigoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnASU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNomeSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNomeAutorizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraAut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -91,6 +79,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAutorizar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.clnNRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnASU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNomeSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNomeAutorizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -246,100 +246,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // clnNRequisicao
-            // 
-            this.clnNRequisicao.DataPropertyName = "NRequisicao";
-            this.clnNRequisicao.HeaderText = "Nº Requisição";
-            this.clnNRequisicao.Name = "clnNRequisicao";
-            this.clnNRequisicao.ReadOnly = true;
-            // 
-            // clnNos
-            // 
-            this.clnNos.DataPropertyName = "NOS";
-            this.clnNos.HeaderText = "Nº OS";
-            this.clnNos.Name = "clnNos";
-            this.clnNos.ReadOnly = true;
-            this.clnNos.Width = 70;
-            // 
-            // clnCodigoPeca
-            // 
-            this.clnCodigoPeca.DataPropertyName = "CodigoPeca";
-            this.clnCodigoPeca.HeaderText = "Código/Peça";
-            this.clnCodigoPeca.Name = "clnCodigoPeca";
-            this.clnCodigoPeca.ReadOnly = true;
-            // 
-            // clnDescricaoPeca
-            // 
-            this.clnDescricaoPeca.DataPropertyName = "DescricaoPeca";
-            this.clnDescricaoPeca.HeaderText = "Descrição/Peça";
-            this.clnDescricaoPeca.Name = "clnDescricaoPeca";
-            this.clnDescricaoPeca.ReadOnly = true;
-            this.clnDescricaoPeca.Width = 150;
-            // 
-            // clnQtd
-            // 
-            this.clnQtd.DataPropertyName = "Qtd";
-            this.clnQtd.HeaderText = "QTD";
-            this.clnQtd.Name = "clnQtd";
-            this.clnQtd.ReadOnly = true;
-            this.clnQtd.Width = 50;
-            // 
-            // clnUnidade
-            // 
-            this.clnUnidade.DataPropertyName = "Unidade";
-            this.clnUnidade.HeaderText = "UND";
-            this.clnUnidade.Name = "clnUnidade";
-            this.clnUnidade.ReadOnly = true;
-            this.clnUnidade.Width = 50;
-            // 
-            // clnASU
-            // 
-            this.clnASU.DataPropertyName = "ASU";
-            this.clnASU.HeaderText = "ASU";
-            this.clnASU.Name = "clnASU";
-            this.clnASU.ReadOnly = true;
-            this.clnASU.Width = 80;
-            // 
-            // clnNomeSolicitante
-            // 
-            this.clnNomeSolicitante.DataPropertyName = "NomeSolicitante";
-            this.clnNomeSolicitante.HeaderText = "Nome/Sol.";
-            this.clnNomeSolicitante.Name = "clnNomeSolicitante";
-            this.clnNomeSolicitante.ReadOnly = true;
-            this.clnNomeSolicitante.Width = 150;
-            // 
-            // clnDataHoraSol
-            // 
-            this.clnDataHoraSol.DataPropertyName = "DataHoraSolicitacao";
-            this.clnDataHoraSol.HeaderText = "Data/Hora Sol.";
-            this.clnDataHoraSol.Name = "clnDataHoraSol";
-            this.clnDataHoraSol.ReadOnly = true;
-            this.clnDataHoraSol.Width = 150;
-            // 
-            // StatusSol
-            // 
-            this.StatusSol.DataPropertyName = "StatusSolicitacao";
-            this.StatusSol.HeaderText = "Status/Sol.";
-            this.StatusSol.Name = "StatusSol";
-            this.StatusSol.ReadOnly = true;
-            this.StatusSol.Width = 150;
-            // 
-            // clnNomeAutorizador
-            // 
-            this.clnNomeAutorizador.DataPropertyName = "NomeAutorizador";
-            this.clnNomeAutorizador.HeaderText = "Nome/Aut.";
-            this.clnNomeAutorizador.Name = "clnNomeAutorizador";
-            this.clnNomeAutorizador.ReadOnly = true;
-            this.clnNomeAutorizador.Width = 150;
-            // 
-            // clnDataHoraAut
-            // 
-            this.clnDataHoraAut.DataPropertyName = "DataHoraAutorizacao";
-            this.clnDataHoraAut.HeaderText = "Data/Hora Aut.";
-            this.clnDataHoraAut.Name = "clnDataHoraAut";
-            this.clnDataHoraAut.ReadOnly = true;
-            this.clnDataHoraAut.Width = 150;
             // 
             // tabControl1
             // 
@@ -736,6 +642,100 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // clnNRequisicao
+            // 
+            this.clnNRequisicao.DataPropertyName = "NRequisicao";
+            this.clnNRequisicao.HeaderText = "Nº Requisição";
+            this.clnNRequisicao.Name = "clnNRequisicao";
+            this.clnNRequisicao.ReadOnly = true;
+            // 
+            // clnNos
+            // 
+            this.clnNos.DataPropertyName = "NOS";
+            this.clnNos.HeaderText = "Nº OS";
+            this.clnNos.Name = "clnNos";
+            this.clnNos.ReadOnly = true;
+            this.clnNos.Width = 70;
+            // 
+            // clnCodigoPeca
+            // 
+            this.clnCodigoPeca.DataPropertyName = "CodigoPeca";
+            this.clnCodigoPeca.HeaderText = "Código/Peça";
+            this.clnCodigoPeca.Name = "clnCodigoPeca";
+            this.clnCodigoPeca.ReadOnly = true;
+            // 
+            // clnDescricaoPeca
+            // 
+            this.clnDescricaoPeca.DataPropertyName = "DescricaoPeca";
+            this.clnDescricaoPeca.HeaderText = "Descrição/Peça";
+            this.clnDescricaoPeca.Name = "clnDescricaoPeca";
+            this.clnDescricaoPeca.ReadOnly = true;
+            this.clnDescricaoPeca.Width = 150;
+            // 
+            // clnQtd
+            // 
+            this.clnQtd.DataPropertyName = "Qtd";
+            this.clnQtd.HeaderText = "QTD";
+            this.clnQtd.Name = "clnQtd";
+            this.clnQtd.ReadOnly = true;
+            this.clnQtd.Width = 50;
+            // 
+            // clnUnidade
+            // 
+            this.clnUnidade.DataPropertyName = "Unidade";
+            this.clnUnidade.HeaderText = "UND";
+            this.clnUnidade.Name = "clnUnidade";
+            this.clnUnidade.ReadOnly = true;
+            this.clnUnidade.Width = 50;
+            // 
+            // clnASU
+            // 
+            this.clnASU.DataPropertyName = "ASU";
+            this.clnASU.HeaderText = "ASU";
+            this.clnASU.Name = "clnASU";
+            this.clnASU.ReadOnly = true;
+            this.clnASU.Width = 95;
+            // 
+            // clnNomeSolicitante
+            // 
+            this.clnNomeSolicitante.DataPropertyName = "NomeSolicitante";
+            this.clnNomeSolicitante.HeaderText = "Nome/Sol.";
+            this.clnNomeSolicitante.Name = "clnNomeSolicitante";
+            this.clnNomeSolicitante.ReadOnly = true;
+            this.clnNomeSolicitante.Width = 150;
+            // 
+            // clnDataHoraSol
+            // 
+            this.clnDataHoraSol.DataPropertyName = "DataHoraSolicitacao";
+            this.clnDataHoraSol.HeaderText = "Data/Hora Sol.";
+            this.clnDataHoraSol.Name = "clnDataHoraSol";
+            this.clnDataHoraSol.ReadOnly = true;
+            this.clnDataHoraSol.Width = 150;
+            // 
+            // StatusSol
+            // 
+            this.StatusSol.DataPropertyName = "StatusSolicitacao";
+            this.StatusSol.HeaderText = "Status/Sol.";
+            this.StatusSol.Name = "StatusSol";
+            this.StatusSol.ReadOnly = true;
+            this.StatusSol.Width = 190;
+            // 
+            // clnNomeAutorizador
+            // 
+            this.clnNomeAutorizador.DataPropertyName = "NomeAutorizador";
+            this.clnNomeAutorizador.HeaderText = "Nome/Aut.";
+            this.clnNomeAutorizador.Name = "clnNomeAutorizador";
+            this.clnNomeAutorizador.ReadOnly = true;
+            this.clnNomeAutorizador.Width = 150;
+            // 
+            // clnDataHoraAut
+            // 
+            this.clnDataHoraAut.DataPropertyName = "DataHoraAutorizacao";
+            this.clnDataHoraAut.HeaderText = "Data/Hora Aut.";
+            this.clnDataHoraAut.Name = "clnDataHoraAut";
+            this.clnDataHoraAut.ReadOnly = true;
+            this.clnDataHoraAut.Width = 150;
+            // 
             // frmRequisicoesPecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -810,6 +810,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAutorizacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioMovimentacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraMovi;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnPesquisar;
+        public System.Windows.Forms.TextBox txtQuantidade;
+        public System.Windows.Forms.TextBox txtUnidade;
+        public System.Windows.Forms.TextBox txtDescricao;
+        public System.Windows.Forms.TextBox txtCodigoPeca;
+        private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNRequisicao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNos;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigoPeca;
@@ -822,12 +829,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusSol;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNomeAutorizador;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAut;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnPesquisar;
-        public System.Windows.Forms.TextBox txtQuantidade;
-        public System.Windows.Forms.TextBox txtUnidade;
-        public System.Windows.Forms.TextBox txtDescricao;
-        public System.Windows.Forms.TextBox txtCodigoPeca;
-        private System.Windows.Forms.Button btnRelatorio;
     }
 }

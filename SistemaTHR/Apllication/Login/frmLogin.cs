@@ -115,6 +115,9 @@ namespace SistemaTHR
             menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = false;
             menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = false;
             menu.entradaSaídaToolStripMenuItem.Enabled = false;
+            menu.movimentaçãoPeçasToolStripMenuItem1.Enabled = false;
+            menu.solicitarManutençãoToolStripMenuItem1.Enabled = false;
+            menu.manutençõesEmAbertoToolStripMenuItem.Enabled = false;
             menu.painelSolicitaçãoWindToolStripMenuItem.Enabled = true;
 
 
@@ -138,12 +141,19 @@ namespace SistemaTHR
             if (modulosController.Manutencao == "Sim")
             {
                 menu.manutençãoToolStripMenuItem.Enabled = true;
+
+                if (modulosController.ManutencaoNivel == "5")
+                {
+                    menu.solicitarManutençãoToolStripMenuItem1.Enabled = false;
+                    menu.manutençõesEmAbertoToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    menu.solicitarManutençãoToolStripMenuItem1.Enabled = true;
+                    menu.manutençõesEmAbertoToolStripMenuItem.Enabled = true;
+                }
             }
-            if (modulosController.ManutencaoNivel == "5")
-            {
-                menu.solicitarManutençãoToolStripMenuItem1.Enabled = false;
-                menu.manutençõesEmAbertoToolStripMenuItem.Enabled = false;
-            }
+
             if (modulosController.Producao == "Sim")
             {
                 menu.produçãoToolStripMenuItem.Enabled = true;
@@ -155,11 +165,13 @@ namespace SistemaTHR
             }
             if (modulosController.Almoxarifado == "Sim")
             {
-
+                if(modulosController.AlmoxarifadoNivel == "2" || 
+                    modulosController.AlmoxarifadoNivel == "1")
+                {
+                    menu.estoquePeçasToolStripMenuItem.Enabled = true;
+                    menu.movimentaçãoPeçasToolStripMenuItem1.Enabled = true;
+                }
                 menu.requisicaoPeçasToolStripMenuItem.Enabled = true;
-                menu.estoquePeçasToolStripMenuItem.Enabled = true;
-
-
             }
             if (modulosController.Estoque == "Sim")
             {
@@ -183,19 +195,22 @@ namespace SistemaTHR
                         menu.estoqueToolStripMenuItem.Enabled = true;
                         menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = true;
                         menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = true;
-                        menu.estoquePeçasToolStripMenuItem.Enabled = true;
+                        //menu.estoquePeçasToolStripMenuItem.Enabled = true;
                         menu.entradaSaídaToolStripMenuItem.Enabled = true;
                     }
                     menu.estoqueToolStripMenuItem.Enabled = true;
                     menu.finalizarSolicitaçãoToolStripMenuItem.Enabled = true;
                     menu.solicitaçãoDeMaterialToolStripMenuItem.Enabled = true;
-                    menu.estoquePeçasToolStripMenuItem.Enabled = true;
+                    //menu.estoquePeçasToolStripMenuItem.Enabled = true;
                     menu.entradaSaídaToolStripMenuItem.Enabled = true;
                 }
             }
             if (modulosController.Compras == "Sim")
             {
-                if(modulosController.ComprasNivel == "1")
+                menu.manutençãoToolStripMenuItem.Enabled = true;
+                menu.requisicaoPeçasToolStripMenuItem.Enabled = true;
+                menu.movimentaçãoPeçasToolStripMenuItem1.Enabled = true;
+                if (modulosController.ComprasNivel == "1")
                 {
                     menu.comprasToolStripMenuItem.Enabled = true;
                 }
@@ -237,5 +252,9 @@ namespace SistemaTHR
             }
         }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

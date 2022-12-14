@@ -11,6 +11,7 @@ using SistemaTHR.Controller.Login;
 using SistemaTHR.Controller;
 using SistemaTHR.Service.estoque;
 using SistemaTHR.Controller.estoque;
+using SistemaTHR.Apllication.Estoque.Impressao;
 
 namespace SistemaTHR.Apllication.Estoque
 {
@@ -129,7 +130,9 @@ namespace SistemaTHR.Apllication.Estoque
             txtEstoqueMaximo.Text = string.Empty;
             txtEstoqueSegueranca.Text = string.Empty;
             cboUnidade.Text = string.Empty;
+            cboGrupo.Text = string.Empty;   
             txtCodigo.ReadOnly = false;
+            txtFornecedor.Text = string.Empty;
 
             this.Cursor = Cursors.Default;
 
@@ -164,6 +167,7 @@ namespace SistemaTHR.Apllication.Estoque
                 txtFornecedor.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
                 txtEstoqueMinimo.Text = dataGridView1.SelectedRows[0].Cells[10].Value.ToString();
                 txtEstoqueMaximo.Text = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                txtEstoqueSegueranca.Text = dataGridView1.SelectedRows[0].Cells[12].Value.ToString();
 
                 BuscarMovimentacao(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
 
@@ -284,6 +288,8 @@ namespace SistemaTHR.Apllication.Estoque
         {
             this.Cursor = Cursors.WaitCursor;
             dataGridView1.DataSource = controller.Dt;
+
+
             for(var i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 if(i == dataGridView1.Rows.Count - 1)
@@ -292,6 +298,7 @@ namespace SistemaTHR.Apllication.Estoque
                     break;
                 }
             }
+            dataGridView1.ClearSelection();
             this.Cursor = Cursors.Default;
         }
 
@@ -329,7 +336,6 @@ namespace SistemaTHR.Apllication.Estoque
                         dataGridView1.Rows[i].Cells[9].Value = soma.ToString("###,###.##");
                     }
                 }
-
             }
 
         
@@ -400,6 +406,10 @@ namespace SistemaTHR.Apllication.Estoque
                         clearAll();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Campo(s) obrigatório(s) vazio(s)!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             this.Cursor = Cursors.Default;
@@ -447,6 +457,82 @@ namespace SistemaTHR.Apllication.Estoque
             }
 
             this.Cursor = Cursors.Default;
+
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(dataGridView1.Rows.Count > 0)
+            {
+                for(int i = 0; i< dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Black;
+
+                    if (dataGridView1.Rows[i].Cells[9].Value.ToString() != string.Empty)
+                    {
+                        if (dataGridView1.Rows[i].Cells[9].Value.ToString() != string.Empty)
+                        {
+                            double EstoqueDisponivel = Convert.ToDouble(dataGridView1.Rows[i].Cells[9].Value.ToString());
+                            if(dataGridView1.Rows[i].Cells[10].Value.ToString() != string.Empty && 
+                                dataGridView1.Rows[i].Cells[11].Value.ToString() != string.Empty &&
+                                dataGridView1.Rows[i].Cells[12].Value.ToString() != string.Empty)
+                            {
+                                double EstoqueMinimo = Convert.ToDouble(dataGridView1.Rows[i].Cells[10].Value.ToString());
+                                double EstoqueMaximo = Convert.ToDouble(dataGridView1.Rows[i].Cells[11].Value.ToString());
+                                double EstoqueSeguranca = Convert.ToDouble(dataGridView1.Rows[i].Cells[12].Value.ToString());
+
+                                if(EstoqueDisponivel < EstoqueMinimo)
+                                {
+                                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(183,9,9);
+                                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(255, 255, 255);
+
+                                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.FromArgb(238,50,131);
+
+                                }
+                                else if (EstoqueDisponivel > EstoqueMaximo)
+                                {
+                                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(29, 13, 243);
+                                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(255, 255, 255);
+
+                                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.FromArgb(180, 175, 251);
+                                }
+                                else if (EstoqueDisponivel >= EstoqueSeguranca)
+                                {
+                                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(116, 244, 165);
+                                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(0, 0, 0);
+
+                                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.FromArgb(122, 232, 238);
+                                }
+                                else if (EstoqueDisponivel < EstoqueSeguranca)
+                                {
+                                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(238, 248, 112);
+                                    dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(0, 0, 0);
+
+                                    dataGridView1.Rows[i].DefaultCellStyle.SelectionForeColor = Color.FromArgb(237, 255, 1);
+                                }
+
+
+                            }
+
+
+                            
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+
+            frmRelatorioImpressao impressao = new frmRelatorioImpressao((DataTable)dataGridView1.DataSource);
+
+            this.Cursor = Cursors.Default;
+
+            impressao.ShowDialog();
 
         }
     }

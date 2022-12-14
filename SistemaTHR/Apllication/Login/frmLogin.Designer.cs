@@ -123,7 +123,7 @@
             this.lblVersao.Name = "lblVersao";
             this.lblVersao.Size = new System.Drawing.Size(37, 13);
             this.lblVersao.TabIndex = 8;
-            this.lblVersao.Text = "(1.2.1)";
+            this.lblVersao.Text = "(1.2.4)";
             // 
             // frmLogin
             // 
@@ -146,6 +146,7 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

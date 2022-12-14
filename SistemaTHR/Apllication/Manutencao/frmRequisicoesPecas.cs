@@ -44,6 +44,10 @@ namespace SistemaTHR.Apllication
             {
                 btnRelatorio.Enabled = false;
             }
+            if(modulosController.Compras == "Sim")
+            {
+                btnRelatorio.Enabled = true;
+            }
             else
             {
                 btnRelatorio.Enabled = true;
@@ -194,6 +198,7 @@ namespace SistemaTHR.Apllication
                 txtDescricao.ReadOnly = true;
                 txtUnidade.ReadOnly = true;
                 cboAsu.Enabled = false;
+                btnAutorizar.Enabled = false;
 
                 txtRequisicao.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 txtCodigoPeca.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -214,7 +219,7 @@ namespace SistemaTHR.Apllication
                 }
                 else
                 {
-                    btnAutorizar.Enabled = true;
+                    btnAutorizar.Enabled = false;
                 }
             }
             this.Cursor = Cursors.Default;
@@ -430,5 +435,6 @@ namespace SistemaTHR.Apllication
                 }
             }
         }
+
     }
 }
