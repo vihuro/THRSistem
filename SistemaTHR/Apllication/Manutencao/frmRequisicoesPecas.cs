@@ -332,7 +332,7 @@ namespace SistemaTHR.Apllication
 
         private void insertRequisicaoCompra()
         {
-            Controller.Compras.requisicaoCompraController controller = new Controller.Compras.requisicaoCompraController();
+            /*Controller.Compras.requisicaoCompraController controller = new Controller.Compras.requisicaoCompraController();
             Service.Compras.requisicaoCompraService service = new Service.Compras.requisicaoCompraService();
             controller.Codigo = txtCodigoPeca.Text;
             controller.Descricao = txtDescricao.Text;
@@ -345,7 +345,7 @@ namespace SistemaTHR.Apllication
             if(controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg);
-            }
+            }*/
         }
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -364,7 +364,16 @@ namespace SistemaTHR.Apllication
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
                 estoqueController = new EstoquePecasController();
-                estoqueService.table(estoqueController);
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                estoqueService.table();
                 if(controller.Msg != null)
                 {
                     MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);

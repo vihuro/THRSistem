@@ -1,92 +1,122 @@
-﻿using SistemaTHR.dto.Compras;
+﻿using Microsoft.SqlServer.Server;
+using SistemaTHR.Controller.Compras;
+using SistemaTHR.dto.Compras;
+using SistemaTHR.Service.Exepction;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaTHR.DAO.Manutencao;
+using SistemaTHR.Controller.Login;
 
 namespace SistemaTHR.Service.Compras
 {
     internal class requisicaoCompraService
     {
-        private Controller.Compras.requisicaoCompraController controller;
-        private DAO.Manutencao.requisicaoCompraDao dao = new DAO.Manutencao.requisicaoCompraDao();
-        private dto.Compras.requisicaoCompraDto dto;
-        private void insertRequisicao()
+        private requisicaoCompraDao dao;
+        private requisicaoCompraDto dto;
+        private loginController loginController;
+        private modulosController modulosController;
+        private AcompanhamentoRequisicaoCompraService acompanhamentoService;
+
+        private DataTable dt;
+
+        public requisicaoCompraService(loginController loginController,modulosController modulosController)
         {
-            dto = new dto.Compras.requisicaoCompraDto();
+            dao = new requisicaoCompraDao();
+            this.modulosController = modulosController;
+            this.loginController = loginController;
+            acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController);
+        }
+
+        private void Insert(requisicaoCompraController controller)
+        {
+            dto = new requisicaoCompraDto();
+            if (controller.Codigo == string.Empty && controller.Descricao == string.Empty &&
+                controller.Quantidade == string.Empty && controller.Unidade == string.Empty &&
+                controller.Prioridade == string.Empty && controller.DataHoraEsperadaEntrega == string.Empty)
+            {
+                throw new ExceptionService("Campos obrigatório(s) vazio(s)!");
+            }
+
             dto.Codigo = controller.Codigo;
             dto.Descricao = controller.Descricao;
             dto.Quantidade = controller.Quantidade;
             dto.Unidade = controller.Unidade;
-            dto.UsuarioSolicitacao = controller.UsuarioSolicitacao;
-            dto.DataHoraSolicitacao = controller.DataHoraSolicitacao;
-            dto.Status = "Pendedente";
-            dao.insert(dto);
+            dto.Prioridade = controller.Prioridade;
+            dto.DataHoraEsperadaEntrega = controller.DataHoraEsperadaEntrega;
+            dto.UsuarioSolicitacao = loginController.Nome;
+            dto.DataHoraSolicitacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            dto.Status = "Pendente";
+            dao.Insert(dto);
         }
-        public void insert(Controller.Compras.requisicaoCompraController controller)
+
+        /*private string BuscarNovaRequisicao()
         {
-            this.controller = controller;
-            verificarAberto();
-        }
-        private void verificarAberto()
+
+        }*/
+
+        //Esse metódo irá verificar a quantidade se estiver uma requisição aberto com o mesmo material
+        public void verificarAberto(requisicaoCompraController controller)
         {
-            dto = new dto.Compras.requisicaoCompraDto();
+
+            dto = new requisicaoCompraDto();
+
             dto.Codigo = controller.Codigo;
-            dao.verificar(dto);
-            if(dto.Msg != null)
+            dto.Status = "Pendente";
+            dao.verificarCodigo(dto);
+
+
+            if (dto.NRequisicao != null)
             {
-                controller.Msg = dto.Msg;
+                updateRequisicao(dto, controller.Quantidade);
             }
             else
             {
-                if(dto.NRequisicao != null)
-                {
-                    updateRequisicao(dto);
-                }
-                else
-                {
-                    insertRequisicao();
-                }
+                Insert(controller);
             }
- 
-        }
-        public void verificar(requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            verificarAberto();
+
+
         }
 
-        private void updateRequisicao(requisicaoCompraDto dto)
+        private void updateRequisicao(requisicaoCompraDto dto, string quantidade)
         {
-            decimal quantidadeAntiga =Convert.ToDecimal(dto.Quantidade);
-            decimal quantidadeRequisitada = Convert.ToDecimal(controller.Quantidade);
+            decimal quantidadeAntiga = Convert.ToDecimal(dto.Quantidade);
+            decimal quantidadeRequisitada = Convert.ToDecimal(quantidade);
             decimal total = quantidadeAntiga + quantidadeRequisitada;
-            dto.Quantidade = total.ToString();
-            dao.updateRequisicao(dto);
 
-        }
-
-        private void updateAuth()
-        {
-            dto = new dto.Compras.requisicaoCompraDto();
-            dto.UsuarioAutorizador = controller.UsuarioAutorizador;
-            dto.DataHoraAutorizacao = controller.DataHoraAutorizacao;
-            dto.Status = controller.Status;
-            dto.NRequisicao = controller.NRequisicao;
-            dao.auth(dto);
-            if(dto.Msg != null)
+            if(total <= 0)
             {
-                controller.Msg = dto.Msg;
+                throw new ExceptionService("Quantidade solictada não pode ser igual ou menor que zero!");
             }
+
+            dto.Quantidade = total.ToString();
+            dao.updateRequisicaoCompra(dto);
+
         }
-        public void auth(Controller.Compras.requisicaoCompraController controller)
+
+        public void updateAuth(requisicaoCompraController controller)
         {
-            this.controller = controller;
-            updateAuth();
+            dto = new requisicaoCompraDto();
+            if(dto.UsuarioAutorizador == string.Empty && dto.NRequisicao == string.Empty)
+            {
+                throw new ExceptionService("Campo(s) obrigatório(s) vazio(s)!");
+            }
+
+            dto.UsuarioAutorizador = controller.UsuarioAutorizador;
+            dto.DataHoraAutorizacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            dto.Status = "Autorizado";
+            dto.NRequisicao = controller.NRequisicao;
+            dao.updateAuth(dto);
+
         }
-        private void updateCompra()
+
+        public void updateCompra()
         {
+            /*dao = new requisicaoCompraDao();
+
             dto = new dto.Compras.requisicaoCompraDto();
             dto.UsuarioCompra = controller.UsuarioCompra;
             dto.DataHoraCompra = controller.DataHotaCompra;
@@ -96,30 +126,12 @@ namespace SistemaTHR.Service.Compras
             if(dto.Msg != null)
             {
                 controller.Msg = dto.Msg;
-            }
+            }*/
         }
-        public void compra(Controller.Compras.requisicaoCompraController controller)
+
+        public DataTable Table()
         {
-            this.controller = controller;
-            updateCompra();
-        }
-        private void selectTable()
-        {
-            dto = new dto.Compras.requisicaoCompraDto();
-            dao.table(dto);
-            if(dto.Msg != null)
-            {
-                controller.Msg= dto.Msg;
-            }
-            else
-            {
-                controller.Dt = dto.Dt;
-            }
-        }
-        public void table(Controller.Compras.requisicaoCompraController controller)
-        {
-            this.controller = controller;
-            selectTable();
+            return dao.Table();
         }
     }
 }

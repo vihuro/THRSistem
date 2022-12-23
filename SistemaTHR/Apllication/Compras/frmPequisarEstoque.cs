@@ -1,14 +1,22 @@
-﻿using System;
+﻿using SistemaTHR.Controller.Login;
+using SistemaTHR.Controller.manutencao;
+using SistemaTHR.Service.manutencao;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaTHR.Apllication.Compras
 {
     public partial class frmPequisarEstoque : Form
     {
-        Compras.frmRequisicaoCompra compras;
-        public frmPequisarEstoque(Compras.frmRequisicaoCompra compras)
+        private frmRequisicaoCompra compras;
+        private EstoquePecasController controller;
+        private EstoquePecasService service;
+        private loginController loginController;
+        private modulosController modulosController;
+        public frmPequisarEstoque(frmRequisicaoCompra compras, loginController loginController, modulosController modulosController)
         {
             this.compras = compras;
+            service = new EstoquePecasService(loginController,modulosController);
             InitializeComponent();
         }
 
@@ -19,17 +27,17 @@ namespace SistemaTHR.Apllication.Compras
 
         private void loadGridView()
         {
-           /* Controller.manutencao.EstoquePecasController controller = new Controller.manutencao.EstoquePecasController();
-            Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
-            service.table(controller);
-            if(controller.Msg != null)
+            controller = new EstoquePecasController();
+            try
             {
-                MessageBox.Show(controller.Msg);
+                dataGridView1.DataSource = service.table();
             }
-            else
+            catch (Exception ex)
             {
-                dataGridView1.DataSource = controller.Dt;
-            }*/
+
+                MessageBox.Show(ex.ToString(),"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)

@@ -34,7 +34,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private EstoquePecasService IniciarEstoqueService()
         {
-            return estoqueService = new EstoquePecasService(loginController,modulosController);
+            return estoqueService = new EstoquePecasService(loginController, modulosController);
         }
 
         private movimentacaoPecasService IniciarMovimentacaoService()
@@ -76,7 +76,7 @@ namespace SistemaTHR.Apllication.Manutencao
                     estoqueService.Insert(controller);
                     if (controller.Msg != null)
                     {
-                        MessageBox.Show(controller.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -100,10 +100,10 @@ namespace SistemaTHR.Apllication.Manutencao
 
             dataGridView1.ClearSelection();
 
-            for(int i = 0; i < dataGridView2.Rows.Count; i++)
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
                 dataGridView2.Rows.Remove(dataGridView2.Rows[i]);
-                if(i == dataGridView2.Rows.Count - 1)
+                if (i == dataGridView2.Rows.Count - 1)
                 {
                     break;
                 }
@@ -129,17 +129,10 @@ namespace SistemaTHR.Apllication.Manutencao
         private void loadGridView1()
         {
             this.Cursor = Cursors.WaitCursor;
-             controller = new EstoquePecasController();
 
-            estoqueService.table(controller);
-            if (controller.Msg != null)
+            try
             {
-                MessageBox.Show(controller.Msg);
-            }
-            else
-            {
-                dataGridView1.DataSource = controller.Dt;
-
+                dataGridView1.DataSource = estoqueService.table();
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
                     if (i == dataGridView1.Rows.Count - 1)
@@ -147,8 +140,15 @@ namespace SistemaTHR.Apllication.Manutencao
                         dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
                     }
                 }
+
+                clearAll();
             }
-            clearAll();
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             this.Cursor = Cursors.Default;
         }
 
@@ -236,7 +236,7 @@ namespace SistemaTHR.Apllication.Manutencao
         {
             this.Cursor = Cursors.WaitCursor;
 
-            frmEstoquePesquisa filtro = new frmEstoquePesquisa(this,loginController,modulosController);
+            frmEstoquePesquisa filtro = new frmEstoquePesquisa(this, loginController, modulosController);
             filtro.ShowDialog();
 
             this.Cursor = Cursors.Default;
@@ -255,7 +255,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            frmEntradaSaidaPecas filtro = new frmEntradaSaidaPecas(this,loginController,modulosController);
+            frmEntradaSaidaPecas filtro = new frmEntradaSaidaPecas(this, loginController, modulosController);
             filtro.ShowDialog();
         }
 
@@ -282,7 +282,7 @@ namespace SistemaTHR.Apllication.Manutencao
             controller.Codigo = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
 
             estoqueService.Update(controller);
-            if(controller.Msg != null)
+            if (controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -297,9 +297,9 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void txtCodigo_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if(e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
             {
-                for(int i = 0; i < dataGridView1.Rows.Count; i++)
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
                     if (dataGridView1.Rows[i].Cells[1].Value.ToString() == txtCodigo.Text)
                     {
@@ -307,11 +307,11 @@ namespace SistemaTHR.Apllication.Manutencao
                         dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
                         break;
                     }
-                    else if(i == dataGridView1.Rows.Count - 1)
+                    else if (i == dataGridView1.Rows.Count - 1)
                     {
                         DialogResult result = MessageBox.Show("Código não econtrado!\r\n" +
                             "Deseja cadastrar um novo código?", "SISTEMA THR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if(result == DialogResult.No)
+                        if (result == DialogResult.No)
                         {
                             loadGridView1();
                             clearAll();

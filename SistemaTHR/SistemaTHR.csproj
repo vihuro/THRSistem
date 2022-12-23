@@ -303,6 +303,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bd_estoqueDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Compras\AcompanhamentoRequisicaoCompra.cs" />
     <Compile Include="Controller\estoque\EstoqueAntigoController.cs" />
     <Compile Include="Controller\estoque\EstoqueController.cs" />
     <Compile Include="Controller\estoque\GrupoController.cs" />
@@ -328,6 +329,7 @@
     <Compile Include="Controller\transferencia\movimentacaoController.cs" />
     <Compile Include="Controller\transferencia\transferenciaController.cs" />
     <Compile Include="Controller\Versao\VersionController.cs" />
+    <Compile Include="DAO\Compras\AcompanhamentoRequisicaoCompraDao.cs" />
     <Compile Include="DAO\Connection\ConnectionEstoque.cs" />
     <Compile Include="DAO\Estoque\EstoqueAntigoDao.cs" />
     <Compile Include="DAO\Estoque\EstoqueDao.cs" />
@@ -345,6 +347,7 @@
     <Compile Include="DAO\Producao\OrdensProducaoDao.cs" />
     <Compile Include="DAO\Transferencia\fechamentoDao.cs" />
     <Compile Include="DAO\Transferencia\movimentacaoDao.cs" />
+    <Compile Include="dto\Compras\AcompanhamentoRequisicaoCompraDto.cs" />
     <Compile Include="dto\estoque\EstoqueAntigoDto.cs" />
     <Compile Include="dto\estoque\EstoqueDto.cs" />
     <Compile Include="dto\estoque\GrupoDto.cs" />
@@ -580,6 +583,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service\Compras\AcompanhamentoRequisicaoCompraService.cs" />
     <Compile Include="Service\estoque\EstoqueAntigoService.cs" />
     <Compile Include="Service\estoque\EstoqueService.cs" />
     <Compile Include="Service\estoque\GrupoService.cs" />
@@ -587,6 +591,7 @@
     <Compile Include="Service\estoque\MpService.cs" />
     <Compile Include="Service\estoque\paService.cs" />
     <Compile Include="Service\estoque\SolicitacaoService.cs" />
+    <Compile Include="Service\Exception\ExceptionService.cs" />
     <Compile Include="Service\login\loginService.cs" />
     <Compile Include="Service\login\modulosService.cs" />
     <Compile Include="Service\manutencao\apontamentoOsThrService.cs" />

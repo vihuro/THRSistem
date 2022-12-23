@@ -35,27 +35,24 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFiltro = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NRequisicaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.tx = new System.Windows.Forms.GroupBox();
-            this.btnComprado = new System.Windows.Forms.Button();
+            this.btnDesfazer = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnApontar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnAutorizar = new System.Windows.Forms.Button();
+            this.cboPrioridade = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtEstadoCompra = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboFrete = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtFornecedor = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
@@ -67,6 +64,30 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNRequisicao = new System.Windows.Forms.TextBox();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumeroRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDesricaoRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NRequisicaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataEsperadaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -75,16 +96,18 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 523);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 571);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1093, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1319, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -101,12 +124,25 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFiltro);
             this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1093, 25);
+            this.panel1.Size = new System.Drawing.Size(1319, 25);
             this.panel1.TabIndex = 1;
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
+            this.btnFiltro.Location = new System.Drawing.Point(30, 0);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(30, 25);
+            this.btnFiltro.TabIndex = 1;
+            this.btnFiltro.UseVisualStyleBackColor = true;
             // 
             // btnAtualizar
             // 
@@ -135,12 +171,10 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
-            this.splitContainer1.Panel2.Controls.Add(this.btnSalvar);
             this.splitContainer1.Panel2.Controls.Add(this.tx);
-            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100);
-            this.splitContainer1.Size = new System.Drawing.Size(1093, 498);
-            this.splitContainer1.SplitterDistance = 188;
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100, 100, 100, 100);
+            this.splitContainer1.Size = new System.Drawing.Size(1319, 546);
+            this.splitContainer1.SplitterDistance = 91;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -163,6 +197,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NRequisicaoCompra,
@@ -171,13 +206,16 @@
             this.clnQuantidade,
             this.clnUnidade,
             this.clnUsuarioSolicitante,
+            this.clnPrioridade,
+            this.clnDataEsperadaEntrega,
+            this.clnValor,
+            this.clnFornecedor,
+            this.clnFrete,
+            this.clnEstadoCompra,
             this.clnDataHoraSolicitacao,
             this.clnStatus,
             this.clnUsuarioAutorizacao,
-            this.clnDataHoraAutorizacao,
-            this.clnUsuarioCompra,
-            this.clnDataHoraCompra,
-            this.clnObservacao});
+            this.clnDataHoraAutorizacao});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -185,138 +223,31 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1093, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(1319, 91);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // NRequisicaoCompra
-            // 
-            this.NRequisicaoCompra.DataPropertyName = "NRequisicaoCompra";
-            this.NRequisicaoCompra.HeaderText = "Nº Requisição";
-            this.NRequisicaoCompra.Name = "NRequisicaoCompra";
-            this.NRequisicaoCompra.ReadOnly = true;
-            this.NRequisicaoCompra.Width = 80;
-            // 
-            // clnCodigo
-            // 
-            this.clnCodigo.DataPropertyName = "Codigo";
-            this.clnCodigo.HeaderText = "Código";
-            this.clnCodigo.Name = "clnCodigo";
-            this.clnCodigo.ReadOnly = true;
-            // 
-            // clnDescricao
-            // 
-            this.clnDescricao.DataPropertyName = "Descricao";
-            this.clnDescricao.HeaderText = "Descrição";
-            this.clnDescricao.Name = "clnDescricao";
-            this.clnDescricao.ReadOnly = true;
-            this.clnDescricao.Width = 180;
-            // 
-            // clnQuantidade
-            // 
-            this.clnQuantidade.DataPropertyName = "Quantidade";
-            this.clnQuantidade.HeaderText = "QTD";
-            this.clnQuantidade.Name = "clnQuantidade";
-            this.clnQuantidade.ReadOnly = true;
-            this.clnQuantidade.Width = 50;
-            // 
-            // clnUnidade
-            // 
-            this.clnUnidade.DataPropertyName = "Unidade";
-            this.clnUnidade.HeaderText = "UND.";
-            this.clnUnidade.Name = "clnUnidade";
-            this.clnUnidade.ReadOnly = true;
-            this.clnUnidade.Width = 50;
-            // 
-            // clnUsuarioSolicitante
-            // 
-            this.clnUsuarioSolicitante.DataPropertyName = "UsuarioSolicitante";
-            this.clnUsuarioSolicitante.HeaderText = "Usuário/Sol.";
-            this.clnUsuarioSolicitante.Name = "clnUsuarioSolicitante";
-            this.clnUsuarioSolicitante.ReadOnly = true;
-            // 
-            // clnDataHoraSolicitacao
-            // 
-            this.clnDataHoraSolicitacao.DataPropertyName = "DataHoraSolicitacao";
-            this.clnDataHoraSolicitacao.HeaderText = "Data/Hora Sol.";
-            this.clnDataHoraSolicitacao.Name = "clnDataHoraSolicitacao";
-            this.clnDataHoraSolicitacao.ReadOnly = true;
-            // 
-            // clnStatus
-            // 
-            this.clnStatus.DataPropertyName = "Status";
-            this.clnStatus.HeaderText = "Status";
-            this.clnStatus.Name = "clnStatus";
-            this.clnStatus.ReadOnly = true;
-            this.clnStatus.Width = 80;
-            // 
-            // clnUsuarioAutorizacao
-            // 
-            this.clnUsuarioAutorizacao.DataPropertyName = "UsuarioAutorizacao";
-            this.clnUsuarioAutorizacao.HeaderText = "Usuário/Aut.";
-            this.clnUsuarioAutorizacao.Name = "clnUsuarioAutorizacao";
-            this.clnUsuarioAutorizacao.ReadOnly = true;
-            // 
-            // clnDataHoraAutorizacao
-            // 
-            this.clnDataHoraAutorizacao.DataPropertyName = "DataHoraAutorizacao";
-            this.clnDataHoraAutorizacao.HeaderText = "Data/Hora Aut.";
-            this.clnDataHoraAutorizacao.Name = "clnDataHoraAutorizacao";
-            this.clnDataHoraAutorizacao.ReadOnly = true;
-            // 
-            // clnUsuarioCompra
-            // 
-            this.clnUsuarioCompra.DataPropertyName = "UsuarioCompra";
-            this.clnUsuarioCompra.HeaderText = "Usuário/Comp.";
-            this.clnUsuarioCompra.Name = "clnUsuarioCompra";
-            this.clnUsuarioCompra.ReadOnly = true;
-            // 
-            // clnDataHoraCompra
-            // 
-            this.clnDataHoraCompra.DataPropertyName = "DataHoraCompra";
-            this.clnDataHoraCompra.HeaderText = "Data/Hora Comp.";
-            this.clnDataHoraCompra.Name = "clnDataHoraCompra";
-            this.clnDataHoraCompra.ReadOnly = true;
-            // 
-            // clnObservacao
-            // 
-            this.clnObservacao.DataPropertyName = "Observacao";
-            this.clnObservacao.HeaderText = "Observação";
-            this.clnObservacao.Name = "clnObservacao";
-            this.clnObservacao.ReadOnly = true;
-            this.clnObservacao.Visible = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(991, 280);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(909, 280);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 1;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
             // tx
             // 
             this.tx.BackColor = System.Drawing.Color.White;
-            this.tx.Controls.Add(this.btnComprado);
+            this.tx.Controls.Add(this.dateTimePicker1);
+            this.tx.Controls.Add(this.btnDesfazer);
+            this.tx.Controls.Add(this.btnSalvar);
+            this.tx.Controls.Add(this.btnApontar);
+            this.tx.Controls.Add(this.label9);
             this.tx.Controls.Add(this.btnAutorizar);
+            this.tx.Controls.Add(this.cboPrioridade);
+            this.tx.Controls.Add(this.label8);
+            this.tx.Controls.Add(this.txtEstadoCompra);
+            this.tx.Controls.Add(this.label7);
+            this.tx.Controls.Add(this.cboFrete);
+            this.tx.Controls.Add(this.label6);
+            this.tx.Controls.Add(this.txtFornecedor);
+            this.tx.Controls.Add(this.dataGridView2);
             this.tx.Controls.Add(this.btnPesquisar);
             this.tx.Controls.Add(this.label5);
             this.tx.Controls.Add(this.txtQuantidade);
@@ -330,32 +261,160 @@
             this.tx.Controls.Add(this.txtNRequisicao);
             this.tx.Location = new System.Drawing.Point(12, 14);
             this.tx.Name = "tx";
-            this.tx.Size = new System.Drawing.Size(1054, 260);
+            this.tx.Size = new System.Drawing.Size(1298, 434);
             this.tx.TabIndex = 0;
             this.tx.TabStop = false;
             this.tx.Text = "Requisição de Compra";
             // 
-            // btnComprado
+            // btnDesfazer
             // 
-            this.btnComprado.Enabled = false;
-            this.btnComprado.Location = new System.Drawing.Point(973, 218);
-            this.btnComprado.Name = "btnComprado";
-            this.btnComprado.Size = new System.Drawing.Size(75, 23);
-            this.btnComprado.TabIndex = 12;
-            this.btnComprado.Text = "Comprado";
-            this.btnComprado.UseVisualStyleBackColor = true;
-            this.btnComprado.Click += new System.EventHandler(this.btnComprado_Click);
+            this.btnDesfazer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDesfazer.Enabled = false;
+            this.btnDesfazer.Location = new System.Drawing.Point(1205, 311);
+            this.btnDesfazer.Name = "btnDesfazer";
+            this.btnDesfazer.Size = new System.Drawing.Size(75, 23);
+            this.btnDesfazer.TabIndex = 23;
+            this.btnDesfazer.Text = "Desfazer";
+            this.btnDesfazer.UseVisualStyleBackColor = true;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.Enabled = false;
+            this.btnSalvar.Location = new System.Drawing.Point(1205, 405);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 12;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnApontar
+            // 
+            this.btnApontar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnApontar.Enabled = false;
+            this.btnApontar.Location = new System.Drawing.Point(1114, 311);
+            this.btnApontar.Name = "btnApontar";
+            this.btnApontar.Size = new System.Drawing.Size(75, 23);
+            this.btnApontar.TabIndex = 22;
+            this.btnApontar.Text = "Apontar";
+            this.btnApontar.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 129);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Prioridade:";
             // 
             // btnAutorizar
             // 
+            this.btnAutorizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAutorizar.Enabled = false;
-            this.btnAutorizar.Location = new System.Drawing.Point(891, 218);
+            this.btnAutorizar.Location = new System.Drawing.Point(1205, 21);
             this.btnAutorizar.Name = "btnAutorizar";
             this.btnAutorizar.Size = new System.Drawing.Size(75, 23);
             this.btnAutorizar.TabIndex = 11;
             this.btnAutorizar.Text = "Autorizar";
             this.btnAutorizar.UseVisualStyleBackColor = true;
             this.btnAutorizar.Click += new System.EventHandler(this.btnAutorizar_Click);
+            // 
+            // cboPrioridade
+            // 
+            this.cboPrioridade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPrioridade.FormattingEnabled = true;
+            this.cboPrioridade.Items.AddRange(new object[] {
+            "",
+            "ALTA",
+            "BAIXA",
+            "NORMAL"});
+            this.cboPrioridade.Location = new System.Drawing.Point(98, 123);
+            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPrioridade.Name = "cboPrioridade";
+            this.cboPrioridade.Size = new System.Drawing.Size(92, 21);
+            this.cboPrioridade.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(198, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Estado da Compra:";
+            // 
+            // txtEstadoCompra
+            // 
+            this.txtEstadoCompra.Location = new System.Drawing.Point(296, 197);
+            this.txtEstadoCompra.Name = "txtEstadoCompra";
+            this.txtEstadoCompra.Size = new System.Drawing.Size(66, 20);
+            this.txtEstadoCompra.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 204);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Frete:";
+            // 
+            // cboFrete
+            // 
+            this.cboFrete.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFrete.FormattingEnabled = true;
+            this.cboFrete.Items.AddRange(new object[] {
+            "",
+            "CIF",
+            "FOB"});
+            this.cboFrete.Location = new System.Drawing.Point(98, 197);
+            this.cboFrete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboFrete.Name = "cboFrete";
+            this.cboFrete.Size = new System.Drawing.Size(92, 21);
+            this.cboFrete.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 167);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Fornecedor:";
+            // 
+            // txtFornecedor
+            // 
+            this.txtFornecedor.Location = new System.Drawing.Point(98, 162);
+            this.txtFornecedor.Name = "txtFornecedor";
+            this.txtFornecedor.Size = new System.Drawing.Size(264, 20);
+            this.txtFornecedor.TabIndex = 14;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnId,
+            this.clnNumeroRequisicao,
+            this.clnDesricaoRequisicao,
+            this.clnDataHoraApontamento,
+            this.clnUsuarioApontamento,
+            this.clnDataHoraAlteracao,
+            this.clnUsuarioAlteracao});
+            this.dataGridView2.Location = new System.Drawing.Point(689, 129);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(591, 162);
+            this.dataGridView2.TabIndex = 13;
             // 
             // btnPesquisar
             // 
@@ -372,7 +431,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(452, 78);
+            this.label5.Location = new System.Drawing.Point(576, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 9;
@@ -380,7 +439,7 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(492, 71);
+            this.txtQuantidade.Location = new System.Drawing.Point(615, 71);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(52, 20);
             this.txtQuantidade.TabIndex = 8;
@@ -388,7 +447,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(352, 78);
+            this.label4.Location = new System.Drawing.Point(484, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 7;
@@ -396,10 +455,10 @@
             // 
             // txtUnidade
             // 
-            this.txtUnidade.Location = new System.Drawing.Point(392, 71);
+            this.txtUnidade.Location = new System.Drawing.Point(525, 71);
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.ReadOnly = true;
-            this.txtUnidade.Size = new System.Drawing.Size(52, 20);
+            this.txtUnidade.Size = new System.Drawing.Size(45, 20);
             this.txtUnidade.TabIndex = 6;
             // 
             // label3
@@ -416,7 +475,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(98, 71);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.ReadOnly = true;
-            this.txtDescricao.Size = new System.Drawing.Size(248, 20);
+            this.txtDescricao.Size = new System.Drawing.Size(365, 20);
             this.txtDescricao.TabIndex = 4;
             // 
             // label2
@@ -451,11 +510,222 @@
             this.txtNRequisicao.Size = new System.Drawing.Size(125, 20);
             this.txtNRequisicao.TabIndex = 0;
             // 
+            // clnId
+            // 
+            this.clnId.HeaderText = "ID";
+            this.clnId.MinimumWidth = 6;
+            this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
+            this.clnId.Visible = false;
+            this.clnId.Width = 125;
+            // 
+            // clnNumeroRequisicao
+            // 
+            this.clnNumeroRequisicao.HeaderText = "NumeroRequisicao";
+            this.clnNumeroRequisicao.MinimumWidth = 6;
+            this.clnNumeroRequisicao.Name = "clnNumeroRequisicao";
+            this.clnNumeroRequisicao.ReadOnly = true;
+            this.clnNumeroRequisicao.Visible = false;
+            this.clnNumeroRequisicao.Width = 125;
+            // 
+            // clnDesricaoRequisicao
+            // 
+            this.clnDesricaoRequisicao.HeaderText = "Descrição";
+            this.clnDesricaoRequisicao.MinimumWidth = 6;
+            this.clnDesricaoRequisicao.Name = "clnDesricaoRequisicao";
+            this.clnDesricaoRequisicao.ReadOnly = true;
+            this.clnDesricaoRequisicao.Width = 75;
+            // 
+            // clnDataHoraApontamento
+            // 
+            this.clnDataHoraApontamento.HeaderText = "Data/Hora Apont.";
+            this.clnDataHoraApontamento.MinimumWidth = 6;
+            this.clnDataHoraApontamento.Name = "clnDataHoraApontamento";
+            this.clnDataHoraApontamento.ReadOnly = true;
+            this.clnDataHoraApontamento.Width = 140;
+            // 
+            // clnUsuarioApontamento
+            // 
+            this.clnUsuarioApontamento.HeaderText = "Usuário Apont.";
+            this.clnUsuarioApontamento.MinimumWidth = 6;
+            this.clnUsuarioApontamento.Name = "clnUsuarioApontamento";
+            this.clnUsuarioApontamento.ReadOnly = true;
+            this.clnUsuarioApontamento.Width = 115;
+            // 
+            // clnDataHoraAlteracao
+            // 
+            this.clnDataHoraAlteracao.HeaderText = "Data/Hora Alteração";
+            this.clnDataHoraAlteracao.MinimumWidth = 6;
+            this.clnDataHoraAlteracao.Name = "clnDataHoraAlteracao";
+            this.clnDataHoraAlteracao.ReadOnly = true;
+            this.clnDataHoraAlteracao.Width = 140;
+            // 
+            // clnUsuarioAlteracao
+            // 
+            this.clnUsuarioAlteracao.HeaderText = "Usuário Alt.";
+            this.clnUsuarioAlteracao.MinimumWidth = 6;
+            this.clnUsuarioAlteracao.Name = "clnUsuarioAlteracao";
+            this.clnUsuarioAlteracao.ReadOnly = true;
+            this.clnUsuarioAlteracao.Width = 115;
+            // 
+            // NRequisicaoCompra
+            // 
+            this.NRequisicaoCompra.DataPropertyName = "NRequisicaoCompra";
+            this.NRequisicaoCompra.HeaderText = "Nº R.";
+            this.NRequisicaoCompra.MinimumWidth = 6;
+            this.NRequisicaoCompra.Name = "NRequisicaoCompra";
+            this.NRequisicaoCompra.ReadOnly = true;
+            this.NRequisicaoCompra.Width = 50;
+            // 
+            // clnCodigo
+            // 
+            this.clnCodigo.DataPropertyName = "Codigo";
+            this.clnCodigo.HeaderText = "Código";
+            this.clnCodigo.MinimumWidth = 6;
+            this.clnCodigo.Name = "clnCodigo";
+            this.clnCodigo.ReadOnly = true;
+            this.clnCodigo.Width = 110;
+            // 
+            // clnDescricao
+            // 
+            this.clnDescricao.DataPropertyName = "Descricao";
+            this.clnDescricao.HeaderText = "Descrição";
+            this.clnDescricao.MinimumWidth = 6;
+            this.clnDescricao.Name = "clnDescricao";
+            this.clnDescricao.ReadOnly = true;
+            this.clnDescricao.Width = 180;
+            // 
+            // clnQuantidade
+            // 
+            this.clnQuantidade.DataPropertyName = "Quantidade";
+            this.clnQuantidade.HeaderText = "QTD";
+            this.clnQuantidade.MinimumWidth = 6;
+            this.clnQuantidade.Name = "clnQuantidade";
+            this.clnQuantidade.ReadOnly = true;
+            this.clnQuantidade.Width = 50;
+            // 
+            // clnUnidade
+            // 
+            this.clnUnidade.DataPropertyName = "Unidade";
+            this.clnUnidade.HeaderText = "UND.";
+            this.clnUnidade.MinimumWidth = 6;
+            this.clnUnidade.Name = "clnUnidade";
+            this.clnUnidade.ReadOnly = true;
+            this.clnUnidade.Width = 50;
+            // 
+            // clnUsuarioSolicitante
+            // 
+            this.clnUsuarioSolicitante.DataPropertyName = "UsuarioSolicitante";
+            this.clnUsuarioSolicitante.HeaderText = "Usuário/Sol.";
+            this.clnUsuarioSolicitante.MinimumWidth = 6;
+            this.clnUsuarioSolicitante.Name = "clnUsuarioSolicitante";
+            this.clnUsuarioSolicitante.ReadOnly = true;
+            // 
+            // clnPrioridade
+            // 
+            this.clnPrioridade.DataPropertyName = "Prioridade";
+            this.clnPrioridade.HeaderText = "Prioridade";
+            this.clnPrioridade.MinimumWidth = 6;
+            this.clnPrioridade.Name = "clnPrioridade";
+            this.clnPrioridade.ReadOnly = true;
+            this.clnPrioridade.Width = 80;
+            // 
+            // clnDataEsperadaEntrega
+            // 
+            this.clnDataEsperadaEntrega.DataPropertyName = "DataEsperadaEntrega";
+            this.clnDataEsperadaEntrega.HeaderText = "Esp. Ent.";
+            this.clnDataEsperadaEntrega.MinimumWidth = 6;
+            this.clnDataEsperadaEntrega.Name = "clnDataEsperadaEntrega";
+            this.clnDataEsperadaEntrega.ReadOnly = true;
+            this.clnDataEsperadaEntrega.Width = 70;
+            // 
+            // clnValor
+            // 
+            this.clnValor.DataPropertyName = "Valor";
+            this.clnValor.HeaderText = "Valor";
+            this.clnValor.MinimumWidth = 6;
+            this.clnValor.Name = "clnValor";
+            this.clnValor.ReadOnly = true;
+            this.clnValor.Width = 70;
+            // 
+            // clnFornecedor
+            // 
+            this.clnFornecedor.DataPropertyName = "Fornecedor";
+            this.clnFornecedor.HeaderText = "Forcedor";
+            this.clnFornecedor.MinimumWidth = 6;
+            this.clnFornecedor.Name = "clnFornecedor";
+            this.clnFornecedor.ReadOnly = true;
+            this.clnFornecedor.Width = 125;
+            // 
+            // clnFrete
+            // 
+            this.clnFrete.DataPropertyName = "Frete";
+            this.clnFrete.HeaderText = "Frete";
+            this.clnFrete.MinimumWidth = 6;
+            this.clnFrete.Name = "clnFrete";
+            this.clnFrete.ReadOnly = true;
+            this.clnFrete.Width = 50;
+            // 
+            // clnEstadoCompra
+            // 
+            this.clnEstadoCompra.DataPropertyName = "EstadoDaCompra";
+            this.clnEstadoCompra.HeaderText = "Estado";
+            this.clnEstadoCompra.MinimumWidth = 6;
+            this.clnEstadoCompra.Name = "clnEstadoCompra";
+            this.clnEstadoCompra.ReadOnly = true;
+            this.clnEstadoCompra.Width = 70;
+            // 
+            // clnDataHoraSolicitacao
+            // 
+            this.clnDataHoraSolicitacao.DataPropertyName = "DataHoraSolicitacao";
+            this.clnDataHoraSolicitacao.HeaderText = "Data/Hora Sol.";
+            this.clnDataHoraSolicitacao.MinimumWidth = 6;
+            this.clnDataHoraSolicitacao.Name = "clnDataHoraSolicitacao";
+            this.clnDataHoraSolicitacao.ReadOnly = true;
+            this.clnDataHoraSolicitacao.Width = 125;
+            // 
+            // clnStatus
+            // 
+            this.clnStatus.DataPropertyName = "Status";
+            this.clnStatus.HeaderText = "Status";
+            this.clnStatus.MinimumWidth = 6;
+            this.clnStatus.Name = "clnStatus";
+            this.clnStatus.ReadOnly = true;
+            this.clnStatus.Width = 80;
+            // 
+            // clnUsuarioAutorizacao
+            // 
+            this.clnUsuarioAutorizacao.DataPropertyName = "UsuarioAutorizacao";
+            this.clnUsuarioAutorizacao.HeaderText = "Usuário/Aut.";
+            this.clnUsuarioAutorizacao.MinimumWidth = 6;
+            this.clnUsuarioAutorizacao.Name = "clnUsuarioAutorizacao";
+            this.clnUsuarioAutorizacao.ReadOnly = true;
+            this.clnUsuarioAutorizacao.Width = 125;
+            // 
+            // clnDataHoraAutorizacao
+            // 
+            this.clnDataHoraAutorizacao.DataPropertyName = "DataHoraAutorizacao";
+            this.clnDataHoraAutorizacao.HeaderText = "Data/Hora Aut.";
+            this.clnDataHoraAutorizacao.MinimumWidth = 6;
+            this.clnDataHoraAutorizacao.Name = "clnDataHoraAutorizacao";
+            this.clnDataHoraAutorizacao.ReadOnly = true;
+            this.clnDataHoraAutorizacao.Width = 125;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "00/00/0000";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(264, 124);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(98, 20);
+            this.dateTimePicker1.TabIndex = 24;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // frmRequisicaoCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 545);
+            this.ClientSize = new System.Drawing.Size(1319, 593);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
@@ -473,6 +743,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tx.ResumeLayout(false);
             this.tx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,29 +763,50 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnAutorizar;
-        private System.Windows.Forms.Button btnComprado;
         public System.Windows.Forms.TextBox txtDescricao;
         public System.Windows.Forms.TextBox txtCodigo;
         public System.Windows.Forms.TextBox txtUnidade;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel lblUsuario;
         private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboFrete;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtFornecedor;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtEstadoCompra;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cboPrioridade;
+        private System.Windows.Forms.Button btnFiltro;
+        private System.Windows.Forms.Button btnApontar;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnDesfazer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroRequisicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDesricaoRequisicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraApontamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioApontamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAlteracao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAlteracao;
         private System.Windows.Forms.DataGridViewTextBoxColumn NRequisicaoCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnQuantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUnidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioSolicitante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnPrioridade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataEsperadaEntrega;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFrete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnEstadoCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraSolicitacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAutorizacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAutorizacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnObservacao;
-        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

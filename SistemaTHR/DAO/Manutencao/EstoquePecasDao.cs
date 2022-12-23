@@ -1,5 +1,7 @@
 ﻿using SistemaTHR.dto.manutencao;
+using SistemaTHR.Service.Exepction;
 using System;
+using System.Data;
 using System.Data.OleDb;
 
 
@@ -13,6 +15,7 @@ namespace SistemaTHR.DAO.Manutencao
         private OleDbDataReader dr;
         private OleDbDataAdapter da;
         private EstoquePecasDto dto;
+        private DataTable dt;
 
         public EstoquePecasDao()
         {
@@ -168,7 +171,7 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
-        private void selectTable()
+        public DataTable table()
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_EstoquePecas order by NPeca asc";
@@ -176,25 +179,21 @@ namespace SistemaTHR.DAO.Manutencao
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                dto.Dt = new System.Data.DataTable();
-                da.Fill(dto.Dt);
+                dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
             }
             catch (Exception ex)
             {
-
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void table(EstoquePecasDto dto)
-        {
-            this.dto = dto;
-            selectTable();
 
-        }
 
         private void deleteCadastro()
         {

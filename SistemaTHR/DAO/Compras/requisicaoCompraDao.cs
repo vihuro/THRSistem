@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaTHR.dto.Compras;
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.DAO.Manutencao
 {
@@ -11,19 +14,33 @@ namespace SistemaTHR.DAO.Manutencao
     {
         private OleDbCommand cmd;
         private OleDbDataReader dr;
-        private Connection con = new Connection();
+        private Connection con;
         private OleDbDataAdapter da;
-        private dto.Compras.requisicaoCompraDto dto;
+        private ExceptionService expection;
+        private DataTable dt;
 
-        private void insertRequisicao()
+        public requisicaoCompraDao()
+        {
+            con = new Connection();
+        }
+
+
+        public void Insert(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
-            cmd.CommandText = "Insert into tab_RequisicaoCompra (Codigo, Descricao, Quantidade, Unidade, UsuarioSolicitante, DataHoraSolicitacao, Status) Values " +
-                                                                "(@Codigo, @Descricao, @Quantidade, @Unidade, @UsuarioSolicitante, @DataHoraSolicitacao, @Status)";
+            cmd.CommandText = "Insert into tab_RequisicaoCompra (Codigo, Descricao, Quantidade, Unidade, " +
+                                                                "Prioridade, DataEsperadaEntrega," +
+                                                                "UsuarioSolicitante, DataHoraSolicitacao, Status)" +
+                                                                " Values " +
+                                                                "(@Codigo, @Descricao, @Quantidade, @Unidade," +
+                                                                "@Prioridade, @DataEsperadaEntrega, " +
+                                                                "@UsuarioSolicitante, @DataHoraSolicitacao, @Status)";
             cmd.Parameters.AddWithValue("",dto.Codigo);
             cmd.Parameters.AddWithValue("",dto.Descricao);
             cmd.Parameters.AddWithValue("",dto.Quantidade);
             cmd.Parameters.AddWithValue("",dto.Unidade);
+            cmd.Parameters.AddWithValue("",dto.Prioridade);
+            cmd.Parameters.AddWithValue("",dto.DataHoraEsperadaEntrega);
             cmd.Parameters.AddWithValue("",dto.UsuarioSolicitacao);
             cmd.Parameters.AddWithValue("",dto.DataHoraSolicitacao);
             cmd.Parameters.AddWithValue("",dto.Status);
@@ -31,28 +48,36 @@ namespace SistemaTHR.DAO.Manutencao
             {
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "SELECT @@IDENTITY";
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Console.WriteLine("O numero da nova requisição é = " + dr["Expr1000"].ToString());
+                    }
+                }
+
+
+
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService("Erro " + ex);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void insert(dto.Compras.requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            insertRequisicao();
-        }
-        private void verificarCodigo()
+        public void verificarCodigo(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_RequisicaoCompra where codigo = @codigo and status = @status";
             cmd.Parameters.AddWithValue("",dto.Codigo);
-            cmd.Parameters.AddWithValue("","Pendente");
+            cmd.Parameters.AddWithValue("",dto.Status);
             try
             {
                 cmd.Connection = con.conectar();
@@ -67,22 +92,17 @@ namespace SistemaTHR.DAO.Manutencao
 
                 }
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService("Erro " + ex);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void verificar(dto.Compras.requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            verificarCodigo();
-        }
-        private void updateRequisicaoCompra()
+        public void updateRequisicaoCompra(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Update tab_RequisicaoCompra set quantidade = @quantidade where NRequisicaoCompra = @NRequisicaoCompra";
@@ -93,22 +113,17 @@ namespace SistemaTHR.DAO.Manutencao
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService("Erro " + ex);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void updateRequisicao(dto.Compras.requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            updateRequisicaoCompra();
-        }
-        private void updateAuth()
+        public void updateAuth(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Update tab_RequisicaoCompra set UsuarioAutorizacao = @usuarioAutorizador, dataHoraAutorizacao = @dataHora, status = @Staus" +
@@ -122,51 +137,17 @@ namespace SistemaTHR.DAO.Manutencao
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService("Erro " + ex);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void auth(dto.Compras.requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            updateAuth();
-        }
-        private void updateCompra() 
-        {
-            cmd = new OleDbCommand();
-            cmd.CommandText = "Update tab_RequisicaoCompra set usuarioCompra = @UsuarioCompra, dataHoraCompra = @dataHoraCompra, " +
-                "Status = @Status where NRequisicaoCompra = @NRequisicao";
-            cmd.Parameters.AddWithValue("",dto.UsuarioCompra);
-            cmd.Parameters.AddWithValue("", dto.DataHoraCompra);
-            cmd.Parameters.AddWithValue("", dto.Status);
-            cmd.Parameters.AddWithValue("", dto.NRequisicao);
-            try
-            {
-                cmd.Connection = con.conectar();
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-
-                dto.Msg = "Erro " + ex;
-            }
-            finally
-            {
-                con.desconectar();
-            }
-        }
-        public void compra(dto.Compras.requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            updateCompra();
-        }
-        private void selectTable()
+        public DataTable Table()
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_RequisicaoCompra order by NRequisicaoCompra";
@@ -174,23 +155,21 @@ namespace SistemaTHR.DAO.Manutencao
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                dto.Dt = new System.Data.DataTable();
-                da.Fill(dto.Dt);
+                dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService("Erro " + ex);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void table(dto.Compras.requisicaoCompraDto dto)
-        {
-            this.dto = dto;
-            selectTable();
-        }
+
     }
 }

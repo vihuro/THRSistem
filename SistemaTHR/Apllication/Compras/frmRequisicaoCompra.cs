@@ -1,30 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using SistemaTHR.Controller.Compras;
+using SistemaTHR.Controller.Login;
+using SistemaTHR.Service.Compras;
+using System;
+
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace SistemaTHR.Apllication.Compras
 {
     public partial class frmRequisicaoCompra : Form
     {
-        Controller.Login.loginController loginController;
-        Controller.Login.modulosController modulosController;
+        private loginController loginController;
+        private modulosController modulosController;
+        private requisicaoCompraController controller;
+        requisicaoCompraService service;
 
-        public frmRequisicaoCompra(Controller.Login.loginController loginController, Controller.Login.modulosController modulosController)
+        public frmRequisicaoCompra(loginController loginController, modulosController modulosController)
         {
             this.loginController = loginController;
             this.modulosController = modulosController;
+            service = new requisicaoCompraService(loginController,modulosController);
             InitializeComponent();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            Compras.frmPequisarEstoque pesquisar = new frmPequisarEstoque(this);
+            frmPequisarEstoque pesquisar = new frmPequisarEstoque(this,loginController,modulosController);
             pesquisar.ShowDialog();
         }
 
@@ -49,58 +51,38 @@ namespace SistemaTHR.Apllication.Compras
 
         private void loadGridView()
         {
-            Controller.Compras.requisicaoCompraController controller = new Controller.Compras.requisicaoCompraController();
-            Service.Compras.requisicaoCompraService service = new Service.Compras.requisicaoCompraService();
-            service.table(controller);
-            if (controller.Msg != null)
+            controller = new requisicaoCompraController();
+
+            try
             {
-                MessageBox.Show(controller.Msg);
+                dataGridView1.DataSource = service.Table();
             }
-            else
+            catch (Exception ex)
             {
-                dataGridView1.DataSource = controller.Dt;
+
+                MessageBox.Show(ex.ToString(),"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+
         }
 
         private void btnAutorizar_Click(object sender, EventArgs e)
         {
-            Controller.Compras.requisicaoCompraController controller = new Controller.Compras.requisicaoCompraController();
-            Service.Compras.requisicaoCompraService service = new Service.Compras.requisicaoCompraService();
-            controller.UsuarioAutorizador = loginController.Nome;
-            controller.DataHoraAutorizacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-            controller.Status = "Autorizado";
+            controller = new requisicaoCompraController();
             controller.NRequisicao = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            service.auth(controller);
-            if(controller.Msg != null)
-            {
-                MessageBox.Show(controller.Msg);
-            }
-            else
+            service.updateAuth(controller);
+            try
             {
                 loadGridView();
                 clearAll();
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
-        private void btnComprado_Click(object sender, EventArgs e)
-        {
-            Controller.Compras.requisicaoCompraController controller = new Controller.Compras.requisicaoCompraController();
-            Service.Compras.requisicaoCompraService service = new Service.Compras.requisicaoCompraService();
-            controller.UsuarioCompra = loginController.Nome;
-            controller.DataHotaCompra = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-            controller.Status = "Comprado";
-            controller.NRequisicao = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            service.compra(controller);
-            if(controller.Msg != null)
-            {
-                MessageBox.Show(controller.Msg);
-            }
-            else
-            {
-                loadGridView();
-                clearAll();
-            }
-        }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -113,11 +95,11 @@ namespace SistemaTHR.Apllication.Compras
                 {
                     if(dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Autorizado")
                     {
-                        btnComprado.Enabled = true;
+                        btnSalvar.Enabled = true;
                     }
                     else
                     {
-                        btnComprado.Enabled = false;
+                        btnSalvar.Enabled = false;
 
                     }
                 }
@@ -125,25 +107,23 @@ namespace SistemaTHR.Apllication.Compras
                 {
                     if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Autorizado")
                     {
-                        btnComprado.Enabled = true;
+                        btnSalvar.Enabled = true;
                         btnAutorizar.Enabled = false;
 
                     }
                     else if(dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Comprado")
                     {
-                        btnComprado.Enabled = false;
+                        btnSalvar.Enabled = false;
                         btnAutorizar.Enabled = false;
                     }
                     else
                     {
-                        btnComprado.Enabled = false;
+                        btnSalvar.Enabled = false;
                         btnAutorizar.Enabled = true;
                     }
 
                 }
             }
-
-
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -176,23 +156,24 @@ namespace SistemaTHR.Apllication.Compras
             if(txtCodigo.Text != string.Empty && txtDescricao.Text != string.Empty && 
                 txtQuantidade.Text != string.Empty)
             {
-                Controller.Compras.requisicaoCompraController controller = new Controller.Compras.requisicaoCompraController();
-                Service.Compras.requisicaoCompraService service = new Service.Compras.requisicaoCompraService();
+                controller = new requisicaoCompraController();
                 controller.Codigo = txtCodigo.Text;
                 controller.Descricao = txtDescricao.Text;
                 controller.Quantidade = txtQuantidade.Text;
                 controller.Unidade = txtUnidade.Text;
-                controller.UsuarioSolicitacao = loginController.Nome;
-                controller.DataHoraSolicitacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                service.insert(controller);
-                if (controller.Msg != null)
+                controller.DataHoraEsperadaEntrega = verificarData();
+                controller.Prioridade = cboPrioridade.Text;
+                try
                 {
-                    MessageBox.Show(controller.Msg);
-                }
-                else
-                {
+                    service.verificarAberto(controller);
+
                     clearAll();
                     loadGridView();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -200,6 +181,33 @@ namespace SistemaTHR.Apllication.Compras
                 MessageBox.Show("Campos obrigatórios em branco!", "SISTEMA THR", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value >= DateTime.Today)
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Short;
+            }
+            else
+            {
+                dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            }
+        }
+
+        private string verificarData()
+        {
+
+
+            if (dateTimePicker1.Format == DateTimePickerFormat.Custom)
+            {
+                return  "00/00/0000";
+            }
+            else
+            {
+
+                return Convert.ToString(dateTimePicker1.Value.ToString("dd/MM/yyyy"));
+            }
         }
     }
 }

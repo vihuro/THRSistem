@@ -8,6 +8,7 @@ using SistemaTHR.dto.manutencao;
 using SistemaTHR.Service.manutencao;
 using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.Controller.Login;
+using System.Data;
 
 namespace SistemaTHR.Service.manutencao
 {
@@ -244,24 +245,11 @@ namespace SistemaTHR.Service.manutencao
 
         }
 
-        private void openTable()
+        public DataTable table()
         {
-            dto = new dto.manutencao.EstoquePecasDto();
-            dao.table(dto);
-            if (dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }
-            else
-            {
-                controller.Dt = dto.Dt;
-            }
+            return dao.table();
         }
-        public void table(EstoquePecasController controlle)
-        {
-            this.controller = controlle;
-            openTable();
-        }
+
         private void deleteCadastro()
         {
             dto = new dto.manutencao.EstoquePecasDto();

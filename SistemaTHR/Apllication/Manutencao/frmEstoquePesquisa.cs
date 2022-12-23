@@ -79,16 +79,16 @@ namespace SistemaTHR.Apllication.Manutencao
         private void loadGridView()
         {
             controller = new EstoquePecasController();
+            try
+            {
+                dataGridView1.DataSource = service.table();
+            }
+            catch (Exception ex)
+            {
 
-            service.table(controller);
-            if(controller.Msg != null)
-            {
-                MessageBox.Show(controller.Msg);
+                MessageBox.Show(ex.ToString(),"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            else
-            {
-                dataGridView1.DataSource = controller.Dt;
-            }
+
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)
