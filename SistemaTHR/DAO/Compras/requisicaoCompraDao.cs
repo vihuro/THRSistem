@@ -25,7 +25,7 @@ namespace SistemaTHR.DAO.Manutencao
         }
 
 
-        public void Insert(requisicaoCompraDto dto)
+        public string Insert(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Insert into tab_RequisicaoCompra (Codigo, Descricao, Quantidade, Unidade, " +
@@ -56,9 +56,11 @@ namespace SistemaTHR.DAO.Manutencao
                     while (dr.Read())
                     {
                         Console.WriteLine("O numero da nova requisição é = " + dr["Expr1000"].ToString());
+                        return dr["Expr1000"].ToString();
+
                     }
                 }
-
+                return "";
 
 
             }

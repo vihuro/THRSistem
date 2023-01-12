@@ -17,6 +17,7 @@ namespace SistemaTHR.dto.Compras
         private string prioridade;
         private string dataHoraEsperadaEntrega;
         private string valorProduto;
+        private string freteIncluso;
         private string fornecedor;
         private string frete;
         private string estadoDaCompra;
@@ -34,6 +35,7 @@ namespace SistemaTHR.dto.Compras
         public string Prioridade { get => prioridade; set => prioridade = value; }
         public string DataHoraEsperadaEntrega { get => dataHoraEsperadaEntrega; set => dataHoraEsperadaEntrega = value; }
         public string ValorProduto { get => valorProduto; set => valorProduto = value; }
+        public string FreteIncluso { get => freteIncluso; set => freteIncluso = value; }
         public string Fornecedor { get => fornecedor; set => fornecedor = value; }
         public string Frete { get => frete; set => frete = value; }
         public string EstadoDaCompra { get => estadoDaCompra; set => estadoDaCompra = value; }

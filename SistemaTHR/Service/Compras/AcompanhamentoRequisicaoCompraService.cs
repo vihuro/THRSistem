@@ -48,9 +48,10 @@ namespace SistemaTHR.Service.Compras
             {
                 dto.NumeroRequisicao = numeroRequisicao;
                 dto.DescricaoRequisicao = itens;
-                dto.DataHoraApontamento = "";
+                dto.DataHoraApontamento = "00/00/0000 00:00";
                 dto.UsuarioApontamento = "";
-                dto.DataHoraAlteracao = "";
+                dto.DataHoraAlteracao = "00/00/0000 00:00";
+                dto.UsuarioAlteracao = "";
                 dto.Observacao = "";
 
                 if (itens == "Geração")
@@ -58,6 +59,8 @@ namespace SistemaTHR.Service.Compras
                     dto.DataHoraApontamento = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
                     dto.UsuarioApontamento = loginController.Nome;
                     dto.DataHoraAlteracao = dto.DataHoraApontamento;
+                    dto.UsuarioAlteracao = loginController.Nome;
+
 
                     dao.Insert(dto);
                 }
@@ -114,6 +117,7 @@ namespace SistemaTHR.Service.Compras
             string[] lista = new string[]
             {
                 "Geração",
+                "Diário",
                 "Compra",
                 "Entrega"
             };

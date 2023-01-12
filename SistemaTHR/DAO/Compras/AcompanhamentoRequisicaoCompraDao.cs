@@ -32,9 +32,10 @@ namespace SistemaTHR.DAO.Compras
                                                                                 "usuarioApontamento," +
                                                                                 "dataHoraAlteracao," +
                                                                                 "usuarioAlteracao," +
-                                                                                "Observacao)" +
+                                                                                "observacao)" +
                                                                                 "VALUES " +
-                                                                                "(@DescricaoRequisicao," +
+                                                                                "(@NumeroRequisicao," +
+                                                                                "@DescricaoRequisicao," +
                                                                                 "@dataHoraApontamento," +
                                                                                 "@usuarioApontamento," +
                                                                                 "@dataHoraAlteracao," +
@@ -52,7 +53,7 @@ namespace SistemaTHR.DAO.Compras
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
             }
-            catch (ExceptionService ex)
+            catch (Exception ex)
             {
 
                 throw new ExceptionService("Erro " + ex.Message);
@@ -79,7 +80,7 @@ namespace SistemaTHR.DAO.Compras
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
             }
-            catch (ExceptionService ex)
+            catch (Exception ex)
             {
 
                 throw new ExceptionService("Erro " + ex.Message);
@@ -108,7 +109,7 @@ namespace SistemaTHR.DAO.Compras
                 cmd.Connection = con.conectar();
                 cmd.ExecuteNonQuery();
             }
-            catch (ExceptionService ex)
+            catch (Exception ex)
             {
 
                 throw new ExceptionService("Erro " + ex.Message);
@@ -134,7 +135,7 @@ namespace SistemaTHR.DAO.Compras
 
                 return dt;
             }
-            catch (ExceptionService ex)
+            catch (Exception ex)
             {
 
                 throw new ExceptionService("Erro " + ex.Message);

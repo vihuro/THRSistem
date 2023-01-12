@@ -94,8 +94,8 @@ namespace SistemaTHR.Service.estoque
                 {
                     double quantidadeMovimetacao = Convert.ToDouble(controller.Quantidade) * -1;
 
-                    dto.Codigo = controller.Codigo;
-                    dto.Descricao = controller.Descricao;
+                    dto.Codigo = controller.Codigo.ToUpper();
+                    dto.Descricao = controller.Descricao.ToUpper();
                     dto.Movimento = "SAIDA";
                     dto.DataMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyy HH:mm:ss"));
                     dto.Quantidade = quantidadeMovimetacao.ToString();

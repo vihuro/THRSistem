@@ -161,8 +161,8 @@ namespace SistemaTHR.Apllication
             if (txtCodigoPeca.Text != string.Empty && txtDescricao.Text != string.Empty && txtUnidade.Text != string.Empty &&
                 txtQuantidade.Text != string.Empty)
             {
-                Controller.manutencao.solicitacaoPecaoController controller = new Controller.manutencao.solicitacaoPecaoController();
-                Service.manutencao.solictacaoPecaService service = new Service.manutencao.solictacaoPecaService(loginController,modulosController,estoqueService,movimentacaoService);
+                controller = new solicitacaoPecaoController();
+                solictacaoPecaService service = new solictacaoPecaService(loginController,modulosController,estoqueService,movimentacaoService);
                 controller.NOs = "";
                 controller.CodigoPeca = txtCodigoPeca.Text;
                 controller.DescricaoPeca = txtDescricao.Text;
@@ -229,7 +229,7 @@ namespace SistemaTHR.Apllication
             this.Cursor = Cursors.WaitCursor;
             solicitacaoPecaoController controller = new solicitacaoPecaoController();
             solictacaoPecaService service = new solictacaoPecaService(loginController,modulosController,
-                estoqueService,movimentacaoService);
+                                                                        estoqueService,movimentacaoService);
             controller.CodigoPeca = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             controller.DescricaoPeca = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             controller.Qtd = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();

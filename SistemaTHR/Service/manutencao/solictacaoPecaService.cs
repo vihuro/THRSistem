@@ -139,7 +139,6 @@ namespace SistemaTHR.Service.manutencao
                 else
                 {
 
-
                     //verfificar se está dando certo
                     estoqueController = new EstoquePecasController();
                     estoqueController.Codigo = controller.CodigoPeca;
@@ -181,18 +180,6 @@ namespace SistemaTHR.Service.manutencao
                             controller.Msg = "Peça não encontrada! Não é possivel gerar a movimentação de uma peça não cadastrada!";
                         }
 
-
-
-                        /*estoqueService.SaidaEstoque(estoqueController,"Saída");
-                        if(estoqueController.Msg != null)
-                        {
-                            controller.Msg = estoqueController.Msg;
-                        }
-                        else
-                        {
-
-                        }*/
-
                     }
                 }
 
@@ -228,7 +215,7 @@ namespace SistemaTHR.Service.manutencao
 
         private void SelectMovimentacoes()
         {
-            dto = new dto.manutencao.solicitacaoPecaDto();
+            dto = new solicitacaoPecaDto();
             dao.table(dto);
             if(dto.Msg != null)
             {

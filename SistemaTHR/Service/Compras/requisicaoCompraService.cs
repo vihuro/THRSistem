@@ -50,15 +50,9 @@ namespace SistemaTHR.Service.Compras
             dto.UsuarioSolicitacao = loginController.Nome;
             dto.DataHoraSolicitacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             dto.Status = "Pendente";
-            dao.Insert(dto);
+            acompanhamentoService.Insert(dao.Insert(dto));
         }
 
-        /*private string BuscarNovaRequisicao()
-        {
-
-        }*/
-
-        //Esse metódo irá verificar a quantidade se estiver uma requisição aberto com o mesmo material
         public void verificarAberto(requisicaoCompraController controller)
         {
 
@@ -105,7 +99,7 @@ namespace SistemaTHR.Service.Compras
                 throw new ExceptionService("Campo(s) obrigatório(s) vazio(s)!");
             }
 
-            dto.UsuarioAutorizador = controller.UsuarioAutorizador;
+            dto.UsuarioAutorizador = loginController.Nome;
             dto.DataHoraAutorizacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             dto.Status = "Autorizado";
             dto.NRequisicao = controller.NRequisicao;

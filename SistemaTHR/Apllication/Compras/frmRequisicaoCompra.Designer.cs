@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRequisicaoCompra));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -39,7 +40,15 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Principal = new System.Windows.Forms.TabPage();
             this.tx = new System.Windows.Forms.GroupBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboFreteIncluso = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnDesfazer = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnApontar = new System.Windows.Forms.Button();
@@ -64,13 +73,7 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNRequisicao = new System.Windows.Forms.TextBox();
-            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumeroRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDesricaoRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.NRequisicaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,14 +83,24 @@
             this.clnPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDataEsperadaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFreteIncluso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDataHoraSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuarioAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDataHoraAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtObservacao = new System.Windows.Forms.TextBox();
+            this.btnAbrirObervacao = new System.Windows.Forms.Button();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumeroRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDesricaoRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnObervacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -95,6 +108,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.Principal.SuspendLayout();
             this.tx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -105,9 +120,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 571);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 646);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1319, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1345, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -129,7 +144,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1319, 25);
+            this.panel1.Size = new System.Drawing.Size(1345, 25);
             this.panel1.TabIndex = 1;
             // 
             // btnFiltro
@@ -171,10 +186,10 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
-            this.splitContainer1.Panel2.Controls.Add(this.tx);
-            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100, 100, 100, 100);
-            this.splitContainer1.Size = new System.Drawing.Size(1319, 546);
-            this.splitContainer1.SplitterDistance = 91;
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100);
+            this.splitContainer1.Size = new System.Drawing.Size(1345, 621);
+            this.splitContainer1.SplitterDistance = 102;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -209,8 +224,9 @@
             this.clnPrioridade,
             this.clnDataEsperadaEntrega,
             this.clnValor,
-            this.clnFornecedor,
             this.clnFrete,
+            this.clnFornecedor,
+            this.clnFreteIncluso,
             this.clnEstadoCompra,
             this.clnDataHoraSolicitacao,
             this.clnStatus,
@@ -226,14 +242,42 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1319, 91);
+            this.dataGridView1.Size = new System.Drawing.Size(1345, 102);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.Principal);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 17);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1324, 479);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // Principal
+            // 
+            this.Principal.Controls.Add(this.tx);
+            this.Principal.Location = new System.Drawing.Point(4, 22);
+            this.Principal.Name = "Principal";
+            this.Principal.Padding = new System.Windows.Forms.Padding(3);
+            this.Principal.Size = new System.Drawing.Size(1316, 453);
+            this.Principal.TabIndex = 0;
+            this.Principal.Text = "Principal";
+            this.Principal.UseVisualStyleBackColor = true;
+            // 
             // tx
             // 
             this.tx.BackColor = System.Drawing.Color.White;
+            this.tx.Controls.Add(this.btnAbrirObervacao);
+            this.tx.Controls.Add(this.txtObservacao);
+            this.tx.Controls.Add(this.txtValor);
+            this.tx.Controls.Add(this.label12);
+            this.tx.Controls.Add(this.label11);
+            this.tx.Controls.Add(this.cboFreteIncluso);
+            this.tx.Controls.Add(this.label10);
             this.tx.Controls.Add(this.dateTimePicker1);
             this.tx.Controls.Add(this.btnDesfazer);
             this.tx.Controls.Add(this.btnSalvar);
@@ -259,21 +303,78 @@
             this.tx.Controls.Add(this.txtCodigo);
             this.tx.Controls.Add(this.label1);
             this.tx.Controls.Add(this.txtNRequisicao);
-            this.tx.Location = new System.Drawing.Point(12, 14);
+            this.tx.Location = new System.Drawing.Point(14, 18);
             this.tx.Name = "tx";
-            this.tx.Size = new System.Drawing.Size(1298, 434);
+            this.tx.Size = new System.Drawing.Size(1290, 426);
             this.tx.TabIndex = 0;
             this.tx.TabStop = false;
             this.tx.Text = "Requisição de Compra";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(461, 160);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(62, 20);
+            this.txtValor.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(421, 167);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Valor:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(215, 129);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "Data Esperada:";
+            // 
+            // cboFreteIncluso
+            // 
+            this.cboFreteIncluso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboFreteIncluso.FormattingEnabled = true;
+            this.cboFreteIncluso.Items.AddRange(new object[] {
+            "",
+            "SIM",
+            "NÃO"});
+            this.cboFreteIncluso.Location = new System.Drawing.Point(302, 196);
+            this.cboFreteIncluso.Name = "cboFreteIncluso";
+            this.cboFreteIncluso.Size = new System.Drawing.Size(64, 21);
+            this.cboFreteIncluso.TabIndex = 8;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(215, 204);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 13);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Frete incluso?";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "00/00/0000";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(302, 124);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(98, 20);
+            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnDesfazer
             // 
             this.btnDesfazer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDesfazer.Enabled = false;
-            this.btnDesfazer.Location = new System.Drawing.Point(1205, 311);
+            this.btnDesfazer.Location = new System.Drawing.Point(1183, 353);
             this.btnDesfazer.Name = "btnDesfazer";
             this.btnDesfazer.Size = new System.Drawing.Size(75, 23);
-            this.btnDesfazer.TabIndex = 23;
+            this.btnDesfazer.TabIndex = 12;
             this.btnDesfazer.Text = "Desfazer";
             this.btnDesfazer.UseVisualStyleBackColor = true;
             // 
@@ -281,10 +382,10 @@
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(1205, 405);
+            this.btnSalvar.Location = new System.Drawing.Point(1183, 397);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 12;
+            this.btnSalvar.TabIndex = 10;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -293,12 +394,13 @@
             // 
             this.btnApontar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnApontar.Enabled = false;
-            this.btnApontar.Location = new System.Drawing.Point(1114, 311);
+            this.btnApontar.Location = new System.Drawing.Point(1092, 353);
             this.btnApontar.Name = "btnApontar";
             this.btnApontar.Size = new System.Drawing.Size(75, 23);
-            this.btnApontar.TabIndex = 22;
+            this.btnApontar.TabIndex = 11;
             this.btnApontar.Text = "Apontar";
             this.btnApontar.UseVisualStyleBackColor = true;
+            this.btnApontar.Click += new System.EventHandler(this.btnApontar_Click);
             // 
             // label9
             // 
@@ -313,10 +415,10 @@
             // 
             this.btnAutorizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAutorizar.Enabled = false;
-            this.btnAutorizar.Location = new System.Drawing.Point(1205, 21);
+            this.btnAutorizar.Location = new System.Drawing.Point(1197, 21);
             this.btnAutorizar.Name = "btnAutorizar";
             this.btnAutorizar.Size = new System.Drawing.Size(75, 23);
-            this.btnAutorizar.TabIndex = 11;
+            this.btnAutorizar.TabIndex = 13;
             this.btnAutorizar.Text = "Autorizar";
             this.btnAutorizar.UseVisualStyleBackColor = true;
             this.btnAutorizar.Click += new System.EventHandler(this.btnAutorizar_Click);
@@ -330,16 +432,16 @@
             "ALTA",
             "BAIXA",
             "NORMAL"});
-            this.cboPrioridade.Location = new System.Drawing.Point(98, 123);
-            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPrioridade.Location = new System.Drawing.Point(116, 123);
+            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2);
             this.cboPrioridade.Name = "cboPrioridade";
             this.cboPrioridade.Size = new System.Drawing.Size(92, 21);
-            this.cboPrioridade.TabIndex = 20;
+            this.cboPrioridade.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(198, 202);
+            this.label8.Location = new System.Drawing.Point(14, 239);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 13);
             this.label8.TabIndex = 19;
@@ -347,10 +449,10 @@
             // 
             // txtEstadoCompra
             // 
-            this.txtEstadoCompra.Location = new System.Drawing.Point(296, 197);
+            this.txtEstadoCompra.Location = new System.Drawing.Point(116, 232);
             this.txtEstadoCompra.Name = "txtEstadoCompra";
             this.txtEstadoCompra.Size = new System.Drawing.Size(66, 20);
-            this.txtEstadoCompra.TabIndex = 18;
+            this.txtEstadoCompra.TabIndex = 9;
             // 
             // label7
             // 
@@ -369,11 +471,11 @@
             "",
             "CIF",
             "FOB"});
-            this.cboFrete.Location = new System.Drawing.Point(98, 197);
-            this.cboFrete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboFrete.Location = new System.Drawing.Point(116, 197);
+            this.cboFrete.Margin = new System.Windows.Forms.Padding(2);
             this.cboFrete.Name = "cboFrete";
             this.cboFrete.Size = new System.Drawing.Size(92, 21);
-            this.cboFrete.TabIndex = 16;
+            this.cboFrete.TabIndex = 7;
             // 
             // label6
             // 
@@ -386,16 +488,26 @@
             // 
             // txtFornecedor
             // 
-            this.txtFornecedor.Location = new System.Drawing.Point(98, 162);
+            this.txtFornecedor.Location = new System.Drawing.Point(116, 162);
             this.txtFornecedor.Name = "txtFornecedor";
-            this.txtFornecedor.Size = new System.Drawing.Size(264, 20);
-            this.txtFornecedor.TabIndex = 14;
+            this.txtFornecedor.Size = new System.Drawing.Size(284, 20);
+            this.txtFornecedor.TabIndex = 5;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnId,
@@ -404,24 +516,28 @@
             this.clnDataHoraApontamento,
             this.clnUsuarioApontamento,
             this.clnDataHoraAlteracao,
-            this.clnUsuarioAlteracao});
-            this.dataGridView2.Location = new System.Drawing.Point(689, 129);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clnUsuarioAlteracao,
+            this.clnObervacao});
+            this.dataGridView2.EnableHeadersVisualStyles = false;
+            this.dataGridView2.Location = new System.Drawing.Point(638, 96);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(591, 162);
+            this.dataGridView2.Size = new System.Drawing.Size(620, 162);
             this.dataGridView2.TabIndex = 13;
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.ForeColor = System.Drawing.Color.White;
             this.btnPesquisar.Image = global::SistemaTHR.Properties.Resources.seo;
-            this.btnPesquisar.Location = new System.Drawing.Point(229, 42);
+            this.btnPesquisar.Location = new System.Drawing.Point(243, 44);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(23, 23);
             this.btnPesquisar.TabIndex = 10;
@@ -431,7 +547,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(576, 78);
+            this.label5.Location = new System.Drawing.Point(594, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 9;
@@ -439,15 +555,15 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(615, 71);
+            this.txtQuantidade.Location = new System.Drawing.Point(633, 71);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(52, 20);
-            this.txtQuantidade.TabIndex = 8;
+            this.txtQuantidade.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(484, 78);
+            this.label4.Location = new System.Drawing.Point(502, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 7;
@@ -455,7 +571,7 @@
             // 
             // txtUnidade
             // 
-            this.txtUnidade.Location = new System.Drawing.Point(525, 71);
+            this.txtUnidade.Location = new System.Drawing.Point(543, 71);
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.ReadOnly = true;
             this.txtUnidade.Size = new System.Drawing.Size(45, 20);
@@ -472,7 +588,7 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(98, 71);
+            this.txtDescricao.Location = new System.Drawing.Point(116, 71);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.ReadOnly = true;
             this.txtDescricao.Size = new System.Drawing.Size(365, 20);
@@ -489,10 +605,10 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(98, 45);
+            this.txtCodigo.Location = new System.Drawing.Point(116, 45);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(125, 20);
-            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TabIndex = 1;
             // 
             // label1
             // 
@@ -505,68 +621,20 @@
             // 
             // txtNRequisicao
             // 
-            this.txtNRequisicao.Location = new System.Drawing.Point(98, 19);
+            this.txtNRequisicao.Location = new System.Drawing.Point(116, 19);
             this.txtNRequisicao.Name = "txtNRequisicao";
             this.txtNRequisicao.Size = new System.Drawing.Size(125, 20);
             this.txtNRequisicao.TabIndex = 0;
             // 
-            // clnId
+            // tabPage2
             // 
-            this.clnId.HeaderText = "ID";
-            this.clnId.MinimumWidth = 6;
-            this.clnId.Name = "clnId";
-            this.clnId.ReadOnly = true;
-            this.clnId.Visible = false;
-            this.clnId.Width = 125;
-            // 
-            // clnNumeroRequisicao
-            // 
-            this.clnNumeroRequisicao.HeaderText = "NumeroRequisicao";
-            this.clnNumeroRequisicao.MinimumWidth = 6;
-            this.clnNumeroRequisicao.Name = "clnNumeroRequisicao";
-            this.clnNumeroRequisicao.ReadOnly = true;
-            this.clnNumeroRequisicao.Visible = false;
-            this.clnNumeroRequisicao.Width = 125;
-            // 
-            // clnDesricaoRequisicao
-            // 
-            this.clnDesricaoRequisicao.HeaderText = "Descrição";
-            this.clnDesricaoRequisicao.MinimumWidth = 6;
-            this.clnDesricaoRequisicao.Name = "clnDesricaoRequisicao";
-            this.clnDesricaoRequisicao.ReadOnly = true;
-            this.clnDesricaoRequisicao.Width = 75;
-            // 
-            // clnDataHoraApontamento
-            // 
-            this.clnDataHoraApontamento.HeaderText = "Data/Hora Apont.";
-            this.clnDataHoraApontamento.MinimumWidth = 6;
-            this.clnDataHoraApontamento.Name = "clnDataHoraApontamento";
-            this.clnDataHoraApontamento.ReadOnly = true;
-            this.clnDataHoraApontamento.Width = 140;
-            // 
-            // clnUsuarioApontamento
-            // 
-            this.clnUsuarioApontamento.HeaderText = "Usuário Apont.";
-            this.clnUsuarioApontamento.MinimumWidth = 6;
-            this.clnUsuarioApontamento.Name = "clnUsuarioApontamento";
-            this.clnUsuarioApontamento.ReadOnly = true;
-            this.clnUsuarioApontamento.Width = 115;
-            // 
-            // clnDataHoraAlteracao
-            // 
-            this.clnDataHoraAlteracao.HeaderText = "Data/Hora Alteração";
-            this.clnDataHoraAlteracao.MinimumWidth = 6;
-            this.clnDataHoraAlteracao.Name = "clnDataHoraAlteracao";
-            this.clnDataHoraAlteracao.ReadOnly = true;
-            this.clnDataHoraAlteracao.Width = 140;
-            // 
-            // clnUsuarioAlteracao
-            // 
-            this.clnUsuarioAlteracao.HeaderText = "Usuário Alt.";
-            this.clnUsuarioAlteracao.MinimumWidth = 6;
-            this.clnUsuarioAlteracao.Name = "clnUsuarioAlteracao";
-            this.clnUsuarioAlteracao.ReadOnly = true;
-            this.clnUsuarioAlteracao.Width = 115;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1316, 453);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Histórico";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // NRequisicaoCompra
             // 
@@ -648,6 +716,15 @@
             this.clnValor.ReadOnly = true;
             this.clnValor.Width = 70;
             // 
+            // clnFrete
+            // 
+            this.clnFrete.DataPropertyName = "Frete";
+            this.clnFrete.HeaderText = "Frete";
+            this.clnFrete.MinimumWidth = 6;
+            this.clnFrete.Name = "clnFrete";
+            this.clnFrete.ReadOnly = true;
+            this.clnFrete.Width = 50;
+            // 
             // clnFornecedor
             // 
             this.clnFornecedor.DataPropertyName = "Fornecedor";
@@ -657,14 +734,12 @@
             this.clnFornecedor.ReadOnly = true;
             this.clnFornecedor.Width = 125;
             // 
-            // clnFrete
+            // clnFreteIncluso
             // 
-            this.clnFrete.DataPropertyName = "Frete";
-            this.clnFrete.HeaderText = "Frete";
-            this.clnFrete.MinimumWidth = 6;
-            this.clnFrete.Name = "clnFrete";
-            this.clnFrete.ReadOnly = true;
-            this.clnFrete.Width = 50;
+            this.clnFreteIncluso.DataPropertyName = "FreteIncluso";
+            this.clnFreteIncluso.HeaderText = "Frete/Incluso.";
+            this.clnFreteIncluso.Name = "clnFreteIncluso";
+            this.clnFreteIncluso.ReadOnly = true;
             // 
             // clnEstadoCompra
             // 
@@ -711,21 +786,104 @@
             this.clnDataHoraAutorizacao.ReadOnly = true;
             this.clnDataHoraAutorizacao.Width = 125;
             // 
-            // dateTimePicker1
+            // txtObservacao
             // 
-            this.dateTimePicker1.CustomFormat = "00/00/0000";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(264, 124);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(98, 20);
-            this.dateTimePicker1.TabIndex = 24;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.txtObservacao.Location = new System.Drawing.Point(638, 276);
+            this.txtObservacao.Multiline = true;
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Size = new System.Drawing.Size(620, 71);
+            this.txtObservacao.TabIndex = 29;
+            // 
+            // btnAbrirObervacao
+            // 
+            this.btnAbrirObervacao.Location = new System.Drawing.Point(1260, 276);
+            this.btnAbrirObervacao.Name = "btnAbrirObervacao";
+            this.btnAbrirObervacao.Size = new System.Drawing.Size(18, 71);
+            this.btnAbrirObervacao.TabIndex = 30;
+            this.btnAbrirObervacao.UseVisualStyleBackColor = true;
+            // 
+            // clnId
+            // 
+            this.clnId.DataPropertyName = "id";
+            this.clnId.HeaderText = "ID";
+            this.clnId.MinimumWidth = 6;
+            this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
+            this.clnId.Visible = false;
+            this.clnId.Width = 125;
+            // 
+            // clnNumeroRequisicao
+            // 
+            this.clnNumeroRequisicao.DataPropertyName = "NumeroRequisicao";
+            this.clnNumeroRequisicao.HeaderText = "NumeroRequisicao";
+            this.clnNumeroRequisicao.MinimumWidth = 6;
+            this.clnNumeroRequisicao.Name = "clnNumeroRequisicao";
+            this.clnNumeroRequisicao.ReadOnly = true;
+            this.clnNumeroRequisicao.Visible = false;
+            this.clnNumeroRequisicao.Width = 125;
+            // 
+            // clnDesricaoRequisicao
+            // 
+            this.clnDesricaoRequisicao.DataPropertyName = "DescricaoRequisicao";
+            this.clnDesricaoRequisicao.HeaderText = "Descrição";
+            this.clnDesricaoRequisicao.MinimumWidth = 6;
+            this.clnDesricaoRequisicao.Name = "clnDesricaoRequisicao";
+            this.clnDesricaoRequisicao.ReadOnly = true;
+            this.clnDesricaoRequisicao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnDesricaoRequisicao.Width = 110;
+            // 
+            // clnDataHoraApontamento
+            // 
+            this.clnDataHoraApontamento.DataPropertyName = "dataHoraApontamento";
+            this.clnDataHoraApontamento.HeaderText = "Data/Hora Apont.";
+            this.clnDataHoraApontamento.MinimumWidth = 6;
+            this.clnDataHoraApontamento.Name = "clnDataHoraApontamento";
+            this.clnDataHoraApontamento.ReadOnly = true;
+            this.clnDataHoraApontamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnDataHoraApontamento.Width = 140;
+            // 
+            // clnUsuarioApontamento
+            // 
+            this.clnUsuarioApontamento.DataPropertyName = "usuarioApontamento";
+            this.clnUsuarioApontamento.HeaderText = "Usuário Apont.";
+            this.clnUsuarioApontamento.MinimumWidth = 6;
+            this.clnUsuarioApontamento.Name = "clnUsuarioApontamento";
+            this.clnUsuarioApontamento.ReadOnly = true;
+            this.clnUsuarioApontamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnUsuarioApontamento.Width = 90;
+            // 
+            // clnDataHoraAlteracao
+            // 
+            this.clnDataHoraAlteracao.DataPropertyName = "dataHoraAlteracao";
+            this.clnDataHoraAlteracao.HeaderText = "Data/Hora Alteração";
+            this.clnDataHoraAlteracao.MinimumWidth = 6;
+            this.clnDataHoraAlteracao.Name = "clnDataHoraAlteracao";
+            this.clnDataHoraAlteracao.ReadOnly = true;
+            this.clnDataHoraAlteracao.Width = 140;
+            // 
+            // clnUsuarioAlteracao
+            // 
+            this.clnUsuarioAlteracao.DataPropertyName = "usuarioAlteracao";
+            this.clnUsuarioAlteracao.HeaderText = "Usuário Alt.";
+            this.clnUsuarioAlteracao.MinimumWidth = 6;
+            this.clnUsuarioAlteracao.Name = "clnUsuarioAlteracao";
+            this.clnUsuarioAlteracao.ReadOnly = true;
+            this.clnUsuarioAlteracao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnUsuarioAlteracao.Width = 90;
+            // 
+            // clnObervacao
+            // 
+            this.clnObervacao.DataPropertyName = "Observacao";
+            this.clnObervacao.HeaderText = "Observação";
+            this.clnObervacao.Name = "clnObervacao";
+            this.clnObervacao.ReadOnly = true;
+            this.clnObervacao.Visible = false;
             // 
             // frmRequisicaoCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1319, 593);
+            this.ClientSize = new System.Drawing.Size(1345, 668);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
@@ -741,6 +899,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.Principal.ResumeLayout(false);
             this.tx.ResumeLayout(false);
             this.tx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -784,13 +944,15 @@
         private System.Windows.Forms.Button btnApontar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnDesfazer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroRequisicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDesricaoRequisicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraApontamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioApontamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAlteracao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAlteracao;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cboFreteIncluso;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage Principal;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn NRequisicaoCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
@@ -800,13 +962,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnPrioridade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataEsperadaEntrega;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnFornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnFrete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFreteIncluso;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEstadoCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraSolicitacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAutorizacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAutorizacao;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtObservacao;
+        private System.Windows.Forms.Button btnAbrirObervacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroRequisicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDesricaoRequisicao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraApontamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioApontamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAlteracao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAlteracao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnObervacao;
     }
 }
