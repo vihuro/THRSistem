@@ -1,4 +1,5 @@
-﻿using SistemaTHR.Controller.Compras;
+﻿using SistemaTHR.Apllication.Manutencao;
+using SistemaTHR.Controller.Compras;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Service.Compras;
 using SistemaTHR.Service.Exepction;
@@ -29,8 +30,8 @@ namespace SistemaTHR.Apllication.Compras
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            frmPequisarEstoque pesquisar = new frmPequisarEstoque(this, loginController, modulosController);
-            pesquisar.ShowDialog();
+            frmEstoquePesquisa pesquisa = new frmEstoquePesquisa(this);
+            pesquisa.ShowDialog();
         }
 
         private void frmRequisicaoCompra_Load(object sender, EventArgs e)
@@ -258,7 +259,7 @@ namespace SistemaTHR.Apllication.Compras
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

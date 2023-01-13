@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.Controller.Login;
+using SistemaTHR.Service.manutencao;
 
 namespace SistemaTHR.Service.Compras
 {
@@ -20,6 +21,7 @@ namespace SistemaTHR.Service.Compras
         private loginController loginController;
         private modulosController modulosController;
         private AcompanhamentoRequisicaoCompraService acompanhamentoService;
+        private EstoquePecasService estoquePecasService;
 
         public requisicaoCompraService(loginController loginController, modulosController modulosController)
         {
@@ -27,6 +29,7 @@ namespace SistemaTHR.Service.Compras
             this.modulosController = modulosController;
             this.loginController = loginController;
             acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController);
+            estoquePecasService = new EstoquePecasService(loginController, modulosController);
         }
 
         private void Insert(requisicaoCompraController controller)
@@ -38,12 +41,16 @@ namespace SistemaTHR.Service.Compras
             {
                 throw new ExceptionService("Campos obrigatório(s) vazio(s)!");
             }
+            if (!estoquePecasService.VerificarSeExiste(controller.Codigo))
+            {
+                throw new ExceptionService("Código de peça não encontrado!");
+            }
 
-            dto.Codigo = controller.Codigo;
-            dto.Descricao = controller.Descricao;
+            dto.Codigo = controller.Codigo.ToUpper();
+            dto.Descricao = controller.Descricao.ToUpper();
             dto.Quantidade = controller.Quantidade;
             dto.Unidade = controller.Unidade;
-            dto.Prioridade = controller.Prioridade;
+            dto.Prioridade = controller.Prioridade.ToUpper();
             dto.DataHoraEsperadaEntrega = controller.DataHoraEsperadaEntrega;
             dto.UsuarioSolicitacao = loginController.Nome;
             dto.DataHoraSolicitacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
@@ -56,7 +63,7 @@ namespace SistemaTHR.Service.Compras
 
             dto = new requisicaoCompraDto();
 
-            dto.Codigo = controller.Codigo;
+            dto.Codigo = controller.Codigo.ToUpper();
             dto.Status = "Pendente";
             dao.verificarCodigo(dto);
 
@@ -139,10 +146,10 @@ namespace SistemaTHR.Service.Compras
 
 
             dto.ValorProduto = controller.ValorProduto;
-            dto.Fornecedor = controller.Fornecedor;
+            dto.Fornecedor = controller.Fornecedor.ToUpper();
             dto.FreteIncluso = controller.FreteIncluso;
             dto.Frete = controller.Frete;
-            dto.EstadoDaCompra = controller.EstadoDaCompra;
+            dto.EstadoDaCompra = controller.EstadoDaCompra.ToUpper();
             dto.NRequisicao = controller.NRequisicao;
             dao.Update(dto);
         }

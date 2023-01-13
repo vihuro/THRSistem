@@ -418,7 +418,6 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.csproj.Asse
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.csproj.SuggestedBindingRedirects.cache
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\Interop.ADODB.dll
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.csproj.ResolveComReference.cache
-C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.frmPequisarEstoque.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.frmRequisicaoCompra.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.frmAsu.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.frmEstoquePecas.resources

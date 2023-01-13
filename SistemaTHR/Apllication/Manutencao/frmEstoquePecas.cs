@@ -32,6 +32,7 @@ namespace SistemaTHR.Apllication.Manutencao
             InitializeComponent();
         }
 
+
         private EstoquePecasService IniciarEstoqueService()
         {
             return estoqueService = new EstoquePecasService(loginController, modulosController);
@@ -152,12 +153,12 @@ namespace SistemaTHR.Apllication.Manutencao
             this.Cursor = Cursors.Default;
         }
 
-        public void loadGridView1(EstoquePecasController controller)
+        public void loadGridView1(DataTable dt)
         {
             this.Cursor = Cursors.WaitCursor;
 
 
-            dataGridView1.DataSource = controller.Dt;
+            dataGridView1.DataSource = dt;
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {

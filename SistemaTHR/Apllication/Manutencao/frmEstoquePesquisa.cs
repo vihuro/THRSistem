@@ -11,30 +11,51 @@ using SistemaTHR.Apllication.Estoque;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.manutencao;
 using SistemaTHR.Controller.Login;
-
+using SistemaTHR.Apllication.Compras;
 
 namespace SistemaTHR.Apllication.Manutencao
 {
     public partial class frmEstoquePesquisa : Form
     {
-        private frmRequisicoesPecas requisicao;
-        private frmManutencao manutencao;
+        private frmEntradaSaidaPecas frmEntradaSaidaPecas;
+        private frmRequisicoesPecas frmRequisicaoPecas;
+        private frmManutencao frmManutencao;
+        private frmEstoquePecas frmEstoquePecas;
+        private frmRequisicaoCompra frmCompras;
 
         private EstoquePecasController controller;
         private EstoquePecasService service;
-        private frmEstoquePecas frmEstoquePecas;
-        private frmEntradaSaidaPecas frmEntradaSaidaPecas;
+
+
         private loginController loginController;
         private modulosController modulosController;
 
 
-        public frmEstoquePesquisa(frmRequisicoesPecas requisicao)
+        public frmEstoquePesquisa(frmRequisicoesPecas frmRequisicaoPecas)
         {
-            this.requisicao = requisicao;
+            this.frmRequisicaoPecas = frmRequisicaoPecas;
             IniciarService();
             InitializeComponent();
             cboCampo.Text = "Descrição";
         }
+
+        public frmEstoquePesquisa(frmRequisicaoCompra frmCompras)
+        {
+            this.frmCompras = frmCompras;
+            IniciarService();
+            InitializeComponent();
+            cboCampo.Text = "Descrição";
+
+        }
+
+        public frmEstoquePesquisa(frmManutencao frmManutencao)
+        {
+            this.frmManutencao = frmManutencao;
+            IniciarService();
+            InitializeComponent();
+            cboCampo.Text = "Descrição";
+        }
+
 
 
         private EstoquePecasService IniciarService()
@@ -42,13 +63,6 @@ namespace SistemaTHR.Apllication.Manutencao
             return service = new EstoquePecasService(loginController,modulosController);
         }
 
-        public frmEstoquePesquisa(frmManutencao manutencao)
-        {
-            this.manutencao = manutencao;
-            IniciarService();
-            InitializeComponent();
-            cboCampo.Text = "Descrição";
-        }
 
         public frmEstoquePesquisa(frmEstoquePecas frmEstoquePecas,loginController loginController, modulosController modulosController)
         {
@@ -93,11 +107,50 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void btnCarregar_Click(object sender, EventArgs e)
         {
-            if(Application.OpenForms.OfType<frmRequisicoesPecas>().Count() > 0)
+            string codigo = "";
+            string descricao = "";
+            string unidade = "";
+            if(dataGridView1.SelectedRows.Count > 0)
             {
-                requisicao.txtCodigoPeca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                requisicao.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                requisicao.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                codigo = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                descricao = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                unidade = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            }
+
+            if (frmCompras != null)
+            {
+                frmCompras.txtCodigo.Text = codigo;
+                frmCompras.txtDescricao.Text = descricao;
+                frmCompras.txtUnidade.Text = unidade;
+
+
+                this.Close();
+            }
+            else if (frmEstoquePecas != null)
+            {
+                frmEstoquePecas.loadGridView1((DataTable)dataGridView1.DataSource);
+                this.Close();
+            }
+            else if(frmManutencao != null)
+            {
+                frmManutencao.txtCodigo.Text = codigo;
+                frmManutencao.txtDescricaoPeca.Text = descricao;
+                frmManutencao.txtUnidade.Text = unidade;
+                this.Close();
+            }
+            else if(frmRequisicaoPecas != null)
+            {
+                frmRequisicaoPecas.txtCodigoPeca.Text = codigo;
+                frmRequisicaoPecas.txtDescricao.Text = descricao;
+                frmRequisicaoPecas.txtUnidade.Text = unidade;
+                this.Close();
+            }
+
+            /*if (Application.OpenForms.OfType<frmRequisicoesPecas>().Count() > 0)
+            {
+                frmRequisicaoPecas.txtCodigoPeca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                frmRequisicaoPecas.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                frmRequisicaoPecas.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 this.Close();
             }
             else if(Application.OpenForms.OfType<frmEstoquePecas>().Count() > 0 || 
@@ -105,8 +158,7 @@ namespace SistemaTHR.Apllication.Manutencao
             {
                 if(frmEstoquePecas != null)
                 {
-                    frmEstoquePecas.loadGridView1(controller);
-                    this.Close();
+
                 }
                 else if(frmEntradaSaidaPecas != null)
                 {
@@ -116,17 +168,7 @@ namespace SistemaTHR.Apllication.Manutencao
                     this.Close();
                 }
 
-            }
-            else if(Application.OpenForms.OfType<frmManutencao>().Count() > 0)
-            {
-                if(manutencao != null)
-                {
-                    manutencao.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    manutencao.txtDescricaoPeca.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                    manutencao.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                    this.Close();
-                }
-            }
+            }*/
 
         }
 

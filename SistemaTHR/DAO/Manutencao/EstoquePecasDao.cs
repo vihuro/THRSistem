@@ -221,5 +221,30 @@ namespace SistemaTHR.DAO.Manutencao
             deleteCadastro();
         }
 
+        internal bool VerificarSeExiste(string codigo)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "SELECT * FROM tab_EstoquePecas WHERE codigo = @codigo";
+            cmd.Parameters.AddWithValue("", codigo);
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
     }
 }

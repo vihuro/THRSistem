@@ -183,8 +183,12 @@ namespace SistemaTHR.Service.manutencao
             {
                 controller.Msg = "Campo(s) obrigatorio(s) vazio(s)!";
             }
+        }
 
-
+        public bool VerificarSeExiste(string codigo)
+        {
+            dto = new EstoquePecasDto();
+            return dao.VerificarSeExiste(codigo);
         }
 
         private void EntradaEstoque(EstoquePecasController controller, EstoquePecasDto dto, string tipoMovimentacao)
@@ -197,7 +201,7 @@ namespace SistemaTHR.Service.manutencao
 
             decimal total = qtEstoque + qtRecebida;
             controller.QtEstoque = Convert.ToString(total);
-            controller.Descricao = dto.Descricao;
+            controller.Descricao = dto.Descricao.ToUpper();
             dto.QtEstoque = total.ToString();
 
             dto.Codigo = controller.Codigo;
@@ -219,14 +223,14 @@ namespace SistemaTHR.Service.manutencao
             if(modulosController.AlmoxarifadoNivel == "1" || modulosController.AlmoxarifadoNivel == "2")
             {
 
-                dto.Descricao = controller.Descricao;
-                dto.Unidade = controller.Unidade;
-                dto.Fornecedor1 = controller.Fornecedor1;
-                dto.CodFornecedor1 = controller.CodFornecedor1;
-                dto.Fornecedor2 = controller.Fornecedor2;
-                dto.CodFornecedor2 = controller.CodFornecedor2;
-                dto.Fornecedor3 = controller.Fornecedor3;
-                dto.CodFornecedor3 = controller.CodFornecedor3;
+                dto.Descricao = controller.Descricao.ToUpper();
+                dto.Unidade = controller.Unidade.ToUpper();
+                dto.Fornecedor1 = controller.Fornecedor1.ToUpper();
+                dto.CodFornecedor1 = controller.CodFornecedor1.ToUpper();
+                dto.Fornecedor2 = controller.Fornecedor2.ToUpper();
+                dto.CodFornecedor2 = controller.CodFornecedor2.ToUpper();
+                dto.Fornecedor3 = controller.Fornecedor3.ToUpper();
+                dto.CodFornecedor3 = controller.CodFornecedor3.ToUpper();
                 dto.EstoqueMax = controller.EstoqueMax;
                 dto.EstoqueMin = controller.EstoqueMin;
                 dto.UsuarioGravacao = loginController.Nome;

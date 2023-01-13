@@ -166,12 +166,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apllication\Compras\frmPequisarEstoque.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Apllication\Compras\frmPequisarEstoque.Designer.cs">
-      <DependentUpon>frmPequisarEstoque.cs</DependentUpon>
-    </Compile>
     <Compile Include="Apllication\Compras\frmRequisicaoCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -652,9 +646,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Apllication\Compras\frmPequisarEstoque.resx">
-      <DependentUpon>frmPequisarEstoque.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Compras\frmRequisicaoCompra.resx">
       <DependentUpon>frmRequisicaoCompra.cs</DependentUpon>
     </EmbeddedResource>

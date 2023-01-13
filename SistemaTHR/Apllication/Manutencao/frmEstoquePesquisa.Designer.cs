@@ -35,6 +35,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCarregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboCampo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clnNPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +45,14 @@
             this.clnQuantidadeEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnEstoqueMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnEstoqueMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFornecedor1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigoFornecedor1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFornecedor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigoFornecedor2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFornecedor3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnCodigoForn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuarioGravacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDataHoraGravacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboCampo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +107,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtro";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Buscar por:";
+            // 
+            // cboCampo
+            // 
+            this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCampo.FormattingEnabled = true;
+            this.cboCampo.Items.AddRange(new object[] {
+            "Código",
+            "Descrição"});
+            this.cboCampo.Location = new System.Drawing.Point(86, 13);
+            this.cboCampo.Name = "cboCampo";
+            this.cboCampo.Size = new System.Drawing.Size(121, 21);
+            this.cboCampo.TabIndex = 5;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -132,8 +156,11 @@
             this.clnQuantidadeEstoque,
             this.clnEstoqueMax,
             this.clnEstoqueMin,
+            this.clnFornecedor1,
             this.clnCodigoFornecedor1,
+            this.clnFornecedor2,
             this.clnCodigoFornecedor2,
+            this.clnFornecedor3,
             this.clnCodigoForn3,
             this.clnUsuarioGravacao,
             this.clnDataHoraGravacao});
@@ -163,6 +190,7 @@
             this.clnCodigo.HeaderText = "Código";
             this.clnCodigo.Name = "clnCodigo";
             this.clnCodigo.ReadOnly = true;
+            this.clnCodigo.Width = 180;
             // 
             // clnDescricao
             // 
@@ -204,6 +232,14 @@
             this.clnEstoqueMin.ReadOnly = true;
             this.clnEstoqueMin.Visible = false;
             // 
+            // clnFornecedor1
+            // 
+            this.clnFornecedor1.DataPropertyName = "Fornecedor1";
+            this.clnFornecedor1.HeaderText = "Fornecedor 1";
+            this.clnFornecedor1.Name = "clnFornecedor1";
+            this.clnFornecedor1.ReadOnly = true;
+            this.clnFornecedor1.Visible = false;
+            // 
             // clnCodigoFornecedor1
             // 
             this.clnCodigoFornecedor1.DataPropertyName = "CodigoFornecedor1";
@@ -212,6 +248,14 @@
             this.clnCodigoFornecedor1.ReadOnly = true;
             this.clnCodigoFornecedor1.Visible = false;
             // 
+            // clnFornecedor2
+            // 
+            this.clnFornecedor2.DataPropertyName = "Fornecedor2";
+            this.clnFornecedor2.HeaderText = "Fornecedor 2";
+            this.clnFornecedor2.Name = "clnFornecedor2";
+            this.clnFornecedor2.ReadOnly = true;
+            this.clnFornecedor2.Visible = false;
+            // 
             // clnCodigoFornecedor2
             // 
             this.clnCodigoFornecedor2.DataPropertyName = "CodigoFornecedor2";
@@ -219,6 +263,14 @@
             this.clnCodigoFornecedor2.Name = "clnCodigoFornecedor2";
             this.clnCodigoFornecedor2.ReadOnly = true;
             this.clnCodigoFornecedor2.Visible = false;
+            // 
+            // clnFornecedor3
+            // 
+            this.clnFornecedor3.DataPropertyName = "Fornecedor3";
+            this.clnFornecedor3.HeaderText = "Forncedor 3";
+            this.clnFornecedor3.Name = "clnFornecedor3";
+            this.clnFornecedor3.ReadOnly = true;
+            this.clnFornecedor3.Visible = false;
             // 
             // clnCodigoForn3
             // 
@@ -243,27 +295,6 @@
             this.clnDataHoraGravacao.Name = "clnDataHoraGravacao";
             this.clnDataHoraGravacao.ReadOnly = true;
             this.clnDataHoraGravacao.Visible = false;
-            // 
-            // cboCampo
-            // 
-            this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCampo.FormattingEnabled = true;
-            this.cboCampo.Items.AddRange(new object[] {
-            "Código",
-            "Descrição"});
-            this.cboCampo.Location = new System.Drawing.Point(86, 13);
-            this.cboCampo.Name = "cboCampo";
-            this.cboCampo.Size = new System.Drawing.Size(121, 21);
-            this.cboCampo.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Buscar por:";
             // 
             // frmEstoquePesquisa
             // 
@@ -296,6 +327,8 @@
         private System.Windows.Forms.Button btnCarregar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cboCampo;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNPeca;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
@@ -303,12 +336,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnQuantidadeEstoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEstoqueMax;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnEstoqueMin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFornecedor1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigoFornecedor1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFornecedor2;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigoFornecedor2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnFornecedor3;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigoForn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioGravacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraGravacao;
-        private System.Windows.Forms.ComboBox cboCampo;
-        private System.Windows.Forms.Label label2;
     }
 }
