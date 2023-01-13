@@ -21,9 +21,7 @@ namespace SistemaTHR.Service.Compras
         private modulosController modulosController;
         private AcompanhamentoRequisicaoCompraService acompanhamentoService;
 
-        private DataTable dt;
-
-        public requisicaoCompraService(loginController loginController,modulosController modulosController)
+        public requisicaoCompraService(loginController loginController, modulosController modulosController)
         {
             dao = new requisicaoCompraDao();
             this.modulosController = modulosController;
@@ -81,7 +79,7 @@ namespace SistemaTHR.Service.Compras
             decimal quantidadeRequisitada = Convert.ToDecimal(quantidade);
             decimal total = quantidadeAntiga + quantidadeRequisitada;
 
-            if(total <= 0)
+            if (total <= 0)
             {
                 throw new ExceptionService("Quantidade solictada não pode ser igual ou menor que zero!");
             }
@@ -94,7 +92,7 @@ namespace SistemaTHR.Service.Compras
         public void updateAuth(requisicaoCompraController controller)
         {
             dto = new requisicaoCompraDto();
-            if(dto.UsuarioAutorizador == string.Empty && dto.NRequisicao == string.Empty)
+            if (dto.UsuarioAutorizador == string.Empty && dto.NRequisicao == string.Empty)
             {
                 throw new ExceptionService("Campo(s) obrigatório(s) vazio(s)!");
             }
@@ -105,6 +103,48 @@ namespace SistemaTHR.Service.Compras
             dto.NRequisicao = controller.NRequisicao;
             dao.updateAuth(dto);
 
+        }
+
+        public void Update(requisicaoCompraController controller)
+        {
+            dto = new requisicaoCompraDto();
+            if (controller.NRequisicao == string.Empty)
+            {
+                throw new ExceptionService("Não é possível fazer essa movimentação!");
+            }
+            var obj = dao.VerifyForNumber(controller.NRequisicao);
+
+            //Caso o usuário seja do almoxarifado, ele não pode fazer uma alteração
+            if (modulosController.ComprasNivel == "4")
+            {
+                throw new ExceptionService("Não é possível fazer essa movimentação!");
+            }
+            //Caso já esteja entregue e o usuário seja difente de TI, não é possivel fazer uma alteração
+            else if(obj.Status == "Entregue" && modulosController.ComprasNivel != "1")
+            {
+                throw new ExceptionService("Não é possível fazer essa movimentação!");
+            }
+            // Caso esteja comprado ou entregue e o usuário seja do compras, não é possivel fazer uma alteração
+            else if(obj.Status == "Comprado" || obj.Status == "Entregue" &&
+                     modulosController.ComprasNivel == "3") 
+            {
+                throw new ExceptionService("Não é possível fazer essa movimentação!");
+            }
+            //Caso seja diferente de pendente e difente de TI, não é possivel fazer uma alteração
+            else if (obj.Status != "Pendente" && modulosController.ComprasNivel != "1")
+            {
+                throw new ExceptionService("Não é possível fazer essa movimentação!");
+            }
+
+
+
+            dto.ValorProduto = controller.ValorProduto;
+            dto.Fornecedor = controller.Fornecedor;
+            dto.FreteIncluso = controller.FreteIncluso;
+            dto.Frete = controller.Frete;
+            dto.EstadoDaCompra = controller.EstadoDaCompra;
+            dto.NRequisicao = controller.NRequisicao;
+            dao.Update(dto);
         }
 
         public void updateCompra()

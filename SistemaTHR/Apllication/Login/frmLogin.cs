@@ -210,10 +210,7 @@ namespace SistemaTHR
                 menu.manutençãoToolStripMenuItem.Enabled = true;
                 menu.requisicaoPeçasToolStripMenuItem.Enabled = true;
                 menu.movimentaçãoPeçasToolStripMenuItem1.Enabled = true;
-                if (modulosController.ComprasNivel == "1")
-                {
-                    menu.comprasToolStripMenuItem.Enabled = true;
-                }
+                menu.comprasToolStripMenuItem.Enabled = true;
 
             }
 

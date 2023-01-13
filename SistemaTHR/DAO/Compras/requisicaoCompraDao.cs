@@ -24,6 +24,53 @@ namespace SistemaTHR.DAO.Manutencao
             con = new Connection();
         }
 
+        public requisicaoCompraDto VerifyForNumber(string numeroRequisicao)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "SELECT * FROM tab_RequisicaoCompra WHERE NRequisicaoCompra = @NRequisicao";
+            cmd.Parameters.AddWithValue("", numeroRequisicao);
+            try
+            {
+                var requisicao = new requisicaoCompraDto();
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        requisicao.Codigo = dr["Codigo"].ToString();
+                        requisicao.Descricao = dr["Descricao"].ToString();
+                        requisicao.Quantidade = dr["Quantidade"].ToString();
+                        requisicao.Unidade = dr["Unidade"].ToString();
+                        requisicao.Prioridade = dr["Prioridade"].ToString();
+                        requisicao.DataHoraEsperadaEntrega = dr["DataEsperadaEntrega"].ToString();
+                        requisicao.ValorProduto = dr["Valor"].ToString();
+                        requisicao.FreteIncluso = dr["FreteIncluso"].ToString();
+                        requisicao.Fornecedor = dr["Fornecedor"].ToString();
+                        requisicao.EstadoDaCompra = dr["EstadoDaCompra"].ToString();
+                        requisicao.UsuarioSolicitacao = dr["UsuarioSolicitante"].ToString();
+                        requisicao.DataHoraSolicitacao = dr["DataHoraSolicitacao"].ToString();
+                        requisicao.UsuarioAutorizador = dr["UsuarioAutorizacao"].ToString();
+                        requisicao.DataHoraAutorizacao = dr["DataHoraAutorizacao"].ToString();
+                        requisicao.Status = dr["Status"].ToString();
+
+                        return requisicao;
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
 
         public string Insert(requisicaoCompraDto dto)
         {
@@ -143,6 +190,37 @@ namespace SistemaTHR.DAO.Manutencao
             {
 
                 throw new ExceptionService("Erro " + ex);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+        public void Update(requisicaoCompraDto dto)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "UPDATE tab_RequisicaoCompra SET Valor = @Valor," +
+                                                            "FreteIncluso = @FreteIncluso," +
+                                                            "Frete = @Frete," +
+                                                            "EstadoDaCompra = @EstadoCompra, " +
+                                                            "Fornecedor = @Fornecedor WHERE " +
+                                                            "NRequisicaoCompra = @NRequisicao";
+            cmd.Parameters.AddWithValue("@Valor", dto.ValorProduto);
+            cmd.Parameters.AddWithValue("", dto.FreteIncluso);
+            cmd.Parameters.AddWithValue("", dto.Frete);
+            cmd.Parameters.AddWithValue("", dto.EstadoDaCompra);
+            cmd.Parameters.AddWithValue("", dto.Fornecedor);
+            cmd.Parameters.AddWithValue("", dto.NRequisicao);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
             }
             finally
             {

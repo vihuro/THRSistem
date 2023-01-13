@@ -40,9 +40,28 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NRequisicaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataEsperadaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnFreteIncluso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Principal = new System.Windows.Forms.TabPage();
             this.tx = new System.Windows.Forms.GroupBox();
+            this.btnAbrirObervacao = new System.Windows.Forms.Button();
+            this.txtObservacao = new System.Windows.Forms.TextBox();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,6 +81,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtFornecedor = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumeroRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDesricaoRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnObervacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
@@ -74,33 +101,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNRequisicao = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.NRequisicaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnPrioridade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataEsperadaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnFrete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnFornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnFreteIncluso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnEstadoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraAutorizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtObservacao = new System.Windows.Forms.TextBox();
-            this.btnAbrirObervacao = new System.Windows.Forms.Button();
-            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNumeroRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDesricaoRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioApontamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUsuarioAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnObervacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -247,6 +247,156 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
+            // NRequisicaoCompra
+            // 
+            this.NRequisicaoCompra.DataPropertyName = "NRequisicaoCompra";
+            this.NRequisicaoCompra.HeaderText = "Nº R.";
+            this.NRequisicaoCompra.MinimumWidth = 6;
+            this.NRequisicaoCompra.Name = "NRequisicaoCompra";
+            this.NRequisicaoCompra.ReadOnly = true;
+            this.NRequisicaoCompra.Width = 50;
+            // 
+            // clnCodigo
+            // 
+            this.clnCodigo.DataPropertyName = "Codigo";
+            this.clnCodigo.HeaderText = "Código";
+            this.clnCodigo.MinimumWidth = 6;
+            this.clnCodigo.Name = "clnCodigo";
+            this.clnCodigo.ReadOnly = true;
+            this.clnCodigo.Width = 110;
+            // 
+            // clnDescricao
+            // 
+            this.clnDescricao.DataPropertyName = "Descricao";
+            this.clnDescricao.HeaderText = "Descrição";
+            this.clnDescricao.MinimumWidth = 6;
+            this.clnDescricao.Name = "clnDescricao";
+            this.clnDescricao.ReadOnly = true;
+            this.clnDescricao.Width = 180;
+            // 
+            // clnQuantidade
+            // 
+            this.clnQuantidade.DataPropertyName = "Quantidade";
+            this.clnQuantidade.HeaderText = "QTD";
+            this.clnQuantidade.MinimumWidth = 6;
+            this.clnQuantidade.Name = "clnQuantidade";
+            this.clnQuantidade.ReadOnly = true;
+            this.clnQuantidade.Width = 50;
+            // 
+            // clnUnidade
+            // 
+            this.clnUnidade.DataPropertyName = "Unidade";
+            this.clnUnidade.HeaderText = "UND.";
+            this.clnUnidade.MinimumWidth = 6;
+            this.clnUnidade.Name = "clnUnidade";
+            this.clnUnidade.ReadOnly = true;
+            this.clnUnidade.Width = 50;
+            // 
+            // clnUsuarioSolicitante
+            // 
+            this.clnUsuarioSolicitante.DataPropertyName = "UsuarioSolicitante";
+            this.clnUsuarioSolicitante.HeaderText = "Usuário/Sol.";
+            this.clnUsuarioSolicitante.MinimumWidth = 6;
+            this.clnUsuarioSolicitante.Name = "clnUsuarioSolicitante";
+            this.clnUsuarioSolicitante.ReadOnly = true;
+            // 
+            // clnPrioridade
+            // 
+            this.clnPrioridade.DataPropertyName = "Prioridade";
+            this.clnPrioridade.HeaderText = "Prioridade";
+            this.clnPrioridade.MinimumWidth = 6;
+            this.clnPrioridade.Name = "clnPrioridade";
+            this.clnPrioridade.ReadOnly = true;
+            this.clnPrioridade.Width = 80;
+            // 
+            // clnDataEsperadaEntrega
+            // 
+            this.clnDataEsperadaEntrega.DataPropertyName = "DataEsperadaEntrega";
+            this.clnDataEsperadaEntrega.HeaderText = "Esp. Ent.";
+            this.clnDataEsperadaEntrega.MinimumWidth = 6;
+            this.clnDataEsperadaEntrega.Name = "clnDataEsperadaEntrega";
+            this.clnDataEsperadaEntrega.ReadOnly = true;
+            this.clnDataEsperadaEntrega.Width = 70;
+            // 
+            // clnValor
+            // 
+            this.clnValor.DataPropertyName = "Valor";
+            this.clnValor.HeaderText = "Valor";
+            this.clnValor.MinimumWidth = 6;
+            this.clnValor.Name = "clnValor";
+            this.clnValor.ReadOnly = true;
+            this.clnValor.Width = 70;
+            // 
+            // clnFrete
+            // 
+            this.clnFrete.DataPropertyName = "Frete";
+            this.clnFrete.HeaderText = "Frete";
+            this.clnFrete.MinimumWidth = 6;
+            this.clnFrete.Name = "clnFrete";
+            this.clnFrete.ReadOnly = true;
+            this.clnFrete.Width = 50;
+            // 
+            // clnFornecedor
+            // 
+            this.clnFornecedor.DataPropertyName = "Fornecedor";
+            this.clnFornecedor.HeaderText = "Forcedor";
+            this.clnFornecedor.MinimumWidth = 6;
+            this.clnFornecedor.Name = "clnFornecedor";
+            this.clnFornecedor.ReadOnly = true;
+            this.clnFornecedor.Width = 125;
+            // 
+            // clnFreteIncluso
+            // 
+            this.clnFreteIncluso.DataPropertyName = "FreteIncluso";
+            this.clnFreteIncluso.HeaderText = "Frete/Incluso.";
+            this.clnFreteIncluso.Name = "clnFreteIncluso";
+            this.clnFreteIncluso.ReadOnly = true;
+            // 
+            // clnEstadoCompra
+            // 
+            this.clnEstadoCompra.DataPropertyName = "EstadoDaCompra";
+            this.clnEstadoCompra.HeaderText = "Estado";
+            this.clnEstadoCompra.MinimumWidth = 6;
+            this.clnEstadoCompra.Name = "clnEstadoCompra";
+            this.clnEstadoCompra.ReadOnly = true;
+            this.clnEstadoCompra.Width = 70;
+            // 
+            // clnDataHoraSolicitacao
+            // 
+            this.clnDataHoraSolicitacao.DataPropertyName = "DataHoraSolicitacao";
+            this.clnDataHoraSolicitacao.HeaderText = "Data/Hora Sol.";
+            this.clnDataHoraSolicitacao.MinimumWidth = 6;
+            this.clnDataHoraSolicitacao.Name = "clnDataHoraSolicitacao";
+            this.clnDataHoraSolicitacao.ReadOnly = true;
+            this.clnDataHoraSolicitacao.Width = 125;
+            // 
+            // clnStatus
+            // 
+            this.clnStatus.DataPropertyName = "Status";
+            this.clnStatus.HeaderText = "Status";
+            this.clnStatus.MinimumWidth = 6;
+            this.clnStatus.Name = "clnStatus";
+            this.clnStatus.ReadOnly = true;
+            this.clnStatus.Width = 80;
+            // 
+            // clnUsuarioAutorizacao
+            // 
+            this.clnUsuarioAutorizacao.DataPropertyName = "UsuarioAutorizacao";
+            this.clnUsuarioAutorizacao.HeaderText = "Usuário/Aut.";
+            this.clnUsuarioAutorizacao.MinimumWidth = 6;
+            this.clnUsuarioAutorizacao.Name = "clnUsuarioAutorizacao";
+            this.clnUsuarioAutorizacao.ReadOnly = true;
+            this.clnUsuarioAutorizacao.Width = 125;
+            // 
+            // clnDataHoraAutorizacao
+            // 
+            this.clnDataHoraAutorizacao.DataPropertyName = "DataHoraAutorizacao";
+            this.clnDataHoraAutorizacao.HeaderText = "Data/Hora Aut.";
+            this.clnDataHoraAutorizacao.MinimumWidth = 6;
+            this.clnDataHoraAutorizacao.Name = "clnDataHoraAutorizacao";
+            this.clnDataHoraAutorizacao.ReadOnly = true;
+            this.clnDataHoraAutorizacao.Width = 125;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Principal);
@@ -309,6 +459,22 @@
             this.tx.TabIndex = 0;
             this.tx.TabStop = false;
             this.tx.Text = "Requisição de Compra";
+            // 
+            // btnAbrirObervacao
+            // 
+            this.btnAbrirObervacao.Location = new System.Drawing.Point(1260, 276);
+            this.btnAbrirObervacao.Name = "btnAbrirObervacao";
+            this.btnAbrirObervacao.Size = new System.Drawing.Size(18, 71);
+            this.btnAbrirObervacao.TabIndex = 30;
+            this.btnAbrirObervacao.UseVisualStyleBackColor = true;
+            // 
+            // txtObservacao
+            // 
+            this.txtObservacao.Location = new System.Drawing.Point(638, 276);
+            this.txtObservacao.Multiline = true;
+            this.txtObservacao.Name = "txtObservacao";
+            this.txtObservacao.Size = new System.Drawing.Size(620, 71);
+            this.txtObservacao.TabIndex = 29;
             // 
             // txtValor
             // 
@@ -532,6 +698,83 @@
             this.dataGridView2.TabIndex = 13;
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
+            // clnId
+            // 
+            this.clnId.DataPropertyName = "id";
+            this.clnId.HeaderText = "ID";
+            this.clnId.MinimumWidth = 6;
+            this.clnId.Name = "clnId";
+            this.clnId.ReadOnly = true;
+            this.clnId.Visible = false;
+            this.clnId.Width = 125;
+            // 
+            // clnNumeroRequisicao
+            // 
+            this.clnNumeroRequisicao.DataPropertyName = "NumeroRequisicao";
+            this.clnNumeroRequisicao.HeaderText = "NumeroRequisicao";
+            this.clnNumeroRequisicao.MinimumWidth = 6;
+            this.clnNumeroRequisicao.Name = "clnNumeroRequisicao";
+            this.clnNumeroRequisicao.ReadOnly = true;
+            this.clnNumeroRequisicao.Visible = false;
+            this.clnNumeroRequisicao.Width = 125;
+            // 
+            // clnDesricaoRequisicao
+            // 
+            this.clnDesricaoRequisicao.DataPropertyName = "DescricaoRequisicao";
+            this.clnDesricaoRequisicao.HeaderText = "Descrição";
+            this.clnDesricaoRequisicao.MinimumWidth = 6;
+            this.clnDesricaoRequisicao.Name = "clnDesricaoRequisicao";
+            this.clnDesricaoRequisicao.ReadOnly = true;
+            this.clnDesricaoRequisicao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnDesricaoRequisicao.Width = 110;
+            // 
+            // clnDataHoraApontamento
+            // 
+            this.clnDataHoraApontamento.DataPropertyName = "dataHoraApontamento";
+            this.clnDataHoraApontamento.HeaderText = "Data/Hora Apont.";
+            this.clnDataHoraApontamento.MinimumWidth = 6;
+            this.clnDataHoraApontamento.Name = "clnDataHoraApontamento";
+            this.clnDataHoraApontamento.ReadOnly = true;
+            this.clnDataHoraApontamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnDataHoraApontamento.Width = 140;
+            // 
+            // clnUsuarioApontamento
+            // 
+            this.clnUsuarioApontamento.DataPropertyName = "usuarioApontamento";
+            this.clnUsuarioApontamento.HeaderText = "Usuário Apont.";
+            this.clnUsuarioApontamento.MinimumWidth = 6;
+            this.clnUsuarioApontamento.Name = "clnUsuarioApontamento";
+            this.clnUsuarioApontamento.ReadOnly = true;
+            this.clnUsuarioApontamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnUsuarioApontamento.Width = 90;
+            // 
+            // clnDataHoraAlteracao
+            // 
+            this.clnDataHoraAlteracao.DataPropertyName = "dataHoraAlteracao";
+            this.clnDataHoraAlteracao.HeaderText = "Data/Hora Alteração";
+            this.clnDataHoraAlteracao.MinimumWidth = 6;
+            this.clnDataHoraAlteracao.Name = "clnDataHoraAlteracao";
+            this.clnDataHoraAlteracao.ReadOnly = true;
+            this.clnDataHoraAlteracao.Width = 140;
+            // 
+            // clnUsuarioAlteracao
+            // 
+            this.clnUsuarioAlteracao.DataPropertyName = "usuarioAlteracao";
+            this.clnUsuarioAlteracao.HeaderText = "Usuário Alt.";
+            this.clnUsuarioAlteracao.MinimumWidth = 6;
+            this.clnUsuarioAlteracao.Name = "clnUsuarioAlteracao";
+            this.clnUsuarioAlteracao.ReadOnly = true;
+            this.clnUsuarioAlteracao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnUsuarioAlteracao.Width = 90;
+            // 
+            // clnObervacao
+            // 
+            this.clnObervacao.DataPropertyName = "Observacao";
+            this.clnObervacao.HeaderText = "Observação";
+            this.clnObervacao.Name = "clnObervacao";
+            this.clnObervacao.ReadOnly = true;
+            this.clnObervacao.Visible = false;
+            // 
             // btnPesquisar
             // 
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -625,6 +868,8 @@
             this.txtNRequisicao.Name = "txtNRequisicao";
             this.txtNRequisicao.Size = new System.Drawing.Size(125, 20);
             this.txtNRequisicao.TabIndex = 0;
+            this.txtNRequisicao.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNRequisicao_KeyDown);
+            this.txtNRequisicao.Leave += new System.EventHandler(this.txtNRequisicao_Leave);
             // 
             // tabPage2
             // 
@@ -635,249 +880,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // NRequisicaoCompra
-            // 
-            this.NRequisicaoCompra.DataPropertyName = "NRequisicaoCompra";
-            this.NRequisicaoCompra.HeaderText = "Nº R.";
-            this.NRequisicaoCompra.MinimumWidth = 6;
-            this.NRequisicaoCompra.Name = "NRequisicaoCompra";
-            this.NRequisicaoCompra.ReadOnly = true;
-            this.NRequisicaoCompra.Width = 50;
-            // 
-            // clnCodigo
-            // 
-            this.clnCodigo.DataPropertyName = "Codigo";
-            this.clnCodigo.HeaderText = "Código";
-            this.clnCodigo.MinimumWidth = 6;
-            this.clnCodigo.Name = "clnCodigo";
-            this.clnCodigo.ReadOnly = true;
-            this.clnCodigo.Width = 110;
-            // 
-            // clnDescricao
-            // 
-            this.clnDescricao.DataPropertyName = "Descricao";
-            this.clnDescricao.HeaderText = "Descrição";
-            this.clnDescricao.MinimumWidth = 6;
-            this.clnDescricao.Name = "clnDescricao";
-            this.clnDescricao.ReadOnly = true;
-            this.clnDescricao.Width = 180;
-            // 
-            // clnQuantidade
-            // 
-            this.clnQuantidade.DataPropertyName = "Quantidade";
-            this.clnQuantidade.HeaderText = "QTD";
-            this.clnQuantidade.MinimumWidth = 6;
-            this.clnQuantidade.Name = "clnQuantidade";
-            this.clnQuantidade.ReadOnly = true;
-            this.clnQuantidade.Width = 50;
-            // 
-            // clnUnidade
-            // 
-            this.clnUnidade.DataPropertyName = "Unidade";
-            this.clnUnidade.HeaderText = "UND.";
-            this.clnUnidade.MinimumWidth = 6;
-            this.clnUnidade.Name = "clnUnidade";
-            this.clnUnidade.ReadOnly = true;
-            this.clnUnidade.Width = 50;
-            // 
-            // clnUsuarioSolicitante
-            // 
-            this.clnUsuarioSolicitante.DataPropertyName = "UsuarioSolicitante";
-            this.clnUsuarioSolicitante.HeaderText = "Usuário/Sol.";
-            this.clnUsuarioSolicitante.MinimumWidth = 6;
-            this.clnUsuarioSolicitante.Name = "clnUsuarioSolicitante";
-            this.clnUsuarioSolicitante.ReadOnly = true;
-            // 
-            // clnPrioridade
-            // 
-            this.clnPrioridade.DataPropertyName = "Prioridade";
-            this.clnPrioridade.HeaderText = "Prioridade";
-            this.clnPrioridade.MinimumWidth = 6;
-            this.clnPrioridade.Name = "clnPrioridade";
-            this.clnPrioridade.ReadOnly = true;
-            this.clnPrioridade.Width = 80;
-            // 
-            // clnDataEsperadaEntrega
-            // 
-            this.clnDataEsperadaEntrega.DataPropertyName = "DataEsperadaEntrega";
-            this.clnDataEsperadaEntrega.HeaderText = "Esp. Ent.";
-            this.clnDataEsperadaEntrega.MinimumWidth = 6;
-            this.clnDataEsperadaEntrega.Name = "clnDataEsperadaEntrega";
-            this.clnDataEsperadaEntrega.ReadOnly = true;
-            this.clnDataEsperadaEntrega.Width = 70;
-            // 
-            // clnValor
-            // 
-            this.clnValor.DataPropertyName = "Valor";
-            this.clnValor.HeaderText = "Valor";
-            this.clnValor.MinimumWidth = 6;
-            this.clnValor.Name = "clnValor";
-            this.clnValor.ReadOnly = true;
-            this.clnValor.Width = 70;
-            // 
-            // clnFrete
-            // 
-            this.clnFrete.DataPropertyName = "Frete";
-            this.clnFrete.HeaderText = "Frete";
-            this.clnFrete.MinimumWidth = 6;
-            this.clnFrete.Name = "clnFrete";
-            this.clnFrete.ReadOnly = true;
-            this.clnFrete.Width = 50;
-            // 
-            // clnFornecedor
-            // 
-            this.clnFornecedor.DataPropertyName = "Fornecedor";
-            this.clnFornecedor.HeaderText = "Forcedor";
-            this.clnFornecedor.MinimumWidth = 6;
-            this.clnFornecedor.Name = "clnFornecedor";
-            this.clnFornecedor.ReadOnly = true;
-            this.clnFornecedor.Width = 125;
-            // 
-            // clnFreteIncluso
-            // 
-            this.clnFreteIncluso.DataPropertyName = "FreteIncluso";
-            this.clnFreteIncluso.HeaderText = "Frete/Incluso.";
-            this.clnFreteIncluso.Name = "clnFreteIncluso";
-            this.clnFreteIncluso.ReadOnly = true;
-            // 
-            // clnEstadoCompra
-            // 
-            this.clnEstadoCompra.DataPropertyName = "EstadoDaCompra";
-            this.clnEstadoCompra.HeaderText = "Estado";
-            this.clnEstadoCompra.MinimumWidth = 6;
-            this.clnEstadoCompra.Name = "clnEstadoCompra";
-            this.clnEstadoCompra.ReadOnly = true;
-            this.clnEstadoCompra.Width = 70;
-            // 
-            // clnDataHoraSolicitacao
-            // 
-            this.clnDataHoraSolicitacao.DataPropertyName = "DataHoraSolicitacao";
-            this.clnDataHoraSolicitacao.HeaderText = "Data/Hora Sol.";
-            this.clnDataHoraSolicitacao.MinimumWidth = 6;
-            this.clnDataHoraSolicitacao.Name = "clnDataHoraSolicitacao";
-            this.clnDataHoraSolicitacao.ReadOnly = true;
-            this.clnDataHoraSolicitacao.Width = 125;
-            // 
-            // clnStatus
-            // 
-            this.clnStatus.DataPropertyName = "Status";
-            this.clnStatus.HeaderText = "Status";
-            this.clnStatus.MinimumWidth = 6;
-            this.clnStatus.Name = "clnStatus";
-            this.clnStatus.ReadOnly = true;
-            this.clnStatus.Width = 80;
-            // 
-            // clnUsuarioAutorizacao
-            // 
-            this.clnUsuarioAutorizacao.DataPropertyName = "UsuarioAutorizacao";
-            this.clnUsuarioAutorizacao.HeaderText = "Usuário/Aut.";
-            this.clnUsuarioAutorizacao.MinimumWidth = 6;
-            this.clnUsuarioAutorizacao.Name = "clnUsuarioAutorizacao";
-            this.clnUsuarioAutorizacao.ReadOnly = true;
-            this.clnUsuarioAutorizacao.Width = 125;
-            // 
-            // clnDataHoraAutorizacao
-            // 
-            this.clnDataHoraAutorizacao.DataPropertyName = "DataHoraAutorizacao";
-            this.clnDataHoraAutorizacao.HeaderText = "Data/Hora Aut.";
-            this.clnDataHoraAutorizacao.MinimumWidth = 6;
-            this.clnDataHoraAutorizacao.Name = "clnDataHoraAutorizacao";
-            this.clnDataHoraAutorizacao.ReadOnly = true;
-            this.clnDataHoraAutorizacao.Width = 125;
-            // 
-            // txtObservacao
-            // 
-            this.txtObservacao.Location = new System.Drawing.Point(638, 276);
-            this.txtObservacao.Multiline = true;
-            this.txtObservacao.Name = "txtObservacao";
-            this.txtObservacao.Size = new System.Drawing.Size(620, 71);
-            this.txtObservacao.TabIndex = 29;
-            // 
-            // btnAbrirObervacao
-            // 
-            this.btnAbrirObervacao.Location = new System.Drawing.Point(1260, 276);
-            this.btnAbrirObervacao.Name = "btnAbrirObervacao";
-            this.btnAbrirObervacao.Size = new System.Drawing.Size(18, 71);
-            this.btnAbrirObervacao.TabIndex = 30;
-            this.btnAbrirObervacao.UseVisualStyleBackColor = true;
-            // 
-            // clnId
-            // 
-            this.clnId.DataPropertyName = "id";
-            this.clnId.HeaderText = "ID";
-            this.clnId.MinimumWidth = 6;
-            this.clnId.Name = "clnId";
-            this.clnId.ReadOnly = true;
-            this.clnId.Visible = false;
-            this.clnId.Width = 125;
-            // 
-            // clnNumeroRequisicao
-            // 
-            this.clnNumeroRequisicao.DataPropertyName = "NumeroRequisicao";
-            this.clnNumeroRequisicao.HeaderText = "NumeroRequisicao";
-            this.clnNumeroRequisicao.MinimumWidth = 6;
-            this.clnNumeroRequisicao.Name = "clnNumeroRequisicao";
-            this.clnNumeroRequisicao.ReadOnly = true;
-            this.clnNumeroRequisicao.Visible = false;
-            this.clnNumeroRequisicao.Width = 125;
-            // 
-            // clnDesricaoRequisicao
-            // 
-            this.clnDesricaoRequisicao.DataPropertyName = "DescricaoRequisicao";
-            this.clnDesricaoRequisicao.HeaderText = "Descrição";
-            this.clnDesricaoRequisicao.MinimumWidth = 6;
-            this.clnDesricaoRequisicao.Name = "clnDesricaoRequisicao";
-            this.clnDesricaoRequisicao.ReadOnly = true;
-            this.clnDesricaoRequisicao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnDesricaoRequisicao.Width = 110;
-            // 
-            // clnDataHoraApontamento
-            // 
-            this.clnDataHoraApontamento.DataPropertyName = "dataHoraApontamento";
-            this.clnDataHoraApontamento.HeaderText = "Data/Hora Apont.";
-            this.clnDataHoraApontamento.MinimumWidth = 6;
-            this.clnDataHoraApontamento.Name = "clnDataHoraApontamento";
-            this.clnDataHoraApontamento.ReadOnly = true;
-            this.clnDataHoraApontamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnDataHoraApontamento.Width = 140;
-            // 
-            // clnUsuarioApontamento
-            // 
-            this.clnUsuarioApontamento.DataPropertyName = "usuarioApontamento";
-            this.clnUsuarioApontamento.HeaderText = "Usuário Apont.";
-            this.clnUsuarioApontamento.MinimumWidth = 6;
-            this.clnUsuarioApontamento.Name = "clnUsuarioApontamento";
-            this.clnUsuarioApontamento.ReadOnly = true;
-            this.clnUsuarioApontamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnUsuarioApontamento.Width = 90;
-            // 
-            // clnDataHoraAlteracao
-            // 
-            this.clnDataHoraAlteracao.DataPropertyName = "dataHoraAlteracao";
-            this.clnDataHoraAlteracao.HeaderText = "Data/Hora Alteração";
-            this.clnDataHoraAlteracao.MinimumWidth = 6;
-            this.clnDataHoraAlteracao.Name = "clnDataHoraAlteracao";
-            this.clnDataHoraAlteracao.ReadOnly = true;
-            this.clnDataHoraAlteracao.Width = 140;
-            // 
-            // clnUsuarioAlteracao
-            // 
-            this.clnUsuarioAlteracao.DataPropertyName = "usuarioAlteracao";
-            this.clnUsuarioAlteracao.HeaderText = "Usuário Alt.";
-            this.clnUsuarioAlteracao.MinimumWidth = 6;
-            this.clnUsuarioAlteracao.Name = "clnUsuarioAlteracao";
-            this.clnUsuarioAlteracao.ReadOnly = true;
-            this.clnUsuarioAlteracao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnUsuarioAlteracao.Width = 90;
-            // 
-            // clnObervacao
-            // 
-            this.clnObervacao.DataPropertyName = "Observacao";
-            this.clnObervacao.HeaderText = "Observação";
-            this.clnObervacao.Name = "clnObervacao";
-            this.clnObervacao.ReadOnly = true;
-            this.clnObervacao.Visible = false;
             // 
             // frmRequisicaoCompra
             // 
