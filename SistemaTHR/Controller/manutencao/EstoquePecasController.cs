@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaTHR.dto.manutencao;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -27,6 +28,24 @@ namespace SistemaTHR.Controller.manutencao
         private string msg;
         private bool exists;
         private DataTable dt;
+
+        public EstoquePecasController()
+        {
+
+        }
+        public EstoquePecasController(EstoquePecasDto dto)
+        {
+            nPecas = dto.NPecas;
+            codigo = dto.Codigo;
+            descricao = dto.Descricao;
+            unidade = dto.Unidade;
+            qtEstoque = dto.QtEstoque;
+            estoqueMax = dto.EstoqueMax;
+            estoqueMin = dto.EstoqueMin;
+            fornecedor1 = dto.Fornecedor1;
+            fornecedor2 = dto.Fornecedor2;
+            fornecedor3 = dto.Fornecedor3;
+        }
 
         public string NPecas { get => nPecas; set => nPecas = value; }
         public string Codigo { get => codigo; set => codigo = value; }

@@ -50,11 +50,11 @@ namespace SistemaTHR.Service.manutencao
             dto = new solicitacaoPecaDto();
 
             dto.NOs = controller.NOs;
-            dto.CodigoPeca = controller.CodigoPeca;
-            dto.DescricaoPeca = controller.DescricaoPeca;
+            dto.CodigoPeca = controller.CodigoPeca.ToUpper();
+            dto.DescricaoPeca = controller.DescricaoPeca.ToUpper();
             dto.Qtd = controller.Qtd;
-            dto.ASU = controller.ASU;
-            dto.Unidade = controller.Unidade;
+            dto.ASU = controller.ASU.ToUpper();
+            dto.Unidade = controller.Unidade.ToUpper();
             dto.UsuarioSolicitacao = loginController.Nome;
             dto.StatusSolicitacao = "AGUARDANDO/AUT. PEÇAS";
             dto.DataHoraSolicitacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
@@ -157,10 +157,10 @@ namespace SistemaTHR.Service.manutencao
                         if (estoqueController.Exists)
                         {
                             movimentacaoController = new movimentacaoPecasController();
-                            movimentacaoController.CodigoPeca = controller.CodigoPeca;
-                            movimentacaoController.DescricaoPeca = controller.DescricaoPeca;
+                            movimentacaoController.CodigoPeca = controller.CodigoPeca.ToUpper();
+                            movimentacaoController.DescricaoPeca = controller.DescricaoPeca.ToUpper();
                             movimentacaoController.Qtd = controller.Qtd;
-                            movimentacaoController.Unidade = controller.Unidade;
+                            movimentacaoController.Unidade = controller.Unidade.ToUpper();
                             movimentacaoController.UsuarioSolicitacao = controller.UsuarioSolicitacao;
                             movimentacaoController.DataHoraSolicitacao = controller.DataHoraSolicitacao;
                             movimentacaoController.Asu = controller.ASU;

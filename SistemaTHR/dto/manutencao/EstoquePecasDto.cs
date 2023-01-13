@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaTHR.dto.manutencao
 {
-    internal class EstoquePecasDto
+    public class EstoquePecasDto
     {
         private string nPecas;
         private string codigo;
@@ -27,6 +27,8 @@ namespace SistemaTHR.dto.manutencao
         private string msg;
         private bool exists = false;
         private DataTable dt;
+
+        public EstoquePecasDto() { }
 
         public string NPecas { get => nPecas; set => nPecas = value; }
         public string Codigo { get => codigo; set => codigo = value; }

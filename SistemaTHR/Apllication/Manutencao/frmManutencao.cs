@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using SistemaTHR.Apllication.Manutencao;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Controller.manutencao;
+using SistemaTHR.Service.Exepction;
 using SistemaTHR.Service.manutencao;
 
 
@@ -1093,6 +1094,43 @@ namespace SistemaTHR.Apllication
             txtCodigo.ReadOnly = false;
             txtUnidade.ReadOnly = false;
             txtQuantidadePeca.ReadOnly = false;
+        }
+
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+
+                Procurar();
+            }
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if(txtDescricaoPeca.Text.Length > 0)
+            {
+                Procurar();
+            }
+        }
+
+        private void Procurar()
+        {
+            try
+            {
+                var obj = estoqueService.BuscarPorCodigo(txtCodigo.Text);
+                txtCodigo.Text = obj.Codigo;
+                txtDescricaoPeca.Text = obj.Descricao;
+                txtUnidade.Text = obj.Unidade;
+
+            }
+            catch (ExceptionService ex)
+            {
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Text = "";
+                txtDescricao.Text = "";
+                txtUnidade.Text = "";
+
+            }
         }
     }
 }

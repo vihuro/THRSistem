@@ -9,6 +9,7 @@ using SistemaTHR.Service.manutencao;
 using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.Controller.Login;
 using System.Data;
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.Service.manutencao
 {
@@ -189,6 +190,23 @@ namespace SistemaTHR.Service.manutencao
         {
             dto = new EstoquePecasDto();
             return dao.VerificarSeExiste(codigo);
+        }
+
+        public EstoquePecasController BuscarPorCodigo(string codigo)
+        {
+            dto = new EstoquePecasDto();
+            if(codigo == string.Empty)
+            {
+                throw new ExceptionService("Código não encontrado!");
+            }
+
+            var item = dao.BuscarPorCodigo(codigo);
+            if(item.Codigo == null)
+            {
+                throw new ExceptionService("Código não encontrado!");
+            }
+
+            return new EstoquePecasController(item);
         }
 
         private void EntradaEstoque(EstoquePecasController controller, EstoquePecasDto dto, string tipoMovimentacao)

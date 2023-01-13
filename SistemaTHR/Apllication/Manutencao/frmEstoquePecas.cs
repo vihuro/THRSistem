@@ -11,7 +11,7 @@ using SistemaTHR.Apllication.Estoque;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.manutencao;
 using SistemaTHR.Controller.Login;
-
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.Apllication.Manutencao
 {
@@ -300,25 +300,70 @@ namespace SistemaTHR.Apllication.Manutencao
         {
             if (e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
             {
+                Procurar();
+            }
+        }
+
+        private void Procurar()
+        {
+            try
+            {
+                var obj = estoqueService.BuscarPorCodigo(txtCodigo.Text);
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    if (dataGridView1.Rows[i].Cells[1].Value.ToString() == txtCodigo.Text)
+                    if (dataGridView1.Rows[i].Cells[1].Value.ToString() == obj.Codigo)
                     {
-                        Console.WriteLine(dataGridView1.Rows[i].Cells[1].Value.ToString());
                         dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
                         break;
                     }
-                    else if (i == dataGridView1.Rows.Count - 1)
+                }
+
+
+            }
+            catch (ExceptionService ex)
+            {
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDescricao.Text = string.Empty;
+                cboUnidade.Text = string.Empty;
+                txtFornecedor1.Text = string.Empty;
+                txtFornecedor2.Text = string.Empty;
+                txtFornecedor3.Text = string.Empty;
+                txtCodFornecedor1.Text = string.Empty;
+                txtCodFornecedor2.Text = string.Empty;
+                txtCodFornecedor3.Text = string.Empty;
+                txtEstoqueMax.Text = string.Empty;
+                txtEstoqueMin.Text = string.Empty;
+                btnSalvar.Enabled = true;
+                btnAlterar.Enabled = false;
+
+            }
+        }
+
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text.Length > 0)
+            {
+                try
+                {
+                    var obj = estoqueService.BuscarPorCodigo(txtCodigo.Text);
+                    
+                    for(int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        DialogResult result = MessageBox.Show("Código não econtrado!\r\n" +
-                            "Deseja cadastrar um novo código?", "SISTEMA THR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (result == DialogResult.No)
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+                        break;
+                    }
+                }
+                catch (ExceptionService ex)
+                {
+                    if(ex.Message == "Código não encontrado!")
+                    {
+                        var result = DialogResult;
+                        result = MessageBox.Show("Código não encontrado! Deseja cadastrar um novo material?", "SISTEMA THR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if(result == DialogResult.Yes)
                         {
-                            loadGridView1();
-                            clearAll();
-                        }
-                        else
-                        {
+                            dataGridView1.ClearSelection();
+
                             txtDescricao.Text = string.Empty;
                             cboUnidade.Text = string.Empty;
                             txtFornecedor1.Text = string.Empty;
@@ -332,6 +377,15 @@ namespace SistemaTHR.Apllication.Manutencao
                             btnSalvar.Enabled = true;
                             btnAlterar.Enabled = false;
                         }
+                        else
+                        {
+                            loadGridView1();
+                            clearAll();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
                 }

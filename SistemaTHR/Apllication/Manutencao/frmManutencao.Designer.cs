@@ -81,6 +81,7 @@
             this.cboPrioridade = new System.Windows.Forms.ComboBox();
             this.txtOrdemServico = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnLimparPecas = new System.Windows.Forms.Button();
             this.btnBuscarPecas = new System.Windows.Forms.Button();
             this.txtQuantidadePeca = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.Label();
@@ -112,7 +113,6 @@
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnLimparPecas = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -659,6 +659,18 @@
             this.tabPage2.Text = "Peças";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnLimparPecas
+            // 
+            this.btnLimparPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimparPecas.ForeColor = System.Drawing.Color.White;
+            this.btnLimparPecas.Image = global::SistemaTHR.Properties.Resources.mais;
+            this.btnLimparPecas.Location = new System.Drawing.Point(656, 268);
+            this.btnLimparPecas.Name = "btnLimparPecas";
+            this.btnLimparPecas.Size = new System.Drawing.Size(25, 23);
+            this.btnLimparPecas.TabIndex = 12;
+            this.btnLimparPecas.UseVisualStyleBackColor = true;
+            this.btnLimparPecas.Click += new System.EventHandler(this.btnLimparPecas_Click);
+            // 
             // btnBuscarPecas
             // 
             this.btnBuscarPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -690,6 +702,7 @@
             // 
             // txtUnidade
             // 
+            this.txtUnidade.Enabled = false;
             this.txtUnidade.Location = new System.Drawing.Point(481, 270);
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.Size = new System.Drawing.Size(53, 20);
@@ -739,6 +752,7 @@
             // 
             // txtDescricaoPeca
             // 
+            this.txtDescricaoPeca.Enabled = false;
             this.txtDescricaoPeca.Location = new System.Drawing.Point(98, 270);
             this.txtDescricaoPeca.Name = "txtDescricaoPeca";
             this.txtDescricaoPeca.Size = new System.Drawing.Size(337, 20);
@@ -768,6 +782,8 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // panel4
             // 
@@ -961,18 +977,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1337, 36);
             this.panel3.TabIndex = 14;
-            // 
-            // btnLimparPecas
-            // 
-            this.btnLimparPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimparPecas.ForeColor = System.Drawing.Color.White;
-            this.btnLimparPecas.Image = global::SistemaTHR.Properties.Resources.mais;
-            this.btnLimparPecas.Location = new System.Drawing.Point(656, 268);
-            this.btnLimparPecas.Name = "btnLimparPecas";
-            this.btnLimparPecas.Size = new System.Drawing.Size(25, 23);
-            this.btnLimparPecas.TabIndex = 12;
-            this.btnLimparPecas.UseVisualStyleBackColor = true;
-            this.btnLimparPecas.Click += new System.EventHandler(this.btnLimparPecas_Click);
             // 
             // frmManutencao
             // 

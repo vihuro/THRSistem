@@ -246,5 +246,38 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
+
+        internal EstoquePecasDto BuscarPorCodigo(string codigo)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "SELECT * FROM tab_EstoquePecas WHERE codigo = @codigo";
+            cmd.Parameters.AddWithValue("", codigo);
+            try
+            {
+                var obj = new EstoquePecasDto();
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        obj.Codigo = dr["codigo"].ToString();
+                        obj.Descricao = dr["descricao"].ToString();
+                        obj.Unidade = dr["unidade"].ToString();
+                        obj.QtEstoque = dr["QtEstoque"].ToString();
+                    }
+                }
+                return obj;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
     }
 }
