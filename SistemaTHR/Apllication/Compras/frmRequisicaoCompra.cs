@@ -3,6 +3,7 @@ using SistemaTHR.Controller.Compras;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Service.Compras;
 using SistemaTHR.Service.Exepction;
+using SistemaTHR.Service.manutencao;
 using System;
 using System.Data;
 using System.Drawing;
@@ -18,6 +19,7 @@ namespace SistemaTHR.Apllication.Compras
         private requisicaoCompraController controller;
         private requisicaoCompraService service;
         private AcompanhamentoRequisicaoCompraService acompanhamentoService;
+        private EstoquePecasService estoqueService;
 
         public frmRequisicaoCompra(loginController loginController, modulosController modulosController)
         {
@@ -25,6 +27,7 @@ namespace SistemaTHR.Apllication.Compras
             this.modulosController = modulosController;
             service = new requisicaoCompraService(loginController, modulosController);
             acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController);
+            estoqueService = new EstoquePecasService(loginController, modulosController);
             InitializeComponent();
         }
 
@@ -84,7 +87,7 @@ namespace SistemaTHR.Apllication.Compras
             catch (ExceptionService ex)
             {
 
-                MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -100,10 +103,10 @@ namespace SistemaTHR.Apllication.Compras
                 loadGridView();
                 clearAll();
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
 
-                MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -115,13 +118,16 @@ namespace SistemaTHR.Apllication.Compras
             if (dataGridView1.SelectedRows.Count > 0)
             {
 
-                // Aqui fica o relaciomento dos campos
+                // Aqui fica o relacionamento dos campos
                 txtNRequisicao.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 txtQuantidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                 cboPrioridade.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
+                // Apenas para teste
+                btnAutorizar.Enabled = true;
 
                 //IF ternario, se data for igual a 00/00/0000, irá lançar a data custom, se não, irá mostrar a data prevista
                 dateTimePicker1.CustomFormat =
@@ -251,12 +257,12 @@ namespace SistemaTHR.Apllication.Compras
                     {
                         service.verificarAberto(controller);
 
-                        clearAll();
-                        loadGridView();
                     }
+                    clearAll();
+                    loadGridView();
 
                 }
-                catch (Exception ex)
+                catch (ExceptionService ex)
                 {
 
                     MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -264,7 +270,7 @@ namespace SistemaTHR.Apllication.Compras
             }
             else
             {
-                MessageBox.Show("Campos obrigatórios em branco!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Campos obrigatório(s) em branco!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -284,10 +290,9 @@ namespace SistemaTHR.Apllication.Compras
                 }
                 clearAll();
             }
-            catch (Exception)
+            catch (ExceptionService ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -338,7 +343,7 @@ namespace SistemaTHR.Apllication.Compras
             {
                 var linha = SearcInDataGriView1(txtNRequisicao.Text);
 
-                if(linha > 0)
+                if (linha > 0)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[linha].Cells[0];
                 }
@@ -366,7 +371,7 @@ namespace SistemaTHR.Apllication.Compras
             if (txtNRequisicao.Text.Length > 0)
             {
                 var linha = SearcInDataGriView1(txtNRequisicao.Text);
-                if(linha > 0)
+                if (linha > 0)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[linha].Cells[0];
                 }
@@ -375,6 +380,43 @@ namespace SistemaTHR.Apllication.Compras
                     clearAll();
                 }
 
+            }
+        }
+
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+
+                Procurar();
+            }
+        }
+
+        private void Procurar()
+        {
+            try
+            {
+                var obj = estoqueService.BuscarPorCodigo(txtCodigo.Text);
+                txtCodigo.Text = obj.Codigo;
+                txtDescricao.Text = obj.Descricao;
+                txtUnidade.Text = obj.Unidade;
+
+            }
+            catch (ExceptionService ex)
+            {
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Text = "";
+                txtDescricao.Text = "";
+                txtUnidade.Text = "";
+
+            }
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if (txtDescricao.Text.Length > 0)
+            {
+                Procurar();
             }
         }
     }

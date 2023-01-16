@@ -35,16 +35,6 @@ namespace SistemaTHR.Service.Compras
         private void Insert(requisicaoCompraController controller)
         {
             dto = new requisicaoCompraDto();
-            if (controller.Codigo == string.Empty && controller.Descricao == string.Empty &&
-                controller.Quantidade == string.Empty && controller.Unidade == string.Empty &&
-                controller.Prioridade == string.Empty && controller.DataHoraEsperadaEntrega == string.Empty)
-            {
-                throw new ExceptionService("Campos obrigatório(s) vazio(s)!");
-            }
-            if (!estoquePecasService.VerificarSeExiste(controller.Codigo))
-            {
-                throw new ExceptionService("Código de peça não encontrado!");
-            }
 
             dto.Codigo = controller.Codigo.ToUpper();
             dto.Descricao = controller.Descricao.ToUpper();
@@ -62,6 +52,25 @@ namespace SistemaTHR.Service.Compras
         {
 
             dto = new requisicaoCompraDto();
+
+            if (controller.Codigo == string.Empty && controller.Descricao == string.Empty &&
+                controller.Quantidade == string.Empty && controller.Unidade == string.Empty &&
+                controller.Prioridade == string.Empty && controller.DataHoraEsperadaEntrega == string.Empty)
+            {
+                throw new ExceptionService("Campos obrigatório(s) vazio(s)!");
+            }
+            if (!estoquePecasService.VerificarSeExiste(controller.Codigo))
+            {
+                throw new ExceptionService("Código de peça não encontrado!");
+            }
+            if (modulosController.Compras != "Sim")
+            {
+                throw new ExceptionService("Esse usuário não tem permissão para essa requisição!");
+            }
+            if (Convert.ToDecimal(controller.Quantidade.ToString()) <= 0)
+            {
+                throw new ExceptionService("A quantidade não pode ser menor ou igual a zero!");
+            }
 
             dto.Codigo = controller.Codigo.ToUpper();
             dto.Status = "Pendente";
@@ -102,6 +111,10 @@ namespace SistemaTHR.Service.Compras
             if (dto.UsuarioAutorizador == string.Empty && dto.NRequisicao == string.Empty)
             {
                 throw new ExceptionService("Campo(s) obrigatório(s) vazio(s)!");
+            }
+            if(modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
+            {
+                throw new ExceptionService("Esse usuário não pode fazer essa requisição!");
             }
 
             dto.UsuarioAutorizador = loginController.Nome;

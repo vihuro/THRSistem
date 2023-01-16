@@ -16,7 +16,6 @@ namespace SistemaTHR.DAO.Manutencao
         private OleDbDataReader dr;
         private Connection con;
         private OleDbDataAdapter da;
-        private ExceptionService expection;
         private DataTable dt;
 
         public requisicaoCompraDao()
@@ -227,6 +226,29 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
+        public void UpdateStatus(requisicaoCompraDto dto)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "UPDATE tab_RequisicaoCompra SET = Status = @Status WHERE NRequisicaoCompra = @ID";
+            cmd.Parameters.AddWithValue("", dto.Status);
+            cmd.Parameters.AddWithValue("", dto.NRequisicao);
+            try
+            {
+                cmd.Connection = con.conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
+
+
         public DataTable Table()
         {
             cmd = new OleDbCommand();
