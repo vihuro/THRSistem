@@ -114,6 +114,7 @@ namespace SistemaTHR.Apllication.Compras
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -187,6 +188,8 @@ namespace SistemaTHR.Apllication.Compras
 
                 }
             }
+            this.Cursor = Cursors.Default;
+
         }
 
         private void SearchForNumber(string numeroRequisicao)
@@ -224,11 +227,11 @@ namespace SistemaTHR.Apllication.Compras
             loadGridView();
             clearAll();
             this.Cursor = Cursors.Default;
-
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (txtCodigo.Text != string.Empty && txtDescricao.Text != string.Empty &&
                 txtQuantidade.Text != string.Empty)
             {
@@ -272,7 +275,7 @@ namespace SistemaTHR.Apllication.Compras
             {
                 MessageBox.Show("Campos obrigatório(s) em branco!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+            this.Cursor = Cursors.Default;
         }
 
         private void LoadGridViewForNumber(string text)
@@ -339,6 +342,8 @@ namespace SistemaTHR.Apllication.Compras
 
         private void txtNRequisicao_KeyDown(object sender, KeyEventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
+
             if (e.KeyCode == Keys.Tab || e.KeyCode == Keys.Enter)
             {
                 var linha = SearcInDataGriView1(txtNRequisicao.Text);
@@ -352,6 +357,9 @@ namespace SistemaTHR.Apllication.Compras
                     MessageBox.Show("Requisição de compra não localizada!");
                 }
             }
+
+            this.Cursor = Cursors.Default;
+
         }
 
         private int SearcInDataGriView1(string text)
@@ -368,6 +376,7 @@ namespace SistemaTHR.Apllication.Compras
 
         private void txtNRequisicao_Leave(object sender, EventArgs e)
         {
+
             if (txtNRequisicao.Text.Length > 0)
             {
                 var linha = SearcInDataGriView1(txtNRequisicao.Text);
@@ -379,8 +388,8 @@ namespace SistemaTHR.Apllication.Compras
                 {
                     clearAll();
                 }
-
             }
+
         }
 
         private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
@@ -394,6 +403,8 @@ namespace SistemaTHR.Apllication.Compras
 
         private void Procurar()
         {
+            this.Cursor = Cursors.WaitCursor;
+
             try
             {
                 var obj = estoqueService.BuscarPorCodigo(txtCodigo.Text);
@@ -410,11 +421,15 @@ namespace SistemaTHR.Apllication.Compras
                 txtUnidade.Text = "";
 
             }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
-            if (txtDescricao.Text.Length > 0)
+            if (txtCodigo.Text.Length > 0)
             {
                 Procurar();
             }
