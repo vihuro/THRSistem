@@ -159,6 +159,17 @@ namespace SistemaTHR.Service.estoque
 
             return somaPorCodigo;
         }
+        public double Count(DataTable dt, string codigo)
+        {
+
+
+            var somaPorCodigo = dt.AsEnumerable().Where(rows => rows.Field<string>("CodProd") ==
+                 codigo)
+                .Sum(rows => rows.Field<double>("Quantidade"));
+
+
+            return somaPorCodigo;
+        }
 
         public void FilterCode(EstoqueController controller)
         {

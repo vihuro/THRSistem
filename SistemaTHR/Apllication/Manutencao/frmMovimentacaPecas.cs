@@ -30,6 +30,7 @@ namespace SistemaTHR.Apllication.Manutencao
         private void clearAll()
         {
             //throw new NotImplementedException();
+            dataGridView1.ClearSelection();
         }
 
         private void loadGridView1()
@@ -44,7 +45,30 @@ namespace SistemaTHR.Apllication.Manutencao
             else
             {
                 dataGridView1.DataSource = controller.Dt;
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    if (i == dataGridView1.Rows.Count - 1)
+                    {
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+                        break;
+                    }
+                }
+                clearAll();
             }
+        }
+
+        public void LoadGridViewFilter(DataTable dt)
+        {
+            dataGridView1.DataSource = dt;
+            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if(i == dataGridView1.Rows.Count - 1)
+                {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+                    break;
+                }
+            }
+            clearAll();
         }
 
 
@@ -100,6 +124,20 @@ namespace SistemaTHR.Apllication.Manutencao
             //{
               //  MessageBox.Show(controller.Msg);
             //}
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            var filtro = new frmFiltroMovimentacoesPeca(loginController,modulosController,this);
+            filtro.ShowDialog();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Black;
+            }
         }
     }
 }

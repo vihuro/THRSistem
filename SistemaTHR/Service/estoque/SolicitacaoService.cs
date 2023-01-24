@@ -59,6 +59,7 @@ namespace SistemaTHR.Service.estoque
         {
 
             dto = new SolicitacaoDto();
+            InsertMovimentacao(controller, quantidade);
             var tempoEspera = TempoEspera(Convert.ToDateTime(controller.Data.ToString()), DateTime.Now);
             dto.HoraEntrega = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
             dto.Status = "ENTREGUE";
@@ -70,10 +71,7 @@ namespace SistemaTHR.Service.estoque
             {
                 controller.Msg = dto.Msg;
             }
-            else
-            {
-                InsertMovimentacao(controller, quantidade);
-            }
+
 
         }
 

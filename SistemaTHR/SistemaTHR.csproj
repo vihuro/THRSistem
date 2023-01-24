@@ -250,6 +250,12 @@
     <Compile Include="Apllication\Manutencao\frmEstoquePesquisa.Designer.cs">
       <DependentUpon>frmEstoquePesquisa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apllication\Manutencao\frmFiltroMovimentacoesPeca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmFiltroMovimentacoesPeca.Designer.cs">
+      <DependentUpon>frmFiltroMovimentacoesPeca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apllication\Manutencao\frmFiltroRequisicoesPeca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -681,6 +687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Gerencial\frmFiltroUsuarios.resx">
       <DependentUpon>frmFiltroUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmFiltroMovimentacoesPeca.resx">
+      <DependentUpon>frmFiltroMovimentacoesPeca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Manutencao\frmFiltroRequisicoesPeca.resx">
       <DependentUpon>frmFiltroRequisicoesPeca.cs</DependentUpon>

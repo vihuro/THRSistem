@@ -478,3 +478,4 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\Autofac.xml
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Estoque.Impressao.frmRelatorioImpressao.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\bd_estoque.accdb
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\Apllication\Estoque\Impressao\Relatório de Estoque.rdlc
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.frmFiltroMovimentacoesPeca.resources

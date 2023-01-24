@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace SistemaTHR.DAO.Estoque
                 con.desconectar();
             }
         }
-        public void SelectTable(MovimentacaoDto dto)
+        public DataTable SelectTable()
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select *  from Movimento order by codigo asc";
@@ -55,14 +56,16 @@ namespace SistemaTHR.DAO.Estoque
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                dto.Dt = new System.Data.DataTable();
-                da.Fill(dto.Dt);
+                var dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
 
             }
             catch (Exception ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new Exception("Erro " + ex.Message);
             }
             finally
             {

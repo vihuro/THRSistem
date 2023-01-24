@@ -7,6 +7,9 @@ using SistemaTHR.dto.estoque;
 using SistemaTHR.Controller.estoque;
 using SistemaTHR.DAO.Estoque;
 using SistemaTHR.Controller.Login;
+using SistemaTHR.Service.Exepction;
+using SistemaTHR.dto.manutencao;
+using SistemaTHR.dto.transferencia;
 
 namespace SistemaTHR.Service.estoque
 {
@@ -16,11 +19,13 @@ namespace SistemaTHR.Service.estoque
         private MovimentacaoDao dao = new MovimentacaoDao();
         private loginController loginController;
         private modulosController modulosController;
+        private EstoqueService estoqueService;
 
 
         public MovimentacaoSerivce(loginController loginController)
         {
             this.loginController = loginController;
+            estoqueService = new EstoqueService(loginController);
 
         }
 
@@ -44,21 +49,26 @@ namespace SistemaTHR.Service.estoque
         public void SelectTable(MovimentacaoController controller)
         {
             dto = new MovimentacaoDto();
-            dao.SelectTable(dto);
+            controller.Dt = dao.SelectTable();
             if(dto.Msg != null)
             {
                 controller.Msg = dto.Msg;
             }
-            else
-            {
-                controller.Dt = dto.Dt;
-            }
+
         }
         public void InsertRequisicaoProducao(MovimentacaoController controller)
         {
             double quantidadeMovimetacao = Convert.ToDouble(controller.Quantidade) *-1;
 
             dto = new MovimentacaoDto();
+            controller.Dt = dao.SelectTable();
+            var disponivel = estoqueService.Count(controller, controller.Codigo);
+            if(disponivel + quantidadeMovimetacao < 0)
+            {
+                throw new ExceptionService($"Não é possivel fazer essa movimentação! \r\n" +
+                                            $"Quantidade Disponivel = {disponivel} \r\n" +
+                                            $"Quantidade Solicitada = {controller.Quantidade}");
+            }
             dto.Codigo = controller.Codigo;
             dto.Descricao = controller.Descricao;
             dto.Movimento = "SAIDA";
@@ -158,5 +168,6 @@ namespace SistemaTHR.Service.estoque
             }
 
         }
+
     }
 }

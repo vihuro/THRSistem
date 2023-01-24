@@ -56,28 +56,38 @@ namespace SistemaTHR.Apllication.Estoque
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-
-            if(txtDescricao.Text == string.Empty || txtNumero.Text == string.Empty || txtLote.Text ==string.Empty || txtQuantidade.Text == 
-                string.Empty)
+            try
             {
-                MessageBox.Show("Não é possivel finalizar essa requisição!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (!rdbMp.Checked  && !rdbPA.Checked)
-            {
-                MessageBox.Show("Selecione o tipo de material!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if (rdbMp.Checked)
+                if (txtDescricao.Text == string.Empty || txtNumero.Text == string.Empty || txtLote.Text == string.Empty || txtQuantidade.Text ==
+                     string.Empty)
                 {
-                    CarregarMP();
+                    MessageBox.Show("Não é possivel finalizar essa requisição!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (!rdbMp.Checked && !rdbPA.Checked)
+                {
+                    MessageBox.Show("Selecione o tipo de material!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    CarregarPa();
+                    if (rdbMp.Checked)
+                    {
+                        CarregarMP();
+                    }
+                    else
+                    {
+                        CarregarPa();
+                    }
+
                 }
 
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+
             this.Cursor = Cursors.Default;
 
         }

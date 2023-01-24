@@ -64,6 +64,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnFiltro = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -76,6 +78,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFiltro);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -172,6 +175,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(975, 141);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // clnNMovimentacao
             // 
@@ -406,6 +410,19 @@
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
+            this.btnFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(28, 24);
+            this.btnFiltro.TabIndex = 0;
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
             // frmMovimentacaPecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +435,7 @@
             this.Name = "frmMovimentacaPecas";
             this.Text = "Movimentação de Peças";
             this.Load += new System.EventHandler(this.frmMovimentacaPecas_Load);
+            this.panel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -468,5 +486,6 @@
         private System.Windows.Forms.TextBox txtDescriao;
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFiltro;
     }
 }
