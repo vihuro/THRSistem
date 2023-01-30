@@ -41,6 +41,18 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clnNRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnASU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNomeSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNomeAutorizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -79,18 +91,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAutorizar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.clnNRequisicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnCodigoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnQtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnUnidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnASU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNomeSolicitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusSol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnNomeAutorizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDataHoraAut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -111,9 +111,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 495);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 621);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1068, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1326, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -136,7 +136,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1068, 24);
+            this.panel1.Size = new System.Drawing.Size(1326, 24);
             this.panel1.TabIndex = 1;
             // 
             // btnRelatorio
@@ -196,8 +196,8 @@
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
-            this.splitContainer1.Size = new System.Drawing.Size(1068, 471);
-            this.splitContainer1.SplitterDistance = 133;
+            this.splitContainer1.Size = new System.Drawing.Size(1326, 597);
+            this.splitContainer1.SplitterDistance = 168;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -242,10 +242,104 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1064, 129);
+            this.dataGridView1.Size = new System.Drawing.Size(1322, 164);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // clnNRequisicao
+            // 
+            this.clnNRequisicao.DataPropertyName = "NRequisicao";
+            this.clnNRequisicao.HeaderText = "Nº Requisição";
+            this.clnNRequisicao.Name = "clnNRequisicao";
+            this.clnNRequisicao.ReadOnly = true;
+            // 
+            // clnNos
+            // 
+            this.clnNos.DataPropertyName = "NOS";
+            this.clnNos.HeaderText = "Nº OS";
+            this.clnNos.Name = "clnNos";
+            this.clnNos.ReadOnly = true;
+            this.clnNos.Width = 70;
+            // 
+            // clnCodigoPeca
+            // 
+            this.clnCodigoPeca.DataPropertyName = "CodigoPeca";
+            this.clnCodigoPeca.HeaderText = "Código/Peça";
+            this.clnCodigoPeca.Name = "clnCodigoPeca";
+            this.clnCodigoPeca.ReadOnly = true;
+            // 
+            // clnDescricaoPeca
+            // 
+            this.clnDescricaoPeca.DataPropertyName = "DescricaoPeca";
+            this.clnDescricaoPeca.HeaderText = "Descrição/Peça";
+            this.clnDescricaoPeca.Name = "clnDescricaoPeca";
+            this.clnDescricaoPeca.ReadOnly = true;
+            this.clnDescricaoPeca.Width = 150;
+            // 
+            // clnQtd
+            // 
+            this.clnQtd.DataPropertyName = "Qtd";
+            this.clnQtd.HeaderText = "QTD";
+            this.clnQtd.Name = "clnQtd";
+            this.clnQtd.ReadOnly = true;
+            this.clnQtd.Width = 50;
+            // 
+            // clnUnidade
+            // 
+            this.clnUnidade.DataPropertyName = "Unidade";
+            this.clnUnidade.HeaderText = "UND";
+            this.clnUnidade.Name = "clnUnidade";
+            this.clnUnidade.ReadOnly = true;
+            this.clnUnidade.Width = 50;
+            // 
+            // clnASU
+            // 
+            this.clnASU.DataPropertyName = "ASU";
+            this.clnASU.HeaderText = "ASU";
+            this.clnASU.Name = "clnASU";
+            this.clnASU.ReadOnly = true;
+            this.clnASU.Width = 95;
+            // 
+            // clnNomeSolicitante
+            // 
+            this.clnNomeSolicitante.DataPropertyName = "NomeSolicitante";
+            this.clnNomeSolicitante.HeaderText = "Nome/Sol.";
+            this.clnNomeSolicitante.Name = "clnNomeSolicitante";
+            this.clnNomeSolicitante.ReadOnly = true;
+            this.clnNomeSolicitante.Width = 150;
+            // 
+            // clnDataHoraSol
+            // 
+            this.clnDataHoraSol.DataPropertyName = "DataHoraSolicitacao";
+            this.clnDataHoraSol.HeaderText = "Data/Hora Sol.";
+            this.clnDataHoraSol.Name = "clnDataHoraSol";
+            this.clnDataHoraSol.ReadOnly = true;
+            this.clnDataHoraSol.Width = 150;
+            // 
+            // StatusSol
+            // 
+            this.StatusSol.DataPropertyName = "StatusSolicitacao";
+            this.StatusSol.HeaderText = "Status/Sol.";
+            this.StatusSol.Name = "StatusSol";
+            this.StatusSol.ReadOnly = true;
+            this.StatusSol.Width = 190;
+            // 
+            // clnNomeAutorizador
+            // 
+            this.clnNomeAutorizador.DataPropertyName = "NomeAutorizador";
+            this.clnNomeAutorizador.HeaderText = "Nome/Aut.";
+            this.clnNomeAutorizador.Name = "clnNomeAutorizador";
+            this.clnNomeAutorizador.ReadOnly = true;
+            this.clnNomeAutorizador.Width = 150;
+            // 
+            // clnDataHoraAut
+            // 
+            this.clnDataHoraAut.DataPropertyName = "DataHoraAutorizacao";
+            this.clnDataHoraAut.HeaderText = "Data/Hora Aut.";
+            this.clnDataHoraAut.Name = "clnDataHoraAut";
+            this.clnDataHoraAut.ReadOnly = true;
+            this.clnDataHoraAut.Width = 150;
             // 
             // tabControl1
             // 
@@ -255,7 +349,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1064, 300);
+            this.tabControl1.Size = new System.Drawing.Size(1322, 391);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
@@ -278,7 +372,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1056, 274);
+            this.tabPage1.Size = new System.Drawing.Size(1314, 365);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Geral";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -334,6 +428,7 @@
             // 
             // txtUnidade
             // 
+            this.txtUnidade.Enabled = false;
             this.txtUnidade.Location = new System.Drawing.Point(522, 125);
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.Size = new System.Drawing.Size(41, 20);
@@ -341,6 +436,7 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.Enabled = false;
             this.txtDescricao.Location = new System.Drawing.Point(112, 124);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(369, 20);
@@ -378,6 +474,8 @@
             this.txtCodigoPeca.Name = "txtCodigoPeca";
             this.txtCodigoPeca.Size = new System.Drawing.Size(100, 20);
             this.txtCodigoPeca.TabIndex = 7;
+            this.txtCodigoPeca.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPeca_KeyDown);
+            this.txtCodigoPeca.Leave += new System.EventHandler(this.txtCodigoPeca_Leave);
             this.txtCodigoPeca.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtCodigoPeca_PreviewKeyDown);
             // 
             // label4
@@ -406,7 +504,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1056, 274);
+            this.tabPage2.Size = new System.Drawing.Size(1314, 365);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Liberação";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -430,6 +528,7 @@
             this.btnLiberar.TabIndex = 1;
             this.btnLiberar.Text = "Liberar";
             this.btnLiberar.UseVisualStyleBackColor = true;
+            this.btnLiberar.Click += new System.EventHandler(this.btnLiberar_Click);
             // 
             // panel3
             // 
@@ -614,16 +713,16 @@
             this.panel2.Controls.Add(this.btnAutorizar);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 300);
+            this.panel2.Location = new System.Drawing.Point(0, 391);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1064, 30);
+            this.panel2.Size = new System.Drawing.Size(1322, 30);
             this.panel2.TabIndex = 15;
             // 
             // btnAutorizar
             // 
             this.btnAutorizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAutorizar.Enabled = false;
-            this.btnAutorizar.Location = new System.Drawing.Point(979, 4);
+            this.btnAutorizar.Location = new System.Drawing.Point(1237, 4);
             this.btnAutorizar.Name = "btnAutorizar";
             this.btnAutorizar.Size = new System.Drawing.Size(75, 23);
             this.btnAutorizar.TabIndex = 13;
@@ -634,7 +733,7 @@
             // btnSalvar
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Location = new System.Drawing.Point(898, 4);
+            this.btnSalvar.Location = new System.Drawing.Point(1156, 4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 12;
@@ -642,105 +741,11 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // clnNRequisicao
-            // 
-            this.clnNRequisicao.DataPropertyName = "NRequisicao";
-            this.clnNRequisicao.HeaderText = "Nº Requisição";
-            this.clnNRequisicao.Name = "clnNRequisicao";
-            this.clnNRequisicao.ReadOnly = true;
-            // 
-            // clnNos
-            // 
-            this.clnNos.DataPropertyName = "NOS";
-            this.clnNos.HeaderText = "Nº OS";
-            this.clnNos.Name = "clnNos";
-            this.clnNos.ReadOnly = true;
-            this.clnNos.Width = 70;
-            // 
-            // clnCodigoPeca
-            // 
-            this.clnCodigoPeca.DataPropertyName = "CodigoPeca";
-            this.clnCodigoPeca.HeaderText = "Código/Peça";
-            this.clnCodigoPeca.Name = "clnCodigoPeca";
-            this.clnCodigoPeca.ReadOnly = true;
-            // 
-            // clnDescricaoPeca
-            // 
-            this.clnDescricaoPeca.DataPropertyName = "DescricaoPeca";
-            this.clnDescricaoPeca.HeaderText = "Descrição/Peça";
-            this.clnDescricaoPeca.Name = "clnDescricaoPeca";
-            this.clnDescricaoPeca.ReadOnly = true;
-            this.clnDescricaoPeca.Width = 150;
-            // 
-            // clnQtd
-            // 
-            this.clnQtd.DataPropertyName = "Qtd";
-            this.clnQtd.HeaderText = "QTD";
-            this.clnQtd.Name = "clnQtd";
-            this.clnQtd.ReadOnly = true;
-            this.clnQtd.Width = 50;
-            // 
-            // clnUnidade
-            // 
-            this.clnUnidade.DataPropertyName = "Unidade";
-            this.clnUnidade.HeaderText = "UND";
-            this.clnUnidade.Name = "clnUnidade";
-            this.clnUnidade.ReadOnly = true;
-            this.clnUnidade.Width = 50;
-            // 
-            // clnASU
-            // 
-            this.clnASU.DataPropertyName = "ASU";
-            this.clnASU.HeaderText = "ASU";
-            this.clnASU.Name = "clnASU";
-            this.clnASU.ReadOnly = true;
-            this.clnASU.Width = 95;
-            // 
-            // clnNomeSolicitante
-            // 
-            this.clnNomeSolicitante.DataPropertyName = "NomeSolicitante";
-            this.clnNomeSolicitante.HeaderText = "Nome/Sol.";
-            this.clnNomeSolicitante.Name = "clnNomeSolicitante";
-            this.clnNomeSolicitante.ReadOnly = true;
-            this.clnNomeSolicitante.Width = 150;
-            // 
-            // clnDataHoraSol
-            // 
-            this.clnDataHoraSol.DataPropertyName = "DataHoraSolicitacao";
-            this.clnDataHoraSol.HeaderText = "Data/Hora Sol.";
-            this.clnDataHoraSol.Name = "clnDataHoraSol";
-            this.clnDataHoraSol.ReadOnly = true;
-            this.clnDataHoraSol.Width = 150;
-            // 
-            // StatusSol
-            // 
-            this.StatusSol.DataPropertyName = "StatusSolicitacao";
-            this.StatusSol.HeaderText = "Status/Sol.";
-            this.StatusSol.Name = "StatusSol";
-            this.StatusSol.ReadOnly = true;
-            this.StatusSol.Width = 190;
-            // 
-            // clnNomeAutorizador
-            // 
-            this.clnNomeAutorizador.DataPropertyName = "NomeAutorizador";
-            this.clnNomeAutorizador.HeaderText = "Nome/Aut.";
-            this.clnNomeAutorizador.Name = "clnNomeAutorizador";
-            this.clnNomeAutorizador.ReadOnly = true;
-            this.clnNomeAutorizador.Width = 150;
-            // 
-            // clnDataHoraAut
-            // 
-            this.clnDataHoraAut.DataPropertyName = "DataHoraAutorizacao";
-            this.clnDataHoraAut.HeaderText = "Data/Hora Aut.";
-            this.clnDataHoraAut.Name = "clnDataHoraAut";
-            this.clnDataHoraAut.ReadOnly = true;
-            this.clnDataHoraAut.Width = 150;
-            // 
             // frmRequisicoesPecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 517);
+            this.ClientSize = new System.Drawing.Size(1326, 643);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);

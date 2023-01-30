@@ -10,6 +10,7 @@ using SistemaTHR.Controller.Login;
 using SistemaTHR.Service.Exepction;
 using SistemaTHR.dto.manutencao;
 using SistemaTHR.dto.transferencia;
+using SistemaTHR.Controller.transferencia;
 
 namespace SistemaTHR.Service.estoque
 {
@@ -34,7 +35,7 @@ namespace SistemaTHR.Service.estoque
             dto = new MovimentacaoDto();
             dto.Codigo = controller.Codigo;
             dao.Count(dto);
-            if(dto.Msg != null)
+            if (dto.Msg != null)
             {
                 controller.Msg = dto.Msg;
 
@@ -50,7 +51,7 @@ namespace SistemaTHR.Service.estoque
         {
             dto = new MovimentacaoDto();
             controller.Dt = dao.SelectTable();
-            if(dto.Msg != null)
+            if (dto.Msg != null)
             {
                 controller.Msg = dto.Msg;
             }
@@ -58,26 +59,26 @@ namespace SistemaTHR.Service.estoque
         }
         public void InsertRequisicaoProducao(MovimentacaoController controller)
         {
-            double quantidadeMovimetacao = Convert.ToDouble(controller.Quantidade) *-1;
+            double quantidadeMovimetacao = Convert.ToDouble(controller.Quantidade) * -1;
 
             dto = new MovimentacaoDto();
             controller.Dt = dao.SelectTable();
             var disponivel = estoqueService.Count(controller, controller.Codigo);
-            if(disponivel + quantidadeMovimetacao < 0)
+            if (disponivel + quantidadeMovimetacao < 0)
             {
-                throw new ExceptionService($"Não é possivel fazer essa movimentação! \r\n" +
-                                            $"Quantidade Disponivel = {disponivel} \r\n" +
+                throw new ExceptionService($"Não é possível fazer essa movimentação! \r\n" +
+                                            $"Quantidade disponível = {disponivel} \r\n" +
                                             $"Quantidade Solicitada = {controller.Quantidade}");
             }
             dto.Codigo = controller.Codigo;
             dto.Descricao = controller.Descricao;
-            dto.Movimento = "SAIDA";
+            dto.Movimento = "SAÍDA";
             dto.DataMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyy HH:mm:ss"));
             dto.Quantidade = quantidadeMovimetacao.ToString();
-            dto.Operacao = "SAIDA - REQUISICAO PRODUCAO";
+            dto.Operacao = "SAÍDA - REQUISIÇÃO PRODUÇÃO";
             dto.Usuario = loginController.Nome;
             dao.Insert(dto);
-            if(dto.Msg != null)
+            if (dto.Msg != null)
             {
                 controller.Msg = dto.Msg;
             }
@@ -86,18 +87,20 @@ namespace SistemaTHR.Service.estoque
         string QuantidadeAntiga;
         string QuantidadeNova;
         string texto;
-         
+
+
+
 
         public void InsertSaidaManual(MovimentacaoController controller, string QuantidadeEstoque)
         {
             dto = new MovimentacaoDto();
-            if(controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Quantidade != string.Empty && controller.Movimento != string.Empty && 
+            if (controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Quantidade != string.Empty && controller.Movimento != string.Empty &&
                 QuantidadeEstoque != string.Empty)
             {
                 if (Convert.ToDouble(QuantidadeEstoque) < Convert.ToDouble(controller.Quantidade))
                 {
-                    controller.Msg = $"Não é possivel inserir uma saída maior do que a quantidade disponivel! \r\n " +
-                        $"Quantidade Disponivel = {QuantidadeEstoque} \r\n" +
+                    controller.Msg = $"Não é possível inserir uma saída maior do que a quantidade disponível! \r\n " +
+                        $"Quantidade disponível = {QuantidadeEstoque} \r\n" +
                         $"Quantidade Solicitada = {controller.Quantidade}";
                 }
                 else
@@ -106,7 +109,7 @@ namespace SistemaTHR.Service.estoque
 
                     dto.Codigo = controller.Codigo.ToUpper();
                     dto.Descricao = controller.Descricao.ToUpper();
-                    dto.Movimento = "SAIDA";
+                    dto.Movimento = "SAÍDA";
                     dto.DataMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyy HH:mm:ss"));
                     dto.Quantidade = quantidadeMovimetacao.ToString();
                     dto.Operacao = controller.Operacao;
@@ -124,7 +127,7 @@ namespace SistemaTHR.Service.estoque
             }
             else
             {
-                controller.Msg = "Campo(s) obrigatorio(s) vazio(s)!";
+                controller.Msg = "Campo(s) obrigatório(s) vazio(s)!";
             }
 
         }
@@ -138,7 +141,7 @@ namespace SistemaTHR.Service.estoque
 
         public void InsertEntradaManual(MovimentacaoController controller, string QuantidadeEstoque)
         {
-            if(controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Operacao != string.Empty && 
+            if (controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Operacao != string.Empty &&
                 controller.Quantidade != string.Empty)
             {
                 dto = new MovimentacaoDto();
@@ -164,7 +167,7 @@ namespace SistemaTHR.Service.estoque
             }
             else
             {
-                controller.Msg = "Campo(s) obrigatorio(s) vazio(s)!";
+                controller.Msg = "Campo(s) obrigatório(s) vazio(s)!";
             }
 
         }

@@ -305,7 +305,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFiltroMovimentacoesPeca";
-            this.Text = "frmFiltroMovimentacoesPeca";
+            this.Text = "Filtro";
             this.Load += new System.EventHandler(this.frmFiltroMovimentacoesPeca_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

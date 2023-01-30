@@ -41,7 +41,7 @@ namespace SistemaTHR.Service.manutencao
         public void Insert(EstoquePecasController controller)
         {
             dto = new EstoquePecasDto();
-            if(controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Unidade != string.Empty && 
+            if (controller.Codigo != string.Empty && controller.Descricao != string.Empty && controller.Unidade != string.Empty &&
                 controller.EstoqueMax != string.Empty && controller.EstoqueMin != string.Empty)
             {
                 dto.Codigo = controller.Codigo.ToUpper();
@@ -71,53 +71,53 @@ namespace SistemaTHR.Service.manutencao
 
         }
 
-    
-        public void UpdateEstoque(EstoquePecasController controller, string QuantidadeDisponivel, string tipoMovimento)
+
+        public void UpdateEstoque(string codigo, string quantidadeSolicitada, string tipoMovimento)
         {
-            dto = new EstoquePecasDto();
-            if(modulosController.AlmoxarifadoNivel == "1" || modulosController.AlmoxarifadoNivel == "2")
+
+            if (modulosController.AlmoxarifadoNivel != "1" && modulosController.AlmoxarifadoNivel != "2"
+                && modulosController.AlmoxarifadoNivel != "3")
             {
-                decimal QuantidadeEstoque = Convert.ToDecimal(QuantidadeDisponivel);
+                throw new ExceptionService("Esse usuário não tem permissão para essa requisição!");
+            }
 
-                decimal QuantidadeSolicitada = Convert.ToDecimal(controller.QtEstoque);
+            dto = new EstoquePecasDto();
 
-                if (QuantidadeEstoque < QuantidadeSolicitada && tipoMovimento == "Saída")
-                {
-                    controller.Msg = $"Quantidade em estoque é menor do que a quantidade solicitada! \r\n " +
-                                     $"Quantidade em estoque: {QuantidadeEstoque.ToString("###,###.##")}\r\n" +
-                                     $"Quantidade Solicitada: {QuantidadeSolicitada.ToString("###,###.##")}";
-                }
-                else
-                {
-                    decimal total = 0;
-                    if (tipoMovimento == "Saída") 
-                    {
-                        total = QuantidadeEstoque - QuantidadeSolicitada;
+            var obj = BuscarPorCodigo(codigo);
 
-                    }
-                    else if(tipoMovimento == "Entrada")
-                    {
-                        total = QuantidadeEstoque + QuantidadeSolicitada;
-                    }
+            decimal QuantidadeEstoque = Convert.ToDecimal(obj.QtEstoque);
+
+            decimal QuantidadeSolicitada = Convert.ToDecimal(quantidadeSolicitada);
 
 
-                    dto.Codigo = controller.Codigo;
-                    dto.QtEstoque = total.ToString();
+            if (QuantidadeEstoque < QuantidadeSolicitada && tipoMovimento == "Saída")
+            {
 
-                    dao.updateQtEstoque(dto);
-                    if (dto.Msg != null)
-                    {
-                        controller.Msg = dto.Msg;
-                    }
+                throw new ExceptionService($"Quantidade em estoque é menor do que a quantidade solicitada! \r\n " +
+                                 $"Quantidade em estoque: {QuantidadeEstoque.ToString("###,###.##")}\r\n" +
+                                 $"Quantidade Solicitada: {QuantidadeSolicitada.ToString("###,###.##")}");
+
+            }
 
 
-                }
+            if (tipoMovimento == "Saída")
+            {
+                QuantidadeEstoque += QuantidadeSolicitada * -1;
+
+            }
+            else if (tipoMovimento == "Entrada")
+            {
+                QuantidadeEstoque += QuantidadeSolicitada;
             }
             else
             {
-                controller.Msg = "Esse usuário não tem permissão para movimentar o estoque!";
+                throw new ExceptionService("Impossível fazer esse tipo de movimentação!");
             }
 
+            dto.Codigo = codigo;
+            dto.QtEstoque = QuantidadeEstoque.ToString();
+
+            dao.updateQtEstoque(dto);
 
         }
 
@@ -169,20 +169,13 @@ namespace SistemaTHR.Service.manutencao
             {
                 dto.Codigo = controller.Codigo;
                 dao.estoque(dto);
-                if (dto.Msg != null)
-                {
-                    controller.Msg = dto.Msg;
-                }
-                else
-                {
-                    controller.Exists = dto.Exists;
-                    controller.QtEstoque = dto.QtEstoque;
-                }
 
+                controller.Exists = dto.Exists;
+                controller.QtEstoque = dto.QtEstoque;
             }
             else
             {
-                controller.Msg = "Campo(s) obrigatorio(s) vazio(s)!";
+                throw new ExceptionService("Campo(s) obrigatorio(s) vazio(s)!");
             }
         }
 
@@ -195,13 +188,13 @@ namespace SistemaTHR.Service.manutencao
         public EstoquePecasController BuscarPorCodigo(string codigo)
         {
             dto = new EstoquePecasDto();
-            if(codigo == string.Empty)
+            if (codigo == string.Empty)
             {
                 throw new ExceptionService("Código não encontrado!");
             }
 
             var item = dao.BuscarPorCodigo(codigo);
-            if(item.Codigo == null)
+            if (item.Codigo == null)
             {
                 throw new ExceptionService("Código não encontrado!");
             }
@@ -224,7 +217,7 @@ namespace SistemaTHR.Service.manutencao
 
             dto.Codigo = controller.Codigo;
             MovimetacaoPecas(controller, tipoMovimentacao);
-            if(controller.Msg == null)
+            if (controller.Msg == null)
             {
                 dao.updateQtEstoque(dto);
                 if (dto.Msg != null)
@@ -238,7 +231,7 @@ namespace SistemaTHR.Service.manutencao
         public void Update(EstoquePecasController controller)
         {
             dto = new EstoquePecasDto();
-            if(modulosController.AlmoxarifadoNivel == "1" || modulosController.AlmoxarifadoNivel == "2")
+            if (modulosController.AlmoxarifadoNivel == "1" || modulosController.AlmoxarifadoNivel == "2")
             {
 
                 dto.Descricao = controller.Descricao.ToUpper();

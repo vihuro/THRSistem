@@ -12,6 +12,7 @@ using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Apllication.Manutencao.Impressao;
 using SistemaTHR.Apllication.Manutencao;
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.Apllication
 {
@@ -20,6 +21,7 @@ namespace SistemaTHR.Apllication
         private modulosController modulosController;
         private loginController loginController;
         private solicitacaoPecaoController controller;
+        private movimentacaoPecasController movimentacaoController;
         private movimentacaoPecasService movimentacaoService;
         private EstoquePecasService estoqueService;
         private EstoquePecasController estoqueController;
@@ -150,6 +152,8 @@ namespace SistemaTHR.Apllication
 
             txtRequisicao.ReadOnly = false;
             btnSalvar.Enabled = true;
+            var dt = (DataTable)dataGridView2.DataSource;
+            dt.Rows.Clear();
             dataGridView1.ClearSelection();
 
 
@@ -368,10 +372,9 @@ namespace SistemaTHR.Apllication
                 {
 
                 }
-                catch (Exception ex)
+                catch (ExceptionService ex)
                 {
-
-                    MessageBox.Show(ex.ToString(), "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 estoqueService.table();
                 if(controller.Msg != null)
@@ -445,5 +448,65 @@ namespace SistemaTHR.Apllication
             }
         }
 
+        private void txtCodigoPeca_Leave(object sender, EventArgs e)
+        {
+            if(txtCodigoPeca.Text.Length > 0)
+            {
+                Procurar();
+            }
+        }
+
+        private void Procurar()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                var obj = estoqueService.BuscarPorCodigo(txtCodigoPeca.Text);
+                txtCodigoPeca.Text = obj.Codigo;
+                txtDescricao.Text = obj.Descricao;
+                txtUnidade.Text = obj.Unidade;
+            }
+            catch (ExceptionService ex)
+            {
+                MessageBox.Show(ex.Message,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                txtCodigoPeca.Text = "";
+                txtDescricao.Text = "";
+                txtUnidade.Text = "";
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void txtCodigoPeca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                Procurar();
+            }
+        }
+
+        private void btnLiberar_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                movimentacaoController = new movimentacaoPecasController();
+                movimentacaoController.NMovimentacao = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+                movimentacaoController.CodigoPeca = dataGridView2.SelectedRows[0].Cells[2].Value.ToString();
+                movimentacaoController.TipoMovimentacao = dataGridView2.SelectedRows[0].Cells[7].Value.ToString();
+                movimentacaoController.Qtd = dataGridView2.SelectedRows[0].Cells[5].Value.ToString();
+                movimentacaoService.Liberacao(movimentacaoController);
+            }
+            catch (ExceptionService ex)
+            {
+                MessageBox.Show(ex.Message,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

@@ -101,6 +101,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNRequisicao = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnRelatorio = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -112,6 +116,8 @@
             this.Principal.SuspendLayout();
             this.tx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -139,6 +145,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRelatorio);
             this.panel1.Controls.Add(this.btnFiltro);
             this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -875,6 +882,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnImprimir);
+            this.tabPage2.Controls.Add(this.dataGridView3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -882,6 +891,43 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // npgsqlDataAdapter1
+            // 
+            this.npgsqlDataAdapter1.DeleteCommand = null;
+            this.npgsqlDataAdapter1.InsertCommand = null;
+            this.npgsqlDataAdapter1.SelectCommand = null;
+            this.npgsqlDataAdapter1.UpdateCommand = null;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(14, 103);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(1041, 253);
+            this.dataGridView3.TabIndex = 0;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
+            this.btnRelatorio.Location = new System.Drawing.Point(60, 0);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(30, 24);
+            this.btnRelatorio.TabIndex = 2;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(980, 393);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(75, 23);
+            this.btnImprimir.TabIndex = 1;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
             // 
             // frmRequisicaoCompra
             // 
@@ -908,6 +954,8 @@
             this.tx.ResumeLayout(false);
             this.tx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -984,5 +1032,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAlteracao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnObervacao;
         public System.Windows.Forms.TextBox txtNRequisicao;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
+        private System.Windows.Forms.Button btnRelatorio;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

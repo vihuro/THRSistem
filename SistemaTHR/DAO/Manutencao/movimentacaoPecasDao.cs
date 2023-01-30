@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaTHR.dto.manutencao;
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.DAO.Manutencao
 {
@@ -48,8 +49,7 @@ namespace SistemaTHR.DAO.Manutencao
             }
             catch (Exception ex)
             {
-
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
@@ -100,8 +100,7 @@ namespace SistemaTHR.DAO.Manutencao
             }
             catch (Exception ex)
             {
-
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {

@@ -87,10 +87,9 @@ namespace SistemaTHR.DAO.Manutencao
 
 
             }
-            catch (Exception ex)
+            catch (ExceptionService ex)
             {
-
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
@@ -121,7 +120,7 @@ namespace SistemaTHR.DAO.Manutencao
             catch (Exception ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
