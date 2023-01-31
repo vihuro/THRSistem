@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovimentacaPecas));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRelatorio = new System.Windows.Forms.Button();
+            this.btnFiltro = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
@@ -64,7 +66,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnFiltro = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -78,12 +79,39 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRelatorio);
             this.panel1.Controls.Add(this.btnFiltro);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 24);
             this.panel1.TabIndex = 0;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
+            this.btnRelatorio.Location = new System.Drawing.Point(28, 0);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(28, 24);
+            this.btnRelatorio.TabIndex = 1;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
+            this.btnFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(28, 24);
+            this.btnFiltro.TabIndex = 0;
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
             // 
             // statusStrip1
             // 
@@ -410,19 +438,6 @@
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnFiltro
-            // 
-            this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
-            this.btnFiltro.Location = new System.Drawing.Point(0, 0);
-            this.btnFiltro.Name = "btnFiltro";
-            this.btnFiltro.Size = new System.Drawing.Size(28, 24);
-            this.btnFiltro.TabIndex = 0;
-            this.btnFiltro.UseVisualStyleBackColor = true;
-            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
-            // 
             // frmMovimentacaPecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,5 +502,6 @@
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnFiltro;
+        private System.Windows.Forms.Button btnRelatorio;
     }
 }

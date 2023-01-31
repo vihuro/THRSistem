@@ -274,6 +274,12 @@
     <Compile Include="Apllication\Manutencao\frmRequisicoesPecas.Designer.cs">
       <DependentUpon>frmRequisicoesPecas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apllication\Manutencao\Impressao\frmRelatorioMovimentacaoPecas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\Impressao\frmRelatorioMovimentacaoPecas.Designer.cs">
+      <DependentUpon>frmRelatorioMovimentacaoPecas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apllication\Manutencao\Impressao\frmRelatorioRequisicoesPeca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -694,9 +700,13 @@
     <EmbeddedResource Include="Apllication\Manutencao\frmFiltroRequisicoesPeca.resx">
       <DependentUpon>frmFiltroRequisicoesPeca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\Impressao\frmRelatorioMovimentacaoPecas.resx">
+      <DependentUpon>frmRelatorioMovimentacaoPecas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Manutencao\Impressao\frmRelatorioRequisicoesPeca.resx">
       <DependentUpon>frmRelatorioRequisicoesPeca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\Impressao\Relatorio Movimentação de peças.rdlc" />
     <EmbeddedResource Include="Apllication\Manutencao\Impressao\Relatorio Requisições de Peças.rdlc" />
     <EmbeddedResource Include="Apllication\Manutencao\frmAsu.resx">
       <DependentUpon>frmAsu.cs</DependentUpon>

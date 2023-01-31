@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaTHR.Apllication.Manutencao.Impressao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,7 +101,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void movimentacao()
         {
-            Controller.manutencao.movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
+            /*Controller.manutencao.movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
             Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController,modulosController);
             controller.CodigoPeca = txtCodigo.Text;
             controller.DescricaoPeca = txtDescriao.Text;
@@ -114,7 +115,7 @@ namespace SistemaTHR.Apllication.Manutencao
             if (controller.Msg != null)
             {
                 MessageBox.Show(controller.Msg);
-            }
+            }*/
         }
         private void alterarEstoque(Controller.manutencao.EstoquePecasController controller)
         {
@@ -138,6 +139,12 @@ namespace SistemaTHR.Apllication.Manutencao
             {
                 dataGridView1.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Black;
             }
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            var relatorio = new frmRelatorioMovimentacaoPecas((DataTable)dataGridView1.DataSource, loginController.Nome);
+            relatorio.Show();
         }
     }
 }

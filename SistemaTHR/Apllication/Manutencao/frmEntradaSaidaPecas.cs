@@ -117,7 +117,7 @@ namespace SistemaTHR.Apllication.Estoque
                 movimentacaoController.DataHoraAutorizacao = "";
                 movimentacaoController.Qtd = txtQuantidade.Text;
 
-                movimentacaoService.insertMovimentacao(movimentacaoController, controller.QtEstoque);
+                movimentacaoService.insertMovimentacao(movimentacaoController);
                 if(movimentacaoController.Msg != null)
                 {
                     MessageBox.Show(movimentacaoController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
