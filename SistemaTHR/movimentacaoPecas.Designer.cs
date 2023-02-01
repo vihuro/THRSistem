@@ -20,17 +20,17 @@ namespace SistemaTHR {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("_bd_SistemDataSet8")]
+    [global::System.Xml.Serialization.XmlRootAttribute("movimentacaoPecas")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class _bd_SistemDataSet8 : global::System.Data.DataSet {
+    public partial class movimentacaoPecas : global::System.Data.DataSet {
         
-        private tab_SolicitacaoPecaOSTHRDataTable tabletab_SolicitacaoPecaOSTHR;
+        private tab_MovimentacaoPecasDataTable tabletab_MovimentacaoPecas;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public _bd_SistemDataSet8() {
+        public movimentacaoPecas() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace SistemaTHR {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected _bd_SistemDataSet8(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected movimentacaoPecas(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace SistemaTHR {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["tab_SolicitacaoPecaOSTHR"] != null)) {
-                    base.Tables.Add(new tab_SolicitacaoPecaOSTHRDataTable(ds.Tables["tab_SolicitacaoPecaOSTHR"]));
+                if ((ds.Tables["tab_MovimentacaoPecas"] != null)) {
+                    base.Tables.Add(new tab_MovimentacaoPecasDataTable(ds.Tables["tab_MovimentacaoPecas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace SistemaTHR {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tab_SolicitacaoPecaOSTHRDataTable tab_SolicitacaoPecaOSTHR {
+        public tab_MovimentacaoPecasDataTable tab_MovimentacaoPecas {
             get {
-                return this.tabletab_SolicitacaoPecaOSTHR;
+                return this.tabletab_MovimentacaoPecas;
             }
         }
         
@@ -127,7 +127,7 @@ namespace SistemaTHR {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            _bd_SistemDataSet8 cln = ((_bd_SistemDataSet8)(base.Clone()));
+            movimentacaoPecas cln = ((movimentacaoPecas)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace SistemaTHR {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["tab_SolicitacaoPecaOSTHR"] != null)) {
-                    base.Tables.Add(new tab_SolicitacaoPecaOSTHRDataTable(ds.Tables["tab_SolicitacaoPecaOSTHR"]));
+                if ((ds.Tables["tab_MovimentacaoPecas"] != null)) {
+                    base.Tables.Add(new tab_MovimentacaoPecasDataTable(ds.Tables["tab_MovimentacaoPecas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace SistemaTHR {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletab_SolicitacaoPecaOSTHR = ((tab_SolicitacaoPecaOSTHRDataTable)(base.Tables["tab_SolicitacaoPecaOSTHR"]));
+            this.tabletab_MovimentacaoPecas = ((tab_MovimentacaoPecasDataTable)(base.Tables["tab_MovimentacaoPecas"]));
             if ((initTable == true)) {
-                if ((this.tabletab_SolicitacaoPecaOSTHR != null)) {
-                    this.tabletab_SolicitacaoPecaOSTHR.InitVars();
+                if ((this.tabletab_MovimentacaoPecas != null)) {
+                    this.tabletab_MovimentacaoPecas.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace SistemaTHR {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "_bd_SistemDataSet8";
+            this.DataSetName = "movimentacaoPecas";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/_bd_SistemDataSet8.xsd";
+            this.Namespace = "http://tempuri.org/movimentacaoPecas.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletab_SolicitacaoPecaOSTHR = new tab_SolicitacaoPecaOSTHRDataTable();
-            base.Tables.Add(this.tabletab_SolicitacaoPecaOSTHR);
+            this.tabletab_MovimentacaoPecas = new tab_MovimentacaoPecasDataTable();
+            base.Tables.Add(this.tabletab_MovimentacaoPecas);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializetab_SolicitacaoPecaOSTHR() {
+        private bool ShouldSerializetab_MovimentacaoPecas() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace SistemaTHR {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            _bd_SistemDataSet8 ds = new _bd_SistemDataSet8();
+            movimentacaoPecas ds = new movimentacaoPecas();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,43 +270,49 @@ namespace SistemaTHR {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void tab_SolicitacaoPecaOSTHRRowChangeEventHandler(object sender, tab_SolicitacaoPecaOSTHRRowChangeEvent e);
+        public delegate void tab_MovimentacaoPecasRowChangeEventHandler(object sender, tab_MovimentacaoPecasRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tab_SolicitacaoPecaOSTHRDataTable : global::System.Data.TypedTableBase<tab_SolicitacaoPecaOSTHRRow> {
+        public partial class tab_MovimentacaoPecasDataTable : global::System.Data.TypedTableBase<tab_MovimentacaoPecasRow> {
+            
+            private global::System.Data.DataColumn columnNMovimentacao;
             
             private global::System.Data.DataColumn columnNRequisicao;
-            
-            private global::System.Data.DataColumn columnNOS;
             
             private global::System.Data.DataColumn columnCodigoPeca;
             
             private global::System.Data.DataColumn columnDescricaoPeca;
             
-            private global::System.Data.DataColumn columnQtd;
-            
             private global::System.Data.DataColumn columnUnidade;
             
-            private global::System.Data.DataColumn columnASU;
+            private global::System.Data.DataColumn columnQtd;
             
-            private global::System.Data.DataColumn columnNomeSolicitante;
+            private global::System.Data.DataColumn columnAsu;
+            
+            private global::System.Data.DataColumn columnTipoMovimentacao;
+            
+            private global::System.Data.DataColumn columnStatus;
+            
+            private global::System.Data.DataColumn columnUsuarioSolicitacao;
             
             private global::System.Data.DataColumn columnDataHoraSolicitacao;
             
-            private global::System.Data.DataColumn columnStatusSolicitacao;
-            
-            private global::System.Data.DataColumn columnNomeAutorizador;
+            private global::System.Data.DataColumn columnUsuarioAutorizacao;
             
             private global::System.Data.DataColumn columnDataHoraAutorizacao;
             
+            private global::System.Data.DataColumn columnUsuarioMovimentacao;
+            
+            private global::System.Data.DataColumn columnDataHoraMovimentacao;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRDataTable() {
-                this.TableName = "tab_SolicitacaoPecaOSTHR";
+            public tab_MovimentacaoPecasDataTable() {
+                this.TableName = "tab_MovimentacaoPecas";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -314,7 +320,7 @@ namespace SistemaTHR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal tab_SolicitacaoPecaOSTHRDataTable(global::System.Data.DataTable table) {
+            internal tab_MovimentacaoPecasDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -331,9 +337,17 @@ namespace SistemaTHR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected tab_SolicitacaoPecaOSTHRDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tab_MovimentacaoPecasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NMovimentacaoColumn {
+                get {
+                    return this.columnNMovimentacao;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -341,14 +355,6 @@ namespace SistemaTHR {
             public global::System.Data.DataColumn NRequisicaoColumn {
                 get {
                     return this.columnNRequisicao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NOSColumn {
-                get {
-                    return this.columnNOS;
                 }
             }
             
@@ -370,14 +376,6 @@ namespace SistemaTHR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn QtdColumn {
-                get {
-                    return this.columnQtd;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn UnidadeColumn {
                 get {
                     return this.columnUnidade;
@@ -386,17 +384,41 @@ namespace SistemaTHR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ASUColumn {
+            public global::System.Data.DataColumn QtdColumn {
                 get {
-                    return this.columnASU;
+                    return this.columnQtd;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NomeSolicitanteColumn {
+            public global::System.Data.DataColumn AsuColumn {
                 get {
-                    return this.columnNomeSolicitante;
+                    return this.columnAsu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TipoMovimentacaoColumn {
+                get {
+                    return this.columnTipoMovimentacao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UsuarioSolicitacaoColumn {
+                get {
+                    return this.columnUsuarioSolicitacao;
                 }
             }
             
@@ -410,17 +432,9 @@ namespace SistemaTHR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn StatusSolicitacaoColumn {
+            public global::System.Data.DataColumn UsuarioAutorizacaoColumn {
                 get {
-                    return this.columnStatusSolicitacao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NomeAutorizadorColumn {
-                get {
-                    return this.columnNomeAutorizador;
+                    return this.columnUsuarioAutorizacao;
                 }
             }
             
@@ -429,6 +443,22 @@ namespace SistemaTHR {
             public global::System.Data.DataColumn DataHoraAutorizacaoColumn {
                 get {
                     return this.columnDataHoraAutorizacao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UsuarioMovimentacaoColumn {
+                get {
+                    return this.columnUsuarioMovimentacao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DataHoraMovimentacaoColumn {
+                get {
+                    return this.columnDataHoraMovimentacao;
                 }
             }
             
@@ -443,63 +473,66 @@ namespace SistemaTHR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRRow this[int index] {
+            public tab_MovimentacaoPecasRow this[int index] {
                 get {
-                    return ((tab_SolicitacaoPecaOSTHRRow)(this.Rows[index]));
+                    return ((tab_MovimentacaoPecasRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tab_SolicitacaoPecaOSTHRRowChangeEventHandler tab_SolicitacaoPecaOSTHRRowChanging;
+            public event tab_MovimentacaoPecasRowChangeEventHandler tab_MovimentacaoPecasRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tab_SolicitacaoPecaOSTHRRowChangeEventHandler tab_SolicitacaoPecaOSTHRRowChanged;
+            public event tab_MovimentacaoPecasRowChangeEventHandler tab_MovimentacaoPecasRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tab_SolicitacaoPecaOSTHRRowChangeEventHandler tab_SolicitacaoPecaOSTHRRowDeleting;
+            public event tab_MovimentacaoPecasRowChangeEventHandler tab_MovimentacaoPecasRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event tab_SolicitacaoPecaOSTHRRowChangeEventHandler tab_SolicitacaoPecaOSTHRRowDeleted;
+            public event tab_MovimentacaoPecasRowChangeEventHandler tab_MovimentacaoPecasRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addtab_SolicitacaoPecaOSTHRRow(tab_SolicitacaoPecaOSTHRRow row) {
+            public void Addtab_MovimentacaoPecasRow(tab_MovimentacaoPecasRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRRow Addtab_SolicitacaoPecaOSTHRRow(string NOS, string CodigoPeca, string DescricaoPeca, string Qtd, string Unidade, string ASU, string NomeSolicitante, string DataHoraSolicitacao, string StatusSolicitacao, string NomeAutorizador, string DataHoraAutorizacao) {
-                tab_SolicitacaoPecaOSTHRRow rowtab_SolicitacaoPecaOSTHRRow = ((tab_SolicitacaoPecaOSTHRRow)(this.NewRow()));
+            public tab_MovimentacaoPecasRow Addtab_MovimentacaoPecasRow(string NRequisicao, string CodigoPeca, string DescricaoPeca, string Unidade, string Qtd, string Asu, string TipoMovimentacao, string Status, string UsuarioSolicitacao, string DataHoraSolicitacao, string UsuarioAutorizacao, string DataHoraAutorizacao, string UsuarioMovimentacao, string DataHoraMovimentacao) {
+                tab_MovimentacaoPecasRow rowtab_MovimentacaoPecasRow = ((tab_MovimentacaoPecasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        NOS,
+                        NRequisicao,
                         CodigoPeca,
                         DescricaoPeca,
-                        Qtd,
                         Unidade,
-                        ASU,
-                        NomeSolicitante,
+                        Qtd,
+                        Asu,
+                        TipoMovimentacao,
+                        Status,
+                        UsuarioSolicitacao,
                         DataHoraSolicitacao,
-                        StatusSolicitacao,
-                        NomeAutorizador,
-                        DataHoraAutorizacao};
-                rowtab_SolicitacaoPecaOSTHRRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtab_SolicitacaoPecaOSTHRRow);
-                return rowtab_SolicitacaoPecaOSTHRRow;
+                        UsuarioAutorizacao,
+                        DataHoraAutorizacao,
+                        UsuarioMovimentacao,
+                        DataHoraMovimentacao};
+                rowtab_MovimentacaoPecasRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtab_MovimentacaoPecasRow);
+                return rowtab_MovimentacaoPecasRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRRow FindByNRequisicao(int NRequisicao) {
-                return ((tab_SolicitacaoPecaOSTHRRow)(this.Rows.Find(new object[] {
-                            NRequisicao})));
+            public tab_MovimentacaoPecasRow FindByNMovimentacao(int NMovimentacao) {
+                return ((tab_MovimentacaoPecasRow)(this.Rows.Find(new object[] {
+                            NMovimentacao})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tab_SolicitacaoPecaOSTHRDataTable cln = ((tab_SolicitacaoPecaOSTHRDataTable)(base.Clone()));
+                tab_MovimentacaoPecasDataTable cln = ((tab_MovimentacaoPecasDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -507,97 +540,109 @@ namespace SistemaTHR {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tab_SolicitacaoPecaOSTHRDataTable();
+                return new tab_MovimentacaoPecasDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this.columnNMovimentacao = base.Columns["NMovimentacao"];
                 this.columnNRequisicao = base.Columns["NRequisicao"];
-                this.columnNOS = base.Columns["NOS"];
                 this.columnCodigoPeca = base.Columns["CodigoPeca"];
                 this.columnDescricaoPeca = base.Columns["DescricaoPeca"];
-                this.columnQtd = base.Columns["Qtd"];
                 this.columnUnidade = base.Columns["Unidade"];
-                this.columnASU = base.Columns["ASU"];
-                this.columnNomeSolicitante = base.Columns["NomeSolicitante"];
+                this.columnQtd = base.Columns["Qtd"];
+                this.columnAsu = base.Columns["Asu"];
+                this.columnTipoMovimentacao = base.Columns["TipoMovimentacao"];
+                this.columnStatus = base.Columns["Status"];
+                this.columnUsuarioSolicitacao = base.Columns["UsuarioSolicitacao"];
                 this.columnDataHoraSolicitacao = base.Columns["DataHoraSolicitacao"];
-                this.columnStatusSolicitacao = base.Columns["StatusSolicitacao"];
-                this.columnNomeAutorizador = base.Columns["NomeAutorizador"];
+                this.columnUsuarioAutorizacao = base.Columns["UsuarioAutorizacao"];
                 this.columnDataHoraAutorizacao = base.Columns["DataHoraAutorizacao"];
+                this.columnUsuarioMovimentacao = base.Columns["UsuarioMovimentacao"];
+                this.columnDataHoraMovimentacao = base.Columns["DataHoraMovimentacao"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnNRequisicao = new global::System.Data.DataColumn("NRequisicao", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnNMovimentacao = new global::System.Data.DataColumn("NMovimentacao", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNMovimentacao);
+                this.columnNRequisicao = new global::System.Data.DataColumn("NRequisicao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNRequisicao);
-                this.columnNOS = new global::System.Data.DataColumn("NOS", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNOS);
                 this.columnCodigoPeca = new global::System.Data.DataColumn("CodigoPeca", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodigoPeca);
                 this.columnDescricaoPeca = new global::System.Data.DataColumn("DescricaoPeca", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricaoPeca);
-                this.columnQtd = new global::System.Data.DataColumn("Qtd", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQtd);
                 this.columnUnidade = new global::System.Data.DataColumn("Unidade", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUnidade);
-                this.columnASU = new global::System.Data.DataColumn("ASU", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnASU);
-                this.columnNomeSolicitante = new global::System.Data.DataColumn("NomeSolicitante", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNomeSolicitante);
+                this.columnQtd = new global::System.Data.DataColumn("Qtd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQtd);
+                this.columnAsu = new global::System.Data.DataColumn("Asu", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAsu);
+                this.columnTipoMovimentacao = new global::System.Data.DataColumn("TipoMovimentacao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipoMovimentacao);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
+                this.columnUsuarioSolicitacao = new global::System.Data.DataColumn("UsuarioSolicitacao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsuarioSolicitacao);
                 this.columnDataHoraSolicitacao = new global::System.Data.DataColumn("DataHoraSolicitacao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataHoraSolicitacao);
-                this.columnStatusSolicitacao = new global::System.Data.DataColumn("StatusSolicitacao", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStatusSolicitacao);
-                this.columnNomeAutorizador = new global::System.Data.DataColumn("NomeAutorizador", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNomeAutorizador);
+                this.columnUsuarioAutorizacao = new global::System.Data.DataColumn("UsuarioAutorizacao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsuarioAutorizacao);
                 this.columnDataHoraAutorizacao = new global::System.Data.DataColumn("DataHoraAutorizacao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataHoraAutorizacao);
+                this.columnUsuarioMovimentacao = new global::System.Data.DataColumn("UsuarioMovimentacao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsuarioMovimentacao);
+                this.columnDataHoraMovimentacao = new global::System.Data.DataColumn("DataHoraMovimentacao", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataHoraMovimentacao);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnNRequisicao}, true));
-                this.columnNRequisicao.AutoIncrement = true;
-                this.columnNRequisicao.AutoIncrementSeed = -1;
-                this.columnNRequisicao.AutoIncrementStep = -1;
-                this.columnNRequisicao.AllowDBNull = false;
-                this.columnNRequisicao.Unique = true;
-                this.columnNOS.MaxLength = 255;
+                                this.columnNMovimentacao}, true));
+                this.columnNMovimentacao.AutoIncrement = true;
+                this.columnNMovimentacao.AutoIncrementSeed = -1;
+                this.columnNMovimentacao.AutoIncrementStep = -1;
+                this.columnNMovimentacao.AllowDBNull = false;
+                this.columnNMovimentacao.Unique = true;
+                this.columnNRequisicao.MaxLength = 255;
                 this.columnCodigoPeca.MaxLength = 255;
                 this.columnDescricaoPeca.MaxLength = 255;
-                this.columnQtd.MaxLength = 255;
                 this.columnUnidade.MaxLength = 255;
-                this.columnASU.MaxLength = 255;
-                this.columnNomeSolicitante.MaxLength = 255;
+                this.columnQtd.MaxLength = 255;
+                this.columnAsu.MaxLength = 255;
+                this.columnTipoMovimentacao.MaxLength = 255;
+                this.columnStatus.MaxLength = 255;
+                this.columnUsuarioSolicitacao.MaxLength = 255;
                 this.columnDataHoraSolicitacao.MaxLength = 255;
-                this.columnStatusSolicitacao.MaxLength = 255;
-                this.columnNomeAutorizador.MaxLength = 255;
+                this.columnUsuarioAutorizacao.MaxLength = 255;
                 this.columnDataHoraAutorizacao.MaxLength = 255;
+                this.columnUsuarioMovimentacao.MaxLength = 255;
+                this.columnDataHoraMovimentacao.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRRow Newtab_SolicitacaoPecaOSTHRRow() {
-                return ((tab_SolicitacaoPecaOSTHRRow)(this.NewRow()));
+            public tab_MovimentacaoPecasRow Newtab_MovimentacaoPecasRow() {
+                return ((tab_MovimentacaoPecasRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tab_SolicitacaoPecaOSTHRRow(builder);
+                return new tab_MovimentacaoPecasRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tab_SolicitacaoPecaOSTHRRow);
+                return typeof(tab_MovimentacaoPecasRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tab_SolicitacaoPecaOSTHRRowChanged != null)) {
-                    this.tab_SolicitacaoPecaOSTHRRowChanged(this, new tab_SolicitacaoPecaOSTHRRowChangeEvent(((tab_SolicitacaoPecaOSTHRRow)(e.Row)), e.Action));
+                if ((this.tab_MovimentacaoPecasRowChanged != null)) {
+                    this.tab_MovimentacaoPecasRowChanged(this, new tab_MovimentacaoPecasRowChangeEvent(((tab_MovimentacaoPecasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -605,8 +650,8 @@ namespace SistemaTHR {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tab_SolicitacaoPecaOSTHRRowChanging != null)) {
-                    this.tab_SolicitacaoPecaOSTHRRowChanging(this, new tab_SolicitacaoPecaOSTHRRowChangeEvent(((tab_SolicitacaoPecaOSTHRRow)(e.Row)), e.Action));
+                if ((this.tab_MovimentacaoPecasRowChanging != null)) {
+                    this.tab_MovimentacaoPecasRowChanging(this, new tab_MovimentacaoPecasRowChangeEvent(((tab_MovimentacaoPecasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -614,8 +659,8 @@ namespace SistemaTHR {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tab_SolicitacaoPecaOSTHRRowDeleted != null)) {
-                    this.tab_SolicitacaoPecaOSTHRRowDeleted(this, new tab_SolicitacaoPecaOSTHRRowChangeEvent(((tab_SolicitacaoPecaOSTHRRow)(e.Row)), e.Action));
+                if ((this.tab_MovimentacaoPecasRowDeleted != null)) {
+                    this.tab_MovimentacaoPecasRowDeleted(this, new tab_MovimentacaoPecasRowChangeEvent(((tab_MovimentacaoPecasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -623,14 +668,14 @@ namespace SistemaTHR {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tab_SolicitacaoPecaOSTHRRowDeleting != null)) {
-                    this.tab_SolicitacaoPecaOSTHRRowDeleting(this, new tab_SolicitacaoPecaOSTHRRowChangeEvent(((tab_SolicitacaoPecaOSTHRRow)(e.Row)), e.Action));
+                if ((this.tab_MovimentacaoPecasRowDeleting != null)) {
+                    this.tab_MovimentacaoPecasRowDeleting(this, new tab_MovimentacaoPecasRowChangeEvent(((tab_MovimentacaoPecasRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removetab_SolicitacaoPecaOSTHRRow(tab_SolicitacaoPecaOSTHRRow row) {
+            public void Removetab_MovimentacaoPecasRow(tab_MovimentacaoPecasRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -639,7 +684,7 @@ namespace SistemaTHR {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                _bd_SistemDataSet8 ds = new _bd_SistemDataSet8();
+                movimentacaoPecas ds = new movimentacaoPecas();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -657,7 +702,7 @@ namespace SistemaTHR {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tab_SolicitacaoPecaOSTHRDataTable";
+                attribute2.FixedValue = "tab_MovimentacaoPecasDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -701,41 +746,41 @@ namespace SistemaTHR {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tab_SolicitacaoPecaOSTHRRow : global::System.Data.DataRow {
+        public partial class tab_MovimentacaoPecasRow : global::System.Data.DataRow {
             
-            private tab_SolicitacaoPecaOSTHRDataTable tabletab_SolicitacaoPecaOSTHR;
+            private tab_MovimentacaoPecasDataTable tabletab_MovimentacaoPecas;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal tab_SolicitacaoPecaOSTHRRow(global::System.Data.DataRowBuilder rb) : 
+            internal tab_MovimentacaoPecasRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletab_SolicitacaoPecaOSTHR = ((tab_SolicitacaoPecaOSTHRDataTable)(this.Table));
+                this.tabletab_MovimentacaoPecas = ((tab_MovimentacaoPecasDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int NRequisicao {
+            public int NMovimentacao {
                 get {
-                    return ((int)(this[this.tabletab_SolicitacaoPecaOSTHR.NRequisicaoColumn]));
+                    return ((int)(this[this.tabletab_MovimentacaoPecas.NMovimentacaoColumn]));
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.NRequisicaoColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.NMovimentacaoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NOS {
+            public string NRequisicao {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.NOSColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.NRequisicaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NOS\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NRequisicao\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.NOSColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.NRequisicaoColumn] = value;
                 }
             }
             
@@ -744,14 +789,14 @@ namespace SistemaTHR {
             public string CodigoPeca {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.CodigoPecaColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.CodigoPecaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CodigoPeca\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'CodigoPeca\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.CodigoPecaColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.CodigoPecaColumn] = value;
                 }
             }
             
@@ -760,30 +805,14 @@ namespace SistemaTHR {
             public string DescricaoPeca {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.DescricaoPecaColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.DescricaoPecaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DescricaoPeca\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DescricaoPeca\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.DescricaoPecaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Qtd {
-                get {
-                    try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.QtdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Qtd\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.QtdColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.DescricaoPecaColumn] = value;
                 }
             }
             
@@ -792,47 +821,95 @@ namespace SistemaTHR {
             public string Unidade {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.UnidadeColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.UnidadeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Unidade\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Unidade\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.UnidadeColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.UnidadeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ASU {
+            public string Qtd {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.ASUColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.QtdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'ASU\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Qtd\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.ASUColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.QtdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NomeSolicitante {
+            public string Asu {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.NomeSolicitanteColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.AsuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NomeSolicitante\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull" +
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Asu\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletab_MovimentacaoPecas.AsuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TipoMovimentacao {
+                get {
+                    try {
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.TipoMovimentacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'TipoMovimentacao\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletab_MovimentacaoPecas.TipoMovimentacaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'Status\' na tabela \'tab_MovimentacaoPecas\' é DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletab_MovimentacaoPecas.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string UsuarioSolicitacao {
+                get {
+                    try {
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.UsuarioSolicitacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UsuarioSolicitacao\' na tabela \'tab_MovimentacaoPecas\' é DBNull" +
                                 ".", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.NomeSolicitanteColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.UsuarioSolicitacaoColumn] = value;
                 }
             }
             
@@ -841,49 +918,32 @@ namespace SistemaTHR {
             public string DataHoraSolicitacao {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.DataHoraSolicitacaoColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.DataHoraSolicitacaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataHoraSolicitacao\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DB" +
-                                "Null.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataHoraSolicitacao\' na tabela \'tab_MovimentacaoPecas\' é DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.DataHoraSolicitacaoColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.DataHoraSolicitacaoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string StatusSolicitacao {
+            public string UsuarioAutorizacao {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.StatusSolicitacaoColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.UsuarioAutorizacaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'StatusSolicitacao\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.StatusSolicitacaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NomeAutorizador {
-                get {
-                    try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.NomeAutorizadorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'NomeAutorizador\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DBNull" +
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UsuarioAutorizacao\' na tabela \'tab_MovimentacaoPecas\' é DBNull" +
                                 ".", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.NomeAutorizadorColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.UsuarioAutorizacaoColumn] = value;
                 }
             }
             
@@ -892,148 +952,218 @@ namespace SistemaTHR {
             public string DataHoraAutorizacao {
                 get {
                     try {
-                        return ((string)(this[this.tabletab_SolicitacaoPecaOSTHR.DataHoraAutorizacaoColumn]));
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.DataHoraAutorizacaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataHoraAutorizacao\' na tabela \'tab_SolicitacaoPecaOSTHR\' é DB" +
-                                "Null.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataHoraAutorizacao\' na tabela \'tab_MovimentacaoPecas\' é DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tabletab_SolicitacaoPecaOSTHR.DataHoraAutorizacaoColumn] = value;
+                    this[this.tabletab_MovimentacaoPecas.DataHoraAutorizacaoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNOSNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.NOSColumn);
+            public string UsuarioMovimentacao {
+                get {
+                    try {
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.UsuarioMovimentacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'UsuarioMovimentacao\' na tabela \'tab_MovimentacaoPecas\' é DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tabletab_MovimentacaoPecas.UsuarioMovimentacaoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNOSNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.NOSColumn] = global::System.Convert.DBNull;
+            public string DataHoraMovimentacao {
+                get {
+                    try {
+                        return ((string)(this[this.tabletab_MovimentacaoPecas.DataHoraMovimentacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'DataHoraMovimentacao\' na tabela \'tab_MovimentacaoPecas\' é DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tabletab_MovimentacaoPecas.DataHoraMovimentacaoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsNRequisicaoNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.NRequisicaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNRequisicaoNull() {
+                this[this.tabletab_MovimentacaoPecas.NRequisicaoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCodigoPecaNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.CodigoPecaColumn);
+                return this.IsNull(this.tabletab_MovimentacaoPecas.CodigoPecaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCodigoPecaNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.CodigoPecaColumn] = global::System.Convert.DBNull;
+                this[this.tabletab_MovimentacaoPecas.CodigoPecaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDescricaoPecaNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.DescricaoPecaColumn);
+                return this.IsNull(this.tabletab_MovimentacaoPecas.DescricaoPecaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDescricaoPecaNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.DescricaoPecaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsQtdNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.QtdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetQtdNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.QtdColumn] = global::System.Convert.DBNull;
+                this[this.tabletab_MovimentacaoPecas.DescricaoPecaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsUnidadeNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.UnidadeColumn);
+                return this.IsNull(this.tabletab_MovimentacaoPecas.UnidadeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetUnidadeNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.UnidadeColumn] = global::System.Convert.DBNull;
+                this[this.tabletab_MovimentacaoPecas.UnidadeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsASUNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.ASUColumn);
+            public bool IsQtdNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.QtdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetASUNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.ASUColumn] = global::System.Convert.DBNull;
+            public void SetQtdNull() {
+                this[this.tabletab_MovimentacaoPecas.QtdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNomeSolicitanteNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.NomeSolicitanteColumn);
+            public bool IsAsuNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.AsuColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNomeSolicitanteNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.NomeSolicitanteColumn] = global::System.Convert.DBNull;
+            public void SetAsuNull() {
+                this[this.tabletab_MovimentacaoPecas.AsuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTipoMovimentacaoNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.TipoMovimentacaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTipoMovimentacaoNull() {
+                this[this.tabletab_MovimentacaoPecas.TipoMovimentacaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tabletab_MovimentacaoPecas.StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUsuarioSolicitacaoNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.UsuarioSolicitacaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUsuarioSolicitacaoNull() {
+                this[this.tabletab_MovimentacaoPecas.UsuarioSolicitacaoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDataHoraSolicitacaoNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.DataHoraSolicitacaoColumn);
+                return this.IsNull(this.tabletab_MovimentacaoPecas.DataHoraSolicitacaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDataHoraSolicitacaoNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.DataHoraSolicitacaoColumn] = global::System.Convert.DBNull;
+                this[this.tabletab_MovimentacaoPecas.DataHoraSolicitacaoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsStatusSolicitacaoNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.StatusSolicitacaoColumn);
+            public bool IsUsuarioAutorizacaoNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.UsuarioAutorizacaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetStatusSolicitacaoNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.StatusSolicitacaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNomeAutorizadorNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.NomeAutorizadorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNomeAutorizadorNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.NomeAutorizadorColumn] = global::System.Convert.DBNull;
+            public void SetUsuarioAutorizacaoNull() {
+                this[this.tabletab_MovimentacaoPecas.UsuarioAutorizacaoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDataHoraAutorizacaoNull() {
-                return this.IsNull(this.tabletab_SolicitacaoPecaOSTHR.DataHoraAutorizacaoColumn);
+                return this.IsNull(this.tabletab_MovimentacaoPecas.DataHoraAutorizacaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDataHoraAutorizacaoNull() {
-                this[this.tabletab_SolicitacaoPecaOSTHR.DataHoraAutorizacaoColumn] = global::System.Convert.DBNull;
+                this[this.tabletab_MovimentacaoPecas.DataHoraAutorizacaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUsuarioMovimentacaoNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.UsuarioMovimentacaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUsuarioMovimentacaoNull() {
+                this[this.tabletab_MovimentacaoPecas.UsuarioMovimentacaoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDataHoraMovimentacaoNull() {
+                return this.IsNull(this.tabletab_MovimentacaoPecas.DataHoraMovimentacaoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDataHoraMovimentacaoNull() {
+                this[this.tabletab_MovimentacaoPecas.DataHoraMovimentacaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1041,22 +1171,22 @@ namespace SistemaTHR {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class tab_SolicitacaoPecaOSTHRRowChangeEvent : global::System.EventArgs {
+        public class tab_MovimentacaoPecasRowChangeEvent : global::System.EventArgs {
             
-            private tab_SolicitacaoPecaOSTHRRow eventRow;
+            private tab_MovimentacaoPecasRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRRowChangeEvent(tab_SolicitacaoPecaOSTHRRow row, global::System.Data.DataRowAction action) {
+            public tab_MovimentacaoPecasRowChangeEvent(tab_MovimentacaoPecasRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tab_SolicitacaoPecaOSTHRRow Row {
+            public tab_MovimentacaoPecasRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1072,7 +1202,7 @@ namespace SistemaTHR {
         }
     }
 }
-namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
+namespace SistemaTHR.movimentacaoPecasTableAdapters {
     
     
     /// <summary>
@@ -1084,7 +1214,7 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tab_SolicitacaoPecaOSTHRTableAdapter : global::System.ComponentModel.Component {
+    public partial class tab_MovimentacaoPecasTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
         
@@ -1098,7 +1228,7 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public tab_SolicitacaoPecaOSTHRTableAdapter() {
+        public tab_MovimentacaoPecasTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1195,103 +1325,121 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tab_SolicitacaoPecaOSTHR";
+            tableMapping.DataSetTable = "tab_MovimentacaoPecas";
+            tableMapping.ColumnMappings.Add("NMovimentacao", "NMovimentacao");
             tableMapping.ColumnMappings.Add("NRequisicao", "NRequisicao");
-            tableMapping.ColumnMappings.Add("NOS", "NOS");
             tableMapping.ColumnMappings.Add("CodigoPeca", "CodigoPeca");
             tableMapping.ColumnMappings.Add("DescricaoPeca", "DescricaoPeca");
-            tableMapping.ColumnMappings.Add("Qtd", "Qtd");
             tableMapping.ColumnMappings.Add("Unidade", "Unidade");
-            tableMapping.ColumnMappings.Add("ASU", "ASU");
-            tableMapping.ColumnMappings.Add("NomeSolicitante", "NomeSolicitante");
+            tableMapping.ColumnMappings.Add("Qtd", "Qtd");
+            tableMapping.ColumnMappings.Add("Asu", "Asu");
+            tableMapping.ColumnMappings.Add("TipoMovimentacao", "TipoMovimentacao");
+            tableMapping.ColumnMappings.Add("Status", "Status");
+            tableMapping.ColumnMappings.Add("UsuarioSolicitacao", "UsuarioSolicitacao");
             tableMapping.ColumnMappings.Add("DataHoraSolicitacao", "DataHoraSolicitacao");
-            tableMapping.ColumnMappings.Add("StatusSolicitacao", "StatusSolicitacao");
-            tableMapping.ColumnMappings.Add("NomeAutorizador", "NomeAutorizador");
+            tableMapping.ColumnMappings.Add("UsuarioAutorizacao", "UsuarioAutorizacao");
             tableMapping.ColumnMappings.Add("DataHoraAutorizacao", "DataHoraAutorizacao");
+            tableMapping.ColumnMappings.Add("UsuarioMovimentacao", "UsuarioMovimentacao");
+            tableMapping.ColumnMappings.Add("DataHoraMovimentacao", "DataHoraMovimentacao");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tab_SolicitacaoPecaOSTHR` WHERE ((`NRequisicao` = ?) AND ((? = 1 AND `NOS` IS NULL) OR (`NOS` = ?)) AND ((? = 1 AND `CodigoPeca` IS NULL) OR (`CodigoPeca` = ?)) AND ((? = 1 AND `DescricaoPeca` IS NULL) OR (`DescricaoPeca` = ?)) AND ((? = 1 AND `Qtd` IS NULL) OR (`Qtd` = ?)) AND ((? = 1 AND `Unidade` IS NULL) OR (`Unidade` = ?)) AND ((? = 1 AND `ASU` IS NULL) OR (`ASU` = ?)) AND ((? = 1 AND `NomeSolicitante` IS NULL) OR (`NomeSolicitante` = ?)) AND ((? = 1 AND `DataHoraSolicitacao` IS NULL) OR (`DataHoraSolicitacao` = ?)) AND ((? = 1 AND `StatusSolicitacao` IS NULL) OR (`StatusSolicitacao` = ?)) AND ((? = 1 AND `NomeAutorizador` IS NULL) OR (`NomeAutorizador` = ?)) AND ((? = 1 AND `DataHoraAutorizacao` IS NULL) OR (`DataHoraAutorizacao` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `tab_MovimentacaoPecas` WHERE ((`NMovimentacao` = ?) AND ((? = 1 AND `NRequisicao` IS NULL) OR (`NRequisicao` = ?)) AND ((? = 1 AND `CodigoPeca` IS NULL) OR (`CodigoPeca` = ?)) AND ((? = 1 AND `DescricaoPeca` IS NULL) OR (`DescricaoPeca` = ?)) AND ((? = 1 AND `Unidade` IS NULL) OR (`Unidade` = ?)) AND ((? = 1 AND `Qtd` IS NULL) OR (`Qtd` = ?)) AND ((? = 1 AND `Asu` IS NULL) OR (`Asu` = ?)) AND ((? = 1 AND `TipoMovimentacao` IS NULL) OR (`TipoMovimentacao` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((? = 1 AND `UsuarioSolicitacao` IS NULL) OR (`UsuarioSolicitacao` = ?)) AND ((? = 1 AND `DataHoraSolicitacao` IS NULL) OR (`DataHoraSolicitacao` = ?)) AND ((? = 1 AND `UsuarioAutorizacao` IS NULL) OR (`UsuarioAutorizacao` = ?)) AND ((? = 1 AND `DataHoraAutorizacao` IS NULL) OR (`DataHoraAutorizacao` = ?)) AND ((? = 1 AND `UsuarioMovimentacao` IS NULL) OR (`UsuarioMovimentacao` = ?)) AND ((? = 1 AND `DataHoraMovimentacao` IS NULL) OR (`DataHoraMovimentacao` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NRequisicao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NOS", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOS", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NOS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NRequisicao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NRequisicao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CodigoPeca", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodigoPeca", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CodigoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodigoPeca", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DescricaoPeca", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DescricaoPeca", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DescricaoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DescricaoPeca", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Qtd", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Unidade", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Unidade", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Unidade", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Unidade", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ASU", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ASU", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ASU", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ASU", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NomeSolicitante", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeSolicitante", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NomeSolicitante", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeSolicitante", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Qtd", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Asu", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Asu", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Asu", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Asu", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TipoMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TipoMovimentacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TipoMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TipoMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UsuarioSolicitacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioSolicitacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UsuarioSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioSolicitacao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DataHoraSolicitacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraSolicitacao", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DataHoraSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraSolicitacao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StatusSolicitacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StatusSolicitacao", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StatusSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StatusSolicitacao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NomeAutorizador", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeAutorizador", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NomeAutorizador", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeAutorizador", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UsuarioAutorizacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioAutorizacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UsuarioAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioAutorizacao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DataHoraAutorizacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraAutorizacao", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DataHoraAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraAutorizacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UsuarioMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioMovimentacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UsuarioMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DataHoraMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraMovimentacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DataHoraMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `tab_SolicitacaoPecaOSTHR` (`NOS`, `CodigoPeca`, `DescricaoPeca`, `Qt" +
-                "d`, `Unidade`, `ASU`, `NomeSolicitante`, `DataHoraSolicitacao`, `StatusSolicitac" +
-                "ao`, `NomeAutorizador`, `DataHoraAutorizacao`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?" +
-                ", ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `tab_MovimentacaoPecas` (`NRequisicao`, `CodigoPeca`, `DescricaoPeca`, `Unidade`, `Qtd`, `Asu`, `TipoMovimentacao`, `Status`, `UsuarioSolicitacao`, `DataHoraSolicitacao`, `UsuarioAutorizacao`, `DataHoraAutorizacao`, `UsuarioMovimentacao`, `DataHoraMovimentacao`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NOS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NRequisicao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodigoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodigoPeca", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DescricaoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DescricaoPeca", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Unidade", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Unidade", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ASU", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ASU", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NomeSolicitante", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeSolicitante", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Asu", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Asu", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TipoMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TipoMovimentacao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UsuarioSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioSolicitacao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DataHoraSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraSolicitacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StatusSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StatusSolicitacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NomeAutorizador", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeAutorizador", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UsuarioAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioAutorizacao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DataHoraAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraAutorizacao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UsuarioMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioMovimentacao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DataHoraMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraMovimentacao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `tab_SolicitacaoPecaOSTHR` SET `NOS` = ?, `CodigoPeca` = ?, `DescricaoPeca` = ?, `Qtd` = ?, `Unidade` = ?, `ASU` = ?, `NomeSolicitante` = ?, `DataHoraSolicitacao` = ?, `StatusSolicitacao` = ?, `NomeAutorizador` = ?, `DataHoraAutorizacao` = ? WHERE ((`NRequisicao` = ?) AND ((? = 1 AND `NOS` IS NULL) OR (`NOS` = ?)) AND ((? = 1 AND `CodigoPeca` IS NULL) OR (`CodigoPeca` = ?)) AND ((? = 1 AND `DescricaoPeca` IS NULL) OR (`DescricaoPeca` = ?)) AND ((? = 1 AND `Qtd` IS NULL) OR (`Qtd` = ?)) AND ((? = 1 AND `Unidade` IS NULL) OR (`Unidade` = ?)) AND ((? = 1 AND `ASU` IS NULL) OR (`ASU` = ?)) AND ((? = 1 AND `NomeSolicitante` IS NULL) OR (`NomeSolicitante` = ?)) AND ((? = 1 AND `DataHoraSolicitacao` IS NULL) OR (`DataHoraSolicitacao` = ?)) AND ((? = 1 AND `StatusSolicitacao` IS NULL) OR (`StatusSolicitacao` = ?)) AND ((? = 1 AND `NomeAutorizador` IS NULL) OR (`NomeAutorizador` = ?)) AND ((? = 1 AND `DataHoraAutorizacao` IS NULL) OR (`DataHoraAutorizacao` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `tab_MovimentacaoPecas` SET `NRequisicao` = ?, `CodigoPeca` = ?, `DescricaoPeca` = ?, `Unidade` = ?, `Qtd` = ?, `Asu` = ?, `TipoMovimentacao` = ?, `Status` = ?, `UsuarioSolicitacao` = ?, `DataHoraSolicitacao` = ?, `UsuarioAutorizacao` = ?, `DataHoraAutorizacao` = ?, `UsuarioMovimentacao` = ?, `DataHoraMovimentacao` = ? WHERE ((`NMovimentacao` = ?) AND ((? = 1 AND `NRequisicao` IS NULL) OR (`NRequisicao` = ?)) AND ((? = 1 AND `CodigoPeca` IS NULL) OR (`CodigoPeca` = ?)) AND ((? = 1 AND `DescricaoPeca` IS NULL) OR (`DescricaoPeca` = ?)) AND ((? = 1 AND `Unidade` IS NULL) OR (`Unidade` = ?)) AND ((? = 1 AND `Qtd` IS NULL) OR (`Qtd` = ?)) AND ((? = 1 AND `Asu` IS NULL) OR (`Asu` = ?)) AND ((? = 1 AND `TipoMovimentacao` IS NULL) OR (`TipoMovimentacao` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)) AND ((? = 1 AND `UsuarioSolicitacao` IS NULL) OR (`UsuarioSolicitacao` = ?)) AND ((? = 1 AND `DataHoraSolicitacao` IS NULL) OR (`DataHoraSolicitacao` = ?)) AND ((? = 1 AND `UsuarioAutorizacao` IS NULL) OR (`UsuarioAutorizacao` = ?)) AND ((? = 1 AND `DataHoraAutorizacao` IS NULL) OR (`DataHoraAutorizacao` = ?)) AND ((? = 1 AND `UsuarioMovimentacao` IS NULL) OR (`UsuarioMovimentacao` = ?)) AND ((? = 1 AND `DataHoraMovimentacao` IS NULL) OR (`DataHoraMovimentacao` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NOS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOS", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NRequisicao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CodigoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodigoPeca", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DescricaoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DescricaoPeca", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Unidade", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Unidade", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ASU", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ASU", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NomeSolicitante", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeSolicitante", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Asu", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Asu", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TipoMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TipoMovimentacao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UsuarioSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioSolicitacao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DataHoraSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraSolicitacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StatusSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StatusSolicitacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NomeAutorizador", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeAutorizador", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UsuarioAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioAutorizacao", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DataHoraAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraAutorizacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NRequisicao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NOS", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOS", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NOS", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NOS", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UsuarioMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioMovimentacao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DataHoraMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraMovimentacao", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NRequisicao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NRequisicao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NRequisicao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CodigoPeca", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodigoPeca", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CodigoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CodigoPeca", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DescricaoPeca", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DescricaoPeca", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DescricaoPeca", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DescricaoPeca", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Qtd", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Unidade", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Unidade", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Unidade", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Unidade", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ASU", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ASU", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ASU", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ASU", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NomeSolicitante", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeSolicitante", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NomeSolicitante", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeSolicitante", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Qtd", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Qtd", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Qtd", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Asu", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Asu", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Asu", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Asu", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TipoMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TipoMovimentacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TipoMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TipoMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Status", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Status", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Status", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UsuarioSolicitacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioSolicitacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UsuarioSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioSolicitacao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DataHoraSolicitacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraSolicitacao", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DataHoraSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraSolicitacao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StatusSolicitacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StatusSolicitacao", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StatusSolicitacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StatusSolicitacao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NomeAutorizador", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeAutorizador", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NomeAutorizador", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NomeAutorizador", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UsuarioAutorizacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioAutorizacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UsuarioAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioAutorizacao", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DataHoraAutorizacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraAutorizacao", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DataHoraAutorizacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraAutorizacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_UsuarioMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioMovimentacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UsuarioMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UsuarioMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_DataHoraMovimentacao", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraMovimentacao", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_DataHoraMovimentacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DataHoraMovimentacao", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1307,9 +1455,7 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT NRequisicao, NOS, CodigoPeca, DescricaoPeca, Qtd, Unidade, ASU, NomeSolici" +
-                "tante, DataHoraSolicitacao, StatusSolicitacao, NomeAutorizador, DataHoraAutoriza" +
-                "cao FROM tab_SolicitacaoPecaOSTHR";
+            this._commandCollection[0].CommandText = @"SELECT NMovimentacao, NRequisicao, CodigoPeca, DescricaoPeca, Unidade, Qtd, Asu, TipoMovimentacao, Status, UsuarioSolicitacao, DataHoraSolicitacao, UsuarioAutorizacao, DataHoraAutorizacao, UsuarioMovimentacao, DataHoraMovimentacao FROM tab_MovimentacaoPecas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1317,7 +1463,7 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(_bd_SistemDataSet8.tab_SolicitacaoPecaOSTHRDataTable dataTable) {
+        public virtual int Fill(movimentacaoPecas.tab_MovimentacaoPecasDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1330,9 +1476,9 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual _bd_SistemDataSet8.tab_SolicitacaoPecaOSTHRDataTable GetData() {
+        public virtual movimentacaoPecas.tab_MovimentacaoPecasDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            _bd_SistemDataSet8.tab_SolicitacaoPecaOSTHRDataTable dataTable = new _bd_SistemDataSet8.tab_SolicitacaoPecaOSTHRDataTable();
+            movimentacaoPecas.tab_MovimentacaoPecasDataTable dataTable = new movimentacaoPecas.tab_MovimentacaoPecasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1340,15 +1486,15 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(_bd_SistemDataSet8.tab_SolicitacaoPecaOSTHRDataTable dataTable) {
+        public virtual int Update(movimentacaoPecas.tab_MovimentacaoPecasDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(_bd_SistemDataSet8 dataSet) {
-            return this.Adapter.Update(dataSet, "tab_SolicitacaoPecaOSTHR");
+        public virtual int Update(movimentacaoPecas dataSet) {
+            return this.Adapter.Update(dataSet, "tab_MovimentacaoPecas");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1370,15 +1516,15 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_NRequisicao, string Original_NOS, string Original_CodigoPeca, string Original_DescricaoPeca, string Original_Qtd, string Original_Unidade, string Original_ASU, string Original_NomeSolicitante, string Original_DataHoraSolicitacao, string Original_StatusSolicitacao, string Original_NomeAutorizador, string Original_DataHoraAutorizacao) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_NRequisicao));
-            if ((Original_NOS == null)) {
+        public virtual int Delete(int Original_NMovimentacao, string Original_NRequisicao, string Original_CodigoPeca, string Original_DescricaoPeca, string Original_Unidade, string Original_Qtd, string Original_Asu, string Original_TipoMovimentacao, string Original_Status, string Original_UsuarioSolicitacao, string Original_DataHoraSolicitacao, string Original_UsuarioAutorizacao, string Original_DataHoraAutorizacao, string Original_UsuarioMovimentacao, string Original_DataHoraMovimentacao) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_NMovimentacao));
+            if ((Original_NRequisicao == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_NOS));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_NRequisicao));
             }
             if ((Original_CodigoPeca == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
@@ -1396,69 +1542,93 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_DescricaoPeca));
             }
-            if ((Original_Qtd == null)) {
+            if ((Original_Unidade == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Qtd));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Unidade));
             }
-            if ((Original_Unidade == null)) {
+            if ((Original_Qtd == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Unidade));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Qtd));
             }
-            if ((Original_ASU == null)) {
+            if ((Original_Asu == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_ASU));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Asu));
             }
-            if ((Original_NomeSolicitante == null)) {
+            if ((Original_TipoMovimentacao == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_NomeSolicitante));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_TipoMovimentacao));
             }
-            if ((Original_DataHoraSolicitacao == null)) {
+            if ((Original_Status == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_DataHoraSolicitacao));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_Status));
             }
-            if ((Original_StatusSolicitacao == null)) {
+            if ((Original_UsuarioSolicitacao == null)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_StatusSolicitacao));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_UsuarioSolicitacao));
             }
-            if ((Original_NomeAutorizador == null)) {
+            if ((Original_DataHoraSolicitacao == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_NomeAutorizador));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_DataHoraSolicitacao));
             }
-            if ((Original_DataHoraAutorizacao == null)) {
+            if ((Original_UsuarioAutorizacao == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_DataHoraAutorizacao));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_UsuarioAutorizacao));
+            }
+            if ((Original_DataHoraAutorizacao == null)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_DataHoraAutorizacao));
+            }
+            if ((Original_UsuarioMovimentacao == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_UsuarioMovimentacao));
+            }
+            if ((Original_DataHoraMovimentacao == null)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_DataHoraMovimentacao));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1480,12 +1650,12 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NOS, string CodigoPeca, string DescricaoPeca, string Qtd, string Unidade, string ASU, string NomeSolicitante, string DataHoraSolicitacao, string StatusSolicitacao, string NomeAutorizador, string DataHoraAutorizacao) {
-            if ((NOS == null)) {
+        public virtual int Insert(string NRequisicao, string CodigoPeca, string DescricaoPeca, string Unidade, string Qtd, string Asu, string TipoMovimentacao, string Status, string UsuarioSolicitacao, string DataHoraSolicitacao, string UsuarioAutorizacao, string DataHoraAutorizacao, string UsuarioMovimentacao, string DataHoraMovimentacao) {
+            if ((NRequisicao == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NOS));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NRequisicao));
             }
             if ((CodigoPeca == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1499,53 +1669,71 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(DescricaoPeca));
             }
-            if ((Qtd == null)) {
+            if ((Unidade == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Qtd));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Unidade));
             }
-            if ((Unidade == null)) {
+            if ((Qtd == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Unidade));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Qtd));
             }
-            if ((ASU == null)) {
+            if ((Asu == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ASU));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Asu));
             }
-            if ((NomeSolicitante == null)) {
+            if ((TipoMovimentacao == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(NomeSolicitante));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TipoMovimentacao));
             }
-            if ((DataHoraSolicitacao == null)) {
+            if ((Status == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(DataHoraSolicitacao));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Status));
             }
-            if ((StatusSolicitacao == null)) {
+            if ((UsuarioSolicitacao == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(StatusSolicitacao));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(UsuarioSolicitacao));
             }
-            if ((NomeAutorizador == null)) {
+            if ((DataHoraSolicitacao == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(NomeAutorizador));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(DataHoraSolicitacao));
             }
-            if ((DataHoraAutorizacao == null)) {
+            if ((UsuarioAutorizacao == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(DataHoraAutorizacao));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(UsuarioAutorizacao));
+            }
+            if ((DataHoraAutorizacao == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(DataHoraAutorizacao));
+            }
+            if ((UsuarioMovimentacao == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(UsuarioMovimentacao));
+            }
+            if ((DataHoraMovimentacao == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(DataHoraMovimentacao));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1568,34 +1756,40 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string NOS, 
+                    string NRequisicao, 
                     string CodigoPeca, 
                     string DescricaoPeca, 
-                    string Qtd, 
                     string Unidade, 
-                    string ASU, 
-                    string NomeSolicitante, 
+                    string Qtd, 
+                    string Asu, 
+                    string TipoMovimentacao, 
+                    string Status, 
+                    string UsuarioSolicitacao, 
                     string DataHoraSolicitacao, 
-                    string StatusSolicitacao, 
-                    string NomeAutorizador, 
+                    string UsuarioAutorizacao, 
                     string DataHoraAutorizacao, 
-                    int Original_NRequisicao, 
-                    string Original_NOS, 
+                    string UsuarioMovimentacao, 
+                    string DataHoraMovimentacao, 
+                    int Original_NMovimentacao, 
+                    string Original_NRequisicao, 
                     string Original_CodigoPeca, 
                     string Original_DescricaoPeca, 
-                    string Original_Qtd, 
                     string Original_Unidade, 
-                    string Original_ASU, 
-                    string Original_NomeSolicitante, 
+                    string Original_Qtd, 
+                    string Original_Asu, 
+                    string Original_TipoMovimentacao, 
+                    string Original_Status, 
+                    string Original_UsuarioSolicitacao, 
                     string Original_DataHoraSolicitacao, 
-                    string Original_StatusSolicitacao, 
-                    string Original_NomeAutorizador, 
-                    string Original_DataHoraAutorizacao) {
-            if ((NOS == null)) {
+                    string Original_UsuarioAutorizacao, 
+                    string Original_DataHoraAutorizacao, 
+                    string Original_UsuarioMovimentacao, 
+                    string Original_DataHoraMovimentacao) {
+            if ((NRequisicao == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NOS));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NRequisicao));
             }
             if ((CodigoPeca == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1609,142 +1803,184 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(DescricaoPeca));
             }
-            if ((Qtd == null)) {
+            if ((Unidade == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Qtd));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Unidade));
             }
-            if ((Unidade == null)) {
+            if ((Qtd == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Unidade));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Qtd));
             }
-            if ((ASU == null)) {
+            if ((Asu == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ASU));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Asu));
             }
-            if ((NomeSolicitante == null)) {
+            if ((TipoMovimentacao == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(NomeSolicitante));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(TipoMovimentacao));
             }
-            if ((DataHoraSolicitacao == null)) {
+            if ((Status == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(DataHoraSolicitacao));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Status));
             }
-            if ((StatusSolicitacao == null)) {
+            if ((UsuarioSolicitacao == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(StatusSolicitacao));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(UsuarioSolicitacao));
             }
-            if ((NomeAutorizador == null)) {
+            if ((DataHoraSolicitacao == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(NomeAutorizador));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(DataHoraSolicitacao));
             }
-            if ((DataHoraAutorizacao == null)) {
+            if ((UsuarioAutorizacao == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(DataHoraAutorizacao));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(UsuarioAutorizacao));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_NRequisicao));
-            if ((Original_NOS == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+            if ((DataHoraAutorizacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(DataHoraAutorizacao));
+            }
+            if ((UsuarioMovimentacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(UsuarioMovimentacao));
+            }
+            if ((DataHoraMovimentacao == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_NOS));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(DataHoraMovimentacao));
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_NMovimentacao));
+            if ((Original_NRequisicao == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_NRequisicao));
             }
             if ((Original_CodigoPeca == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_CodigoPeca));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_CodigoPeca));
             }
             if ((Original_DescricaoPeca == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_DescricaoPeca));
-            }
-            if ((Original_Qtd == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Qtd));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_DescricaoPeca));
             }
             if ((Original_Unidade == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Unidade));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Unidade));
             }
-            if ((Original_ASU == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_ASU));
-            }
-            if ((Original_NomeSolicitante == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            if ((Original_Qtd == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_NomeSolicitante));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Qtd));
+            }
+            if ((Original_Asu == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Asu));
+            }
+            if ((Original_TipoMovimentacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_TipoMovimentacao));
+            }
+            if ((Original_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Status));
+            }
+            if ((Original_UsuarioSolicitacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_UsuarioSolicitacao));
             }
             if ((Original_DataHoraSolicitacao == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_DataHoraSolicitacao));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_DataHoraSolicitacao));
             }
-            if ((Original_StatusSolicitacao == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_StatusSolicitacao));
-            }
-            if ((Original_NomeAutorizador == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            if ((Original_UsuarioAutorizacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_NomeAutorizador));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_UsuarioAutorizacao));
             }
             if ((Original_DataHoraAutorizacao == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_DataHoraAutorizacao));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_DataHoraAutorizacao));
+            }
+            if ((Original_UsuarioMovimentacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_UsuarioMovimentacao));
+            }
+            if ((Original_DataHoraMovimentacao == null)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_DataHoraMovimentacao));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1775,7 +2011,7 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private tab_SolicitacaoPecaOSTHRTableAdapter _tab_SolicitacaoPecaOSTHRTableAdapter;
+        private tab_MovimentacaoPecasTableAdapter _tab_MovimentacaoPecasTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1797,12 +2033,12 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public tab_SolicitacaoPecaOSTHRTableAdapter tab_SolicitacaoPecaOSTHRTableAdapter {
+        public tab_MovimentacaoPecasTableAdapter tab_MovimentacaoPecasTableAdapter {
             get {
-                return this._tab_SolicitacaoPecaOSTHRTableAdapter;
+                return this._tab_MovimentacaoPecasTableAdapter;
             }
             set {
-                this._tab_SolicitacaoPecaOSTHRTableAdapter = value;
+                this._tab_MovimentacaoPecasTableAdapter = value;
             }
         }
         
@@ -1825,9 +2061,9 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tab_SolicitacaoPecaOSTHRTableAdapter != null) 
-                            && (this._tab_SolicitacaoPecaOSTHRTableAdapter.Connection != null))) {
-                    return this._tab_SolicitacaoPecaOSTHRTableAdapter.Connection;
+                if (((this._tab_MovimentacaoPecasTableAdapter != null) 
+                            && (this._tab_MovimentacaoPecasTableAdapter.Connection != null))) {
+                    return this._tab_MovimentacaoPecasTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1842,7 +2078,7 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tab_SolicitacaoPecaOSTHRTableAdapter != null)) {
+                if ((this._tab_MovimentacaoPecasTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1854,14 +2090,14 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(_bd_SistemDataSet8 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(movimentacaoPecas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tab_SolicitacaoPecaOSTHRTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tab_SolicitacaoPecaOSTHR.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tab_MovimentacaoPecasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tab_MovimentacaoPecas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tab_SolicitacaoPecaOSTHRTableAdapter.Update(updatedRows));
+                    result = (result + this._tab_MovimentacaoPecasTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1873,13 +2109,13 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(_bd_SistemDataSet8 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(movimentacaoPecas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tab_SolicitacaoPecaOSTHRTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tab_SolicitacaoPecaOSTHR.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tab_MovimentacaoPecasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tab_MovimentacaoPecas.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tab_SolicitacaoPecaOSTHRTableAdapter.Update(addedRows));
+                    result = (result + this._tab_MovimentacaoPecasTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1891,13 +2127,13 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(_bd_SistemDataSet8 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(movimentacaoPecas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tab_SolicitacaoPecaOSTHRTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tab_SolicitacaoPecaOSTHR.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tab_MovimentacaoPecasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tab_MovimentacaoPecas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tab_SolicitacaoPecaOSTHRTableAdapter.Update(deletedRows));
+                    result = (result + this._tab_MovimentacaoPecasTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1933,15 +2169,15 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(_bd_SistemDataSet8 dataSet) {
+        public virtual int UpdateAll(movimentacaoPecas dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._tab_SolicitacaoPecaOSTHRTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tab_SolicitacaoPecaOSTHRTableAdapter.Connection) == false))) {
+            if (((this._tab_MovimentacaoPecasTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tab_MovimentacaoPecasTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos os TableAdapters gerenciados por um TableAdapterManager devem usar a mesma " +
                         "cadeia de conexão.");
             }
@@ -1977,13 +2213,13 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tab_SolicitacaoPecaOSTHRTableAdapter != null)) {
-                    revertConnections.Add(this._tab_SolicitacaoPecaOSTHRTableAdapter, this._tab_SolicitacaoPecaOSTHRTableAdapter.Connection);
-                    this._tab_SolicitacaoPecaOSTHRTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._tab_SolicitacaoPecaOSTHRTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._tab_SolicitacaoPecaOSTHRTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tab_SolicitacaoPecaOSTHRTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tab_SolicitacaoPecaOSTHRTableAdapter.Adapter);
+                if ((this._tab_MovimentacaoPecasTableAdapter != null)) {
+                    revertConnections.Add(this._tab_MovimentacaoPecasTableAdapter, this._tab_MovimentacaoPecasTableAdapter.Connection);
+                    this._tab_MovimentacaoPecasTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._tab_MovimentacaoPecasTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._tab_MovimentacaoPecasTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tab_MovimentacaoPecasTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tab_MovimentacaoPecasTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -2044,9 +2280,9 @@ namespace SistemaTHR._bd_SistemDataSet8TableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._tab_SolicitacaoPecaOSTHRTableAdapter != null)) {
-                    this._tab_SolicitacaoPecaOSTHRTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tab_SolicitacaoPecaOSTHRTableAdapter]));
-                    this._tab_SolicitacaoPecaOSTHRTableAdapter.Transaction = null;
+                if ((this._tab_MovimentacaoPecasTableAdapter != null)) {
+                    this._tab_MovimentacaoPecasTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._tab_MovimentacaoPecasTableAdapter]));
+                    this._tab_MovimentacaoPecasTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

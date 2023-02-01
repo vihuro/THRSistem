@@ -582,6 +582,11 @@
     <Compile Include="Model\Estoque\EstoqueModel.cs" />
     <Compile Include="Model\Pcp\OrdemProducaoModel.cs" />
     <Compile Include="Model\versionController.cs" />
+    <Compile Include="movimentacaoPecas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>movimentacaoPecas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -653,10 +658,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_bd_SistemDataSet6.xsd</DependentUpon>
     </Compile>
-    <Compile Include="_bd_SistemDataSet8.Designer.cs">
+    <Compile Include="_bd_SistemDataSet71.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
+      <DependentUpon>_bd_SistemDataSet71.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Apllication\Compras\frmRequisicaoCompra.resx">
       <DependentUpon>frmRequisicaoCompra.cs</DependentUpon>
@@ -855,6 +860,17 @@
     <None Include="fichaQuarentena.xss">
       <DependentUpon>fichaQuarentena.xsd</DependentUpon>
     </None>
+    <None Include="movimentacaoPecas.xsc">
+      <DependentUpon>movimentacaoPecas.xsd</DependentUpon>
+    </None>
+    <None Include="movimentacaoPecas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>movimentacaoPecas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="movimentacaoPecas.xss">
+      <DependentUpon>movimentacaoPecas.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -942,16 +958,16 @@
     <None Include="_bd_SistemDataSet6.xss">
       <DependentUpon>_bd_SistemDataSet6.xsd</DependentUpon>
     </None>
-    <None Include="_bd_SistemDataSet8.xsc">
-      <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
+    <None Include="_bd_SistemDataSet71.xsc">
+      <DependentUpon>_bd_SistemDataSet71.xsd</DependentUpon>
     </None>
-    <None Include="_bd_SistemDataSet8.xsd">
+    <None Include="_bd_SistemDataSet71.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_bd_SistemDataSet8.Designer.cs</LastGenOutput>
+      <LastGenOutput>_bd_SistemDataSet71.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="_bd_SistemDataSet8.xss">
-      <DependentUpon>_bd_SistemDataSet8.xsd</DependentUpon>
+    <None Include="_bd_SistemDataSet71.xss">
+      <DependentUpon>_bd_SistemDataSet71.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

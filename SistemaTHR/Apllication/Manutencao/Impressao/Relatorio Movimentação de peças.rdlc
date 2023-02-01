@@ -2,27 +2,27 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ID_bd_SistemDataSet8">
+    <DataSource Name="movimentacaoPecas">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>48dae94d-6670-44e4-a134-3fc8bb3e3258</rd:DataSourceID>
+      <rd:DataSourceID>3f828af0-2948-456e-9502-4d801d6fe9f6</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="RelatorioMovimentacaoPecas">
+    <DataSet Name="movimentacaoPecas">
       <Query>
-        <DataSourceName>ID_bd_SistemDataSet8</DataSourceName>
+        <DataSourceName>movimentacaoPecas</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="NRequisicao">
-          <DataField>NRequisicao</DataField>
+        <Field Name="NMovimentacao">
+          <DataField>NMovimentacao</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NOS">
-          <DataField>NOS</DataField>
+        <Field Name="NRequisicao">
+          <DataField>NRequisicao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CodigoPeca">
@@ -33,46 +33,58 @@
           <DataField>DescricaoPeca</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Qtd">
-          <DataField>Qtd</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Unidade">
           <DataField>Unidade</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ASU">
-          <DataField>ASU</DataField>
+        <Field Name="Qtd">
+          <DataField>Qtd</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NomeSolicitante">
-          <DataField>NomeSolicitante</DataField>
+        <Field Name="Asu">
+          <DataField>Asu</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipoMovimentacao">
+          <DataField>TipoMovimentacao</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UsuarioSolicitacao">
+          <DataField>UsuarioSolicitacao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DataHoraSolicitacao">
           <DataField>DataHoraSolicitacao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="StatusSolicitacao">
-          <DataField>StatusSolicitacao</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="NomeAutorizador">
-          <DataField>NomeAutorizador</DataField>
+        <Field Name="UsuarioAutorizacao">
+          <DataField>UsuarioAutorizacao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DataHoraAutorizacao">
           <DataField>DataHoraAutorizacao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="UsuarioMovimentacao">
+          <DataField>UsuarioMovimentacao</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataHoraMovimentacao">
+          <DataField>DataHoraMovimentacao</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>_bd_SistemDataSet8</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\_bd_SistemDataSet8.xsd</rd:SchemaPath>
-        <rd:TableName>tab_SolicitacaoPecaOSTHR</rd:TableName>
+        <rd:DataSetName>movimentacaoPecas</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\movimentacaoPecas.xsd</rd:SchemaPath>
+        <rd:TableName>tab_MovimentacaoPecas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tab_SolicitacaoPecaOSTHRTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>tab_MovimentacaoPecasTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -84,10 +96,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.51424cm</Width>
+                  <Width>3.50983cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.46473cm</Width>
+                  <Width>2.46915cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>5.23814cm</Width>
@@ -102,33 +114,33 @@
                   <Width>4.35209cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.67299cm</Width>
+                  <Width>3.63771cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.4525cm</Width>
+                  <Width>3.48778cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.63527cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NRequisicao">
+                        <Textbox Name="NMovimentacao">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NRequisicao.Value</Value>
+                                  <Value>=Fields!NMovimentacao.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>NRequisicao</rd:DefaultName>
+                          <rd:DefaultName>NMovimentacao</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -264,21 +276,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ASU">
+                        <Textbox Name="Asu">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ASU.Value</Value>
+                                  <Value>=Fields!Asu.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>ASU</rd:DefaultName>
+                          <rd:DefaultName>Asu</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -294,21 +306,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox23">
+                        <Textbox Name="TipoMovimentacao">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!TipoMovimentacao.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox23</rd:DefaultName>
+                          <rd:DefaultName>TipoMovimentacao</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -324,21 +336,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox24">
+                        <Textbox Name="Status">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Status.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <rd:DefaultName>Status</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -375,9 +387,9 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>RelatorioMovimentacaoPecas</DataSetName>
+            <DataSetName>movimentacaoPecas</DataSetName>
             <Left>0.80291cm</Left>
-            <Height>0.6cm</Height>
+            <Height>0.63527cm</Height>
             <Width>27.08617cm</Width>
             <Style>
               <Border>
@@ -386,7 +398,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.53125in</Height>
+        <Height>0.70906in</Height>
         <Style />
       </Body>
       <Width>11.48105in</Width>
@@ -511,7 +523,6 @@
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Top>0.24194cm</Top>
-                      <Left>0cm</Left>
                       <Height>0.6cm</Height>
                       <Width>4.88126cm</Width>
                       <Style>
