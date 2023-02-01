@@ -28,7 +28,7 @@ namespace SistemaTHR.Service.Compras
             dao = new requisicaoCompraDao();
             this.modulosController = modulosController;
             this.loginController = loginController;
-            acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController);
+            acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController,this);
             estoquePecasService = new EstoquePecasService(loginController, modulosController);
         }
 
@@ -181,6 +181,11 @@ namespace SistemaTHR.Service.Compras
             {
                 controller.Msg = dto.Msg;
             }*/
+        }
+
+        public requisicaoCompraDto SelectRequisicao(string id)
+        {
+            return dao.SelectRequisicao(id);
         }
 
         public DataTable Table()

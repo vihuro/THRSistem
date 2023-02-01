@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SistemaTHR.dto.Compras;
 using SistemaTHR.Controller.Compras;
 using SistemaTHR.DAO.Compras;
-using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.Service.Exepction;
 using System.Data;
 using SistemaTHR.Controller.Login;
@@ -15,36 +10,37 @@ namespace SistemaTHR.Service.Compras
 {
     internal class AcompanhamentoRequisicaoCompraService
     {
-        private AcompanhamentoRequisicaoCompraDao dao;
-        private AcompanhamentoRequisicaoCompraDto dto;
-        private modulosController modulosController;
-        private loginController loginController;
-        public AcompanhamentoRequisicaoCompraService(modulosController modulosController, loginController loginController)
+        private readonly AcompanhamentoRequisicaoCompraDao dao;
+        private readonly requisicaoCompraService requisicaoService;
+        private readonly modulosController modulosController;
+        private readonly loginController loginController;
+        public AcompanhamentoRequisicaoCompraService(modulosController modulosController, loginController loginController, requisicaoCompraService requisicaoService)
         {
             dao = new AcompanhamentoRequisicaoCompraDao();
             this.modulosController = modulosController;
             this.loginController = loginController;
+            this.requisicaoService = requisicaoService;
         }
-        public void Insert(string  numeroRequisicao)
+        public void Insert(string numeroRequisicao)
         {
-            dto = new AcompanhamentoRequisicaoCompraDto();
+            var dto = new AcompanhamentoRequisicaoCompraDto();
             //Validar se o campo está vazio
             if (numeroRequisicao == string.Empty)
             {
                 throw new ExceptionService("Não foi possivel gerar o acompanhamento dessa requisição!");
             }
             //Valida se o usuário tem permissão para fazer o Insert
-            if(modulosController.Almoxarifado != "Sim" && 
+            if (modulosController.Almoxarifado != "Sim" &&
                 modulosController.AlmoxarifadoNivel != "2" &&
-                modulosController.AlmoxarifadoNivel != "1" || 
-                modulosController.Compras != "Sim" && 
-                modulosController.ComprasNivel != "2" && 
+                modulosController.AlmoxarifadoNivel != "1" ||
+                modulosController.Compras != "Sim" &&
+                modulosController.ComprasNivel != "2" &&
                 modulosController.ComprasNivel != "1")
             {
                 throw new ExceptionService("Esse usuário não tem permissão para essa ação!");
             }
 
-            foreach(var itens in Acompanhamentos())
+            foreach (var itens in Acompanhamentos())
             {
                 dto.NumeroRequisicao = numeroRequisicao;
                 dto.DescricaoRequisicao = itens;
@@ -56,7 +52,7 @@ namespace SistemaTHR.Service.Compras
 
                 if (itens == "Geração")
                 {
-                    dto.DataHoraApontamento = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+                    dto.DataHoraApontamento = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                     dto.UsuarioApontamento = loginController.Nome;
                     dto.DataHoraAlteracao = dto.DataHoraApontamento;
                     dto.UsuarioAlteracao = loginController.Nome;
@@ -70,56 +66,102 @@ namespace SistemaTHR.Service.Compras
                 }
 
             }
-
-
         }
 
-        public void Update(AcompanhamentoRequisicaoCompra controller)
+        public AcompanhamentoRequisicaoCompra InsertApontamento(AcompanhamentoRequisicaoCompra controller, string tipoApontamento)
         {
-            dto = new AcompanhamentoRequisicaoCompraDto();
-            if(controller.UsuarioAlteracao == string.Empty && controller.NumeroRequisicao == string.Empty)
+            var requisicao = requisicaoService.SelectRequisicao(controller.NumeroRequisicao);
+            if (requisicao == null)
             {
-                throw new ExceptionService("Campo(s) obrigatório(s) vazios(s)!");
+                throw new ExceptionService("Requisição de compra não encontrada!");
+            }
+            var apontamento = dao.Apontamento(controller.Id);
+            if (apontamento == null)
+            {
+                throw new ExceptionService("Falha ao encontrar apontamento!");
+            }
+            else if (controller.DescricaoRequisicao == "COMPRA" && controller.Observacao == string.Empty)
+            {
+                throw new ExceptionService("Para declar uma compra, é necessário colocar o numero da nota na observação!");
+            }
+            else if (!ValidarStatus(controller.DescricaoRequisicao, requisicao, apontamento))
+            {
+                throw new ExceptionService("Não é possível fazer essa alteração!");
+            }
+            else if(apontamento.UsuarioApontamento != string.Empty && tipoApontamento == "APONTAMENTO")
+            {
+                controller.DataHoraApontamento = apontamento.DataHoraApontamento;
+                controller.UsuarioApontamento = apontamento.UsuarioApontamento;
+                controller.DataHoraAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            }
+            else if (apontamento.UsuarioApontamento == string.Empty && tipoApontamento == "APONTAMENTO")
+            {
+                controller.DataHoraApontamento = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                controller.UsuarioApontamento = loginController.Nome;
+                controller.DataHoraAlteracao = controller.DataHoraApontamento;
+            }
+            else if (tipoApontamento == "DESFAZER" && modulosController.ComprasNivel == "1")
+            {
+                controller.UsuarioApontamento = string.Empty;
+                controller.DataHoraApontamento = "00/00/0000 00:00";
+                controller.DataHoraAlteracao = "00/00/0000 00:00";
+                controller.Observacao = string.Empty;
+            }
+            apontamento.DataHoraApontamento = controller.DataHoraApontamento;
+            apontamento.UsuarioApontamento = controller.UsuarioApontamento;
+            apontamento.DataHoraAlteracao = controller.DataHoraAlteracao;
+            apontamento.UsuarioAlteracao = loginController.Nome;
+            apontamento.Observacao = controller.Observacao;
+
+            dao.InsertApontamento(apontamento);
+
+            var obj = new AcompanhamentoRequisicaoCompra()
+            {
+                Id = apontamento.Id,
+                NumeroRequisicao = apontamento.NumeroRequisicao,
+                DescricaoRequisicao = apontamento.DescricaoRequisicao,
+                UsuarioApontamento = apontamento.UsuarioApontamento,
+                DataHoraApontamento = apontamento.DataHoraApontamento,
+                UsuarioAlteracao = apontamento.UsuarioAlteracao,
+                DataHoraAlteracao = apontamento.DataHoraAlteracao,
+                Observacao = apontamento.Observacao
+            };
+
+            return obj;
+        }
+
+        private bool ValidarStatus(string descricaoRequisicao, requisicaoCompraDto requisicao, AcompanhamentoRequisicaoCompraDto acompanhamento)
+        {
+            if (modulosController.ComprasNivel != "1" && requisicao.Status == "Entregue")
+            {
+                return false;
+            }
+            else if (modulosController.ComprasNivel == "4" && descricaoRequisicao == "COMPRA" ||
+                    requisicao.Status == "ENTREGUE")
+            {
+                return false;
+            }
+            else if (modulosController.ComprasNivel == "3" && requisicao.Status == "PENDENTE" ||
+                    requisicao.Status == "ENTREGUE" || descricaoRequisicao == "ENTREGA")
+            {
+                return false;
             }
 
-            dto.UsuarioAlteracao = controller.UsuarioAlteracao;
-            dto.DataHoraAlteracao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-            dto.Observacao = controller.Observacao;
-            dao.Update(dto);
+            return true;
         }
 
-        private bool Validar(AcompanhamentoRequisicaoCompra controller)
-        {
-            if(controller.UsuarioAlteracao == string.Empty && controller.NumeroRequisicao == string.Empty)
-            {
-                return true;
-            }
-            return false;
-        }
-        public void Delete(AcompanhamentoRequisicaoCompra controller)
-        {
-            dto = new AcompanhamentoRequisicaoCompraDto();
-            if (Validar(controller))
-            {
-                throw new ExceptionService("Campo(s) obrigatório(s) vazios(s)!");
-            }
 
-            dto.DataHoraApontamento = "";
-            dto.UsuarioApontamento = "";
-            dto.DataHoraAlteracao = "";
-            dto.UsuarioAlteracao = "";
-            dao.Delete(dto);
 
-        }
+
 
         private string[] Acompanhamentos()
         {
             string[] lista = new string[]
             {
-                "Geração",
-                "Diário",
-                "Compra",
-                "Entrega"
+                "GERAÇÃO",
+                "DIÁRIO",
+                "COMPRA",
+                "ENTREGA"
             };
 
             return lista;

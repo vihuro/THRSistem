@@ -36,6 +36,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnFiltro = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -101,10 +102,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNRequisicao = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -154,6 +153,18 @@
             this.panel1.Size = new System.Drawing.Size(1681, 24);
             this.panel1.TabIndex = 1;
             // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
+            this.btnRelatorio.Location = new System.Drawing.Point(60, 0);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(30, 24);
+            this.btnRelatorio.TabIndex = 2;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            // 
             // btnFiltro
             // 
             this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
@@ -194,9 +205,9 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100);
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100, 100, 100, 100);
             this.splitContainer1.Size = new System.Drawing.Size(1681, 789);
-            this.splitContainer1.SplitterDistance = 129;
+            this.splitContainer1.SplitterDistance = 128;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -249,7 +260,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1681, 129);
+            this.dataGridView1.Size = new System.Drawing.Size(1681, 128);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -419,7 +430,7 @@
             this.Principal.Controls.Add(this.tx);
             this.Principal.Location = new System.Drawing.Point(4, 22);
             this.Principal.Name = "Principal";
-            this.Principal.Padding = new System.Windows.Forms.Padding(3);
+            this.Principal.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Principal.Size = new System.Drawing.Size(1316, 453);
             this.Principal.TabIndex = 0;
             this.Principal.Text = "Principal";
@@ -543,13 +554,13 @@
             // btnDesfazer
             // 
             this.btnDesfazer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesfazer.Enabled = false;
             this.btnDesfazer.Location = new System.Drawing.Point(1183, 353);
             this.btnDesfazer.Name = "btnDesfazer";
             this.btnDesfazer.Size = new System.Drawing.Size(75, 23);
             this.btnDesfazer.TabIndex = 12;
             this.btnDesfazer.Text = "Desfazer";
             this.btnDesfazer.UseVisualStyleBackColor = true;
+            this.btnDesfazer.Click += new System.EventHandler(this.btnDesfazer_Click);
             // 
             // btnSalvar
             // 
@@ -566,7 +577,6 @@
             // btnApontar
             // 
             this.btnApontar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApontar.Enabled = false;
             this.btnApontar.Location = new System.Drawing.Point(1092, 353);
             this.btnApontar.Name = "btnApontar";
             this.btnApontar.Size = new System.Drawing.Size(75, 23);
@@ -606,7 +616,7 @@
             "BAIXA",
             "NORMAL"});
             this.cboPrioridade.Location = new System.Drawing.Point(116, 123);
-            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboPrioridade.Name = "cboPrioridade";
             this.cboPrioridade.Size = new System.Drawing.Size(92, 21);
             this.cboPrioridade.TabIndex = 3;
@@ -645,7 +655,7 @@
             "CIF",
             "FOB"});
             this.cboFrete.Location = new System.Drawing.Point(116, 197);
-            this.cboFrete.Margin = new System.Windows.Forms.Padding(2);
+            this.cboFrete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboFrete.Name = "cboFrete";
             this.cboFrete.Size = new System.Drawing.Size(92, 21);
             this.cboFrete.TabIndex = 7;
@@ -693,7 +703,7 @@
             this.clnObervacao});
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.Location = new System.Drawing.Point(638, 96);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -886,39 +896,11 @@
             this.tabPage2.Controls.Add(this.dataGridView3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage2.Size = new System.Drawing.Size(1316, 453);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // npgsqlDataAdapter1
-            // 
-            this.npgsqlDataAdapter1.DeleteCommand = null;
-            this.npgsqlDataAdapter1.InsertCommand = null;
-            this.npgsqlDataAdapter1.SelectCommand = null;
-            this.npgsqlDataAdapter1.UpdateCommand = null;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(14, 103);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1041, 253);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // btnRelatorio
-            // 
-            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
-            this.btnRelatorio.Location = new System.Drawing.Point(60, 0);
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(30, 24);
-            this.btnRelatorio.TabIndex = 2;
-            this.btnRelatorio.UseVisualStyleBackColor = true;
             // 
             // btnImprimir
             // 
@@ -928,6 +910,15 @@
             this.btnImprimir.TabIndex = 1;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(14, 103);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(1041, 253);
+            this.dataGridView3.TabIndex = 0;
             // 
             // frmRequisicaoCompra
             // 
@@ -1033,7 +1024,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnObervacao;
         public System.Windows.Forms.TextBox txtNRequisicao;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Button btnImprimir;
     }

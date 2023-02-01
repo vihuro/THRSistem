@@ -273,5 +273,54 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
+        internal requisicaoCompraDto SelectRequisicao(string id)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "SELECT * FROM tab_RequisicaoCompra WHERE NRequisicaoCompra = @id";
+            cmd.Parameters.AddWithValue("", id);
+            try
+            {
+
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    var obj = new requisicaoCompraDto();
+                    while (dr.Read())
+                    {
+                        obj.NRequisicao = dr["NRequisicaoCompra"].ToString();
+                        obj.Codigo = dr["Codigo"].ToString();
+                        obj.Descricao = dr["Descricao"].ToString();
+                        obj.Quantidade = dr["Quantidade"].ToString();
+                        obj.Unidade = dr["Unidade"].ToString();
+                        obj.Prioridade = dr["Prioridade"].ToString();
+                        obj.DataHoraEsperadaEntrega = dr["DataEsperadaEntrega"].ToString();
+                        obj.ValorProduto = dr["Valor"].ToString();
+                        obj.FreteIncluso = dr["FreteIncluso"].ToString();
+                        obj.Fornecedor = dr["Fornecedor"].ToString();
+                        obj.Frete = dr["Frete"].ToString();
+                        obj.EstadoDaCompra = dr["EstadoDaCompra"].ToString();
+                        obj.UsuarioSolicitacao = dr["UsuarioSolicitante"].ToString();
+                        obj.DataHoraSolicitacao = dr["DataHoraSolicitacao"].ToString();
+                        obj.UsuarioAutorizador = dr["UsuarioAutorizacao"].ToString();
+                        obj.DataHoraAutorizacao = dr["DataHoraAutorizacao"].ToString();
+                        obj.Status = dr["Status"].ToString();
+                        
+                    }
+                    return obj;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
     }
 }

@@ -62,15 +62,20 @@ namespace SistemaTHR.DAO.Compras
             {
                 con.desconectar();
             }
+        
         }
 
-        public void Update(AcompanhamentoRequisicaoCompraDto dto)
+        public void InsertApontamento(AcompanhamentoRequisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
-            cmd.CommandText = "UPDATE tab_AcompanhamentoRequisicaoCompra SET dataHoraAlteracao = @dataHoraAlteracao," +
-                                                                             "usuarioAlteracao = @UsuarioAlteracao," +
+            cmd.CommandText = "UPDATE tab_AcompanhamentoRequisicaoCompra SET DataHoraApontamento = @DataHoraApontamento, " +
+                                                                             "UsuarioApontamento = @UsuarioApontamento," +
+                                                                             "dataHoraAlteracao = @dataHoraAlteracao," +
+                                                                             "usuarioAlteracao = @usuarioAlteracao," +
                                                                              "observacao = @observacao WHERE " +
                                                                              "id = @id";
+            cmd.Parameters.AddWithValue("", dto.DataHoraApontamento);
+            cmd.Parameters.AddWithValue("", dto.UsuarioApontamento);
             cmd.Parameters.AddWithValue("", dto.DataHoraAlteracao);
             cmd.Parameters.AddWithValue("", dto.UsuarioAlteracao);
             cmd.Parameters.AddWithValue("", dto.Observacao);
@@ -83,7 +88,7 @@ namespace SistemaTHR.DAO.Compras
             catch (Exception ex)
             {
 
-                throw new ExceptionService("Erro " + ex.Message);
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
@@ -91,34 +96,47 @@ namespace SistemaTHR.DAO.Compras
             }
         }
 
-        public void Delete(AcompanhamentoRequisicaoCompraDto dto)
+        public AcompanhamentoRequisicaoCompraDto Apontamento(string id)
         {
             cmd = new OleDbCommand();
-            cmd.CommandText = "UPDATE tab_AcompanhamentoRequisicaoCompra SET usuarioApontamento = @usuarioApontamento," +
-                                                                             "dataHoraApontamento = @dataHoraApontamento," +
-                                                                             "dataHoraAlteracao = @dataHoraAlteracao," +
-                                                                             "usuarioAlteracao = @UsuarioAlteracao," +
-                                                                             "observacao = @observacao WHERE " +
-                                                                             "id = @id";
-            cmd.Parameters.AddWithValue("", dto.UsuarioApontamento);
-            cmd.Parameters.AddWithValue("", dto.DataHoraApontamento);
-            cmd.Parameters.AddWithValue("", dto.UsuarioAlteracao);
-            cmd.Parameters.AddWithValue("", dto.DataHoraAlteracao);
+            cmd.CommandText = "SELECT * FROM tab_AcompanhamentoRequisicaoCompra WHERE id = @id";
+            cmd.Parameters.AddWithValue("", id);
             try
             {
                 cmd.Connection = con.conectar();
-                cmd.ExecuteNonQuery();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    var obj = new AcompanhamentoRequisicaoCompraDto();
+                    while (dr.Read()) 
+                    {
+                        obj.Id = dr["id"].ToString();
+                        obj.NumeroRequisicao = dr["NumeroRequisicao"].ToString();
+                        obj.DescricaoRequisicao = dr["DescricaoRequisicao"].ToString();
+                        obj.DataHoraApontamento = dr["dataHoraApontamento"].ToString();
+                        obj.UsuarioApontamento = dr["usuarioApontamento"].ToString();
+                        obj.DataHoraAlteracao = dr["dataHoraAlteracao"].ToString();
+                        obj.UsuarioAlteracao = dr["usuarioAlteracao"].ToString();
+                        obj.Observacao = dr["observacao"].ToString();
+                    }
+                    return obj;
+                }
+                return null;
+
             }
             catch (Exception ex)
             {
 
-                throw new ExceptionService("Erro " + ex.Message);
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
                 con.desconectar();
             }
         }
+
+
+
 
         public DataTable Table()
         {

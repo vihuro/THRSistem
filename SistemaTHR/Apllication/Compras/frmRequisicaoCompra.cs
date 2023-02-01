@@ -26,7 +26,7 @@ namespace SistemaTHR.Apllication.Compras
             this.loginController = loginController;
             this.modulosController = modulosController;
             service = new requisicaoCompraService(loginController, modulosController);
-            acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController);
+            acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController, service);
             estoqueService = new EstoquePecasService(loginController, modulosController);
             InitializeComponent();
         }
@@ -326,6 +326,43 @@ namespace SistemaTHR.Apllication.Compras
 
         private void btnApontar_Click(object sender, EventArgs e)
         {
+            Apontar("APONTAMENTO");
+        }
+
+        private void btnDesfazer_Click(object sender, EventArgs e)
+        {
+            Apontar("DESFAZER");
+        }
+
+        private void Apontar(string tipoApontamento)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            var obj = new AcompanhamentoRequisicaoCompra()
+            {
+                Id = dataGridView2.SelectedRows[0].Cells[0].Value.ToString(),
+                NumeroRequisicao = dataGridView2.SelectedRows[0].Cells[1].Value.ToString(),
+                Observacao = txtObservacao.Text
+            };
+
+            try
+            {
+                var newObj = acompanhamentoService.InsertApontamento(obj, tipoApontamento);
+                dataGridView2.SelectedRows[0].Cells[3].Value = newObj.DataHoraApontamento;
+                dataGridView2.SelectedRows[0].Cells[4].Value = newObj.UsuarioApontamento;
+                dataGridView2.SelectedRows[0].Cells[5].Value = newObj.DataHoraAlteracao;
+                dataGridView2.SelectedRows[0].Cells[6].Value = newObj.UsuarioAlteracao;
+                dataGridView2.SelectedRows[0].Cells[7].Value = newObj.Observacao;
+                txtObservacao.Text = newObj.Observacao;
+
+
+            }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.Cursor = Cursors.Default;
 
         }
 
@@ -434,5 +471,7 @@ namespace SistemaTHR.Apllication.Compras
                 Procurar();
             }
         }
+
+
     }
 }
