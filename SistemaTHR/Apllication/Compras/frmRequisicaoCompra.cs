@@ -1,4 +1,5 @@
 ﻿using SistemaTHR.Apllication.Manutencao;
+using SistemaTHR.Apllication.Manutencao.Impressao;
 using SistemaTHR.Controller.Compras;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Service.Compras;
@@ -20,6 +21,7 @@ namespace SistemaTHR.Apllication.Compras
         private requisicaoCompraService service;
         private AcompanhamentoRequisicaoCompraService acompanhamentoService;
         private EstoquePecasService estoqueService;
+        private movimentacaoPecasService movimentacaoService;
 
         public frmRequisicaoCompra(loginController loginController, modulosController modulosController)
         {
@@ -28,7 +30,15 @@ namespace SistemaTHR.Apllication.Compras
             service = new requisicaoCompraService(loginController, modulosController);
             acompanhamentoService = new AcompanhamentoRequisicaoCompraService(modulosController, loginController, service);
             estoqueService = new EstoquePecasService(loginController, modulosController);
+            movimentacaoService = new movimentacaoPecasService(loginController, modulosController);
+
             InitializeComponent();
+        }
+
+        public frmRequisicaoCompra()
+        {
+            InitializeComponent();
+
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -40,7 +50,21 @@ namespace SistemaTHR.Apllication.Compras
         private void frmRequisicaoCompra_Load(object sender, EventArgs e)
         {
             loadGridView();
+            loadGridViewHistorico();
             clearAll();
+        }
+
+        private void loadGridViewHistorico()
+        {
+            try
+            {
+                dataGridMovimentacoes.DataSource = movimentacaoService.Table();
+            }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void clearAll()
@@ -60,10 +84,13 @@ namespace SistemaTHR.Apllication.Compras
             cboFrete.Text = string.Empty;
             txtEstadoCompra.Text = string.Empty;
             txtValor.Text = string.Empty;
-            var dt = (DataTable)dataGridView2.DataSource;
-            dt.Rows.Clear();
-            dataGridView2.DataSource = dt;
+            var dtApontamentos = (DataTable)dataGridView2.DataSource;
+            dtApontamentos.Rows.Clear();
+            var dtMovimentacaoes = (DataTable)dataGridMovimentacoes.DataSource;
+            dtMovimentacaoes.Rows.Clear();
             btnSalvar.Enabled = true;
+            btnApontar.Enabled = false;
+            btnDesfazer.Enabled = false;
 
 
         }
@@ -118,6 +145,8 @@ namespace SistemaTHR.Apllication.Compras
 
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                btnApontar.Enabled = true;
+
 
                 // Aqui fica o relacionamento dos campos
                 txtNRequisicao.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -148,12 +177,14 @@ namespace SistemaTHR.Apllication.Compras
                 //Buscar no DataGridView de acompanhando, o acompanhamento da requisição de compra
 
                 SearchForNumber(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                SearchForCod(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+
 
                 //Verifica liberação de botões conform as roles do usuário.
 
                 if (modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
                 {
-                    /*if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Autorizado")
+                    if (dataGridView1.SelectedRows[0].Cells[16].Value.ToString() == "Autorizado")
                     {
                         btnSalvar.Enabled = true;
                     }
@@ -161,19 +192,20 @@ namespace SistemaTHR.Apllication.Compras
                     {
                         btnSalvar.Enabled = false;
 
-                    }*/
+                    }
                 }
                 else
                 {
-                    /*if(modulosController.ComprasNivel != "1")
+
+                    if(modulosController.ComprasNivel != "1")
                     {
-                        if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Autorizado")
+                        if (dataGridView1.SelectedRows[0].Cells[16].Value.ToString() == "Autorizado")
                         {
                             btnSalvar.Enabled = true;
                             btnAutorizar.Enabled = false;
 
                         }
-                        else if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Comprado")
+                        else if (dataGridView1.SelectedRows[0].Cells[16].Value.ToString() == "Comprado")
                         {
                             btnSalvar.Enabled = false;
                             btnAutorizar.Enabled = false;
@@ -183,7 +215,7 @@ namespace SistemaTHR.Apllication.Compras
                             btnSalvar.Enabled = false;
                             btnAutorizar.Enabled = true;
                         }
-                    }*/
+                    }
 
 
                 }
@@ -192,15 +224,43 @@ namespace SistemaTHR.Apllication.Compras
 
         }
 
+        private void SearchForCod(string codigoPeca)
+        {
+            try
+            {
+                var dataTable = movimentacaoService.Table();
+                dataTable.DefaultView.RowFilter = string.Format("codigoPeca = '{0}'", codigoPeca);
+                dataGridMovimentacoes.DataSource = dataTable;
+                dataGridMovimentacoes.ClearSelection();
+
+            }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
         private void SearchForNumber(string numeroRequisicao)
         {
 
-            var dataTable = acompanhamentoService.Table();
+            try
+            {
+                var dataTable = acompanhamentoService.Table();
 
-            dataTable.DefaultView.RowFilter = string.Format("[numeroRequisicao] = '{0}'", numeroRequisicao);
-            dataGridView2.DataSource = dataTable;
-            dataGridView2.ClearSelection();
-            txtObservacao.Text = string.Empty;
+                dataTable.DefaultView.RowFilter = string.Format("[numeroRequisicao] = '{0}'", numeroRequisicao);
+                dataGridView2.DataSource = dataTable;
+                dataGridView2.ClearSelection();
+                txtObservacao.Text = string.Empty;
+            }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -244,6 +304,7 @@ namespace SistemaTHR.Apllication.Compras
                 controller.Prioridade = cboPrioridade.Text;
                 try
                 {
+
                     if (txtNRequisicao.Text != string.Empty)
                     {
                         controller.NRequisicao = txtNRequisicao.Text;
@@ -261,6 +322,7 @@ namespace SistemaTHR.Apllication.Compras
                         service.verificarAberto(controller);
 
                     }
+                    MessageBox.Show("Requisição de compra realizada com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearAll();
                     loadGridView();
 
@@ -339,9 +401,10 @@ namespace SistemaTHR.Apllication.Compras
             this.Cursor = Cursors.WaitCursor;
             var obj = new AcompanhamentoRequisicaoCompra()
             {
-                Id = dataGridView2.SelectedRows[0].Cells[0].Value.ToString(),
+                Id = dataGridView2.SelectedRows[0].Cells[0].Value.ToString(),              
                 NumeroRequisicao = dataGridView2.SelectedRows[0].Cells[1].Value.ToString(),
-                Observacao = txtObservacao.Text
+                Observacao = txtObservacao.Text,
+                
             };
 
             try
@@ -353,6 +416,10 @@ namespace SistemaTHR.Apllication.Compras
                 dataGridView2.SelectedRows[0].Cells[6].Value = newObj.UsuarioAlteracao;
                 dataGridView2.SelectedRows[0].Cells[7].Value = newObj.Observacao;
                 txtObservacao.Text = newObj.Observacao;
+                if (dataGridView2.SelectedRows[0].Cells[1].Value != "DÍARIO")
+                {
+                    AtualizarStatusRequisicao();
+                }
 
 
             }
@@ -366,13 +433,45 @@ namespace SistemaTHR.Apllication.Compras
 
         }
 
+        private void AtualizarStatusRequisicao()
+        {
+            try
+            {
+                var obj = service.SelectRequisicao(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                dataGridView1.SelectedRows[0].Cells[16].Value = obj.Status;
+
+            }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+           
+
+        }
+
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
             if (dataGridView2.SelectedRows.Count > 0)
             {
+                btnApontar.Enabled = true;
                 txtObservacao.Text = dataGridView2.SelectedRows[0].Cells[7].Value.ToString();
-            };
+                if ( modulosController.ComprasNivel == "1")
+                {
+                    btnDesfazer.Enabled = true;
+                }
+                else
+                {
+                    btnDesfazer.Enabled = false;
+                }
+            }
+            else
+            {
+                btnApontar.Enabled = false;
+
+            }
+
             this.Cursor = Cursors.Default;
 
         }
@@ -472,6 +571,10 @@ namespace SistemaTHR.Apllication.Compras
             }
         }
 
-
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            var relatorio = new frmRelatorioMovimentacaoPecas((DataTable)dataGridMovimentacoes.DataSource, loginController.Nome);
+            relatorio.Show();
+        }
     }
 }

@@ -12,7 +12,6 @@ namespace SistemaTHR.DAO.Estoque
     internal class SolicitacaoDao
     {
         private OleDbCommand cmd;
-        private OleDbDataReader dr;
         private ConnectionEstoque con = new ConnectionEstoque();
         private OleDbDataAdapter da;
 

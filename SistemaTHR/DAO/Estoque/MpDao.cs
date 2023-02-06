@@ -13,7 +13,6 @@ namespace SistemaTHR.DAO.Estoque
         private OleDbCommand cmd;
         private OleDbDataReader dr;
         private ConnectionEstoque con = new ConnectionEstoque();
-        private OleDbDataAdapter da;
 
         public void ProcurandoMp(MpDto dto)
         {

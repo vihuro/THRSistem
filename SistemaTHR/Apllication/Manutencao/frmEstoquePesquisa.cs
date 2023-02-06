@@ -22,6 +22,7 @@ namespace SistemaTHR.Apllication.Manutencao
         private frmManutencao frmManutencao;
         private frmEstoquePecas frmEstoquePecas;
         private frmRequisicaoCompra frmCompras;
+        private frmMovimentacaPecas frmMovimentacao;
 
         private EstoquePecasController controller;
         private EstoquePecasService service;
@@ -51,6 +52,14 @@ namespace SistemaTHR.Apllication.Manutencao
         public frmEstoquePesquisa(frmManutencao frmManutencao)
         {
             this.frmManutencao = frmManutencao;
+            IniciarService();
+            InitializeComponent();
+            cboCampo.Text = "Descrição";
+        }
+
+        public frmEstoquePesquisa(frmMovimentacaPecas frmMovimentacao)
+        {
+            this.frmMovimentacao = frmMovimentacao;
             IniciarService();
             InitializeComponent();
             cboCampo.Text = "Descrição";
@@ -143,6 +152,13 @@ namespace SistemaTHR.Apllication.Manutencao
                 frmRequisicaoPecas.txtCodigoPeca.Text = codigo;
                 frmRequisicaoPecas.txtDescricao.Text = descricao;
                 frmRequisicaoPecas.txtUnidade.Text = unidade;
+                this.Close();
+            }
+            else if(frmMovimentacao != null)
+            {
+                frmMovimentacao.txtCodigo.Text = codigo;
+                frmMovimentacao.txtDescriao.Text = descricao;
+                frmMovimentacao.cboUnidade.Text = unidade;
                 this.Close();
             }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,6 @@ namespace SistemaTHR.DAO.Manutencao
     {
 
         private OleDbCommand cmd;
-        private OleDbDataReader dr;
         private Connection con = new Connection();
         private OleDbDataAdapter da;
 
@@ -86,16 +86,18 @@ namespace SistemaTHR.DAO.Manutencao
             this.dto = dto;
             updateMovimentacao();
         }
-        private void selectTable()
+        public DataTable Table()
         {
             cmd = new OleDbCommand();
-            cmd.CommandText = "Select * from tab_MovimentacaoPecas order by NMovimentacao asc";
+            cmd.CommandText = "SELECT * from tab_MovimentacaoPecas ORDER BY NMovimentacao ASC";
             try
             {
                 cmd.Connection = con.conectar();
                 da = new OleDbDataAdapter(cmd);
-                dto.Dt = new System.Data.DataTable();
-                da.Fill(dto.Dt);
+                var dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
 
             }
             catch (Exception ex)
@@ -108,11 +110,6 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
-        public void table(dto.manutencao.movimentacaoPecasDto dto)
-        {
-            this.dto = dto;
-            selectTable();
-        }
 
         private void exportMovimetacao()
         {

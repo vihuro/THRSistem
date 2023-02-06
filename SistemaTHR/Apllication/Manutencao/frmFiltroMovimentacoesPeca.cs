@@ -42,8 +42,7 @@ namespace SistemaTHR.Apllication.Manutencao
             try
             {
                 controller = new movimentacaoPecasController();
-                movimentacaoService.table(controller);
-                dataGridView1.DataSource = controller.Dt;
+                dataGridView1.DataSource = movimentacaoService.Table();
             }
             catch (Exception ex)
             {

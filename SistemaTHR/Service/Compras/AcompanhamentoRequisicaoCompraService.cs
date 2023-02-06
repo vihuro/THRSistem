@@ -50,7 +50,7 @@ namespace SistemaTHR.Service.Compras
                 dto.UsuarioAlteracao = "";
                 dto.Observacao = "";
 
-                if (itens == "Geração")
+                if (itens == "GERAÇÃO")
                 {
                     dto.DataHoraApontamento = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                     dto.UsuarioApontamento = loginController.Nome;
@@ -80,11 +80,44 @@ namespace SistemaTHR.Service.Compras
             {
                 throw new ExceptionService("Falha ao encontrar apontamento!");
             }
-            else if (controller.DescricaoRequisicao == "COMPRA" && controller.Observacao == string.Empty)
+            else if(apontamento.DescricaoRequisicao == "COMPRA" && 
+                    requisicao.Status == "Pendente" && 
+                    modulosController.ComprasNivel == "4" && 
+                    modulosController.ComprasNivel == "3")
+            {
+                throw new ExceptionService("Usuário não tem permisão para declar compra sem autorização da requisição!");
+
+            }
+            else if(apontamento.DescricaoRequisicao == "ENTREGA" && 
+                    requisicao.Status == "Pendente" || 
+                    requisicao.Status == "Autorizado" &&
+                    modulosController.ComprasNivel == "3" || 
+                    modulosController.ComprasNivel == "4")
+            {
+                throw new ExceptionService("Não foi possível fazer esse apontamento!");
+            }
+            else if(apontamento.DescricaoRequisicao == "COMPRA" && 
+                    modulosController.ComprasNivel == "4")
+            {
+                throw new ExceptionService("Não foi possível fazer esse apontamento!");
+
+            }
+            else if(apontamento.DescricaoRequisicao == "ENTREGA" && 
+                     modulosController.ComprasNivel == "3")
+            {
+                throw new ExceptionService("Não foi possível fazer esse apontamento!");
+
+            }
+            else if(apontamento.DescricaoRequisicao == "COMPRA" && requisicao.Status == "Pendente" && modulosController.ComprasNivel != "1")
+            {
+                throw new ExceptionService("Não é possivel declar uma compra sem autorização!");
+
+            }
+            else if (apontamento.DescricaoRequisicao == "COMPRA" && controller.Observacao == string.Empty)
             {
                 throw new ExceptionService("Para declar uma compra, é necessário colocar o numero da nota na observação!");
             }
-            else if (!ValidarStatus(controller.DescricaoRequisicao, requisicao, apontamento))
+            else if (!ValidarStatus(apontamento.DescricaoRequisicao, requisicao, apontamento))
             {
                 throw new ExceptionService("Não é possível fazer essa alteração!");
             }
@@ -127,7 +160,34 @@ namespace SistemaTHR.Service.Compras
                 Observacao = apontamento.Observacao
             };
 
+            UpdateStatus(apontamento.DescricaoRequisicao, apontamento.NumeroRequisicao);
+
             return obj;
+        }
+
+        public void UpdateStatus(string descricaoRequisicao, string numeroRequisicao)
+        {
+            string status;
+
+            switch (descricaoRequisicao)
+            {
+                case "GERAÇÃO": status = "Pendente";
+                    break;
+                case "COMPRA": status = "Comprado";
+                    break;
+                case "ENTREGA": status = "Entregue";
+                    break;
+                default: status = "Pendente";
+                    break;
+            }
+            var obj = new requisicaoCompraController()
+            {
+                NRequisicao = numeroRequisicao,
+                Status = status
+            };
+            requisicaoService.UpdateStatusRequisicao(obj);
+
+
         }
 
         private bool ValidarStatus(string descricaoRequisicao, requisicaoCompraDto requisicao, AcompanhamentoRequisicaoCompraDto acompanhamento)
@@ -141,8 +201,8 @@ namespace SistemaTHR.Service.Compras
             {
                 return false;
             }
-            else if (modulosController.ComprasNivel == "3" && requisicao.Status == "PENDENTE" ||
-                    requisicao.Status == "ENTREGUE" || descricaoRequisicao == "ENTREGA")
+            else if (modulosController.ComprasNivel == "3" && requisicao.Status == "PENDENTE" &&
+                    requisicao.Status == "ENTREGUE" && descricaoRequisicao == "ENTREGA")
             {
                 return false;
             }

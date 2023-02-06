@@ -90,7 +90,7 @@ namespace SistemaTHR.Service.manutencao
             decimal QuantidadeSolicitada = Convert.ToDecimal(quantidadeSolicitada);
 
 
-            if (QuantidadeEstoque < QuantidadeSolicitada && tipoMovimento == "Saída")
+            if (QuantidadeSolicitada * -1 > QuantidadeEstoque   && tipoMovimento == "Saída")
             {
 
                 throw new ExceptionService($"Quantidade em estoque é menor do que a quantidade solicitada! \r\n " +
@@ -100,18 +100,15 @@ namespace SistemaTHR.Service.manutencao
             }
 
 
-            if (tipoMovimento == "Saída")
+            if (tipoMovimento == "Saída" && QuantidadeSolicitada >0)
             {
                 QuantidadeEstoque += QuantidadeSolicitada * -1;
 
             }
-            else if (tipoMovimento == "Entrada")
-            {
-                QuantidadeEstoque += QuantidadeSolicitada;
-            }
+
             else
             {
-                throw new ExceptionService("Impossível fazer esse tipo de movimentação!");
+                QuantidadeEstoque += QuantidadeSolicitada;
             }
 
             dto.Codigo = codigo;

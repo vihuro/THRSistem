@@ -8,6 +8,7 @@ using SistemaTHR.Controller.manutencao;
 using SistemaTHR.dto.manutencao;
 using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.Service.Exepction;
+using System.Data;
 
 namespace SistemaTHR.Service.manutencao
 {
@@ -58,8 +59,8 @@ namespace SistemaTHR.Service.manutencao
             {
                 throw new ExceptionService("Só é possivel realizar uma saída com autorização!");
             }
-            else if(controller.TipoMovimentacao == "Entrada" && modulosController.AlmoxarifadoNivel != "1"  || 
-                modulosController.AlmoxarifadoNivel != "2" || modulosController.AlmoxarifadoNivel != "3")
+            else if(controller.TipoMovimentacao == "Entrada" && 
+                modulosController.AlmoxarifadoNivel == "2" || modulosController.AlmoxarifadoNivel == "3")
             {
                 throw new ExceptionService("Esse usuário não tem acesso para fazer entrada de peças!");
             }
@@ -98,7 +99,12 @@ namespace SistemaTHR.Service.manutencao
                 dto.Qtd = controller.Qtd;
                 dto.Status = "Finalizado";
             }
+            if (controller.TipoMovimentacao == "Entrada")
+            {
+                EstoqueService.UpdateEstoque(controller.CodigoPeca, controller.Qtd, controller.TipoMovimentacao);
+            }
             dao.Insert(dto);
+
 
         }
 
@@ -127,24 +133,11 @@ namespace SistemaTHR.Service.manutencao
             }
         }
 
-        private void selectTable()
+        public DataTable Table()
         {
-            dto = new movimentacaoPecasDto();
-            dao.table(dto);
-            if(dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }
-            else
-            {
-                controller.Dt = dto.Dt;
-            }
+            return dao.Table();
         }
-        public void table(movimentacaoPecasController controller)
-        {
-            this.controller = controller;
-            selectTable();
-        }
+
         private void exporMovimentacao()
         {
             dto = new movimentacaoPecasDto();

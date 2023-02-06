@@ -74,18 +74,32 @@ namespace SistemaTHR.Service.Compras
 
             dto.Codigo = controller.Codigo.ToUpper();
             dto.Status = "Pendente";
-            dao.verificarCodigo(dto);
+            var obj = dao.verificarCodigo(dto);
 
 
-            if (dto.NRequisicao != null)
+            if (obj != null)
             {
-                updateRequisicao(dto, controller.Quantidade);
+                dto.Status = controller.Status;
+                updateRequisicao(obj, controller.Quantidade);
             }
             else
             {
                 Insert(controller);
             }
 
+
+        }
+
+        public void UpdateStatusRequisicao(requisicaoCompraController controller)
+        {
+            var obj = new requisicaoCompraDto();
+            obj = dao.VerifyForNumber(controller.NRequisicao);
+            if(obj == null)
+            {
+                throw new ExceptionService("Falha ao atualizar status da ordem de serviço!");
+            }
+            obj.Status = controller.Status;
+            dao.Update(obj);
 
         }
 
@@ -164,6 +178,7 @@ namespace SistemaTHR.Service.Compras
             dto.Frete = controller.Frete;
             dto.EstadoDaCompra = controller.EstadoDaCompra.ToUpper();
             dto.NRequisicao = controller.NRequisicao;
+            dto.Status = "Pendente";
             dao.Update(dto);
         }
 

@@ -37,6 +37,7 @@ namespace SistemaTHR.DAO.Manutencao
                 {
                     while (dr.Read())
                     {
+                        requisicao.NRequisicao = dr["NRequisicaoCompra"].ToString();
                         requisicao.Codigo = dr["Codigo"].ToString();
                         requisicao.Descricao = dr["Descricao"].ToString();
                         requisicao.Quantidade = dr["Quantidade"].ToString();
@@ -45,6 +46,7 @@ namespace SistemaTHR.DAO.Manutencao
                         requisicao.DataHoraEsperadaEntrega = dr["DataEsperadaEntrega"].ToString();
                         requisicao.ValorProduto = dr["Valor"].ToString();
                         requisicao.FreteIncluso = dr["FreteIncluso"].ToString();
+                        requisicao.Frete = dr["Frete"].ToString();
                         requisicao.Fornecedor = dr["Fornecedor"].ToString();
                         requisicao.EstadoDaCompra = dr["EstadoDaCompra"].ToString();
                         requisicao.UsuarioSolicitacao = dr["UsuarioSolicitante"].ToString();
@@ -120,7 +122,7 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
-        public void verificarCodigo(requisicaoCompraDto dto)
+        public requisicaoCompraDto verificarCodigo(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_RequisicaoCompra where codigo = @codigo and status = @status";
@@ -134,11 +136,32 @@ namespace SistemaTHR.DAO.Manutencao
                 {
                     while (dr.Read())
                     {
-                        dto.NRequisicao = dr["NRequisicaoCompra"].ToString();
-                        dto.Quantidade = dr["Quantidade"].ToString();
+                        var obj = new requisicaoCompraDto()
+                        {
+                            NRequisicao = dr["NRequisicaoCompra"].ToString(),
+                            Codigo = dr["Codigo"].ToString(),
+                            Descricao = dr["Descricao"].ToString(),
+                            Quantidade = dr["Quantidade"].ToString(),
+                            Unidade = dr["Unidade"].ToString(),
+                            Prioridade = dr["Prioridade"].ToString(),
+                            DataHoraEsperadaEntrega = dr["DataEsperadaEntrega"].ToString(),
+                            ValorProduto = dr["Valor"].ToString(),
+                            FreteIncluso = dr["FreteIncluso"].ToString(),
+                            Fornecedor = dr["Fornecedor"].ToString(),
+                            Frete = dr["Frete"].ToString(),
+                            EstadoDaCompra = dr["EstadoDaCompra"].ToString(),
+                            UsuarioSolicitacao = dr["UsuarioSolicitante"].ToString(),
+                            DataHoraSolicitacao = dr["DataHoraSolicitacao"].ToString(),
+                            UsuarioAutorizador = dr["UsuarioAutorizacao"].ToString(),
+                            DataHoraAutorizacao = dr["DataHoraAutorizacao"].ToString()
+                        };
+
+                        return obj;
                     }
 
                 }
+
+                return null;
             }
             catch (ExceptionService ex)
             {
@@ -203,13 +226,15 @@ namespace SistemaTHR.DAO.Manutencao
                                                             "FreteIncluso = @FreteIncluso," +
                                                             "Frete = @Frete," +
                                                             "EstadoDaCompra = @EstadoCompra, " +
-                                                            "Fornecedor = @Fornecedor WHERE " +
+                                                            "Fornecedor = @Fornecedor," +
+                                                            "Status = @Status WHERE " +
                                                             "NRequisicaoCompra = @NRequisicao";
             cmd.Parameters.AddWithValue("@Valor", dto.ValorProduto);
             cmd.Parameters.AddWithValue("", dto.FreteIncluso);
             cmd.Parameters.AddWithValue("", dto.Frete);
             cmd.Parameters.AddWithValue("", dto.EstadoDaCompra);
             cmd.Parameters.AddWithValue("", dto.Fornecedor);
+            cmd.Parameters.AddWithValue("", dto.Status);
             cmd.Parameters.AddWithValue("", dto.NRequisicao);
             try
             {

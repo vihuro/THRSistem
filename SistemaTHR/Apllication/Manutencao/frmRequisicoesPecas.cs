@@ -370,31 +370,13 @@ namespace SistemaTHR.Apllication
                 estoqueController = new EstoquePecasController();
                 try
                 {
-
+                    Procurar();
                 }
                 catch (ExceptionService ex)
                 {
                     MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                estoqueService.table();
-                if(controller.Msg != null)
-                {
-                    MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    estoqueController.Codigo = txtCodigoPeca.Text;
-                    estoqueService.BuscarInformacao(estoqueController);
-                    if(controller.Msg != null)
-                    {
-                        MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        txtDescricao.Text = estoqueController.Descricao;
-                        txtUnidade.Text = estoqueController.Unidade;
-                    }
-                }
+
             }
 
             this.Cursor = Cursors.Default;
@@ -498,6 +480,7 @@ namespace SistemaTHR.Apllication
                 movimentacaoController.TipoMovimentacao = dataGridView2.SelectedRows[0].Cells[7].Value.ToString();
                 movimentacaoController.Qtd = dataGridView2.SelectedRows[0].Cells[5].Value.ToString();
                 movimentacaoService.Liberacao(movimentacaoController);
+                loadGridView2();
             }
             catch (ExceptionService ex)
             {

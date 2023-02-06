@@ -16,7 +16,6 @@ namespace SistemaTHR.DAO.Compras
         private OleDbDataReader dr;
         private Connection con;
         private OleDbDataAdapter da;
-        private ExceptionService exception;
         
         public AcompanhamentoRequisicaoCompraDao()
         {

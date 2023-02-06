@@ -103,7 +103,22 @@
             this.txtNRequisicao = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridMovimentacoes = new System.Windows.Forms.DataGridView();
+            this.clnNumeroMovimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNumeroRequisicaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnCodigoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUnidadePeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnQuantidadeMovimentada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnAondeSeraUsado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoMovimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnStatusMovimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioSolicitacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraSolicitacaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioAutorizador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDataHoraAutorizacaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuarioMovimentacaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnUsuariomovimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -116,7 +131,7 @@
             this.tx.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMovimentacoes)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -205,7 +220,7 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100, 100, 100, 100);
+            this.splitContainer1.Panel2.Margin = new System.Windows.Forms.Padding(100);
             this.splitContainer1.Size = new System.Drawing.Size(1681, 789);
             this.splitContainer1.SplitterDistance = 128;
             this.splitContainer1.TabIndex = 2;
@@ -422,7 +437,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1324, 479);
+            this.tabControl1.Size = new System.Drawing.Size(1409, 479);
             this.tabControl1.TabIndex = 1;
             // 
             // Principal
@@ -430,8 +445,8 @@
             this.Principal.Controls.Add(this.tx);
             this.Principal.Location = new System.Drawing.Point(4, 22);
             this.Principal.Name = "Principal";
-            this.Principal.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.Principal.Size = new System.Drawing.Size(1316, 453);
+            this.Principal.Padding = new System.Windows.Forms.Padding(3);
+            this.Principal.Size = new System.Drawing.Size(1401, 453);
             this.Principal.TabIndex = 0;
             this.Principal.Text = "Principal";
             this.Principal.UseVisualStyleBackColor = true;
@@ -616,7 +631,7 @@
             "BAIXA",
             "NORMAL"});
             this.cboPrioridade.Location = new System.Drawing.Point(116, 123);
-            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPrioridade.Margin = new System.Windows.Forms.Padding(2);
             this.cboPrioridade.Name = "cboPrioridade";
             this.cboPrioridade.Size = new System.Drawing.Size(92, 21);
             this.cboPrioridade.TabIndex = 3;
@@ -655,7 +670,7 @@
             "CIF",
             "FOB"});
             this.cboFrete.Location = new System.Drawing.Point(116, 197);
-            this.cboFrete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboFrete.Margin = new System.Windows.Forms.Padding(2);
             this.cboFrete.Name = "cboFrete";
             this.cboFrete.Size = new System.Drawing.Size(92, 21);
             this.cboFrete.TabIndex = 7;
@@ -703,7 +718,7 @@
             this.clnObervacao});
             this.dataGridView2.EnableHeadersVisualStyles = false;
             this.dataGridView2.Location = new System.Drawing.Point(638, 96);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -893,32 +908,169 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnImprimir);
-            this.tabPage2.Controls.Add(this.dataGridView3);
+            this.tabPage2.Controls.Add(this.dataGridMovimentacoes);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1316, 453);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1401, 453);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(980, 393);
+            this.btnImprimir.Location = new System.Drawing.Point(1294, 405);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 1;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // dataGridView3
+            // dataGridMovimentacoes
             // 
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(14, 103);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1041, 253);
-            this.dataGridView3.TabIndex = 0;
+            this.dataGridMovimentacoes.AllowUserToAddRows = false;
+            this.dataGridMovimentacoes.AllowUserToDeleteRows = false;
+            this.dataGridMovimentacoes.AllowUserToOrderColumns = true;
+            this.dataGridMovimentacoes.AllowUserToResizeRows = false;
+            this.dataGridMovimentacoes.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridMovimentacoes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridMovimentacoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridMovimentacoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnNumeroMovimento,
+            this.clnNumeroRequisicaoPeca,
+            this.clnCodigoPeca,
+            this.clnDescricaoPeca,
+            this.clnUnidadePeca,
+            this.clnQuantidadeMovimentada,
+            this.clnAondeSeraUsado,
+            this.TipoMovimento,
+            this.clnStatusMovimentacao,
+            this.clnUsuarioSolicitacao,
+            this.clnDataHoraSolicitacaoPeca,
+            this.clnUsuarioAutorizador,
+            this.clnDataHoraAutorizacaoPeca,
+            this.clnUsuarioMovimentacaoPeca,
+            this.clnUsuariomovimentacao});
+            this.dataGridMovimentacoes.Location = new System.Drawing.Point(14, 44);
+            this.dataGridMovimentacoes.MultiSelect = false;
+            this.dataGridMovimentacoes.Name = "dataGridMovimentacoes";
+            this.dataGridMovimentacoes.ReadOnly = true;
+            this.dataGridMovimentacoes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridMovimentacoes.RowHeadersVisible = false;
+            this.dataGridMovimentacoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridMovimentacoes.Size = new System.Drawing.Size(1355, 340);
+            this.dataGridMovimentacoes.TabIndex = 0;
+            // 
+            // clnNumeroMovimento
+            // 
+            this.clnNumeroMovimento.DataPropertyName = "NMovimentacao";
+            this.clnNumeroMovimento.HeaderText = "Nº/Movimentação";
+            this.clnNumeroMovimento.Name = "clnNumeroMovimento";
+            this.clnNumeroMovimento.ReadOnly = true;
+            this.clnNumeroMovimento.Width = 70;
+            // 
+            // clnNumeroRequisicaoPeca
+            // 
+            this.clnNumeroRequisicaoPeca.DataPropertyName = "NRequisicao";
+            this.clnNumeroRequisicaoPeca.HeaderText = "Nº/Requisição";
+            this.clnNumeroRequisicaoPeca.Name = "clnNumeroRequisicaoPeca";
+            this.clnNumeroRequisicaoPeca.ReadOnly = true;
+            this.clnNumeroRequisicaoPeca.Width = 70;
+            // 
+            // clnCodigoPeca
+            // 
+            this.clnCodigoPeca.DataPropertyName = "CodigoPeca";
+            this.clnCodigoPeca.HeaderText = "Código";
+            this.clnCodigoPeca.Name = "clnCodigoPeca";
+            this.clnCodigoPeca.ReadOnly = true;
+            // 
+            // clnDescricaoPeca
+            // 
+            this.clnDescricaoPeca.DataPropertyName = "DescricaoPeca";
+            this.clnDescricaoPeca.HeaderText = "Descrição";
+            this.clnDescricaoPeca.Name = "clnDescricaoPeca";
+            this.clnDescricaoPeca.ReadOnly = true;
+            this.clnDescricaoPeca.Width = 150;
+            // 
+            // clnUnidadePeca
+            // 
+            this.clnUnidadePeca.DataPropertyName = "Unidade";
+            this.clnUnidadePeca.HeaderText = "Unidade";
+            this.clnUnidadePeca.Name = "clnUnidadePeca";
+            this.clnUnidadePeca.ReadOnly = true;
+            this.clnUnidadePeca.Width = 80;
+            // 
+            // clnQuantidadeMovimentada
+            // 
+            this.clnQuantidadeMovimentada.DataPropertyName = "Qtd";
+            this.clnQuantidadeMovimentada.HeaderText = "Quantidade";
+            this.clnQuantidadeMovimentada.Name = "clnQuantidadeMovimentada";
+            this.clnQuantidadeMovimentada.ReadOnly = true;
+            this.clnQuantidadeMovimentada.Width = 80;
+            // 
+            // clnAondeSeraUsado
+            // 
+            this.clnAondeSeraUsado.DataPropertyName = "Asu";
+            this.clnAondeSeraUsado.HeaderText = "ASU.";
+            this.clnAondeSeraUsado.Name = "clnAondeSeraUsado";
+            this.clnAondeSeraUsado.ReadOnly = true;
+            // 
+            // TipoMovimento
+            // 
+            this.TipoMovimento.DataPropertyName = "TipoMovimentacao";
+            this.TipoMovimento.HeaderText = "Tipo/Movimento";
+            this.TipoMovimento.Name = "TipoMovimento";
+            this.TipoMovimento.ReadOnly = true;
+            // 
+            // clnStatusMovimentacao
+            // 
+            this.clnStatusMovimentacao.DataPropertyName = "Status";
+            this.clnStatusMovimentacao.HeaderText = "Status";
+            this.clnStatusMovimentacao.Name = "clnStatusMovimentacao";
+            this.clnStatusMovimentacao.ReadOnly = true;
+            // 
+            // clnUsuarioSolicitacao
+            // 
+            this.clnUsuarioSolicitacao.DataPropertyName = "UsuarioSolicitacao";
+            this.clnUsuarioSolicitacao.HeaderText = "Usuário/Solic.";
+            this.clnUsuarioSolicitacao.Name = "clnUsuarioSolicitacao";
+            this.clnUsuarioSolicitacao.ReadOnly = true;
+            // 
+            // clnDataHoraSolicitacaoPeca
+            // 
+            this.clnDataHoraSolicitacaoPeca.DataPropertyName = "DataHoraSolicitacao";
+            this.clnDataHoraSolicitacaoPeca.HeaderText = "Data/Hora Solic.";
+            this.clnDataHoraSolicitacaoPeca.Name = "clnDataHoraSolicitacaoPeca";
+            this.clnDataHoraSolicitacaoPeca.ReadOnly = true;
+            // 
+            // clnUsuarioAutorizador
+            // 
+            this.clnUsuarioAutorizador.DataPropertyName = "UsuarioAutorizacao";
+            this.clnUsuarioAutorizador.HeaderText = "Usuário/Autor.";
+            this.clnUsuarioAutorizador.Name = "clnUsuarioAutorizador";
+            this.clnUsuarioAutorizador.ReadOnly = true;
+            // 
+            // clnDataHoraAutorizacaoPeca
+            // 
+            this.clnDataHoraAutorizacaoPeca.DataPropertyName = "DataHoraAutorizacao";
+            this.clnDataHoraAutorizacaoPeca.HeaderText = "Data/Hora Autor.";
+            this.clnDataHoraAutorizacaoPeca.Name = "clnDataHoraAutorizacaoPeca";
+            this.clnDataHoraAutorizacaoPeca.ReadOnly = true;
+            // 
+            // clnUsuarioMovimentacaoPeca
+            // 
+            this.clnUsuarioMovimentacaoPeca.DataPropertyName = "UsuarioMovimentacao";
+            this.clnUsuarioMovimentacaoPeca.HeaderText = "Usuário Mov.";
+            this.clnUsuarioMovimentacaoPeca.Name = "clnUsuarioMovimentacaoPeca";
+            this.clnUsuarioMovimentacaoPeca.ReadOnly = true;
+            // 
+            // clnUsuariomovimentacao
+            // 
+            this.clnUsuariomovimentacao.DataPropertyName = "DataHoraMovimentacao";
+            this.clnUsuariomovimentacao.HeaderText = "Data/Hora Mov.";
+            this.clnUsuariomovimentacao.Name = "clnUsuariomovimentacao";
+            this.clnUsuariomovimentacao.ReadOnly = true;
             // 
             // frmRequisicaoCompra
             // 
@@ -946,7 +1098,7 @@
             this.tx.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMovimentacoes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1023,8 +1175,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAlteracao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnObervacao;
         public System.Windows.Forms.TextBox txtNRequisicao;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridMovimentacoes;
         private System.Windows.Forms.Button btnRelatorio;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroMovimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNumeroRequisicaoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnCodigoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricaoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUnidadePeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnQuantidadeMovimentada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnAondeSeraUsado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoMovimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnStatusMovimentacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioSolicitacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraSolicitacaoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioAutorizador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraAutorizacaoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioMovimentacaoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuariomovimentacao;
     }
 }

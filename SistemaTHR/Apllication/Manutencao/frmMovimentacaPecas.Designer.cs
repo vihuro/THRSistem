@@ -56,6 +56,12 @@
             this.clnDataHoraMovimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cboAondeSeraUsado = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNumeroMovimentacao = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnSaida = new System.Windows.Forms.Button();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboUnidade = new System.Windows.Forms.ComboBox();
@@ -66,6 +72,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -81,10 +88,11 @@
             // 
             this.panel1.Controls.Add(this.btnRelatorio);
             this.panel1.Controls.Add(this.btnFiltro);
+            this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(975, 24);
+            this.panel1.Size = new System.Drawing.Size(1121, 24);
             this.panel1.TabIndex = 0;
             // 
             // btnRelatorio
@@ -93,7 +101,7 @@
             this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
-            this.btnRelatorio.Location = new System.Drawing.Point(28, 0);
+            this.btnRelatorio.Location = new System.Drawing.Point(56, 0);
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(28, 24);
             this.btnRelatorio.TabIndex = 1;
@@ -106,7 +114,7 @@
             this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
             this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
-            this.btnFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnFiltro.Location = new System.Drawing.Point(28, 0);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(28, 24);
             this.btnFiltro.TabIndex = 0;
@@ -118,9 +126,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 521);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 592);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(975, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1121, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -150,8 +158,8 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(975, 497);
-            this.splitContainer1.SplitterDistance = 141;
+            this.splitContainer1.Size = new System.Drawing.Size(1121, 568);
+            this.splitContainer1.SplitterDistance = 161;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGridView1
@@ -201,9 +209,10 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(975, 141);
+            this.dataGridView1.Size = new System.Drawing.Size(1121, 161);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // clnNMovimentacao
             // 
@@ -329,11 +338,17 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(975, 352);
+            this.tabControl1.Size = new System.Drawing.Size(1121, 403);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cboAondeSeraUsado);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.txtNumeroMovimentacao);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.btnPesquisar);
+            this.tabPage1.Controls.Add(this.btnSaida);
             this.tabPage1.Controls.Add(this.txtQuantidade);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.cboUnidade);
@@ -346,14 +361,70 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(967, 326);
+            this.tabPage1.Size = new System.Drawing.Size(1113, 377);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Geral";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cboAondeSeraUsado
+            // 
+            this.cboAondeSeraUsado.FormattingEnabled = true;
+            this.cboAondeSeraUsado.Location = new System.Drawing.Point(131, 168);
+            this.cboAondeSeraUsado.Name = "cboAondeSeraUsado";
+            this.cboAondeSeraUsado.Size = new System.Drawing.Size(263, 21);
+            this.cboAondeSeraUsado.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 176);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Aonde será usado:";
+            // 
+            // txtNumeroMovimentacao
+            // 
+            this.txtNumeroMovimentacao.Location = new System.Drawing.Point(122, 55);
+            this.txtNumeroMovimentacao.Name = "txtNumeroMovimentacao";
+            this.txtNumeroMovimentacao.Size = new System.Drawing.Size(102, 20);
+            this.txtNumeroMovimentacao.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Nº Movimentação:";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.ForeColor = System.Drawing.Color.White;
+            this.btnPesquisar.Image = global::SistemaTHR.Properties.Resources.seo;
+            this.btnPesquisar.Location = new System.Drawing.Point(227, 79);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(25, 23);
+            this.btnPesquisar.TabIndex = 9;
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnSaida
+            // 
+            this.btnSaida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaida.Location = new System.Drawing.Point(1030, 348);
+            this.btnSaida.Name = "btnSaida";
+            this.btnSaida.Size = new System.Drawing.Size(75, 23);
+            this.btnSaida.TabIndex = 8;
+            this.btnSaida.Text = "Saída";
+            this.btnSaida.UseVisualStyleBackColor = true;
+            this.btnSaida.Click += new System.EventHandler(this.btnSaida_Click);
+            // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(472, 59);
+            this.txtQuantidade.Location = new System.Drawing.Point(510, 112);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(54, 20);
             this.txtQuantidade.TabIndex = 7;
@@ -361,7 +432,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(433, 62);
+            this.label4.Location = new System.Drawing.Point(471, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 6;
@@ -370,8 +441,14 @@
             // cboUnidade
             // 
             this.cboUnidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUnidade.Enabled = false;
             this.cboUnidade.FormattingEnabled = true;
-            this.cboUnidade.Location = new System.Drawing.Point(362, 53);
+            this.cboUnidade.Items.AddRange(new object[] {
+            "",
+            "KG",
+            "PÇ",
+            "MI"});
+            this.cboUnidade.Location = new System.Drawing.Point(400, 106);
             this.cboUnidade.Name = "cboUnidade";
             this.cboUnidade.Size = new System.Drawing.Size(55, 21);
             this.cboUnidade.TabIndex = 5;
@@ -379,7 +456,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(321, 62);
+            this.label3.Location = new System.Drawing.Point(360, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 4;
@@ -387,14 +464,15 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(84, 28);
+            this.txtCodigo.Location = new System.Drawing.Point(122, 81);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(102, 20);
             this.txtCodigo.TabIndex = 0;
             // 
             // txtDescriao
             // 
-            this.txtDescriao.Location = new System.Drawing.Point(84, 55);
+            this.txtDescriao.Enabled = false;
+            this.txtDescriao.Location = new System.Drawing.Point(122, 108);
             this.txtDescriao.Name = "txtDescriao";
             this.txtDescriao.Size = new System.Drawing.Size(219, 20);
             this.txtDescriao.TabIndex = 1;
@@ -402,7 +480,7 @@
             // btnEntrada
             // 
             this.btnEntrada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEntrada.Location = new System.Drawing.Point(867, 297);
+            this.btnEntrada.Location = new System.Drawing.Point(949, 348);
             this.btnEntrada.Name = "btnEntrada";
             this.btnEntrada.Size = new System.Drawing.Size(75, 23);
             this.btnEntrada.TabIndex = 2;
@@ -413,7 +491,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 62);
+            this.label2.Location = new System.Drawing.Point(20, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
@@ -422,7 +500,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 35);
+            this.label1.Location = new System.Drawing.Point(20, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -433,16 +511,29 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(967, 326);
+            this.tabPage2.Size = new System.Drawing.Size(1113, 377);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAtualizar.Image = global::SistemaTHR.Properties.Resources.refresh_button;
+            this.btnAtualizar.Location = new System.Drawing.Point(0, 0);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(28, 24);
+            this.btnAtualizar.TabIndex = 2;
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // frmMovimentacaPecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 543);
+            this.ClientSize = new System.Drawing.Size(1121, 614);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
@@ -493,15 +584,22 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cboUnidade;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txtDescriao;
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnFiltro;
         private System.Windows.Forms.Button btnRelatorio;
+        private System.Windows.Forms.Button btnSaida;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.TextBox txtNumeroMovimentacao;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboAondeSeraUsado;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtQuantidade;
+        public System.Windows.Forms.ComboBox cboUnidade;
+        public System.Windows.Forms.TextBox txtCodigo;
+        public System.Windows.Forms.TextBox txtDescriao;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
