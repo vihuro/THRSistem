@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SistemaTHR.dto.estoque;
 using SistemaTHR.Controller.estoque;
 using SistemaTHR.DAO.Estoque;
@@ -14,9 +11,6 @@ namespace SistemaTHR.Service.estoque
     public class EstoqueService
     {
         private EstoqueDto dto;
-        private MovimentacaoDto movimentacaoDto;
-        private MovimentacaoController movimentacaoController;
-        private MovimentacaoSerivce movimentacaoService;
         private EstoqueDao dao = new EstoqueDao();
         private loginController loginController;
 

@@ -19,7 +19,6 @@ namespace SistemaTHR.Service.estoque
         private SolicitacaoDao dao = new SolicitacaoDao();
         private MovimentacaoController movimentacaController;
         private MovimentacaoSerivce movimentacaoService;
-        private SolicitacaoService service;
 
         public SolicitacaoService(loginController loginController)
         {

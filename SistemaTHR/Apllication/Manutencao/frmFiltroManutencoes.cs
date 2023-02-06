@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaTHR.Controller.manutencao;
 
@@ -15,13 +8,7 @@ namespace SistemaTHR.Apllication
     {
         frmManutencao manutencao;
 
-        String emAberto;
-        String manIni;
-        String osINC;
-        String AutPeca;
-        String manFin;
-        String manINC;
-        String osFin;
+
 
         private osThrController controller;
 

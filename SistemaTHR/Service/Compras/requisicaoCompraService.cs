@@ -182,21 +182,6 @@ namespace SistemaTHR.Service.Compras
             dao.Update(dto);
         }
 
-        public void updateCompra()
-        {
-            /*dao = new requisicaoCompraDao();
-
-            dto = new dto.Compras.requisicaoCompraDto();
-            dto.UsuarioCompra = controller.UsuarioCompra;
-            dto.DataHoraCompra = controller.DataHotaCompra;
-            dto.Status = controller.Status;
-            dto.NRequisicao = controller.NRequisicao;
-            dao.compra(dto);
-            if(dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }*/
-        }
 
         public requisicaoCompraDto SelectRequisicao(string id)
         {

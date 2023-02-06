@@ -4,10 +4,8 @@ using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.Exepction;
 using SistemaTHR.Service.manutencao;
 using System;
-
 using System.Data;
 using System.Drawing;
-
 using System.Windows.Forms;
 
 namespace SistemaTHR.Apllication.Manutencao
@@ -18,15 +16,13 @@ namespace SistemaTHR.Apllication.Manutencao
         private modulosController modulosController;
         private movimentacaoPecasService service;
         private movimentacaoPecasController controller;
-        private asuService usadoService;
-        private asuController usadoController;
+
         public frmMovimentacaPecas(loginController loginController, modulosController modulosController)
         {
             InitializeComponent();
             this.loginController = loginController;
             this.modulosController = modulosController;
             service = new movimentacaoPecasService(loginController,modulosController);
-            usadoService = new asuService();
         }
 
         private void frmMovimentacaPecas_Load(object sender, EventArgs e)
@@ -141,49 +137,6 @@ namespace SistemaTHR.Apllication.Manutencao
             }
         }
 
-        private void verificarCodigo(EstoquePecasController controller)
-        {
-            alterarEstoque(controller);
-            if (controller.Exists == true)
-            {
-                movimentacao();
-            }
-            else
-            {
-                MessageBox.Show("Código ainda não cadastrado. Não é possivel dar entrada de um item sem" +
-                    " seu cadastro!", "SISTEMA THR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-
-        private void movimentacao()
-        {
-            /*Controller.manutencao.movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
-            Service.manutencao.movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController,modulosController);
-            controller.CodigoPeca = txtCodigo.Text;
-            controller.DescricaoPeca = txtDescriao.Text;
-            controller.Unidade = cboUnidade.Text;
-            controller.Qtd = txtQuantidade.Text;
-            controller.TipoMovimentacao = "Entrada";
-            controller.Status = "Finalizado";
-            controller.UsuarioMovimentacao = loginController.Nome;
-            controller.DataHoraMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-            service.InsertSaida(controller);
-            if (controller.Msg != null)
-            {
-                MessageBox.Show(controller.Msg);
-            }*/
-        }
-        private void alterarEstoque(Controller.manutencao.EstoquePecasController controller)
-        {
-            //Service.manutencao.EstoquePecasService service = new Service.manutencao.EstoquePecasService();
-            //service.entradaEstoque(controller);
-            //if (controller.Msg != null)
-            //{
-            //  MessageBox.Show(controller.Msg);
-            //}
-        }
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {

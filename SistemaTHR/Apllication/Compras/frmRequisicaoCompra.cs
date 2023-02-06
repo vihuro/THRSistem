@@ -416,7 +416,7 @@ namespace SistemaTHR.Apllication.Compras
                 dataGridView2.SelectedRows[0].Cells[6].Value = newObj.UsuarioAlteracao;
                 dataGridView2.SelectedRows[0].Cells[7].Value = newObj.Observacao;
                 txtObservacao.Text = newObj.Observacao;
-                if (dataGridView2.SelectedRows[0].Cells[1].Value != "DÍARIO")
+                if (dataGridView2.SelectedRows[0].Cells[1].Value.ToString() != "DÍARIO")
                 {
                     AtualizarStatusRequisicao();
                 }

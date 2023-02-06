@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.dto.manutencao;
-using SistemaTHR.Service.manutencao;
 using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.Controller.Login;
 using System.Data;
@@ -16,8 +12,6 @@ namespace SistemaTHR.Service.manutencao
     internal class EstoquePecasService
     {
         private EstoquePecasController controller;
-        private movimentacaoPecasController movimentacaoController;
-        private movimentacaoPecasService movimentacaoService;
         private loginController loginController;
         private modulosController modulosController;
         private EstoquePecasDao dao;
@@ -28,15 +22,11 @@ namespace SistemaTHR.Service.manutencao
             dao = new EstoquePecasDao();
             this.loginController = loginController;
             this.modulosController = modulosController;
-            //IniciarMovimentacaoService();
 
         }
 
 
-        private movimentacaoPecasService IniciarMovimentacaoService()
-        {
-            return movimentacaoService = new movimentacaoPecasService(loginController, modulosController);
-        }
+
 
         public void Insert(EstoquePecasController controller)
         {
@@ -118,45 +108,6 @@ namespace SistemaTHR.Service.manutencao
 
         }
 
-        private void MovimetacaoPecas(EstoquePecasController controller, string tipoMovimentacao)
-        {/*
-            movimentacaoController = new movimentacaoPecasController();
-
-            movimentacaoController.NRequisicao = "";
-            movimentacaoController.CodigoPeca = controller.Codigo;
-            movimentacaoController.DescricaoPeca = controller.Descricao;
-            movimentacaoController.Unidade = controller.Unidade;
-            movimentacaoController.Qtd = controller.QtEstoque;
-
-            if(movimentacaoController.Asu == string.Empty)
-            {
-                movimentacaoController.Asu = "MOVIMENTAÇÂO - MANUAL";
-            }
-
-            if(tipoMovimentacao == "Entrada")
-            {
-                movimentacaoController.Status = "Finalizado";
-            }
-            else if(tipoMovimentacao == "Saída")
-            {
-                movimentacaoController.Status = "Pendente";
-            }
-            movimentacaoController.TipoMovimentacao = tipoMovimentacao;
-
-            movimentacaoController.UsuarioSolicitacao = "";
-            movimentacaoController.DataHoraSolicitacao = "";
-            movimentacaoController.UsuarioAutorizacao = "";
-            movimentacaoController.DataHoraAutorizacao = "";
-            movimentacaoController.UsuarioMovimentacao = loginController.Nome;
-            movimentacaoController.DataHoraMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-
-            movimentacaoService.insertMovimentacao(movimentacaoController);
-            if(movimentacaoController.Msg != null)
-            {
-                controller.Msg = movimentacaoController.Msg;
-            }*/
-
-        }
 
         public void VerificarCodigo(EstoquePecasController controller, string tipoMovimentacao)
         {
@@ -199,31 +150,6 @@ namespace SistemaTHR.Service.manutencao
             return new EstoquePecasController(item);
         }
 
-        private void EntradaEstoque(EstoquePecasController controller, EstoquePecasDto dto, string tipoMovimentacao)
-        {
-            controller.Exists = dto.Exists;
-            decimal qtEstoque = Convert.ToDecimal(dto.QtEstoque);
-            decimal qtRecebida = Convert.ToDecimal(controller.QtEstoque);
-
-
-
-            decimal total = qtEstoque + qtRecebida;
-            controller.QtEstoque = Convert.ToString(total);
-            controller.Descricao = dto.Descricao.ToUpper();
-            dto.QtEstoque = total.ToString();
-
-            dto.Codigo = controller.Codigo;
-            MovimetacaoPecas(controller, tipoMovimentacao);
-            if (controller.Msg == null)
-            {
-                dao.updateQtEstoque(dto);
-                if (dto.Msg != null)
-                {
-                    controller.Msg = dto.Msg;
-                }
-            }
-
-        }
 
         public void Update(EstoquePecasController controller)
         {

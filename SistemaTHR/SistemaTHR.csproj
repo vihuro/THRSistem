@@ -544,7 +544,6 @@
     <Compile Include="DAO\Connection\Connection.cs" />
     <Compile Include="DAO\Connection\ConnectionBDEstoque.cs" />
     <Compile Include="DAO\Manutencao\geracaoOSTHRDAO.cs" />
-    <Compile Include="DAO\Manutencao\SolicitaCompraOSTHRDAO.cs" />
     <Compile Include="DAO\Producao\FichaDao.cs" />
     <Compile Include="DAO\Producao\selectLoteDao.cs" />
     <Compile Include="DAO\Empilhadeiras\loadTrocasDao.cs" />

@@ -28,6 +28,7 @@ namespace SistemaTHR.Apllication.Estoque
         {
             this.formularioEstoque = formularioEstoque;
             this.service = service;
+            this.loginController = loginCotroller;
             IniciarMovService();
             InitializeComponent();
             btnCarregar.Enabled = false;

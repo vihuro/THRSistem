@@ -82,8 +82,7 @@ namespace SistemaTHR.Apllication.Estoque
         {
 
         }
-        string QuantidadeAntiga;
-        string QuantidadeNova;
+
         string texto;
         private void IniciarMovimentacaoController()
         {

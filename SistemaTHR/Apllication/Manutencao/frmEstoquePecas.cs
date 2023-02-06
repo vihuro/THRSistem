@@ -358,8 +358,7 @@ namespace SistemaTHR.Apllication.Manutencao
                 {
                     if(ex.Message == "Código não encontrado!")
                     {
-                        var result = DialogResult;
-                        result = MessageBox.Show("Código não encontrado! Deseja cadastrar um novo material?", "SISTEMA THR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        var result = MessageBox.Show("Código não encontrado! Deseja cadastrar um novo material?", "SISTEMA THR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if(result == DialogResult.Yes)
                         {
                             dataGridView1.ClearSelection();

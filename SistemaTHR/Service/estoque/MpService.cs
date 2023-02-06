@@ -12,7 +12,6 @@ namespace SistemaTHR.Service.estoque
 {
     internal class MpService
     {
-        private MpController controller;
         private MpDao dao = new MpDao();
         private MpDto dto;
         private EstoqueController estoqueController;

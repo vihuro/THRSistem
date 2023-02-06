@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SistemaTHR.dto.estoque;
 using SistemaTHR.Controller.estoque;
 using SistemaTHR.DAO.Estoque;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Service.Exepction;
-using SistemaTHR.dto.manutencao;
-using SistemaTHR.dto.transferencia;
-using SistemaTHR.Controller.transferencia;
+
 
 namespace SistemaTHR.Service.estoque
 {
@@ -19,7 +13,6 @@ namespace SistemaTHR.Service.estoque
         private MovimentacaoDto dto;
         private MovimentacaoDao dao = new MovimentacaoDao();
         private loginController loginController;
-        private modulosController modulosController;
         private EstoqueService estoqueService;
 
 

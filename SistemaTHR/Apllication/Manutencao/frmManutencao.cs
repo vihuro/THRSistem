@@ -378,19 +378,19 @@ namespace SistemaTHR.Apllication
             {
                 dataGridView2.Rows[i].DefaultCellStyle.SelectionBackColor = Color.Black;
 
-                if (dataGridView2.Rows[i].Cells[4].Value != "")
+                if (dataGridView2.Rows[i].Cells[4].Value.ToString() != "")
                 {
                     dataGridView2.Rows[i].DefaultCellStyle.ForeColor = Color.Green;
                     dataGridView2.Rows[i].DefaultCellStyle.SelectionForeColor = Color.LightPink;
 
                 }
-                if (dataGridView2.Rows[i].Cells[4].Value == "" && dataGridView2.Rows[i].Cells[2].Value.ToString() == "Início de manutenção")
+                if (dataGridView2.Rows[i].Cells[4].Value.ToString() == "" && dataGridView2.Rows[i].Cells[2].Value.ToString() == "Início de manutenção")
                 {
 
                     dataGridView2.Rows[6].DefaultCellStyle.ForeColor = Color.Gray;
                 }
 
-                if (dataGridView2.Rows[i].Cells[4].Value == "" && dataGridView2.Rows[i].Cells[2].Value.ToString() == "Compra de Peça ENT")
+                if (dataGridView2.Rows[i].Cells[4].Value.ToString() == "" && dataGridView2.Rows[i].Cells[2].Value.ToString() == "Compra de Peça ENT")
                 {
 
                     dataGridView2.Rows[5].DefaultCellStyle.ForeColor = Color.Gray;

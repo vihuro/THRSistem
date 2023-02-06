@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.dto.manutencao;
@@ -17,7 +13,6 @@ namespace SistemaTHR.Service.manutencao
         private movimentacaoPecasController controller;
         private movimentacaoPecasDao dao;
         private movimentacaoPecasDto dto;
-        private EstoquePecasController EstoqueController;
         private EstoquePecasService EstoqueService;
         private loginController loginController;
         private modulosController modulosController;
