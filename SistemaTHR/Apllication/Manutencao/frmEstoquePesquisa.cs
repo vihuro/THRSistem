@@ -162,30 +162,6 @@ namespace SistemaTHR.Apllication.Manutencao
                 this.Close();
             }
 
-            /*if (Application.OpenForms.OfType<frmRequisicoesPecas>().Count() > 0)
-            {
-                frmRequisicaoPecas.txtCodigoPeca.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                frmRequisicaoPecas.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                frmRequisicaoPecas.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                this.Close();
-            }
-            else if(Application.OpenForms.OfType<frmEstoquePecas>().Count() > 0 || 
-                Application.OpenForms.OfType<frmEntradaSaidaPecas>().Count() > 0)
-            {
-                if(frmEstoquePecas != null)
-                {
-
-                }
-                else if(frmEntradaSaidaPecas != null)
-                {
-                    frmEntradaSaidaPecas.txtCodigo.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    frmEntradaSaidaPecas.txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                    frmEntradaSaidaPecas.txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                    this.Close();
-                }
-
-            }*/
-
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -203,13 +179,15 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(cboCampo.Text == "Código")
+            var dt = (DataTable)dataGridView1.DataSource;
+            if (cboCampo.Text == "Código")
             {
-                controller.Dt.DefaultView.RowFilter = string.Format("[Codigo] like '%{0}%'", txtFiltro.Text);
+
+                dt.DefaultView.RowFilter = string.Format("[Codigo] like '%{0}%'", txtFiltro.Text);
             }
             else if(cboCampo.Text == "Descrição")
             {
-                controller.Dt.DefaultView.RowFilter = string.Format("[Descricao] like '%{0}%'", txtFiltro.Text);
+                dt.DefaultView.RowFilter = string.Format("[Descricao] like '%{0}%'", txtFiltro.Text);
             }
         }
     }

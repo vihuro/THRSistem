@@ -34,6 +34,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnFiltro = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
@@ -72,7 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -120,6 +120,19 @@
             this.btnFiltro.TabIndex = 0;
             this.btnFiltro.UseVisualStyleBackColor = true;
             this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAtualizar.Image = global::SistemaTHR.Properties.Resources.refresh_button;
+            this.btnAtualizar.Location = new System.Drawing.Point(0, 0);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(28, 24);
+            this.btnAtualizar.TabIndex = 2;
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // statusStrip1
             // 
@@ -369,9 +382,9 @@
             // cboAondeSeraUsado
             // 
             this.cboAondeSeraUsado.FormattingEnabled = true;
-            this.cboAondeSeraUsado.Location = new System.Drawing.Point(131, 168);
+            this.cboAondeSeraUsado.Location = new System.Drawing.Point(123, 168);
             this.cboAondeSeraUsado.Name = "cboAondeSeraUsado";
-            this.cboAondeSeraUsado.Size = new System.Drawing.Size(263, 21);
+            this.cboAondeSeraUsado.Size = new System.Drawing.Size(271, 21);
             this.cboAondeSeraUsado.TabIndex = 13;
             // 
             // label6
@@ -424,7 +437,7 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(510, 112);
+            this.txtQuantidade.Location = new System.Drawing.Point(564, 112);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(54, 20);
             this.txtQuantidade.TabIndex = 7;
@@ -432,7 +445,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(471, 115);
+            this.label4.Location = new System.Drawing.Point(525, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 6;
@@ -448,7 +461,7 @@
             "KG",
             "PÇ",
             "MI"});
-            this.cboUnidade.Location = new System.Drawing.Point(400, 106);
+            this.cboUnidade.Location = new System.Drawing.Point(454, 106);
             this.cboUnidade.Name = "cboUnidade";
             this.cboUnidade.Size = new System.Drawing.Size(55, 21);
             this.cboUnidade.TabIndex = 5;
@@ -456,7 +469,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(360, 115);
+            this.label3.Location = new System.Drawing.Point(414, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 4;
@@ -474,7 +487,7 @@
             this.txtDescriao.Enabled = false;
             this.txtDescriao.Location = new System.Drawing.Point(122, 108);
             this.txtDescriao.Name = "txtDescriao";
-            this.txtDescriao.Size = new System.Drawing.Size(219, 20);
+            this.txtDescriao.Size = new System.Drawing.Size(272, 20);
             this.txtDescriao.TabIndex = 1;
             // 
             // btnEntrada
@@ -515,19 +528,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Histórico";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAtualizar.Image = global::SistemaTHR.Properties.Resources.refresh_button;
-            this.btnAtualizar.Location = new System.Drawing.Point(0, 0);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(28, 24);
-            this.btnAtualizar.TabIndex = 2;
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // frmMovimentacaPecas
             // 

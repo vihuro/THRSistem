@@ -147,10 +147,11 @@ namespace SistemaTHR.Service.manutencao
 
                     if (estoqueController.Exists)
                     {
+                        decimal quantidade = Convert.ToDecimal(controller.Qtd) *-1;
                         movimentacaoController = new movimentacaoPecasController();
                         movimentacaoController.CodigoPeca = controller.CodigoPeca.ToUpper();
                         movimentacaoController.DescricaoPeca = controller.DescricaoPeca.ToUpper();
-                        movimentacaoController.Qtd = controller.Qtd;
+                        movimentacaoController.Qtd = quantidade.ToString("###.###,##");
                         movimentacaoController.Unidade = controller.Unidade.ToUpper();
                         movimentacaoController.UsuarioSolicitacao = controller.UsuarioSolicitacao;
                         movimentacaoController.DataHoraSolicitacao = controller.DataHoraSolicitacao;

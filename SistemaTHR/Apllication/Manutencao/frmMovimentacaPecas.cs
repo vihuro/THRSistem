@@ -52,8 +52,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void loadGridView1()
         {
-            movimentacaoPecasController controller = new Controller.manutencao.movimentacaoPecasController();
-            movimentacaoPecasService service = new Service.manutencao.movimentacaoPecasService(loginController, modulosController);
+
             try
             {
                 dataGridView1.DataSource = service.Table();
@@ -117,12 +116,23 @@ namespace SistemaTHR.Apllication.Manutencao
                     DescricaoPeca = txtDescriao.Text,
                     Unidade = cboUnidade.Text,
                     Qtd = txtQuantidade.Text,
-                    TipoMovimentacao = TipoMovimentacao
+                    TipoMovimentacao = TipoMovimentacao,
+                  
                 };
 
                 try
                 {
-                    service.insertMovimentacao(controller);
+                    if(TipoMovimentacao == "Saída")
+                    {
+                        controller.NMovimentacao = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                        controller.UsuarioAutorizacao = dataGridView1.SelectedRows[0].Cells[11].Value.ToString();
+                        service.Liberacao(controller);
+                    }
+                    else
+                    {
+                        service.insertMovimentacao(controller);
+
+                    }
                     MessageBox.Show("Movimentação realizada com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadGridView1();
                     clearAll();
@@ -169,6 +179,17 @@ namespace SistemaTHR.Apllication.Manutencao
                 txtQuantidade.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
 
                 txtCodigo.Enabled = false;
+
+                if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "Pendente" || 
+                    dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "Finalizado" ||
+                    dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "Liberado")
+                {
+                    btnSaida.Enabled = false;
+                }
+                else
+                {
+                    btnSaida.Enabled = true;
+                }
 
             }
         }

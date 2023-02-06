@@ -16,6 +16,7 @@ namespace SistemaTHR.DAO.Manutencao
         private OleDbCommand cmd;
         private Connection con = new Connection();
         private OleDbDataAdapter da;
+        private OleDbDataReader dr;
 
         private movimentacaoPecasDto dto;
 
@@ -74,7 +75,7 @@ namespace SistemaTHR.DAO.Manutencao
             }
             catch(Exception ex)
             {
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
@@ -137,6 +138,51 @@ namespace SistemaTHR.DAO.Manutencao
         {
             this.dto = dto;
             exportMovimetacao();
+        }
+
+        public movimentacaoPecasDto SelectMovimentacao(string id)
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "SELECT * FROM tab_movimentacaoPecas WHERE NMovimentacao = @NumeroMovimentacao";
+            cmd.Parameters.AddWithValue("", id);
+            try
+            {
+                cmd.Connection = con.conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    var obj = new movimentacaoPecasDto();
+                    while (dr.Read())
+                    {
+                        obj.NMovimentacao = id;
+                        obj.NRequisicao = dr["NRequisicao"].ToString();
+                        obj.CodigoPeca = dr["CodigoPeca"].ToString();
+                        obj.DescricaoPeca = dr["DescricaoPeca"].ToString();
+                        obj.Unidade = dr["Unidade"].ToString();
+                        obj.Qtd = dr["Qtd"].ToString();
+                        obj.Asu = dr["Asu"].ToString();
+                        obj.TipoMovimentacao = dr["TipoMovimentacao"].ToString();
+                        obj.Status = dr["Status"].ToString();
+                        obj.UsuarioSolicitacao = dr["UsuarioSolicitacao"].ToString();
+                        obj.DataHoraSolicitacao = dr["DataHoraSolicitacao"].ToString();
+                        obj.UsuarioAutorizacao = dr["UsuarioAutorizacao"].ToString();
+                        obj.DataHoraAutorizacao = dr["DataHoraAutorizacao"].ToString();
+                        obj.UsuarioMovimentacao = dr["UsuarioMovimentacao"].ToString();
+                        obj.DataHoraMovimentacao = dr["DataHoraMovimentacao"].ToString();
+                    }
+
+                    return obj;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
         }
 
         private void selectCodigo()

@@ -59,6 +59,10 @@ namespace SistemaTHR.Service.manutencao
             {
                 throw new ExceptionService("Esse usuário não tem acesso para fazer entrada de peças!");
             }
+            else if(controller.TipoMovimentacao == "Entrada" && Convert.ToDecimal(controller.Qtd) < 0)
+            {
+                throw new ExceptionService("Não é possível fazer essa movimentação!");
+            }
 
             Insert(controller);
 
@@ -84,10 +88,13 @@ namespace SistemaTHR.Service.manutencao
 
             decimal QuantidadeSolicitada = Convert.ToDecimal(controller.Qtd);
 
+            dto.Qtd = (QuantidadeSolicitada.ToString("###.###,##"));
+
+
             if (controller.TipoMovimentacao == "Saída")
             {
-                dto.Qtd = Convert.ToString(QuantidadeSolicitada * -1);
-                dto.Status = "Pendente";
+                //dto.Qtd = Convert.ToString(QuantidadeSolicitada * -1);
+                dto.Status = "Autorizado";
             }
             else
             {
@@ -109,6 +116,11 @@ namespace SistemaTHR.Service.manutencao
             {
                 throw new ExceptionService("Campo(s) obrigatório(s) vazio(s)!");
             }
+            var obj = dao.SelectMovimentacao(controller.NMovimentacao);
+            if(obj.Status == "Finalizado" || obj.Status == "Pendente" || obj.Status == "Liberado")
+            {
+                throw new ExceptionService("Não é possível fazer essa requisição!");
+            }
             EstoqueService.UpdateEstoque(controller.CodigoPeca, controller.Qtd, controller.TipoMovimentacao);
             update(controller.NMovimentacao);
         }
@@ -122,10 +134,7 @@ namespace SistemaTHR.Service.manutencao
             dto.DataHoraMovimentacao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             dto.NMovimentacao = numeroMovimentacao;
             dao.liberar(dto);
-            if (dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }
+
         }
 
         public DataTable Table()

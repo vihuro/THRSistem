@@ -90,7 +90,7 @@ namespace SistemaTHR.Service.manutencao
             }
 
 
-            if (tipoMovimento == "Saída" && QuantidadeSolicitada >0)
+            if (tipoMovimento == "Saída" && QuantidadeSolicitada > 0)
             {
                 QuantidadeEstoque += QuantidadeSolicitada * -1;
 
