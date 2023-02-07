@@ -232,7 +232,7 @@ namespace SistemaTHR.Apllication
             osService.load(osController);
             if (osController.Msg != null)
             {
-                MessageBox.Show(osController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(osController.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -558,6 +558,7 @@ namespace SistemaTHR.Apllication
                         }
 
                     }
+
                     else if (dataGridView2.SelectedRows[0].Cells[4].Value.ToString() != "" && modulosController.ManutencaoNivel == "1")
                     {
                         btnDesfazer.Enabled = true;
@@ -565,6 +566,13 @@ namespace SistemaTHR.Apllication
                     else
                     {
                         btnDesfazer.Enabled = false;
+                    }
+
+
+                    if (dataGridView2.SelectedRows[0].Cells[2].Value.ToString() == "Manutenção N/C" &&
+                        dataGridView1.SelectedRows[0].Cells[11].Value.ToString() == "Manutenção/FIN")
+                    {
+                        btnApontar.Enabled = true;
                     }
                 }
 
@@ -991,7 +999,7 @@ namespace SistemaTHR.Apllication
 
                 if (modulosController.ManutencaoNivel == "1" ||
                     modulosController.ManutencaoNivel == "2" ||
-                    modulosController.ManutencaoNivel == "3" || 
+                    modulosController.ManutencaoNivel == "3" ||
                     modulosController.ManutencaoNivel == "4")
                 {
                     if (modulosController.ManutencaoNivel == "1" || modulosController.ManutencaoNivel == "2" &&
@@ -1098,7 +1106,7 @@ namespace SistemaTHR.Apllication
 
         private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
 
                 Procurar();
@@ -1107,7 +1115,7 @@ namespace SistemaTHR.Apllication
 
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
-            if(txtDescricaoPeca.Text.Length > 0)
+            if (txtDescricaoPeca.Text.Length > 0)
             {
                 Procurar();
             }

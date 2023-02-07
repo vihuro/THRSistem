@@ -231,6 +231,7 @@ namespace SistemaTHR.DAO.Manutencao
 
         private void loadInfoOS()
         {
+            cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_OSTHR where NOP = @numeroOS";
             cmd.Parameters.AddWithValue("@numeroOS", dto.NOs);
 
