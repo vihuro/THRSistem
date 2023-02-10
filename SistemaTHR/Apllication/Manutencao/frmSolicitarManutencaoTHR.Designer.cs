@@ -109,7 +109,7 @@
             "Alvenaria"});
             this.cboTipoServico.Location = new System.Drawing.Point(19, 77);
             this.cboTipoServico.Name = "cboTipoServico";
-            this.cboTipoServico.Size = new System.Drawing.Size(121, 21);
+            this.cboTipoServico.Size = new System.Drawing.Size(284, 21);
             this.cboTipoServico.TabIndex = 1;
             // 
             // label3
@@ -159,7 +159,7 @@
             this.cboAondeSera.FormattingEnabled = true;
             this.cboAondeSera.Location = new System.Drawing.Point(19, 30);
             this.cboAondeSera.Name = "cboAondeSera";
-            this.cboAondeSera.Size = new System.Drawing.Size(121, 21);
+            this.cboAondeSera.Size = new System.Drawing.Size(284, 21);
             this.cboAondeSera.TabIndex = 0;
             // 
             // btnSalvar
@@ -224,7 +224,7 @@
             "Preditiva"});
             this.cboCategoria.Location = new System.Drawing.Point(19, 123);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(121, 21);
+            this.cboCategoria.Size = new System.Drawing.Size(284, 21);
             this.cboCategoria.TabIndex = 2;
             // 
             // label5

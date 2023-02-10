@@ -68,25 +68,11 @@ namespace SistemaTHR.Service.manutencao
             deleteEx();
         }
 
-        private void selectList()
+        public List<string> List()
         {
-            dto = new dto.manutencao.aseDto();
-            dao.list(dto);
-            if(dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }
-            else
-            {
-                controller.Ase = dto.Ase;
-            }
+            return dao.List();
         }
 
-        public void list(Controller.manutencao.aseController controller)
-        {
-            this.controller = controller;
-            selectList();
-        }
 
         private void verificarEx()
         {

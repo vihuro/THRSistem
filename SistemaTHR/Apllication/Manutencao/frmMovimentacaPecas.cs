@@ -16,6 +16,7 @@ namespace SistemaTHR.Apllication.Manutencao
         private modulosController modulosController;
         private movimentacaoPecasService service;
         private movimentacaoPecasController controller;
+        private EstoquePecasService estoquePecasSerivce;
 
         public frmMovimentacaPecas(loginController loginController, modulosController modulosController)
         {
@@ -23,6 +24,7 @@ namespace SistemaTHR.Apllication.Manutencao
             this.loginController = loginController;
             this.modulosController = modulosController;
             service = new movimentacaoPecasService(loginController,modulosController);
+            estoquePecasSerivce = new EstoquePecasService(loginController,modulosController);
         }
 
         private void frmMovimentacaPecas_Load(object sender, EventArgs e)
@@ -33,8 +35,10 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private void clearAll()
         {
-            //throw new NotImplementedException();
+            btnSaida.Enabled = false;
+            btnEntrada.Enabled = true;
             txtNumeroMovimentacao.Text = string.Empty;
+            txtCodigo.Enabled = true;
             txtCodigo.Text = string.Empty;
             txtDescriao.Text = string.Empty;
             cboUnidade.Text = string.Empty;
@@ -204,6 +208,32 @@ namespace SistemaTHR.Apllication.Manutencao
         {
             loadGridView1();
             clearAll();
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if(txtCodigo.Text.Length > 0)
+            {
+                Procurar();
+            }
+        }
+
+        private void Procurar()
+        {
+            try
+            {
+                var obj = estoquePecasSerivce.BuscarPorCodigo(txtCodigo.Text);
+                txtCodigo.Text = obj.Codigo;
+                txtDescriao.Text = obj.Descricao;
+                cboUnidade.Text = obj.Unidade;
+            }
+            catch (ExceptionService ex)
+            {
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCodigo.Text = "";
+                txtDescriao.Text = "";
+                cboUnidade.Text = "";
+            }
         }
     }
 }

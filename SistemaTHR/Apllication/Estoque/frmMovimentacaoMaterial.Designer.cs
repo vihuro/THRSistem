@@ -53,6 +53,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(128, 20);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             this.txtCodigo.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtCodigo_PreviewKeyDown);
             // 
             // label1

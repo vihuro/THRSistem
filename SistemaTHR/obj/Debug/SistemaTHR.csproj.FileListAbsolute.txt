@@ -480,3 +480,5 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\bd_estoque.accdb
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\bin\Debug\Apllication\Estoque\Impressao\Relatório de Estoque.rdlc
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.frmFiltroMovimentacoesPeca.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.Impressao.frmRelatorioMovimentacaoPecas.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.frmFiltroRequisicoesCompra.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.Impressão.frmRelatorioRequisicaoCompra.resources

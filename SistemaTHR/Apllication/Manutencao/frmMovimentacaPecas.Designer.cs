@@ -481,6 +481,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(102, 20);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // txtDescriao
             // 

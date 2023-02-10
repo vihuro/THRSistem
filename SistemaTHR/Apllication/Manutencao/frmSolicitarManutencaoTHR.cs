@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaTHR.Service.Exepction;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -163,8 +164,8 @@ namespace SistemaTHR.Apllication
 
                 }
 
-            this.Cursor = Cursors.Default;
-            this.Close();
+                this.Cursor = Cursors.Default;
+                this.Close();
             }
             else
             {
@@ -184,18 +185,19 @@ namespace SistemaTHR.Apllication
 
             aseController = new Controller.manutencao.aseController();
             asService = new Service.manutencao.aseService();
-            asService.list(aseController);
-            if(aseController.Msg != null)
+            try
             {
-                MessageBox.Show(aseController.Msg);
-            }
-            else
-            {
-                foreach (var item in aseController.Ase)
+                foreach (var item in asService.List())
                 {
                     cboAondeSera.Items.Add(item);
                 }
             }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
@@ -205,7 +207,7 @@ namespace SistemaTHR.Apllication
 
             foreach (char item in txtDescricao.Text)
             {
-                totalCaractere = totalCaractere - 1;
+                totalCaractere += -1;
             }
             lblCaractere.Text = "Caracteres restantes: " + totalCaractere;
         }

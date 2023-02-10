@@ -154,7 +154,7 @@ namespace SistemaTHR.Service.Compras
                 throw new ExceptionService("Não é possível fazer essa movimentação!");
             }
             //Caso já esteja entregue e o usuário seja difente de TI, não é possivel fazer uma alteração
-            else if(obj.Status == "Entregue" && modulosController.ComprasNivel != "1")
+            else if(obj.Status == "Entregue" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
             {
                 throw new ExceptionService("Não é possível fazer essa movimentação!");
             }
@@ -169,7 +169,6 @@ namespace SistemaTHR.Service.Compras
             {
                 throw new ExceptionService("Não é possível fazer essa movimentação!");
             }
-
 
 
             dto.ValorProduto = controller.ValorProduto;

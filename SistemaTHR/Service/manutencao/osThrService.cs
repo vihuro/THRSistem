@@ -7,6 +7,7 @@ using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.manutencao;
 using SistemaTHR.DAO.Manutencao;
 using SistemaTHR.dto.manutencao;
+using System.Data;
 
 namespace SistemaTHR.Service.manutencao
 {
@@ -54,25 +55,11 @@ namespace SistemaTHR.Service.manutencao
             }
         }
 
-        private void selectTable()
+        public DataTable Table()
         {
-            dto = new dto.manutencao.osThrDto();
-            dao.table(dto);
-            if(dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }
-            else
-            {
-                controller.Dt = dto.Dt;
-            }
+            return dao.Table();
         }
 
-        public void table(Controller.manutencao.osThrController controller)
-        {
-            this.controller = controller;
-            selectTable();
-        }
 
         public void selectOS(Controller.manutencao.osThrController controller)
         {
@@ -80,25 +67,12 @@ namespace SistemaTHR.Service.manutencao
             selectNOs();
         }
 
-        private void selectPainel()
+        public DataTable Painel()
         {
-            dto = new dto.manutencao.osThrDto();
-            dao.painel(dto);
-            if(dto.Msg != null)
-            {
-                controller.Msg = dto.Msg;
-            }
-            else
-            {
-                controller.Dt = dto.Dt;
-            }
+            return dao.Painel();
         }
 
-        public void painel(Controller.manutencao.osThrController controller)
-        {
-            this.controller = controller;
-            selectPainel();
-        }
+
 
         private void updatePriori()
         {
@@ -132,7 +106,7 @@ namespace SistemaTHR.Service.manutencao
             }
         }
 
-        public void status(Controller.manutencao.osThrController controller)
+        public void status(osThrController controller)
         {
             this.controller = controller;
             updateStatus();
@@ -154,7 +128,7 @@ namespace SistemaTHR.Service.manutencao
             }
         }
 
-        public void load(Controller.manutencao.osThrController controller)
+        public void load(osThrController controller)
         {
             this.controller = controller;
             loadInfoOS();

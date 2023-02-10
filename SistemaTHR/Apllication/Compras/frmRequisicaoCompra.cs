@@ -23,6 +23,8 @@ namespace SistemaTHR.Apllication.Compras
         private EstoquePecasService estoqueService;
         private movimentacaoPecasService movimentacaoService;
 
+        public string pesquisar = "";
+
         public frmRequisicaoCompra(loginController loginController, modulosController modulosController)
         {
             this.loginController = loginController;
@@ -71,6 +73,8 @@ namespace SistemaTHR.Apllication.Compras
         {
             dataGridView1.ClearSelection();
 
+            pesquisar = string.Empty;
+
             txtCodigo.Text = string.Empty;
             dateTimePicker1.CustomFormat = "00/00/00";
             txtDescricao.Text = string.Empty;
@@ -91,11 +95,12 @@ namespace SistemaTHR.Apllication.Compras
             btnSalvar.Enabled = true;
             btnApontar.Enabled = false;
             btnDesfazer.Enabled = false;
+            btnAutorizar.Enabled = false;
 
 
         }
 
-        private void loadGridView()
+        public void loadGridView()
         {
             controller = new requisicaoCompraController();
 
@@ -109,6 +114,11 @@ namespace SistemaTHR.Apllication.Compras
                         dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
                         break;
                     }
+                }
+                if(pesquisar != string.Empty)
+                {
+                    var dt = (DataTable)dataGridView1.DataSource;
+                    dt.DefaultView.RowFilter = pesquisar;
                 }
             }
             catch (ExceptionService ex)
@@ -156,8 +166,10 @@ namespace SistemaTHR.Apllication.Compras
                 txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                 cboPrioridade.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
 
+                ValidarCampos();
+
                 // Apenas para teste
-                btnAutorizar.Enabled = true;
+                //btnAutorizar.Enabled = true;
 
                 //IF ternario, se data for igual a 00/00/0000, irá lançar a data custom, se não, irá mostrar a data prevista
                 dateTimePicker1.CustomFormat =
@@ -186,11 +198,11 @@ namespace SistemaTHR.Apllication.Compras
                 {
                     if (dataGridView1.SelectedRows[0].Cells[16].Value.ToString() == "Autorizado")
                     {
-                        btnSalvar.Enabled = true;
+                        //btnSalvar.Enabled = true;
                     }
                     else
                     {
-                        btnSalvar.Enabled = false;
+                        //btnSalvar.Enabled = false;
 
                     }
                 }
@@ -221,6 +233,81 @@ namespace SistemaTHR.Apllication.Compras
                 }
             }
             this.Cursor = Cursors.Default;
+
+        }
+
+        private void ValidarCampos()
+        {
+            var status = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+            if(status == "Comprado" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
+            {
+                txtCodigo.Enabled = false;
+                txtQuantidade.Enabled = false;
+                cboPrioridade.Enabled = false;
+                txtFornecedor.Enabled = false;
+                txtValor.Enabled = false;
+                cboFrete.Enabled = false;
+                cboFreteIncluso.Enabled = false;
+                txtEstadoCompra.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnAutorizar.Enabled = false;
+            }
+            else if(status == "Entregue" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
+            {
+                txtCodigo.Enabled = false;
+                txtQuantidade.Enabled = false;
+                cboPrioridade.Enabled = false;
+                txtFornecedor.Enabled = false;
+                txtValor.Enabled = false;
+                cboFrete.Enabled = false;
+                cboFreteIncluso.Enabled = false;
+                txtEstadoCompra.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnAutorizar.Enabled = false;
+            }
+            else if(status == "Autorizado" && modulosController.Compras != "1" && modulosController.ComprasNivel != "2")
+            {
+                txtCodigo.Enabled = false;
+                txtQuantidade.Enabled = false;
+                cboPrioridade.Enabled = false;
+                txtFornecedor.Enabled = false;
+                txtValor.Enabled = false;
+                cboFrete.Enabled = false;
+                cboFreteIncluso.Enabled = false;
+                txtEstadoCompra.Enabled = false;
+                btnSalvar.Enabled = false;
+                btnAutorizar.Enabled = false;
+
+            }
+            else if(modulosController.ComprasNivel == "4" && status != "Pendente")
+            {
+                txtFornecedor.Enabled = false;
+                txtValor.Enabled = false;
+                cboFrete.Enabled = false;
+                cboFreteIncluso.Enabled = false;
+                txtEstadoCompra.Enabled = false;
+                btnAutorizar.Enabled = false;
+
+            }
+            else if(modulosController.ManutencaoNivel != "1" && 
+                    status != "Autorizado" &&
+                    status != "Comprado" &&
+                    status != "Entregue")
+            {
+                btnAutorizar.Enabled = false;
+            }
+            else
+            {
+                txtCodigo.Enabled = true;
+                txtQuantidade.Enabled = true;
+                cboPrioridade.Enabled = true;
+                txtFornecedor.Enabled = true;
+                txtValor.Enabled = true;
+                cboFrete.Enabled = true;
+                cboFreteIncluso.Enabled = true;
+                txtEstadoCompra.Enabled = true;
+                btnSalvar.Enabled = true;
+            }
 
         }
 
@@ -548,6 +635,7 @@ namespace SistemaTHR.Apllication.Compras
                 txtDescricao.Text = obj.Descricao;
                 txtUnidade.Text = obj.Unidade;
 
+
             }
             catch (ExceptionService ex)
             {
@@ -575,6 +663,28 @@ namespace SistemaTHR.Apllication.Compras
         {
             var relatorio = new frmRelatorioMovimentacaoPecas((DataTable)dataGridMovimentacoes.DataSource, loginController.Nome);
             relatorio.Show();
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && !Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && !Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            var filtro = new frmFiltroRequisicoesCompra(this, loginController, modulosController);
+            filtro.ShowDialog();
         }
     }
 }

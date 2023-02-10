@@ -73,7 +73,7 @@
             // 
             // lblCaractere
             // 
-            this.lblCaractere.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCaractere.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCaractere.AutoSize = true;
             this.lblCaractere.Location = new System.Drawing.Point(9, 255);
             this.lblCaractere.Name = "lblCaractere";

@@ -31,6 +31,7 @@ namespace SistemaTHR.Apllication
 
 
         String Status;
+        public string Pesquisa ="";
 
         private loginController loginController;
         private modulosController modulosController;
@@ -93,30 +94,34 @@ namespace SistemaTHR.Apllication
         public void loadGridView1()
         {
 
-
-            osController = new osThrController();
-            osService = new osThrService();
-            osService.table(osController);
-            if (osController.Msg != null)
+            try
             {
-                MessageBox.Show(osController.Msg);
-            }
-            else
-            {
-                dataGridView1.DataSource = osController.Dt;
-            }
-
-            for (var i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-
-                if (i == dataGridView1.Rows.Count - 1)
+                dataGridView1.DataSource = osService.Table();
+                for (var i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
 
-                    break;
+                    if (i == dataGridView1.Rows.Count - 1)
+                    {
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+
+                        break;
+                    }
+
+                }
+                if(Pesquisa != string.Empty)
+                {
+                    var dt = (DataTable)dataGridView1.DataSource;
+                    dt.DefaultView.RowFilter = Pesquisa;
                 }
 
             }
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
 
         }
 
@@ -157,12 +162,6 @@ namespace SistemaTHR.Apllication
             this.Cursor = Cursors.Default;
         }
 
-        private void loadInfoDataGridView1()
-        {
-            // Modelo.OSTHRController controller = new Modelo.OSTHRController();
-            //controller.loadINFO(numeroOS);
-            //cboPrioridade.Text = controller.Prioridade;
-        }
 
         private void loadGridView3()
         {
@@ -599,6 +598,7 @@ namespace SistemaTHR.Apllication
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            Pesquisa = "";
             loadGridView1();
             clearAll();
         }

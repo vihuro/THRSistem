@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaTHR.dto.estoque;
-
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.DAO.Estoque
 {
@@ -39,7 +39,7 @@ namespace SistemaTHR.DAO.Estoque
             catch (Exception ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {

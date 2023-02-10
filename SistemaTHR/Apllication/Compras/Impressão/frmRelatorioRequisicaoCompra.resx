@@ -117,62 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mais" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mais.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="production" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\production.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="management" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\management.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="expedition" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expedition.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="padlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\padlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="order" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\order.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="shelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="document" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lift_truck__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lift-truck (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="seo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\seo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filter1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pause1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="view" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\view.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="play_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\play-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AwA=
+</value>
   </data>
 </root>

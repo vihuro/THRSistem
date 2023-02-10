@@ -296,5 +296,14 @@ namespace SistemaTHR.Apllication.Estoque
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
         }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if(txtCodigo.Text.Length > 0)
+            {
+                VerificarQuantidadeDisponivel();
+
+            }
+        }
     }
 }

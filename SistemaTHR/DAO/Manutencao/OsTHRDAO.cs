@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaTHR.dto.manutencao;
+using SistemaTHR.Service.Exepction;
 
 namespace SistemaTHR.DAO.Manutencao
 {
@@ -81,7 +82,7 @@ namespace SistemaTHR.DAO.Manutencao
             this.dto = dto;
             selectNOs();
         }
-        private void selectTable()
+        public DataTable Table()
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_osThr order by NOP asc";
@@ -89,39 +90,39 @@ namespace SistemaTHR.DAO.Manutencao
             {
                 cmd.Connection = con.conectar();
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-                dto.Dt = new DataTable();
-                da.Fill(dto.Dt);
+                var dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
             }
             catch (Exception ex)
             {
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
                 con.desconectar();
             }
         }
-        public void table(dto.manutencao.osThrDto dto)
-        {
-            this.dto = dto;
-            selectTable();
-        }
-        private void selectPainel()
+
+        public DataTable Painel()
         {
             cmd = new OleDbCommand();
-            cmd.CommandText = "Select * from tab_OSTHR where StatusOP <> 'OS/Finalizada' order by Prioridade asc";
+            cmd.CommandText = "SELECT * FROM tab_OSTHR WHERE StatusOP <> 'OS/Finalizada' ORDER BY NOP asc";
             try
             {
                 cmd.Connection = con.conectar();
 
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-                dto.Dt = new DataTable();
-                da.Fill(dto.Dt);
+                var dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
 
             }
             catch (Exception ex)
             {
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
@@ -129,11 +130,7 @@ namespace SistemaTHR.DAO.Manutencao
             }
 
         }
-        public void painel(dto.manutencao.osThrDto dto)
-        {
-            this.dto = dto;
-            selectPainel();
-        }
+
         private void UpdatePriori()
         {
             cmd = new OleDbCommand();

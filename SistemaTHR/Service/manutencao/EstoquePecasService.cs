@@ -82,10 +82,10 @@ namespace SistemaTHR.Service.manutencao
 
             if (QuantidadeSolicitada * -1 > QuantidadeEstoque   && tipoMovimento == "Saída")
             {
-
+                QuantidadeSolicitada *= -1;
                 throw new ExceptionService($"Quantidade em estoque é menor do que a quantidade solicitada! \r\n " +
-                                 $"Quantidade em estoque: {QuantidadeEstoque.ToString("###,###.##")}\r\n" +
-                                 $"Quantidade Solicitada: {QuantidadeSolicitada.ToString("###,###.##")}");
+                                 $"Quantidade em estoque: {QuantidadeEstoque:###,###.##} \r\n" +
+                                 $"Quantidade Solicitada: {QuantidadeSolicitada:###,###.##}");
 
             }
 

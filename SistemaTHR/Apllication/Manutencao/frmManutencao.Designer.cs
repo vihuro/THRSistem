@@ -168,7 +168,7 @@
             this.btnFiltrar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFiltrar.Image = global::SistemaTHR.Properties.Resources.filter;
+            this.btnFiltrar.Image = global::SistemaTHR.Properties.Resources.filter1;
             this.btnFiltrar.Location = new System.Drawing.Point(28, 0);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(29, 25);
@@ -182,7 +182,7 @@
             this.btnLimpar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLimpar.Image = global::SistemaTHR.Properties.Resources.refresh_button;
+            this.btnLimpar.Image = global::SistemaTHR.Properties.Resources.refresh_button1;
             this.btnLimpar.Location = new System.Drawing.Point(0, 0);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(28, 25);
@@ -663,7 +663,6 @@
             // 
             this.btnLimparPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimparPecas.ForeColor = System.Drawing.Color.White;
-            this.btnLimparPecas.Image = global::SistemaTHR.Properties.Resources.mais;
             this.btnLimparPecas.Location = new System.Drawing.Point(656, 268);
             this.btnLimparPecas.Name = "btnLimparPecas";
             this.btnLimparPecas.Size = new System.Drawing.Size(25, 23);
@@ -675,7 +674,6 @@
             // 
             this.btnBuscarPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarPecas.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarPecas.Image = global::SistemaTHR.Properties.Resources.seo;
             this.btnBuscarPecas.Location = new System.Drawing.Point(204, 244);
             this.btnBuscarPecas.Name = "btnBuscarPecas";
             this.btnBuscarPecas.Size = new System.Drawing.Size(24, 21);

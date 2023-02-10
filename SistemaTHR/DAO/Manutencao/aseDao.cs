@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaTHR.Service.Exepction;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -104,7 +105,7 @@ namespace SistemaTHR.DAO.Manutencao
             deleteEx();
         }
 
-        private void selectList()
+        public List<string> List()
         {
             cmd = new OleDbCommand();
             cmd.CommandText = "Select * from tab_ASE order by execucao asc ";
@@ -113,21 +114,23 @@ namespace SistemaTHR.DAO.Manutencao
             {
                 cmd.Connection = con.conectar();
                 dr = cmd.ExecuteReader();
+                var list = new List<string>();
 
                 if (dr.HasRows)
                 {
-                    dto.Ase = new List<string>();
                     while (dr.Read())
                     {
-                        dto.Ase.Add(dr.GetString(dr.GetOrdinal("execucao")));
+                        list.Add(dr.GetString(dr.GetOrdinal("execucao")));
                     }
-                    
+                    return list;
+
                 }
+                return null;
             }
             catch (Exception ex)
             {
 
-                dto.Msg = "Erro " + ex;
+                throw new ExceptionService(ex.Message);
             }
             finally
             {
@@ -135,11 +138,6 @@ namespace SistemaTHR.DAO.Manutencao
             }
         }
 
-        public void list(dto.manutencao.aseDto dto)
-        {
-            this.dto = dto;
-            selectList();
-        }
 
         private void verificarEx()
         {

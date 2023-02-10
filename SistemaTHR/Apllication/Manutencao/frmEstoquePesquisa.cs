@@ -30,7 +30,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
         private loginController loginController;
         private modulosController modulosController;
-
+        private frmFiltroRequisicoesCompra frmFiltroRequisicoesCompra;
 
         public frmEstoquePesquisa(frmRequisicoesPecas frmRequisicaoPecas)
         {
@@ -89,6 +89,16 @@ namespace SistemaTHR.Apllication.Manutencao
             this.frmEntradaSaidaPecas = frmEntradaSaidaPecas;
             this.loginController = loginController;
             this.modulosController = modulosController;
+            IniciarService();
+            InitializeComponent();
+            cboCampo.Text = "Descrição";
+        }
+
+        public frmEstoquePesquisa(frmFiltroRequisicoesCompra frmFiltroRequisicoesCompra,loginController loginController, modulosController modulosController)
+        {
+            this.loginController = loginController;
+            this.modulosController = modulosController;
+            this.frmFiltroRequisicoesCompra = frmFiltroRequisicoesCompra;
             IniciarService();
             InitializeComponent();
             cboCampo.Text = "Descrição";
@@ -159,6 +169,13 @@ namespace SistemaTHR.Apllication.Manutencao
                 frmMovimentacao.txtCodigo.Text = codigo;
                 frmMovimentacao.txtDescriao.Text = descricao;
                 frmMovimentacao.cboUnidade.Text = unidade;
+                this.Close();
+            }
+            else if(frmFiltroRequisicoesCompra != null)
+            {
+                frmFiltroRequisicoesCompra.txtCodigo.Text = codigo;
+                frmFiltroRequisicoesCompra.txtDescricao.Text = descricao;
+                frmFiltroRequisicoesCompra.txtUnidade.Text = unidade;
                 this.Close();
             }
 

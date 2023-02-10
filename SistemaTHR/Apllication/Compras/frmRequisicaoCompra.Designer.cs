@@ -36,9 +36,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRelatorio = new System.Windows.Forms.Button();
-            this.btnFiltro = new System.Windows.Forms.Button();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NRequisicaoCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +87,6 @@
             this.clnDataHoraAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuarioAlteracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnObervacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -119,6 +115,10 @@
             this.clnDataHoraAutorizacaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuarioMovimentacaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnUsuariomovimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnRelatorio = new System.Windows.Forms.Button();
+            this.btnFiltro = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -167,43 +167,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1681, 24);
             this.panel1.TabIndex = 1;
-            // 
-            // btnRelatorio
-            // 
-            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
-            this.btnRelatorio.Location = new System.Drawing.Point(60, 0);
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(30, 24);
-            this.btnRelatorio.TabIndex = 2;
-            this.btnRelatorio.UseVisualStyleBackColor = true;
-            // 
-            // btnFiltro
-            // 
-            this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
-            this.btnFiltro.Location = new System.Drawing.Point(30, 0);
-            this.btnFiltro.Name = "btnFiltro";
-            this.btnFiltro.Size = new System.Drawing.Size(30, 24);
-            this.btnFiltro.TabIndex = 1;
-            this.btnFiltro.UseVisualStyleBackColor = true;
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAtualizar.Image = global::SistemaTHR.Properties.Resources.refresh_button;
-            this.btnAtualizar.Location = new System.Drawing.Point(0, 0);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(30, 24);
-            this.btnAtualizar.TabIndex = 0;
-            this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // splitContainer1
             // 
@@ -515,6 +478,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(62, 20);
             this.txtValor.TabIndex = 6;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // label12
             // 
@@ -807,18 +771,6 @@
             this.clnObervacao.ReadOnly = true;
             this.clnObervacao.Visible = false;
             // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisar.Image = global::SistemaTHR.Properties.Resources.seo;
-            this.btnPesquisar.Location = new System.Drawing.Point(243, 44);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(23, 23);
-            this.btnPesquisar.TabIndex = 10;
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -834,6 +786,7 @@
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(52, 20);
             this.txtQuantidade.TabIndex = 2;
+            this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             // 
             // label4
             // 
@@ -1071,6 +1024,56 @@
             this.clnUsuariomovimentacao.HeaderText = "Data/Hora Mov.";
             this.clnUsuariomovimentacao.Name = "clnUsuariomovimentacao";
             this.clnUsuariomovimentacao.ReadOnly = true;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.ForeColor = System.Drawing.Color.White;
+            this.btnPesquisar.Image = global::SistemaTHR.Properties.Resources.seo;
+            this.btnPesquisar.Location = new System.Drawing.Point(243, 44);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(23, 23);
+            this.btnPesquisar.TabIndex = 10;
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
+            this.btnRelatorio.Location = new System.Drawing.Point(60, 0);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(30, 24);
+            this.btnRelatorio.TabIndex = 2;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFiltro.Image = global::SistemaTHR.Properties.Resources.filter;
+            this.btnFiltro.Location = new System.Drawing.Point(30, 0);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(30, 24);
+            this.btnFiltro.TabIndex = 1;
+            this.btnFiltro.UseVisualStyleBackColor = true;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAtualizar.Image = global::SistemaTHR.Properties.Resources.refresh_button;
+            this.btnAtualizar.Location = new System.Drawing.Point(0, 0);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(30, 24);
+            this.btnAtualizar.TabIndex = 0;
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // frmRequisicaoCompra
             // 

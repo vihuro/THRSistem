@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaTHR.Service.Exepction;
+using SistemaTHR.Service.manutencao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,39 +16,40 @@ namespace SistemaTHR.Apllication
     {
 
         private int num;
+        private osThrService service;
         public frmPainelManutencoesTHR()
         {
             InitializeComponent();
+            service = new osThrService();
         }
         private void frmPainelManutencoesTHR_Load(object sender, EventArgs e)
         {
             loadGridView1();
-            txtDataHora.Text = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
 
         }
         private void loadGridView1()
         {
-            Controller.manutencao.osThrController controller = new Controller.manutencao.osThrController();
-            Service.manutencao.osThrService service = new Service.manutencao.osThrService();
-            service.painel(controller);
-            if(controller.Msg != null)
+
+            try
             {
-                MessageBox.Show(controller.Msg);
-            }
-            else
-            {
-                dataGridView1.DataSource = controller.Dt;
-            }
-            for(int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                if(i == dataGridView1.Rows.Count - 1)
+                dataGridView1.DataSource = service.Painel();
+                for(int i =0; i< dataGridView1.Rows.Count; i++)
                 {
-                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+                    if (i == dataGridView1.Rows.Count - 1)
+                    {
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+                        break;
+                    }
                 }
+                dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView1.ClearSelection();
+                timer1.Start();
             }
-            dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ClearSelection();
-            timer1.Start();
+            catch (ExceptionService ex)
+            {
+
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -132,8 +135,6 @@ namespace SistemaTHR.Apllication
         {
     
             num++;
-
-            txtDataHora.Text = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
             if (num == 150)
             {
 
@@ -143,6 +144,24 @@ namespace SistemaTHR.Apllication
             }
             
 
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if(panel2.BackColor == Color.FromArgb(0,192,0))
+            {
+                timer1.Stop();
+                panel2.BackColor = Color.FromArgb(156, 8, 8);
+            }
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            if (panel2.BackColor == Color.FromArgb(156, 8, 8))
+            {
+                timer1.Start();
+                panel2.BackColor = Color.FromArgb(0, 192, 0);
+            }
         }
     }
 }
