@@ -190,6 +190,12 @@
     <Compile Include="Apllication\Estoque\Impressao\frmRelatorioImpressao.Designer.cs">
       <DependentUpon>frmRelatorioImpressao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apllication\Manutencao\frmConversaoArquivoTxt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apllication\Manutencao\frmConversaoArquivoTxt.Designer.cs">
+      <DependentUpon>frmConversaoArquivoTxt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apllication\Manutencao\frmEntradaSaidaPecas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,7 @@
     <Compile Include="DAO\Estoque\SolicitacaoDao.cs" />
     <Compile Include="DAO\Manutencao\asuDao.cs" />
     <Compile Include="DAO\Manutencao\EstoquePecasDao.cs" />
+    <Compile Include="DAO\Manutencao\EstoquePecasRadarDao.cs" />
     <Compile Include="DAO\Manutencao\movimentacaoPecasDao.cs" />
     <Compile Include="DAO\Compras\requisicaoCompraDao.cs" />
     <Compile Include="DAO\Manutencao\solicitacaoPecaDao.cs" />
@@ -572,6 +579,7 @@
     <Compile Include="dto\manutencao\aseDto.cs" />
     <Compile Include="dto\manutencao\asuDto.cs" />
     <Compile Include="dto\manutencao\EstoquePecasDto.cs" />
+    <Compile Include="dto\manutencao\EstoquePecasRadarDto.cs" />
     <Compile Include="dto\manutencao\geracaoOsTHRDto.cs" />
     <Compile Include="dto\manutencao\movimentacaoPecasDto.cs" />
     <Compile Include="dto\manutencao\osThrDto.cs" />
@@ -619,6 +627,7 @@
     <Compile Include="Service\manutencao\apontamentoOsThrService.cs" />
     <Compile Include="Service\manutencao\aseService.cs" />
     <Compile Include="Service\manutencao\asuService.cs" />
+    <Compile Include="Service\manutencao\EstoquePecasRadarService.cs" />
     <Compile Include="Service\manutencao\EstoquePecasService.cs" />
     <Compile Include="Service\manutencao\geracaoOsThrService.cs" />
     <Compile Include="Service\manutencao\movimentacaoPecasService.cs" />
@@ -688,6 +697,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Estoque\Impressao\Relatório de Estoque.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apllication\Manutencao\frmConversaoArquivoTxt.resx">
+      <DependentUpon>frmConversaoArquivoTxt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apllication\Manutencao\frmEntradaSaidaPecas.resx">
       <DependentUpon>frmEntradaSaidaPecas.cs</DependentUpon>

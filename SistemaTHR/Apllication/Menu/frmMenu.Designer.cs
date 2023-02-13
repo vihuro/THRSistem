@@ -53,6 +53,7 @@
             this.manutençõesRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradaSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finalizarSolicitaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painelSolicitaçãoWindToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitaçãoDeMaterialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,7 +81,7 @@
             this.gerenciarPrioridadeDeManutençãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciarApontamentosdeOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entradaSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estoquePeçasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,9 +91,10 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 532);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1067, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -116,7 +118,8 @@
             this.ajudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -286,28 +289,35 @@
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             this.estoqueToolStripMenuItem.Click += new System.EventHandler(this.estoqueToolStripMenuItem_Click);
+            // 
+            // entradaSaídaToolStripMenuItem
+            // 
+            this.entradaSaídaToolStripMenuItem.Name = "entradaSaídaToolStripMenuItem";
+            this.entradaSaídaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.entradaSaídaToolStripMenuItem.Text = "Entrada/Saída";
+            this.entradaSaídaToolStripMenuItem.Click += new System.EventHandler(this.entradaSaídaToolStripMenuItem_Click);
             // 
             // finalizarSolicitaçãoToolStripMenuItem
             // 
             this.finalizarSolicitaçãoToolStripMenuItem.Name = "finalizarSolicitaçãoToolStripMenuItem";
-            this.finalizarSolicitaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.finalizarSolicitaçãoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.finalizarSolicitaçãoToolStripMenuItem.Text = "Finalizar Solicitação";
             this.finalizarSolicitaçãoToolStripMenuItem.Click += new System.EventHandler(this.finalizarSolicitaçãoToolStripMenuItem_Click);
             // 
             // painelSolicitaçãoWindToolStripMenuItem
             // 
             this.painelSolicitaçãoWindToolStripMenuItem.Name = "painelSolicitaçãoWindToolStripMenuItem";
-            this.painelSolicitaçãoWindToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.painelSolicitaçãoWindToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.painelSolicitaçãoWindToolStripMenuItem.Text = "Painel/Solicitações";
             this.painelSolicitaçãoWindToolStripMenuItem.Click += new System.EventHandler(this.painelSolicitaçãoWindToolStripMenuItem_Click);
             // 
             // solicitaçãoDeMaterialToolStripMenuItem
             // 
             this.solicitaçãoDeMaterialToolStripMenuItem.Name = "solicitaçãoDeMaterialToolStripMenuItem";
-            this.solicitaçãoDeMaterialToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.solicitaçãoDeMaterialToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.solicitaçãoDeMaterialToolStripMenuItem.Text = "Solicitar Material";
             this.solicitaçãoDeMaterialToolStripMenuItem.Click += new System.EventHandler(this.solicitaçãoDeMaterialToolStripMenuItem_Click);
             // 
@@ -463,10 +473,11 @@
             this.gerenciarAondeSeráUsadoToolStripMenuItem,
             this.gerenciarLocaisDeManutençãoToolStripMenuItem1,
             this.gerenciarPrioridadeDeManutençãoToolStripMenuItem,
-            this.gerenciarApontamentosdeOSToolStripMenuItem});
+            this.gerenciarApontamentosdeOSToolStripMenuItem,
+            this.estoquePeçasToolStripMenuItem1});
             this.manutençãoTHRToolStripMenuItem.Image = global::SistemaTHR.Properties.Resources.settings;
             this.manutençãoTHRToolStripMenuItem.Name = "manutençãoTHRToolStripMenuItem";
-            this.manutençãoTHRToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.manutençãoTHRToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manutençãoTHRToolStripMenuItem.Text = "Manutenção THR";
             // 
             // gerenciarAondeSeráUsadoToolStripMenuItem
@@ -504,22 +515,23 @@
             this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
-            // entradaSaídaToolStripMenuItem
+            // estoquePeçasToolStripMenuItem1
             // 
-            this.entradaSaídaToolStripMenuItem.Name = "entradaSaídaToolStripMenuItem";
-            this.entradaSaídaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.entradaSaídaToolStripMenuItem.Text = "Entrada/Saída";
-            this.entradaSaídaToolStripMenuItem.Click += new System.EventHandler(this.entradaSaídaToolStripMenuItem_Click);
+            this.estoquePeçasToolStripMenuItem1.Name = "estoquePeçasToolStripMenuItem1";
+            this.estoquePeçasToolStripMenuItem1.Size = new System.Drawing.Size(267, 22);
+            this.estoquePeçasToolStripMenuItem1.Text = "Estoque Peças";
+            this.estoquePeçasToolStripMenuItem1.Click += new System.EventHandler(this.estoquePeçasToolStripMenuItem1_Click);
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMenu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.frmMenu_Load);
@@ -586,5 +598,6 @@
         private System.Windows.Forms.ToolStripMenuItem ordensDeProduçãoToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem entradaSaídaToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem painelSolicitaçãoWindToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estoquePeçasToolStripMenuItem1;
     }
 }

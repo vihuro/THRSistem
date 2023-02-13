@@ -1,4 +1,5 @@
 ﻿using SistemaTHR.Apllication.Estoque;
+using SistemaTHR.Apllication.Manutencao;
 using SistemaTHR.Apllication.Producao;
 using System;
 using System.Collections.Generic;
@@ -377,6 +378,12 @@ namespace SistemaTHR.Apllication
         {
             frmMovimentacaoMaterial entradaSaida = new frmMovimentacaoMaterial(loginController);
             entradaSaida.ShowDialog();
+        }
+
+        private void estoquePeçasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var estoquePecas = new  frmConversaoEstoquePecas(loginController,modulosController);
+            estoquePecas.Show();
         }
     }
 }
