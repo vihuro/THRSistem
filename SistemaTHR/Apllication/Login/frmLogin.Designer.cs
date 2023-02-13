@@ -123,7 +123,7 @@
             this.lblVersao.Name = "lblVersao";
             this.lblVersao.Size = new System.Drawing.Size(37, 13);
             this.lblVersao.TabIndex = 8;
-            this.lblVersao.Text = "(1.2.4)";
+            this.lblVersao.Text = "(2.0.0)";
             // 
             // frmLogin
             // 

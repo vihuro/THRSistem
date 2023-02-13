@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFiltroRequisicoesCompra));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chbPendente = new System.Windows.Forms.CheckBox();
-            this.chbAutorizado = new System.Windows.Forms.CheckBox();
-            this.chbComprado = new System.Windows.Forms.CheckBox();
             this.Entregue = new System.Windows.Forms.CheckBox();
+            this.chbComprado = new System.Windows.Forms.CheckBox();
+            this.chbAutorizado = new System.Windows.Forms.CheckBox();
+            this.chbPendente = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -60,27 +60,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
             // 
-            // chbPendente
+            // Entregue
             // 
-            this.chbPendente.AutoSize = true;
-            this.chbPendente.Location = new System.Drawing.Point(6, 35);
-            this.chbPendente.Name = "chbPendente";
-            this.chbPendente.Size = new System.Drawing.Size(72, 17);
-            this.chbPendente.TabIndex = 0;
-            this.chbPendente.Text = "Pendente";
-            this.chbPendente.UseVisualStyleBackColor = true;
-            this.chbPendente.CheckedChanged += new System.EventHandler(this.chbPendente_CheckedChanged);
-            // 
-            // chbAutorizado
-            // 
-            this.chbAutorizado.AutoSize = true;
-            this.chbAutorizado.Location = new System.Drawing.Point(84, 35);
-            this.chbAutorizado.Name = "chbAutorizado";
-            this.chbAutorizado.Size = new System.Drawing.Size(76, 17);
-            this.chbAutorizado.TabIndex = 1;
-            this.chbAutorizado.Text = "Autorizado";
-            this.chbAutorizado.UseVisualStyleBackColor = true;
-            this.chbAutorizado.CheckedChanged += new System.EventHandler(this.chbAutorizado_CheckedChanged);
+            this.Entregue.AutoSize = true;
+            this.Entregue.Location = new System.Drawing.Point(246, 35);
+            this.Entregue.Name = "Entregue";
+            this.Entregue.Size = new System.Drawing.Size(69, 17);
+            this.Entregue.TabIndex = 3;
+            this.Entregue.Text = "Entregue";
+            this.Entregue.UseVisualStyleBackColor = true;
+            this.Entregue.CheckedChanged += new System.EventHandler(this.Entregue_CheckedChanged);
             // 
             // chbComprado
             // 
@@ -93,16 +82,27 @@
             this.chbComprado.UseVisualStyleBackColor = true;
             this.chbComprado.CheckedChanged += new System.EventHandler(this.chbComprado_CheckedChanged);
             // 
-            // Entregue
+            // chbAutorizado
             // 
-            this.Entregue.AutoSize = true;
-            this.Entregue.Location = new System.Drawing.Point(246, 35);
-            this.Entregue.Name = "Entregue";
-            this.Entregue.Size = new System.Drawing.Size(69, 17);
-            this.Entregue.TabIndex = 3;
-            this.Entregue.Text = "Entregue";
-            this.Entregue.UseVisualStyleBackColor = true;
-            this.Entregue.CheckedChanged += new System.EventHandler(this.Entregue_CheckedChanged);
+            this.chbAutorizado.AutoSize = true;
+            this.chbAutorizado.Location = new System.Drawing.Point(84, 35);
+            this.chbAutorizado.Name = "chbAutorizado";
+            this.chbAutorizado.Size = new System.Drawing.Size(76, 17);
+            this.chbAutorizado.TabIndex = 1;
+            this.chbAutorizado.Text = "Autorizado";
+            this.chbAutorizado.UseVisualStyleBackColor = true;
+            this.chbAutorizado.CheckedChanged += new System.EventHandler(this.chbAutorizado_CheckedChanged);
+            // 
+            // chbPendente
+            // 
+            this.chbPendente.AutoSize = true;
+            this.chbPendente.Location = new System.Drawing.Point(6, 35);
+            this.chbPendente.Name = "chbPendente";
+            this.chbPendente.Size = new System.Drawing.Size(72, 17);
+            this.chbPendente.TabIndex = 0;
+            this.chbPendente.Text = "Pendente";
+            this.chbPendente.UseVisualStyleBackColor = true;
+            this.chbPendente.CheckedChanged += new System.EventHandler(this.chbPendente_CheckedChanged);
             // 
             // label1
             // 
@@ -129,6 +129,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(148, 20);
             this.txtCodigo.TabIndex = 4;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // txtDescricao

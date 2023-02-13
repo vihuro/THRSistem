@@ -111,6 +111,8 @@ namespace SistemaTHR.Apllication.Compras
             if(txtCodigo.Text.Length > 0)
             {
                 Procurar();
+                LoadFilter();
+
             }
         }
 
@@ -143,7 +145,18 @@ namespace SistemaTHR.Apllication.Compras
         {
             frmRequisicao.pesquisar = pesquisa;
             frmRequisicao.loadGridView();
+            frmRequisicao.clearAll();
             this.Close();
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text.Length > 0)
+            {
+                Procurar();
+                LoadFilter();
+
+            }
         }
     }
 }

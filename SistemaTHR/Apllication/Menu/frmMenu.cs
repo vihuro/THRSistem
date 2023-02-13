@@ -1,4 +1,6 @@
-﻿using SistemaTHR.Apllication.Estoque;
+﻿using SistemaTHR.Apllication.Compras;
+using SistemaTHR.Apllication.Compras.Impressão;
+using SistemaTHR.Apllication.Estoque;
 using SistemaTHR.Apllication.Manutencao;
 using SistemaTHR.Apllication.Producao;
 using System;
@@ -384,6 +386,12 @@ namespace SistemaTHR.Apllication
         {
             var estoquePecas = new  frmConversaoEstoquePecas(loginController,modulosController);
             estoquePecas.Show();
+        }
+
+        private void painelRequisiçõesDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var painel = new frmPainelRequisicoesCompra(loginController, modulosController);
+            painel.Show();
         }
     }
 }

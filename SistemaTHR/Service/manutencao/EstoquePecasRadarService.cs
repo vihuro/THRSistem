@@ -29,18 +29,10 @@ namespace SistemaTHR.Service.manutencao
             var lista = new List<EstoquePecasRadarDto>();
             for(int i = 0;  i < estoqueRadar.Rows.Count; i++)
             {
-                for(int j = 0; j <  estoqueTHR.Rows.Count; j++)
+                if(estoqueTHR.Rows.Count == 0)
                 {
-                    
-
-                    if (estoqueRadar.Rows[i]["Código"].ToString() == estoqueTHR.Rows[j][1].ToString())
-                    {
-                        break;
-                    }
-                    else if(j == estoqueTHR.Rows.Count - 1)
-                    {
-                        lista.AddRange(new[]
-                        {
+                    lista.AddRange(new[]
+{
                             new EstoquePecasRadarDto()
                             {
                                 Codigo = estoqueRadar.Rows[i]["Código"].ToString(),
@@ -48,9 +40,33 @@ namespace SistemaTHR.Service.manutencao
                                 Unidade = estoqueRadar.Rows[i]["Un."].ToString()
                             }
                         });
-                        break;
+                }
+                else
+                {
+                    for (int j = 0; j < estoqueTHR.Rows.Count; j++)
+                    {
+
+
+                        if (estoqueRadar.Rows[i]["Código"].ToString() == estoqueTHR.Rows[j][1].ToString())
+                        {
+                            break;
+                        }
+                        else if (j == estoqueTHR.Rows.Count - 1)
+                        {
+                            lista.AddRange(new[]
+                            {
+                            new EstoquePecasRadarDto()
+                            {
+                                Codigo = estoqueRadar.Rows[i]["Código"].ToString(),
+                                Descricao = estoqueRadar.Rows[i]["Nome Produto"].ToString(),
+                                Unidade = estoqueRadar.Rows[i]["Un."].ToString()
+                            }
+                        });
+                            break;
+                        }
                     }
                 }
+
             }
 
             return lista;

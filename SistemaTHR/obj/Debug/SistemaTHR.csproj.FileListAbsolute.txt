@@ -483,3 +483,5 @@ C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.frmFiltroRequisicoesCompra.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.Impressão.frmRelatorioRequisicaoCompra.resources
 C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.frmConversaoEstoquePecas.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Compras.frmPainelRequisicoesCompra.resources
+C:\Users\thr\source\repos\SistemaTHR\SistemaTHR\obj\Debug\SistemaTHR.Apllication.Manutencao.Impressao.frmRelatoriosOrdensServico.resources

@@ -113,6 +113,7 @@
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -155,6 +156,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRelatorio);
             this.panel1.Controls.Add(this.btnFiltrar);
             this.panel1.Controls.Add(this.btnLimpar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -976,6 +978,19 @@
             this.panel3.Size = new System.Drawing.Size(1337, 36);
             this.panel3.TabIndex = 14;
             // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
+            this.btnRelatorio.Location = new System.Drawing.Point(57, 0);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(29, 25);
+            this.btnRelatorio.TabIndex = 2;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
+            // 
             // frmManutencao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1094,5 +1109,6 @@
         public System.Windows.Forms.TextBox txtQuantidadePeca;
         public System.Windows.Forms.TextBox txtUnidade;
         private System.Windows.Forms.Button btnLimparPecas;
+        private System.Windows.Forms.Button btnRelatorio;
     }
 }

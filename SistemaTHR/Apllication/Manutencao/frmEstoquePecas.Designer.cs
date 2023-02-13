@@ -41,7 +41,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clnNPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +76,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cboUnidade = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -106,6 +104,7 @@
             this.clnDataHoraMovimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.txtUnidade = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -182,7 +181,6 @@
             // 
             this.panel2.Controls.Add(this.btnAlterar);
             this.panel2.Controls.Add(this.btnCancelar);
-            this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 592);
             this.panel2.Name = "panel2";
@@ -211,18 +209,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(789, 6);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 11;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // splitContainer1
             // 
@@ -415,6 +401,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtUnidade);
             this.tabPage1.Controls.Add(this.txtFornecedor3);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.txtFornecedor2);
@@ -431,7 +418,6 @@
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.cboUnidade);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.txtDescricao);
             this.tabPage1.Controls.Add(this.label2);
@@ -582,21 +568,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Estoque Máximo:";
             // 
-            // cboUnidade
-            // 
-            this.cboUnidade.BackColor = System.Drawing.Color.White;
-            this.cboUnidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboUnidade.FormattingEnabled = true;
-            this.cboUnidade.Items.AddRange(new object[] {
-            "",
-            "KG",
-            "PÇ",
-            "MI"});
-            this.cboUnidade.Location = new System.Drawing.Point(641, 76);
-            this.cboUnidade.Name = "cboUnidade";
-            this.cboUnidade.Size = new System.Drawing.Size(59, 21);
-            this.cboUnidade.TabIndex = 2;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -608,6 +579,7 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.Enabled = false;
             this.txtDescricao.Location = new System.Drawing.Point(119, 77);
             this.txtDescricao.MaxLength = 100;
             this.txtDescricao.Name = "txtDescricao";
@@ -870,6 +842,14 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
+            // txtUnidade
+            // 
+            this.txtUnidade.Enabled = false;
+            this.txtUnidade.Location = new System.Drawing.Point(641, 76);
+            this.txtUnidade.Name = "txtUnidade";
+            this.txtUnidade.Size = new System.Drawing.Size(42, 20);
+            this.txtUnidade.TabIndex = 23;
+            // 
             // frmEstoquePecas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -916,14 +896,12 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cboUnidade;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel lblUsuario;
         private System.Windows.Forms.Button btnImprimir;
@@ -979,5 +957,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnUsuarioMovimentacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDataHoraMovimentacao;
         private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.TextBox txtUnidade;
     }
 }

@@ -49,52 +49,6 @@ namespace SistemaTHR.Apllication.Manutencao
             clearAll();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            if (txtCodigo.Text != string.Empty && txtDescricao.Text != string.Empty && cboUnidade.Text != string.Empty)
-            {
-                if (Convert.ToDecimal(txtEstoqueMax.Text.ToString()) < Convert.ToDecimal(txtEstoqueMin.Text.ToString()))
-                {
-                    MessageBox.Show("Estoque mínimo não pode ser menor que o estoque máximo!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    controller = new EstoquePecasController();
-
-                    controller.Codigo = txtCodigo.Text;
-                    controller.Descricao = txtDescricao.Text;
-                    controller.Unidade = cboUnidade.Text;
-                    controller.Fornecedor1 = txtFornecedor1.Text;
-                    controller.CodFornecedor1 = txtCodFornecedor1.Text;
-                    controller.Fornecedor2 = txtFornecedor2.Text;
-                    controller.CodFornecedor2 = txtCodFornecedor2.Text;
-                    controller.Fornecedor3 = txtFornecedor3.Text;
-                    controller.CodFornecedor3 = txtCodFornecedor3.Text;
-                    controller.EstoqueMin = txtEstoqueMin.Text;
-                    controller.EstoqueMax = txtEstoqueMax.Text;
-
-                    estoqueService.Insert(controller);
-                    if (controller.Msg != null)
-                    {
-                        MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item adicionado com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadGridView1();
-                        clearAll();
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Campo(s) obrigatório(s) vazio(s). Não é possível salvar itens em branco!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            this.Cursor = Cursors.Default;
-        }
-
         private void clearAll()
         {
 
@@ -112,7 +66,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
             txtCodigo.Text = string.Empty;
             txtDescricao.Text = string.Empty;
-            cboUnidade.Text = string.Empty;
+            txtUnidade.Text = string.Empty;
             txtFornecedor1.Text = string.Empty;
             txtFornecedor2.Text = string.Empty;
             txtFornecedor3.Text = string.Empty;
@@ -121,7 +75,6 @@ namespace SistemaTHR.Apllication.Manutencao
             txtCodFornecedor3.Text = string.Empty;
             txtEstoqueMax.Text = string.Empty;
             txtEstoqueMin.Text = string.Empty;
-            btnSalvar.Enabled = true;
             btnAlterar.Enabled = false;
 
 
@@ -175,7 +128,6 @@ namespace SistemaTHR.Apllication.Manutencao
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                btnSalvar.Enabled = false;
                 btnAlterar.Enabled = true;
 
                 dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
@@ -192,7 +144,7 @@ namespace SistemaTHR.Apllication.Manutencao
 
                 txtDescricao.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
 
-                cboUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                txtUnidade.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
 
                 txtFornecedor1.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
                 txtCodFornecedor1.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
@@ -270,7 +222,7 @@ namespace SistemaTHR.Apllication.Manutencao
             controller = new EstoquePecasController();
 
             controller.Descricao = txtDescricao.Text;
-            controller.Unidade = cboUnidade.Text;
+            controller.Unidade = txtUnidade.Text;
             controller.Fornecedor1 = txtFornecedor1.Text;
             controller.CodFornecedor1 = txtCodFornecedor1.Text;
             controller.Fornecedor2 = txtFornecedor2.Text;
@@ -324,7 +276,7 @@ namespace SistemaTHR.Apllication.Manutencao
             {
                 MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDescricao.Text = string.Empty;
-                cboUnidade.Text = string.Empty;
+                txtUnidade.Text = string.Empty;
                 txtFornecedor1.Text = string.Empty;
                 txtFornecedor2.Text = string.Empty;
                 txtFornecedor3.Text = string.Empty;
@@ -333,7 +285,6 @@ namespace SistemaTHR.Apllication.Manutencao
                 txtCodFornecedor3.Text = string.Empty;
                 txtEstoqueMax.Text = string.Empty;
                 txtEstoqueMin.Text = string.Empty;
-                btnSalvar.Enabled = true;
                 btnAlterar.Enabled = false;
 
             }
@@ -350,8 +301,12 @@ namespace SistemaTHR.Apllication.Manutencao
                     
                     for(int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
-                        break;
+                        if(obj.Codigo == dataGridView1.Rows[i].Cells[1].Value.ToString())
+                        {
+                            dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[1];
+                            break;
+                        }
+
                     }
                 }
                 catch (ExceptionService ex)
@@ -364,7 +319,7 @@ namespace SistemaTHR.Apllication.Manutencao
                             dataGridView1.ClearSelection();
 
                             txtDescricao.Text = string.Empty;
-                            cboUnidade.Text = string.Empty;
+                            txtUnidade.Text = string.Empty;
                             txtFornecedor1.Text = string.Empty;
                             txtFornecedor2.Text = string.Empty;
                             txtFornecedor3.Text = string.Empty;
@@ -373,7 +328,6 @@ namespace SistemaTHR.Apllication.Manutencao
                             txtCodFornecedor3.Text = string.Empty;
                             txtEstoqueMax.Text = string.Empty;
                             txtEstoqueMin.Text = string.Empty;
-                            btnSalvar.Enabled = true;
                             btnAlterar.Enabled = false;
                         }
                         else

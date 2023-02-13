@@ -65,11 +65,11 @@ namespace SistemaTHR.Apllication.Compras
             catch (ExceptionService ex)
             {
 
-                MessageBox.Show(ex.Message,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void clearAll()
+        public void clearAll()
         {
             dataGridView1.ClearSelection();
 
@@ -89,9 +89,16 @@ namespace SistemaTHR.Apllication.Compras
             txtEstadoCompra.Text = string.Empty;
             txtValor.Text = string.Empty;
             var dtApontamentos = (DataTable)dataGridView2.DataSource;
-            dtApontamentos.Rows.Clear();
+            if (dataGridView2.Rows.Count > 0)
+            {
+                dtApontamentos.Rows.Clear();
+
+            }
             var dtMovimentacaoes = (DataTable)dataGridMovimentacoes.DataSource;
-            dtMovimentacaoes.Rows.Clear();
+            if (dataGridMovimentacoes.Rows.Count > 0)
+            {
+                dtMovimentacaoes.Rows.Clear();
+            }
             btnSalvar.Enabled = true;
             btnApontar.Enabled = false;
             btnDesfazer.Enabled = false;
@@ -115,7 +122,7 @@ namespace SistemaTHR.Apllication.Compras
                         break;
                     }
                 }
-                if(pesquisar != string.Empty)
+                if (pesquisar != string.Empty)
                 {
                     var dt = (DataTable)dataGridView1.DataSource;
                     dt.DefaultView.RowFilter = pesquisar;
@@ -209,25 +216,29 @@ namespace SistemaTHR.Apllication.Compras
                 else
                 {
 
-                    if(modulosController.ComprasNivel != "1")
-                    {
-                        if (dataGridView1.SelectedRows[0].Cells[16].Value.ToString() == "Autorizado")
-                        {
-                            btnSalvar.Enabled = true;
-                            btnAutorizar.Enabled = false;
 
-                        }
-                        else if (dataGridView1.SelectedRows[0].Cells[16].Value.ToString() == "Comprado")
-                        {
-                            btnSalvar.Enabled = false;
-                            btnAutorizar.Enabled = false;
-                        }
-                        else
-                        {
-                            btnSalvar.Enabled = false;
-                            btnAutorizar.Enabled = true;
-                        }
+                    var texto = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
+                    if (texto == "Autorizado")
+                    {
+                        btnSalvar.Enabled = true;
+                        btnAutorizar.Enabled = false;
+
                     }
+                    else if (texto == "Comprado")
+                    {
+                        btnSalvar.Enabled = false;
+                        btnAutorizar.Enabled = false;
+                    }
+                    else if (texto == "Pendente" && modulosController.ComprasNivel == "1" ||
+                            texto == "Pendente" && modulosController.ComprasNivel == "2")
+                    {
+
+                        btnAutorizar.Enabled = true;
+
+
+
+                    }
+
 
 
                 }
@@ -239,7 +250,7 @@ namespace SistemaTHR.Apllication.Compras
         private void ValidarCampos()
         {
             var status = dataGridView1.SelectedRows[0].Cells[16].Value.ToString();
-            if(status == "Comprado" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
+            if (status == "Comprado" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
             {
                 txtCodigo.Enabled = false;
                 txtQuantidade.Enabled = false;
@@ -252,7 +263,7 @@ namespace SistemaTHR.Apllication.Compras
                 btnSalvar.Enabled = false;
                 btnAutorizar.Enabled = false;
             }
-            else if(status == "Entregue" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
+            else if (status == "Entregue" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
             {
                 txtCodigo.Enabled = false;
                 txtQuantidade.Enabled = false;
@@ -265,7 +276,7 @@ namespace SistemaTHR.Apllication.Compras
                 btnSalvar.Enabled = false;
                 btnAutorizar.Enabled = false;
             }
-            else if(status == "Autorizado" && modulosController.Compras != "1" && modulosController.ComprasNivel != "2")
+            else if (status == "Autorizado" && modulosController.Compras != "1" && modulosController.ComprasNivel != "2")
             {
                 txtCodigo.Enabled = false;
                 txtQuantidade.Enabled = false;
@@ -279,7 +290,7 @@ namespace SistemaTHR.Apllication.Compras
                 btnAutorizar.Enabled = false;
 
             }
-            else if(modulosController.ComprasNivel == "4" && status != "Pendente")
+            else if (modulosController.ComprasNivel == "4" && status != "Pendente")
             {
                 txtFornecedor.Enabled = false;
                 txtValor.Enabled = false;
@@ -289,7 +300,7 @@ namespace SistemaTHR.Apllication.Compras
                 btnAutorizar.Enabled = false;
 
             }
-            else if(modulosController.ManutencaoNivel != "1" && 
+            else if (modulosController.ManutencaoNivel != "1" &&
                     status != "Autorizado" &&
                     status != "Comprado" &&
                     status != "Entregue")
@@ -488,10 +499,10 @@ namespace SistemaTHR.Apllication.Compras
             this.Cursor = Cursors.WaitCursor;
             var obj = new AcompanhamentoRequisicaoCompra()
             {
-                Id = dataGridView2.SelectedRows[0].Cells[0].Value.ToString(),              
+                Id = dataGridView2.SelectedRows[0].Cells[0].Value.ToString(),
                 NumeroRequisicao = dataGridView2.SelectedRows[0].Cells[1].Value.ToString(),
                 Observacao = txtObservacao.Text,
-                
+
             };
 
             try
@@ -531,9 +542,9 @@ namespace SistemaTHR.Apllication.Compras
             catch (ExceptionService ex)
             {
 
-                MessageBox.Show(ex.Message,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
 
         }
 
@@ -544,7 +555,7 @@ namespace SistemaTHR.Apllication.Compras
             {
                 btnApontar.Enabled = true;
                 txtObservacao.Text = dataGridView2.SelectedRows[0].Cells[7].Value.ToString();
-                if ( modulosController.ComprasNivel == "1")
+                if (modulosController.ComprasNivel == "1")
                 {
                     btnDesfazer.Enabled = true;
                 }

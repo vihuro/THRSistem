@@ -122,6 +122,30 @@ namespace SistemaTHR.DAO.Manutencao
                 con.desconectar();
             }
         }
+
+        public DataTable Painel()
+        {
+            cmd = new OleDbCommand();
+            cmd.CommandText = "SELECT * FROM tab_RequisicaoCompra WHERE Status <> 'Entregue' ORDER BY NRequisicaoCompra asc";
+            try
+            {
+                var dt = new DataTable();
+                cmd.Connection = con.conectar();
+                da = new OleDbDataAdapter(cmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ExceptionService(ex.Message);
+            }
+            finally
+            {
+                con.desconectar();
+            }
+        }
         public requisicaoCompraDto verificarCodigo(requisicaoCompraDto dto)
         {
             cmd = new OleDbCommand();

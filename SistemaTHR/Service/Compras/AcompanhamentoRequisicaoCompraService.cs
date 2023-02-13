@@ -68,6 +68,7 @@ namespace SistemaTHR.Service.Compras
             }
         }
 
+
         public AcompanhamentoRequisicaoCompra InsertApontamento(AcompanhamentoRequisicaoCompra controller, string tipoApontamento)
         {
             var requisicao = requisicaoService.SelectRequisicao(controller.NumeroRequisicao);

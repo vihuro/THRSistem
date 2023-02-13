@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using SistemaTHR.Apllication.Manutencao;
+using SistemaTHR.Apllication.Manutencao.Impressao;
 using SistemaTHR.Controller.Login;
 using SistemaTHR.Controller.manutencao;
 using SistemaTHR.Service.Exepction;
@@ -1139,6 +1140,12 @@ namespace SistemaTHR.Apllication
                 txtUnidade.Text = "";
 
             }
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            var relatorio = new frmRelatoriosOrdensServico((DataTable)dataGridView1.DataSource);
+            relatorio.Show();
         }
     }
 }

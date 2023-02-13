@@ -90,6 +90,11 @@ namespace SistemaTHR.Service.Compras
 
         }
 
+        public DataTable Painel()
+        {
+            return dao.Painel();
+        }
+
         public void UpdateStatusRequisicao(requisicaoCompraController controller)
         {
             var obj = new requisicaoCompraDto();
