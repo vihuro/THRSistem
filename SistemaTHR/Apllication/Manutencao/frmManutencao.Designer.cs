@@ -39,6 +39,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -113,7 +114,6 @@
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnRelatorio = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -164,6 +164,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1337, 25);
             this.panel1.TabIndex = 1;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
+            this.btnRelatorio.Location = new System.Drawing.Point(57, 0);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(29, 25);
+            this.btnRelatorio.TabIndex = 2;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // btnFiltrar
             // 
@@ -676,6 +689,7 @@
             // 
             this.btnBuscarPecas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarPecas.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarPecas.Image = global::SistemaTHR.Properties.Resources.seo;
             this.btnBuscarPecas.Location = new System.Drawing.Point(204, 244);
             this.btnBuscarPecas.Name = "btnBuscarPecas";
             this.btnBuscarPecas.Size = new System.Drawing.Size(24, 21);
@@ -977,19 +991,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1337, 36);
             this.panel3.TabIndex = 14;
-            // 
-            // btnRelatorio
-            // 
-            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRelatorio.Image = global::SistemaTHR.Properties.Resources.document;
-            this.btnRelatorio.Location = new System.Drawing.Point(57, 0);
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(29, 25);
-            this.btnRelatorio.TabIndex = 2;
-            this.btnRelatorio.UseVisualStyleBackColor = true;
-            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // frmManutencao
             // 

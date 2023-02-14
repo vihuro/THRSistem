@@ -166,7 +166,8 @@ namespace SistemaTHR
             if (modulosController.Almoxarifado == "Sim")
             {
                 if(modulosController.AlmoxarifadoNivel == "2" || 
-                    modulosController.AlmoxarifadoNivel == "1")
+                    modulosController.AlmoxarifadoNivel == "1" || 
+                    modulosController.AlmoxarifadoNivel == "3")
                 {
                     menu.estoquePeçasToolStripMenuItem.Enabled = true;
                     menu.movimentaçãoPeçasToolStripMenuItem1.Enabled = true;

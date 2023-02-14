@@ -55,7 +55,7 @@ namespace SistemaTHR.Service.manutencao
                 throw new ExceptionService("Só é possivel realizar uma saída com autorização!");
             }
             else if(controller.TipoMovimentacao == "Entrada" && 
-                modulosController.AlmoxarifadoNivel == "2" || modulosController.AlmoxarifadoNivel == "3")
+                modulosController.AlmoxarifadoNivel == "4" )
             {
                 throw new ExceptionService("Esse usuário não tem acesso para fazer entrada de peças!");
             }

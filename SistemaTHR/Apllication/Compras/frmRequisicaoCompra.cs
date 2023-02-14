@@ -88,6 +88,9 @@ namespace SistemaTHR.Apllication.Compras
             cboFrete.Text = string.Empty;
             txtEstadoCompra.Text = string.Empty;
             txtValor.Text = string.Empty;
+
+            cboPrioridade.Enabled = true;
+            txtQuantidade.Enabled = true;
             var dtApontamentos = (DataTable)dataGridView2.DataSource;
             if (dataGridView2.Rows.Count > 0)
             {
@@ -276,7 +279,7 @@ namespace SistemaTHR.Apllication.Compras
                 btnSalvar.Enabled = false;
                 btnAutorizar.Enabled = false;
             }
-            else if (status == "Autorizado" && modulosController.Compras != "1" && modulosController.ComprasNivel != "2")
+            else if (status == "Autorizado" && modulosController.ComprasNivel != "1" && modulosController.ComprasNivel != "2")
             {
                 txtCodigo.Enabled = false;
                 txtQuantidade.Enabled = false;
@@ -290,22 +293,24 @@ namespace SistemaTHR.Apllication.Compras
                 btnAutorizar.Enabled = false;
 
             }
-            else if (modulosController.ComprasNivel == "4" && status != "Pendente")
+            else if (modulosController.ComprasNivel == "3" && status == "Pendente")
+            {
+                txtFornecedor.Enabled = true;
+                txtValor.Enabled = true;
+                cboFrete.Enabled = true;
+                cboFreteIncluso.Enabled = true;
+                txtEstadoCompra.Enabled = true;
+                btnAutorizar.Enabled = false;
+
+            }
+            else if(modulosController.ComprasNivel == "4")
             {
                 txtFornecedor.Enabled = false;
                 txtValor.Enabled = false;
                 cboFrete.Enabled = false;
                 cboFreteIncluso.Enabled = false;
                 txtEstadoCompra.Enabled = false;
-                btnAutorizar.Enabled = false;
-
-            }
-            else if (modulosController.ManutencaoNivel != "1" &&
-                    status != "Autorizado" &&
-                    status != "Comprado" &&
-                    status != "Entregue")
-            {
-                btnAutorizar.Enabled = false;
+                btnAbrirObervacao.Enabled = false;
             }
             else
             {
@@ -319,6 +324,15 @@ namespace SistemaTHR.Apllication.Compras
                 txtEstadoCompra.Enabled = true;
                 btnSalvar.Enabled = true;
             }
+
+            if (modulosController.ComprasNivel != "1" &&
+                status != "Autorizado" &&
+                status != "Comprado" &&
+                status != "Entregue")
+            {
+                btnAutorizar.Enabled = false;
+            }
+
 
         }
 

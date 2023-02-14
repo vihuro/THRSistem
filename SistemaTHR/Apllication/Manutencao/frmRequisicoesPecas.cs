@@ -319,7 +319,7 @@ namespace SistemaTHR.Apllication
                 {
                     if(modulosController.ManutencaoNivel != "2")
                     {
-                        if(modulosController.AlmoxarifadoNivel == "2" || modulosController.AlmoxarifadoNivel == "1")
+                        if(modulosController.AlmoxarifadoNivel == "2" || modulosController.AlmoxarifadoNivel == "3")
                         {
 
                             btnLiberar.Enabled = true;

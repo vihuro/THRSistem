@@ -689,8 +689,8 @@ namespace SistemaTHR.Apllication
                             {
                                 if (dataGridView2.Rows[i2].Cells[4].Value.ToString() == "")
                                 {
-                                    statusController = new Controller.manutencao.statusOsThrController();
-                                    statusService = new Service.manutencao.statusOsThrService();
+                                    statusController = new statusOsThrController();
+                                    statusService = new statusOsThrService();
                                     statusController.DataHoraApontamento = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
                                     statusController.UsuarioApontamento = loginController.Nome;
                                     statusController.DataHoraAlteracao = Convert.ToString(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
@@ -700,7 +700,7 @@ namespace SistemaTHR.Apllication
                                     statusService.update(statusController);
                                     if (statusController.Msg != null)
                                     {
-                                        MessageBox.Show(statusController.Msg);
+                                        MessageBox.Show(statusController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                                     }
 
                                 }
@@ -717,7 +717,7 @@ namespace SistemaTHR.Apllication
                                     statusService.update(statusController);
                                     if (statusController.Msg != null)
                                     {
-                                        MessageBox.Show(statusController.Msg);
+                                        MessageBox.Show(statusController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                                     }
                                     break;
 
@@ -762,7 +762,7 @@ namespace SistemaTHR.Apllication
                     osService.status(osController);
                     if (osController.Msg != null)
                     {
-                        MessageBox.Show(osController.Msg);
+                        MessageBox.Show(osController.Msg,"SISTEMA THR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
 
@@ -1078,10 +1078,6 @@ namespace SistemaTHR.Apllication
             dataGridView3.Columns[0].Visible = false;
         }
 
-        private void btnCompra_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtQuantidadePeca_KeyPress(object sender, KeyPressEventArgs e)
         {
