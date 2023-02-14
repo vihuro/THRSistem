@@ -59,6 +59,8 @@ namespace SistemaTHR.Apllication.Estoque
                 controller.CodigoItem = txtCodigo.Text;
                 controller.Fornecedor = txtFornecedor.Text;
 
+                BuscarCodigo();
+
                 decimal disponivel = Convert.ToDecimal(quantidadeDisponivel);
                
 

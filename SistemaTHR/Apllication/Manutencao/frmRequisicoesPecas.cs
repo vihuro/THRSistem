@@ -26,6 +26,8 @@ namespace SistemaTHR.Apllication
         private EstoquePecasService estoqueService;
         private EstoquePecasController estoqueController;
 
+        public string Pesquisar = "";
+
         public frmRequisicoesPecas(modulosController modulosController, loginController loginController)
         {
             this.modulosController = modulosController;
@@ -89,7 +91,7 @@ namespace SistemaTHR.Apllication
             dataGridView1.DataSource = controller.Dt;
         }
 
-        private void loadGridView()
+        public void loadGridView()
         {
             this.Cursor = Cursors.WaitCursor;
 
@@ -111,6 +113,12 @@ namespace SistemaTHR.Apllication
                         dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
                     }
                 }
+            }
+
+            if(Pesquisar != string.Empty)
+            {
+                var dt = (DataTable)dataGridView1.DataSource;
+                dt.DefaultView.RowFilter = Pesquisar;
             }
             clearAll();
 
@@ -136,6 +144,8 @@ namespace SistemaTHR.Apllication
         private void clearAll()
         {
             this.Cursor = Cursors.WaitCursor;
+
+            Pesquisar = string.Empty;
 
 
             txtCodigoPeca.ReadOnly = false;
@@ -394,7 +404,7 @@ namespace SistemaTHR.Apllication
         {
             this.Cursor = Cursors.WaitCursor;
 
-            frmRelatorioRequisicoesPeca relatorio = new frmRelatorioRequisicoesPeca();
+            frmRelatorioRequisicoesPeca relatorio = new frmRelatorioRequisicoesPeca((DataTable)dataGridView1.DataSource);
             relatorio.ShowDialog();
 
             this.Cursor = Cursors.Default;
@@ -404,7 +414,7 @@ namespace SistemaTHR.Apllication
         {
             this.Cursor = Cursors.WaitCursor;
 
-            frmFiltroRequisicoesPeca requisicoes = new frmFiltroRequisicoesPeca(this, controller); ;
+            frmFiltroRequisicoesPeca requisicoes = new frmFiltroRequisicoesPeca(this, controller,loginController,modulosController);
             requisicoes.ShowDialog();
 
             this.Cursor = Cursors.Default;

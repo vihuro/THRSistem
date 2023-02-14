@@ -31,6 +31,7 @@ namespace SistemaTHR.Apllication.Manutencao
         private loginController loginController;
         private modulosController modulosController;
         private frmFiltroRequisicoesCompra frmFiltroRequisicoesCompra;
+        private frmFiltroRequisicoesPeca frmFiltroRequisicaoPeca;
 
         public frmEstoquePesquisa(frmRequisicoesPecas frmRequisicaoPecas)
         {
@@ -40,6 +41,14 @@ namespace SistemaTHR.Apllication.Manutencao
             cboCampo.Text = "Descrição";
         }
 
+        public frmEstoquePesquisa(frmFiltroRequisicoesPeca frmFiltroRequisicaoPeca)
+        {
+            this.frmFiltroRequisicaoPeca = frmFiltroRequisicaoPeca;
+            IniciarService();
+            InitializeComponent();
+            cboCampo.Text = "Descrição";
+
+        }
         public frmEstoquePesquisa(frmRequisicaoCompra frmCompras)
         {
             this.frmCompras = frmCompras;
@@ -176,6 +185,13 @@ namespace SistemaTHR.Apllication.Manutencao
                 frmFiltroRequisicoesCompra.txtCodigo.Text = codigo;
                 frmFiltroRequisicoesCompra.txtDescricao.Text = descricao;
                 frmFiltroRequisicoesCompra.txtUnidade.Text = unidade;
+                this.Close();
+            }
+            else if(frmFiltroRequisicaoPeca != null)
+            {
+                frmFiltroRequisicaoPeca.txtCodigo.Text = codigo;
+                frmFiltroRequisicaoPeca.txtDescricao.Text = descricao;
+                frmFiltroRequisicaoPeca.txtUnidade.Text = unidade;
                 this.Close();
             }
 

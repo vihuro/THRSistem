@@ -17,10 +17,11 @@ namespace SistemaTHR.Apllication.Manutencao.Impressao
     {
         private solicitacaoPecaoController controller;
         private solictacaoPecaService service;
-        public frmRelatorioRequisicoesPeca()
+        private DataTable dt;
+        public frmRelatorioRequisicoesPeca(DataTable dt)
         {
-            IniciarService();
             InitializeComponent();
+            this.dt = dt;
 
         }
 
@@ -33,15 +34,8 @@ namespace SistemaTHR.Apllication.Manutencao.Impressao
         {
 
 
-            controller = new solicitacaoPecaoController();
-            service.table(controller);
-            if (controller.Msg != null)
-            {
-                MessageBox.Show(controller.Msg, "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("RequisicoesPecas", controller.Dt));
+            this.reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("RequisicoesPecas", dt.DefaultView));
 
             this.reportViewer1.RefreshReport();
         }
