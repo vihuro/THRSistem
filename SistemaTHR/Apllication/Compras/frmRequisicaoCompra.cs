@@ -435,8 +435,9 @@ namespace SistemaTHR.Apllication.Compras
 
                     }
                     MessageBox.Show("Requisição de compra realizada com sucesso!", "SISTEMA THR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    clearAll();
                     loadGridView();
+                    clearAll();
+
 
                 }
                 catch (ExceptionService ex)
