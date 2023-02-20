@@ -89,14 +89,23 @@ namespace SistemaTHR.Service.Compras
                 throw new ExceptionService("Usuário não tem permisão para declar compra sem autorização da requisição!");
 
             }
-            else if(apontamento.DescricaoRequisicao == "ENTREGA" && 
+            else if(apontamento.DescricaoRequisicao == "ENTREGA" &&
+                    requisicao.Status == "Pendente" && 
+                    modulosController.ComprasNivel == "3" && modulosController.ComprasNivel == "4")
+            {
+                throw new ExceptionService("Não foi possível fazer esse apontamento!");
+
+            }
+            //testes de atualização para modulo
+
+            /*else if(apontamento.DescricaoRequisicao == "ENTREGA" && 
                     requisicao.Status == "Pendente" || 
                     requisicao.Status == "Autorizado" &&
                     modulosController.ComprasNivel == "3" || 
                     modulosController.ComprasNivel == "4")
             {
                 throw new ExceptionService("Não foi possível fazer esse apontamento!");
-            }
+            }*/
             else if(apontamento.DescricaoRequisicao == "COMPRA" && 
                     modulosController.ComprasNivel == "4")
             {
